@@ -1,7 +1,0 @@
-collections:
-  site_instellingen:
-    title: Site Instellingen
-    blueprint: site_instellingen
-  leidingsploegen:
-    title: Leidingsploegen
-    blueprint: leidingsploegen

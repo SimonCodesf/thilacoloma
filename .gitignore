@@ -24,3 +24,44 @@
 Homestead.json
 Homestead.yaml
 Thumbs.db
+
+# Additional exclusions for large files
+*.pdf
+*.ai
+*.psd
+*.zip
+*.tar.gz
+*.dmg
+*.iso
+
+# History files (these are large and not needed in repo)
+.history/
+
+# Database files
+*.sqlite
+*.sqlite3
+database.sqlite
+
+# Backup files
+*.backup
+*~
+*.bak
+
+# Large image directories
+/public/assets/images/2024-2025/
+/public/assets/images/leidingfotos/
+/public/assets/images/leiding/
+
+# Cache and storage directories
+/storage/statamic/
+/storage/framework/cache/
+/storage/framework/sessions/
+/storage/framework/testing/
+/storage/framework/views/
+/storage/logs/
+/storage/app/
+/storage/debugbar/
+/bootstrap/cache/
+
+# Large documents
+/public/assets/documents/
