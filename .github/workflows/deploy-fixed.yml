@@ -23,8 +23,6 @@ jobs:
       run: |
         # Copy hosting-specific index.php
         cp public/index-hosting.php public/index.php
-        # Copy production environment file
-        cp .env.production .env
       
     - name: 🔍 Debug server configuration
       run: |
