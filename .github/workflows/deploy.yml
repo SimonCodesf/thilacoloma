@@ -4,6 +4,10 @@ on:
   push:
     branches: [ master ]
   workflow_dispatch:
+    inputs:
+      server:
+        description: 'FTP server address (e.g. ftp.beelsimon.com)'
+        required: true
 
 jobs:
   deploy:
@@ -17,7 +21,7 @@ jobs:
     - name: 📂 Sync files to hosting
       uses: SamKirkland/FTP-Deploy-Action@v4.3.4
       with:
-        server: ${{ secrets.FTP_SERVER }}
+        server: ${{ github.event.inputs.server }}
         username: ${{ secrets.FTP_USERNAME }}
         password: ${{ secrets.FTP_PASSWORD }}
         protocol: ftps
