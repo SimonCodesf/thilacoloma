@@ -8,7 +8,7 @@ on:
       server:
         description: 'FTP server address (e.g. ftp.beelsimon.com)'
         required: false
-        default: ${{ secrets.FTP_SERVER }}
+        default: 'ftp.beelsimon.com'
 
 jobs:
   deploy:
@@ -30,7 +30,7 @@ jobs:
         passive: true
         timeout: 120000
         local-dir: ./
-        server-dir: /public_html/
+        server-dir: /public_html/tc/
         exclude: |
           **/.git*
           **/.git*/**
@@ -50,7 +50,7 @@ jobs:
         password: ${{ secrets.SSH_PASSWORD }}
         port: ${{ secrets.SSH_PORT }}
         script: |
-          cd /public_html
+          cd /public_html/tc
           # Install/update dependencies
           /usr/local/bin/php composer.phar install --no-dev --optimize-autoloader --no-interaction
           
