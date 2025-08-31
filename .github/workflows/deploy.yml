@@ -1,0 +1,60 @@
+name: Deploy to Namecheap
+
+on:
+  push:
+    branches: [ master ]
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    name: Deploy to Production
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: 🚚 Get latest code
+      uses: actions/checkout@v4
+      
+    - name: 📂 Sync files to hosting
+      uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+      with:
+        server: ${{ secrets.FTP_SERVER }}
+        username: ${{ secrets.FTP_USERNAME }}
+        password: ${{ secrets.FTP_PASSWORD }}
+        protocol: ftps
+        port: 21
+        local-dir: ./
+        server-dir: /public_html/
+        exclude: |
+          **/.git*
+          **/.git*/**
+          **/node_modules/**
+          **/tests/**
+          **/.env
+          **/storage/logs/**
+          **/storage/framework/cache/**
+          **/storage/framework/sessions/**
+          **/storage/framework/views/**
+          
+    - name: 🔧 Run deployment commands
+      uses: appleboy/ssh-action@v1.0.0
+      with:
+        host: ${{ secrets.SSH_HOST }}
+        username: ${{ secrets.SSH_USERNAME }}
+        password: ${{ secrets.SSH_PASSWORD }}
+        port: ${{ secrets.SSH_PORT }}
+        script: |
+          cd /public_html
+          # Install/update dependencies
+          /usr/local/bin/php composer.phar install --no-dev --optimize-autoloader --no-interaction
+          
+          # Run Laravel/Statamic commands
+          /usr/local/bin/php artisan config:cache
+          /usr/local/bin/php artisan route:cache
+          /usr/local/bin/php artisan view:cache
+          /usr/local/bin/php artisan statamic:stache:clear
+          /usr/local/bin/php artisan statamic:stache:warm
+          
+          # Set permissions
+          chmod -R 755 storage bootstrap/cache
+          
+          echo "✅ Deployment completed successfully!"
