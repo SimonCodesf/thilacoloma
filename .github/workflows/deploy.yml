@@ -76,7 +76,6 @@ jobs:
           **/.git*/**
           **/node_modules/**
           **/tests/**
-          **/.env
           **/storage/logs/**
           **/storage/framework/cache/**
           **/storage/framework/sessions/**
@@ -98,3 +97,22 @@ jobs:
         dangerous-clean-slate: false
         local-dir: ./public/
         server-dir: public_html/tc/
+        
+    - name: 📝 Deploy environment file to app directory
+      uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+      env:
+        INPUT_SERVER: ${{ github.event.inputs.server || 'ftp.beelsimon.com' }}
+      with:
+        server: ${{ github.event.inputs.server || 'ftp.beelsimon.com' }}
+        username: ${{ secrets.FTP_USERNAME }}
+        password: ${{ secrets.FTP_PASSWORD }}
+        protocol: ftp
+        port: 21
+        passive: true
+        timeout: 300000
+        dangerous-clean-slate: false
+        local-dir: ./
+        server-dir: tc_app/
+        exclude: |
+          **/*
+          !.env
