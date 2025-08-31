@@ -25,10 +25,11 @@ jobs:
         server: ${{ github.event.inputs.server || secrets.FTP_SERVER }}
         username: ${{ secrets.FTP_USERNAME }}
         password: ${{ secrets.FTP_PASSWORD }}
-        protocol: ftps
+        protocol: ftp
         port: 21
         passive: true
-        timeout: 120000
+        timeout: 300000
+        dangerous-clean-slate: false
         local-dir: ./
         server-dir: /public_html/tc/
         exclude: |
