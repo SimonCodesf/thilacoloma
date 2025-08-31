@@ -49,6 +49,8 @@ jobs:
         STATAMIC_STACHE_WATCHER=false
         STATAMIC_STATIC_CACHING_STRATEGY=null
         EOF
+        # Install composer dependencies
+        composer install --no-dev --optimize-autoloader --no-interaction
       
     - name: 🔍 Debug server configuration
       run: |
