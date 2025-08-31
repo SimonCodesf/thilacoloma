@@ -19,8 +19,16 @@ jobs:
     - name: 🚚 Get latest code
       uses: actions/checkout@v4
       
-    - name: 📂 Sync files to hosting
+    - name: � Debug server configuration
+      run: |
+        echo "Server from input: '${{ github.event.inputs.server }}'"
+        echo "Fallback server: 'ftp.beelsimon.com'"
+        echo "Final server: '${{ github.event.inputs.server || 'ftp.beelsimon.com' }}'"
+      
+    - name: �📂 Sync files to hosting
       uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+      env:
+        INPUT_SERVER: ${{ github.event.inputs.server || 'ftp.beelsimon.com' }}
       with:
         server: ${{ github.event.inputs.server || 'ftp.beelsimon.com' }}
         username: ${{ secrets.FTP_USERNAME }}
