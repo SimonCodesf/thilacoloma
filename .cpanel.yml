@@ -1,0 +1,14 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/beelkstc/public_html/
+    - /bin/cp -R * $DEPLOYPATH
+    - /bin/cp -R .env.production $DEPLOYPATH/.env
+    - cd $DEPLOYPATH
+    - composer install --no-dev --optimize-autoloader
+    - php artisan config:cache
+    - php artisan route:cache
+    - php artisan view:cache
+    - php artisan statamic:stache:clear
+    - php artisan statamic:stache:warm
+    - chmod -R 755 storage bootstrap/cache
