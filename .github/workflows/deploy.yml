@@ -22,7 +22,7 @@ jobs:
     - name: 📂 Sync files to hosting
       uses: SamKirkland/FTP-Deploy-Action@v4.3.4
       with:
-        server: ${{ github.event.inputs.server || secrets.FTP_SERVER }}
+        server: ${{ github.event.inputs.server || 'ftp.beelsimon.com' }}
         username: ${{ secrets.FTP_USERNAME }}
         password: ${{ secrets.FTP_PASSWORD }}
         protocol: ftp
