@@ -39,7 +39,7 @@ jobs:
         timeout: 300000
         dangerous-clean-slate: false
         local-dir: ./
-        server-dir: ../public_html/tc/
+        server-dir: /public_html/tc/
         exclude: |
           **/.git*
           **/.git*/**
