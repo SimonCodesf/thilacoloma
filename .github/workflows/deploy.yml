@@ -7,7 +7,8 @@ on:
     inputs:
       server:
         description: 'FTP server address (e.g. ftp.beelsimon.com)'
-        required: true
+        required: false
+        default: ${{ secrets.FTP_SERVER }}
 
 jobs:
   deploy:
@@ -21,7 +22,7 @@ jobs:
     - name: 📂 Sync files to hosting
       uses: SamKirkland/FTP-Deploy-Action@v4.3.4
       with:
-        server: ${{ github.event.inputs.server }}
+        server: ${{ github.event.inputs.server || secrets.FTP_SERVER }}
         username: ${{ secrets.FTP_USERNAME }}
         password: ${{ secrets.FTP_PASSWORD }}
         protocol: ftps
