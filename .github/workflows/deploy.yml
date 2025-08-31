@@ -23,8 +23,32 @@ jobs:
       run: |
         # Copy hosting-specific index.php
         cp public/index-hosting.php public/index.php
-        # Copy production environment file
-        cp .env.production .env
+        # Create production environment file
+        cat > .env << 'EOF'
+        APP_NAME="Thila Coloma"
+        APP_ENV=production
+        APP_KEY=
+        APP_DEBUG=false
+        APP_URL=https://beelsimon.com/tc
+        
+        LOG_CHANNEL=stack
+        LOG_DEPRECATIONS_CHANNEL=null
+        LOG_LEVEL=error
+        
+        DB_CONNECTION=sqlite
+        DB_DATABASE=/home/beelkstc/tc_app/database/database.sqlite
+        
+        BROADCAST_DRIVER=log
+        CACHE_DRIVER=file
+        FILESYSTEM_DISK=local
+        QUEUE_CONNECTION=sync
+        SESSION_DRIVER=file
+        SESSION_LIFETIME=120
+        
+        STATAMIC_LICENSE_KEY=
+        STATAMIC_STACHE_WATCHER=false
+        STATAMIC_STATIC_CACHING_STRATEGY=null
+        EOF
       
     - name: 🔍 Debug server configuration
       run: |
