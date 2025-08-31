@@ -1,0 +1,498 @@
+
+
+
+
+    
+        <div class="page-section">
+            <div class="back-to-takken">
+                <a href="/takken" class="btn btn-secondary">
+                    <i class="fas fa-arrow-left"></i> Ga terug naar alle takken
+                </a>
+            </div>
+            <h1>Tictak</h1>
+            <p class="section-intro">
+                <span>Scouting voor personen met een handicap: AKABE (Anders Kan Best)</span>. Bij de scouts is er plaats voor iedereen, verschillen zien we als een plus. Scouting is nagenoeg de enige jeugdbeweging met een aanbod voor kinderen en jongeren met een handicap. In TC noemen we de Akabe-groep de <span>Tictak</span>, dat staat voor <span>Thila Coloma Tak Akabe</span>. De Tictak werd opgericht in <span>1997</span> en organiseert dezelfde scoutsactiviteiten als voor kinderen zonder een beperking: pleinspelen, tochtjes, slapen in tenten en nog veel meer!
+            </p>
+        </div>
+
+        <div class="page-section">
+            <h2>Praktische Informatie</h2>
+            
+            <div class="grid-2">
+                <div class="card compact-card">
+                    <div class="card-content">
+                        <div class="card-left">
+                            <h3><i class="fas fa-calendar-times"></i> Afwezigheden</h3>
+                            <p>Je kan afwezigheden hier verwittigen</p>
+                        </div>
+                        <div class="card-right">
+                            <a href="https://forms.gle/UdMkCcVawddRkHRt5" target="_blank" class="btn btn-primary">
+                                <i class="fas fa-external-link-alt"></i> Formulier
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card compact-card">
+                    <div class="card-content">
+                        <div class="card-left">
+                            <h3><i class="fas fa-credit-card"></i> Betalingen</h3>
+                            <p>Overschrijven naar rekening</p>
+                        </div>
+                        <div class="card-right">
+                            <button class="btn btn-primary copy-btn" onclick="copyToClipboard('BE77 6512 2332 6742')" title="Klik om te kopiëren">
+                                <i class="fas fa-copy"></i> BE77 6512 2332 6742
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="info-section">
+                <div class="card info-card">
+                    <div class="card-content">
+                        <h3><i class="fas fa-info-circle"></i> Infobrochure</h3>
+                        <p>Voor meer informatie over de Tictak kan je een kijkje nemen in onze infobrochure.</p>
+                        <a href="#" target="_blank" class="btn btn-secondary">
+                            <i class="fas fa-file-pdf"></i> Infobrochure (2024-2025)
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="page-section">
+            <h2>Onze Leiding</h2>
+
+            <div class="leiding-grid">
+                {{ leidingsploegen:leidingsploegen }}
+                    {{ if tak_naam == "Tictak" }}
+                        <!-- Takleider -->
+                        {{ if takleider }}
+                            <div class="leiding-card takleider">
+                                <div class="leiding-foto">
+                                    <img src="/assets/images/{{ site_instellingen:scoutsjaar }}/{{ takleider:foto }}" alt="{{ takleider:totem_naam }} {{ takleider:totem_dier }}">
+                                </div>
+                                <div class="leiding-info">
+                                    <h3><strong>{{ takleider:totem_naam }}</strong> {{ takleider:totem_dier }}</h3>
+                                    {{ if takleider:echte_naam }}<p class="echte-naam">{{ takleider:echte_naam }} – Takleider</p>{{ /if }}
+                                    {{ if takleider:email }}<a href="mailto:{{ takleider:email }}" class="email">{{ takleider:email }}</a>{{ /if }}
+                                    {{ if takleider:telefoon }}<p class="telefoon">{{ takleider:telefoon }}</p>{{ /if }}
+                                </div>
+                            </div>
+                        {{ /if }}
+                        
+                        <!-- Andere leiding -->
+                        {{ leiding }}
+                            <div class="leiding-card">
+                                <div class="leiding-foto">
+                                    <img src="/assets/images/{{ site_instellingen:scoutsjaar }}/{{ foto }}" alt="{{ totem_naam }} {{ totem_dier }}">
+                                </div>
+                                <div class="leiding-info">
+                                    <h3><strong>{{ totem_naam }}</strong> {{ totem_dier }}</h3>
+                                    {{ if functie && functie != "Leiding" }}<p class="functie">{{ functie }}</p>{{ /if }}
+                                    {{ if email }}<a href="mailto:{{ email }}" class="email">{{ email }}</a>{{ /if }}
+                                    {{ if telefoon }}<p class="telefoon">{{ telefoon }}</p>{{ /if }}
+                                </div>
+                            </div>
+                        {{ /leiding }}
+                    {{ /if }}
+                {{ /leidingsploegen:leidingsploegen }}
+            </div>
+        </div>
+
+        <div class="page-section">
+            <h2>Over AKABE</h2>
+            
+            <div class="info-content">
+                <div class="card info-card">
+                    <div class="card-content">
+                        <h3><i class="fas fa-heart"></i> Onze Missie</h3>
+                        <p>Wij zijn een scoutsgroep, wij zorgen dus niet enkel voor bezigheid maar wij streven ernaar dezelfde scoutsactiviteiten te organiseren als de activiteiten voor kinderen zonder een beperking. Pleinspelen, tochtjes, slapen in tenten en dergelijke zijn ons dus niet vreemd.</p>
+                    </div>
+                </div>
+
+                <div class="card info-card">
+                    <div class="card-content">
+                        <h3><i class="fas fa-users"></i> AKABE in Vlaanderen</h3>
+                        <p>In Vlaanderen zijn er ongeveer 25 Akabe-groepen voor kinderen en jongeren met en zonder handicap. Daarnaast zijn er nog ongeveer 20 Akabe-takken. Het totale ledenaantal schommelt rond 1500 ingeschreven leden met een beperking, ondersteund door circa 500 vrijwillige leiders.</p>
+                    </div>
+                </div>
+
+                <div class="card info-card">
+                    <div class="card-content">
+                        <h3><i class="fas fa-star"></i> Akabe is...</h3>
+                        <p>Plezier hebben, vrienden leren kennen, activiteiten doen en ook wel vaak dingen leren. Verschillen zien we als een plus en er is plaats voor iedereen bij de scouts!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+
+
+    <style>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        /* Responsive search */
+        @media (max-width: 1024px) {
+            
+        }
+        
+        @media (max-width: 768px) {
+            
+            
+            
+        }
+
+        /* Compact card styling */
+        .compact-card .card-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: var(--spacing-md);
+            padding: var(--spacing-md);
+        }
+        
+        .card-left {
+            flex: 1;
+        }
+        
+        .card-left h3 {
+            margin: 0 0 var(--spacing-xs) 0;
+            font-size: 1.1em;
+        }
+        
+        .card-left p {
+            margin: 0;
+            font-size: 0.9em;
+            color: var(--text-color);
+        }
+        
+        .card-right {
+            flex-shrink: 0;
+        }
+        
+        .copy-btn {
+            font-family: var(--font-mono);
+            font-size: 0.85em;
+            letter-spacing: 0.5px;
+            padding: var(--spacing-xs) var(--spacing-sm);
+        }
+        
+        .copy-btn:hover {
+            background: var(--dark-color);
+        }
+        
+        .copy-btn:active {
+            transform: translateY(0);
+            background: var(--primary-color);
+        }
+
+        /* Info section styling */
+        .info-section {
+            margin-top: var(--spacing-lg);
+        }
+
+        .info-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--spacing-lg);
+            margin-top: var(--spacing-lg);
+        }
+
+        .info-card {
+            background: white;
+            border-radius: var(--border-radius-md);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .info-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+            border-color: var(--primary-color);
+        }
+
+        .info-card .card-content {
+            padding: var(--spacing-lg);
+        }
+
+        .info-card h3 {
+            font-family: var(--font-bold);
+            font-size: 1.2em;
+            margin: 0 0 var(--spacing-sm) 0;
+            color: var(--primary-color);
+        }
+
+        .info-card h3 i {
+            margin-right: var(--spacing-xs);
+        }
+
+        .info-card p {
+            margin: 0 0 var(--spacing-md) 0;
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        /* Leiding grid styling */
+        .leiding-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: var(--spacing-lg);
+        }
+        
+        .leiding-card {
+            background: white;
+            border-radius: var(--border-radius-md);
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+        
+        .leiding-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+        
+        .leiding-card.takleider {
+            border-color: var(--primary-color);
+            background: linear-gradient(135deg, #fff, #f8f9ff);
+        }
+        
+        .leiding-foto {
+            width: 100%;
+            height: 280px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .leiding-foto img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            transition: transform 0.3s ease;
+        }
+        
+        .leiding-card:hover .leiding-foto img {
+            transform: scale(1.05);
+        }
+        
+        .leiding-info {
+            padding: var(--spacing-lg);
+        }
+        
+        .leiding-info h3 {
+            font-family: var(--font-bold);
+            font-size: 1.3em;
+            margin: 0 0 var(--spacing-sm) 0;
+            color: var(--dark-color);
+        }
+        
+        .leiding-info h3 strong {
+            color: var(--primary-color);
+        }
+        
+        .echte-naam {
+            font-family: var(--font-medium);
+            color: var(--primary-color);
+            margin: 0 0 var(--spacing-sm) 0;
+            font-size: 1.1em;
+        }
+        
+        .email {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-family: var(--font-medium);
+            font-size: 0.9em;
+            display: block;
+            margin-bottom: var(--spacing-xs);
+        }
+        
+        .email:hover {
+            text-decoration: underline;
+        }
+        
+        .telefoon {
+            color: var(--text-color);
+            font-size: 0.85em;
+            font-style: italic;
+            margin: 0;
+            font-family: var(--font-regular);
+        }
+
+        /* Button styling */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--spacing-xs);
+            padding: var(--spacing-sm) var(--spacing-md);
+            border: none;
+            border-radius: var(--border-radius-sm);
+            text-decoration: none;
+            font-family: var(--font-medium);
+            font-size: 0.9em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary {
+            background: var(--primary-color);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background: var(--dark-color);
+            transform: translateY(-1px);
+        }
+
+        .btn-secondary {
+            background: var(--dark-color);
+            color: white;
+        }
+        
+        .btn-secondary:hover {
+            background: var(--primary-color);
+            transform: translateY(-1px);
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .leiding-grid {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                gap: var(--spacing-md);
+            }
+
+            .info-content {
+                grid-template-columns: 1fr;
+                gap: var(--spacing-md);
+            }
+            
+            .compact-card .card-content {
+                flex-direction: column;
+                align-items: stretch;
+                text-align: center;
+                gap: var(--spacing-sm);
+            }
+            
+            .copy-btn {
+                font-size: 0.8em;
+            }
+        }
+    </style>
+
+    <script>
+        function copyToClipboard(text) {
+            if (navigator.clipboard && window.isSecureContext) {
+                // Modern approach
+                navigator.clipboard.writeText(text).then(() => {
+                    showCopyFeedback();
+                }).catch(err => {
+                    console.error('Failed to copy: ', err);
+                    fallbackCopyTextToClipboard(text);
+                });
+            } else {
+                // Fallback for older browsers
+                fallbackCopyTextToClipboard(text);
+            }
+        }
+        
+        function fallbackCopyTextToClipboard(text) {
+            const textArea = document.createElement("textarea");
+            textArea.value = text;
+            textArea.style.position = "fixed";
+            textArea.style.left = "-999999px";
+            textArea.style.top = "-999999px";
+            document.body.appendChild(textArea);
+            textArea.focus();
+            textArea.select();
+            
+            try {
+                const successful = document.execCommand('copy');
+                if (successful) {
+                    showCopyFeedback();
+                }
+            } catch (err) {
+                console.error('Fallback: Oops, unable to copy', err);
+            }
+            
+            document.body.removeChild(textArea);
+        }
+        
+        function showCopyFeedback() {
+            // Create temporary feedback element
+            const feedback = document.createElement('div');
+            feedback.textContent = '✓ Rekeningnummer gekopieerd!';
+            feedback.style.cssText = `
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                background: var(--primary-color);
+                color: white;
+                padding: 12px 20px;
+                border-radius: 6px;
+                font-family: var(--font-medium);
+                font-size: 0.9em;
+                z-index: 10000;
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+                animation: slideInRight 0.3s ease-out;
+            `;
+            
+            document.body.appendChild(feedback);
+            
+            // Remove after 3 seconds
+            setTimeout(() => {
+                feedback.style.animation = 'slideOutRight 0.3s ease-in';
+                setTimeout(() => {
+                    if (document.body.contains(feedback)) {
+                        document.body.removeChild(feedback);
+                    }
+                }, 300);
+            }, 3000);
+        }
+        
+        // Add CSS animations
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes slideInRight {
+                from {
+                    transform: translateX(100%);
+                    opacity: 0;
+                }
+                to {
+                    transform: translateX(0);
+                    opacity: 1;
+                }
+            }
+            
+            @keyframes slideOutRight {
+                from {
+                    transform: translateX(0);
+                    opacity: 1;
+                }
+                to {
+                    transform: translateX(100%);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>

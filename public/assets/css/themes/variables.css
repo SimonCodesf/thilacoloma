@@ -1,0 +1,31 @@
+/* Root Variables */
+:root {
+    --primary-color: #374794;
+    --dark-color: #282471;
+    --pink-color: #c0589a;
+    --light-bg: #F5F6FF;
+    --broken-white: rgb(245, 246, 255);
+    
+    /* Typography */
+    --font-regular: 'Edmondsans Regular', sans-serif;
+    --font-medium: 'Edmondsans Medium', sans-serif;
+    --font-bold: 'Edmondsans Bold', sans-serif;
+    --font-title: 'acier-bat-solid', sans-serif;
+    
+    /* Spacing */
+    --spacing-xs: 5px;
+    --spacing-sm: 10px;
+    --spacing-md: 20px;
+    --spacing-lg: 30px;
+    --spacing-xl: 40px;
+    --spacing-xxl: 50px;
+    
+    /* Border radius */
+    --border-radius-sm: 5px;
+    --border-radius-md: 12px;
+    
+    /* Transitions */
+    --transition-fast: 0.1s;
+    --transition-normal: 0.2s;
+    --transition-slow: 0.3s;
+}

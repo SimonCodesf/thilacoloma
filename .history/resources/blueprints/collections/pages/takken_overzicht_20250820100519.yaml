@@ -1,0 +1,83 @@
+title: Takken Overzicht
+sections:
+  main:
+    display: Main
+    fields:
+      - 
+        handle: title
+        field:
+          type: text
+          required: true
+          validate: 'required'
+      - 
+        handle: intro_text
+        field:
+          type: textarea
+          display: 'Intro tekst'
+          instructions: 'Beschrijving van de takken structuur bij Thila Coloma'
+          default: 'Traditioneel wordt een scoutsgroep opgedeeld in vijf takken: kapoenen, welpen, jongverkenners, verkenners en voortrekkers (ook wel JIN''s genoemd). Omdat Thila Coloma zo''n grote groep is, zijn er meerdere takken van elk. Er zijn twee kapoenen-takken, drie welpen-takken, drie jongverkenner-takken en drie verkenner-takken. Enkel de welpen worden per leeftijd verdeeld in ''jongwelpen'', ''welpen'' en ''seniorwelpen''. Dan is er ook nog een Akabe-tak, bij ons de Tictak. Dit geeft een totaal van 13 takken.'
+      - 
+        handle: takken_groepen
+        field:
+          type: replicator
+          display: 'Takken Groepen'
+          instructions: 'Configureer de verschillende takken groepen'
+          sets:
+            tak_groep:
+              display: 'Tak Groep'
+              fields:
+                -
+                  handle: naam
+                  field:
+                    type: text
+                    display: 'Groep naam'
+                    required: true
+                -
+                  handle: leeftijd
+                  field:
+                    type: text
+                    display: 'Leeftijd'
+                    required: true
+                -
+                  handle: logo
+                  field:
+                    type: assets
+                    display: 'Logo'
+                    max_files: 1
+                    container: assets
+                -
+                  handle: beschrijving
+                  field:
+                    type: textarea
+                    display: 'Beschrijving'
+                    required: true
+                -
+                  handle: activiteiten
+                  field:
+                    type: list
+                    display: 'Activiteiten'
+                    instructions: 'Lijst van typische activiteiten'
+                -
+                  handle: takken_lijst
+                  field:
+                    type: list
+                    display: 'Takken lijst'
+                    instructions: 'Namen van de individuele takken in deze groep'
+                -
+                  handle: vergadertijd
+                  field:
+                    type: text
+                    display: 'Vergadertijd'
+                    instructions: 'Wanneer hebben ze vergadering (bijv. "14-17u" of "14-18u")'
+                    default: '14-17u'
+                -
+                  handle: contact_email
+                  field:
+                    type: text
+                    display: 'Contact email'
+                    validate: 'email'
+                -
+                  handle: contact_naam
+                  field:
+                    type: text
+                    display: 'Contact naam'

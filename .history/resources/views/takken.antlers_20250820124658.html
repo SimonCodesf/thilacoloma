@@ -1,0 +1,163 @@
+{{ layout:set in="layouts/page" }}
+
+<style>
+@import url('/assets/css/takken.css');
+</style>
+
+<div class="page-section">
+    <h2>{{ title }}</h2>
+    <p class="section-intro">
+        {{ intro_text | nl2br }}
+    </p>
+    
+    <div id="takken-container" class="grid-2">
+        {{ takken_groepen }}
+            <div class="tak-card card">
+                <div class="card-content">
+                    <div class="tak-header">
+                        {{ if logo }}
+                            <img src="{{ glide:logo width='100' height='100' fit='crop' }}" alt="{{ naam }} logo" class="tak-logo">
+                        {{ else }}
+                            <img src="/assets/images/takken/default-tak-logo.jpg" alt="{{ naam }} logo" class="tak-logo">
+                        {{ /if }}
+                        <h3>{{ naam }}</h3>
+                    </div>
+                    <div class="tak-leeftijd">{{ leeftijd_range | dynamic_age_range }}</div>
+                    <div class="tak-takken">
+                        <strong>Takken:</strong> {{ takken_lijst }}
+                    </div>
+                    {{ if vergadertijd }}
+                    <div class="tak-vergadertijd">
+                        <strong>Vergadertijd:</strong> {{ vergadertijd }} op zondag
+                    </div>
+                    {{ /if }}
+                    <p>{{ beschrijving }}</p>
+                    
+                    <div class="tak-leiding">
+                        <strong style="color: var(--primary-color);">Takleiders:</strong><br>
+                        {{ leidingsploegen:leidingsploegen }}
+                            {{ if actief && tak_naam != "Groepsleiding" }}
+                                {{ if naam == "Kapoenen" }}
+                                    {{ if tak_naam == "Kapoenen 1" || tak_naam == "Kapoenen 2" }}
+                                        {{ leiding }}
+                                            {{ if functie == 'takleider' }}
+                                                {{ totem_parts = totem | explode: ' ' }}
+                                                {{ animal_name = totem_parts | last }}
+                                                {{ animal_name }}<br>
+                                                <a href="mailto:{{ email }}">{{ email }}</a><br>
+                                            {{ /if }}
+                                        {{ /leiding }}
+                                    {{ /if }}
+                                {{ elseif naam == "Welpen" }}
+                                    {{ if tak_naam == "Jongwelpen" || tak_naam == "Welpen" || tak_naam == "Seniorwelpen" }}
+                                        {{ leiding }}
+                                            {{ if functie == 'takleider' }}
+                                                {{ totem_parts = totem | explode: ' ' }}
+                                                {{ animal_name = totem_parts | last }}
+                                                {{ animal_name }}<br>
+                                                <a href="mailto:{{ email }}">{{ email }}</a><br>
+                                            {{ /if }}
+                                        {{ /leiding }}
+                                    {{ /if }}
+                                {{ elseif naam == "Jongverkenners" }}
+                                    {{ if tak_naam == "Jongverkenners 1" || tak_naam == "Jongverkenners 2" || tak_naam == "Jongverkenners 3" }}
+                                        {{ leiding }}
+                                            {{ if functie == 'takleider' }}
+                                                {{ totem_parts = totem | explode: ' ' }}
+                                                {{ animal_name = totem_parts | last }}
+                                                {{ animal_name }}<br>
+                                                <a href="mailto:{{ email }}">{{ email }}</a><br>
+                                            {{ /if }}
+                                        {{ /leiding }}
+                                    {{ /if }}
+                                {{ elseif naam == "Verkenners" }}
+                                    {{ if tak_naam == "Verkenners 1" || tak_naam == "Verkenners 2" || tak_naam == "Verkenners 3" }}
+                                        {{ leiding }}
+                                            {{ if functie == 'takleider' }}
+                                                {{ totem_parts = totem | explode: ' ' }}
+                                                {{ animal_name = totem_parts | last }}
+                                                {{ animal_name }}<br>
+                                                <a href="mailto:{{ email }}">{{ email }}</a><br>
+                                            {{ /if }}
+                                        {{ /leiding }}
+                                    {{ /if }}
+                                {{ elseif naam == "Tictak (Akabe)" }}
+                                    {{ if tak_naam == "Tictak" }}
+                                        {{ leiding }}
+                                            {{ if functie == 'takleider' }}
+                                                {{ totem_parts = totem | explode: ' ' }}
+                                                {{ animal_name = totem_parts | last }}
+                                                {{ animal_name }}<br>
+                                                <a href="mailto:{{ email }}">{{ email }}</a><br>
+                                            {{ /if }}
+                                        {{ /leiding }}
+                                    {{ /if }}
+                                {{ elseif naam == "Voortrekkers" }}
+                                    {{ if tak_naam == "Voortrekkers" }}
+                                        {{ leiding }}
+                                            {{ if functie == 'takleider' }}
+                                                {{ totem_parts = totem | explode: ' ' }}
+                                                {{ animal_name = totem_parts | last }}
+                                                {{ animal_name }}<br>
+                                                <a href="mailto:{{ email }}">{{ email }}</a><br>
+                                            {{ /if }}
+                                        {{ /leiding }}
+                                    {{ /if }}
+                                {{ /if }}
+                            {{ /if }}
+                        {{ /leidingsploegen:leidingsploegen }}
+                    </div>
+                    
+                    <div class="tak-links">
+                        <button class="btn btn-primary meer-info-btn" onclick="handleMeerInfo('{{ naam }}')">Leidingsploeg & meer</button>
+                    </div>
+                </div>
+            </div>
+        {{ /takken_groepen }}
+    </div>
+</div>
+
+<script>
+// Handle meer info button clicks
+function handleMeerInfo(groepNaam) {
+    switch(groepNaam) {
+        case 'Kapoenen':
+            window.location.href = '/kapoenen';
+            break;
+        case 'Welpen':
+            window.location.href = '/welpen';
+            break;
+        case 'Tictak (Akabe)':
+            window.location.href = '/tictak';
+            break;
+        case 'Jongverkenners':
+            window.location.href = '/jongverkenners';
+            break;
+        case 'Verkenners':
+            window.location.href = '/verkenners';
+            break;
+        case 'Voortrekkers':
+            window.location.href = '/voortrekkers';
+            break;
+        default:
+            alert('Pagina niet gevonden!');
+    }
+}
+</script>
+
+<style>
+/* Eenvoudige takleider styling */
+.tak-leiding a {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+.tak-leiding a:hover {
+    text-decoration: underline;
+}
+
+.tak-leiding small {
+    color: #666;
+}
+</style>
+

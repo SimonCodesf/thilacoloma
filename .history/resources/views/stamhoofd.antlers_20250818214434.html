@@ -1,0 +1,521 @@
+{{ layout:set in="layouts/page" }}
+
+<div class="page-section">
+    <h2>{{ title }}</h2>
+        <!-- Stamhoofd Iframe Kaart -->
+        <div class="iframe-card">
+            <div class="iframe-card-header">
+                <div class="iframe-card-info">
+                    <h2><i class="fas fa-users"></i> Stamhoofd Platform</h2>
+                    <p>Hier kun je inschrijven, afwezigheden melden, medische fiches uploaden en betalingen bekijken voor onze scoutsgroep.</p>
+                </div>
+                <button class="iframe-fallback-toggle" onclick="toggleStamhoofdFallback()">
+                    <i class="fas fa-external-link-alt"></i>
+                    <span>Alternatief</span>
+                </button>
+            </div>
+            
+            <!-- Compacte fallback opties -->
+            <div id="stamhoofd-fallback" class="stamhoofd-fallback-compact" style="display: none;">
+                <div class="fallback-header">
+                    <h4><i class="fas fa-exclamation-triangle"></i> Stamhoofd niet beschikbaar</h4>
+                    <p>Gebruik een van deze alternatieven om toegang te krijgen tot onze diensten:</p>
+                </div>
+                <div class="fallback-actions">
+                    <a href="https://stamhoofd.thilacoloma.be" class="fallback-action primary" target="_blank">
+                        <i class="fas fa-user-plus"></i>
+                        <span>Inschrijven</span>
+                    </a>
+                    <a href="https://stamhoofd.thilacoloma.be/afwezigheid" class="fallback-action secondary" target="_blank">
+                        <i class="fas fa-calendar-times"></i>
+                        <span>Afwezigheid</span>
+                    </a>
+                    <a href="https://stamhoofd.thilacoloma.be/medische-fiche" class="fallback-action secondary" target="_blank">
+                        <i class="fas fa-file-medical"></i>
+                        <span>Med. Fiche</span>
+                    </a>
+                    <a href="https://stamhoofd.thilacoloma.be/betalingen" class="fallback-action secondary" target="_blank">
+                        <i class="fas fa-credit-card"></i>
+                        <span>Betalingen</span>
+                    </a>
+                    <a href="mailto:info@thilacoloma.be" class="fallback-action tertiary">
+                        <i class="fas fa-envelope"></i>
+                        <span>Contact</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Iframe container -->
+            <div class="iframe-container" id="stamhoofd-iframe-container">
+                <iframe 
+                    id="stamhoofd-iframe" 
+                    src="https://inschrijven.thilacoloma.be/" 
+                    title="Stamhoofd Platform">
+                </iframe>
+            </div>
+        </div>
+    </div>
+    <script>
+        // Stamhoofd iframe fallback functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const iframe = document.getElementById('stamhoofd-iframe');
+            const fallback = document.getElementById('stamhoofd-fallback');
+            
+            if (iframe && fallback) {
+                // Check if iframe loads successfully
+                iframe.onerror = function() {
+                    // If iframe fails to load, show fallback cards
+                    iframe.style.display = 'none';
+                    fallback.style.display = 'block';
+                };
+                
+                // Also check after a timeout for cross-origin restrictions
+                setTimeout(() => {
+                    try {
+                        // Try to access iframe content
+                        iframe.contentDocument;
+                    } catch (e) {
+                        // Cross-origin error means the site blocks iframes
+                        iframe.style.display = 'none';
+                        fallback.style.display = 'block';
+                    }
+                }, 3000);
+
+                // Listen for load events
+                iframe.onload = function() {
+                    // Check if the iframe actually loaded content
+                    setTimeout(() => {
+                        try {
+                            if (iframe.contentWindow.location.href === 'about:blank') {
+                                iframe.style.display = 'none';
+                                fallback.style.display = 'block';
+                            }
+                        } catch (e) {
+                            // Content loaded successfully or cross-origin (which is expected)
+                            // Keep iframe visible
+                        }
+                    }, 1000);
+                };
+            }
+        });
+        
+        // Stamhoofd fallback toggle functionality
+        function toggleStamhoofdFallback() {
+            const fallback = document.getElementById('stamhoofd-fallback');
+            const iframeContainer = document.getElementById('stamhoofd-iframe-container');
+            const toggleButton = document.querySelector('.iframe-fallback-toggle');
+            
+            if (fallback.style.display === 'none' || fallback.style.display === '') {
+                // Show fallback, hide iframe
+                fallback.style.display = 'block';
+                iframeContainer.style.display = 'none';
+                toggleButton.innerHTML = '<i class="fas fa-tv"></i><span>Iframe</span>';
+            } else {
+                // Show iframe, hide fallback
+                fallback.style.display = 'none';
+                iframeContainer.style.display = 'flex';
+                toggleButton.innerHTML = '<i class="fas fa-external-link-alt"></i><span>Alternatief</span>';
+            }
+        }
+        
+        // Search functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const searchInput = document.getElementById('search-input');
+            const searchButton = document.getElementById('search-button');
+            
+            function performSearch() {
+                const query = searchInput.value.trim().toLowerCase();
+                if (query === '') return;
+                
+                // Search through all text content on the page
+                const sections = document.querySelectorAll('.page-section');
+                let results = [];
+                
+                sections.forEach(section => {
+                    const sectionTitle = section.querySelector('h2')?.textContent || '';
+                    const sectionContent = section.textContent.toLowerCase();
+                    
+                    if (sectionContent.includes(query)) {
+                        results.push({
+                            title: sectionTitle,
+                            element: section,
+                            relevance: calculateRelevance(sectionContent, query)
+                        });
+                    }
+                });
+                
+                // Highlight and scroll to most relevant result
+                if (results.length > 0) {
+                    results.sort((a, b) => b.relevance - a.relevance);
+                    highlightSearchResults(query);
+                    results[0].element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                } else {
+                    alert('Geen resultaten gevonden voor "' + query + '"');
+                }
+            }
+            
+            function calculateRelevance(content, query) {
+                const queryWords = query.split(' ');
+                let score = 0;
+                
+                queryWords.forEach(word => {
+                    const regex = new RegExp(word, 'gi');
+                    const matches = content.match(regex);
+                    if (matches) {
+                        score += matches.length;
+                    }
+                });
+                
+                return score;
+            }
+            
+            function highlightSearchResults(query) {
+                // Remove existing highlights
+                document.querySelectorAll('.search-highlight').forEach(el => {
+                    el.classList.remove('search-highlight');
+                });
+                
+                // Add new highlights
+                const queryWords = query.split(' ');
+                queryWords.forEach(word => {
+                    if (word.length > 2) { // Only highlight words longer than 2 characters
+                        const regex = new RegExp(`(${word})`, 'gi');
+                        const walker = document.createTreeWalker(
+                            document.body,
+                            NodeFilter.SHOW_TEXT,
+                            null,
+                            false
+                        );
+                        
+                        const textNodes = [];
+                        let node;
+                        while (node = walker.nextNode()) {
+                            textNodes.push(node);
+                        }
+                        
+                        textNodes.forEach(textNode => {
+                            if (textNode.textContent.toLowerCase().includes(word)) {
+                                const parent = textNode.parentElement;
+                                if (parent && !parent.classList.contains('search-highlight')) {
+                                    parent.classList.add('search-highlight');
+                                }
+                            }
+                        });
+                    }
+                });
+                
+                // Remove highlights after 5 seconds
+                setTimeout(() => {
+                    document.querySelectorAll('.search-highlight').forEach(el => {
+                        el.classList.remove('search-highlight');
+                    });
+                }, 5000);
+            }
+            
+            // Event listeners
+            searchButton.addEventListener('click', performSearch);
+            searchInput.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    performSearch();
+                }
+            });
+        });
+    </script>
+
+    <style>
+        /* Search bar styling */
+        .search-container {
+            display: flex;
+            align-items: center;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: var(--border-radius-sm);
+            transition: all 0.3s ease;
+            overflow: hidden;
+            height: 45px; /* Exacte hoogte van nav-icon */
+            width: 250px;
+        }
+        
+        .search-container:focus-within {
+            border-color: rgba(255, 255, 255, 0.5);
+            background-color: rgba(255, 255, 255, 0.15);
+        }
+        
+        .search-input {
+            border: none;
+            outline: none;
+            padding: 0 15px;
+            font-size: 0.9em;
+            font-family: var(--font-bold);
+            background: transparent;
+            color: rgba(255, 255, 255, 0.9);
+            flex: 1;
+            font-family: var(--font-regular);
+            height: 100%;
+        }
+        
+        .search-input::placeholder {
+            color: rgba(255, 255, 255, 0.6);
+            font-family: var(--font-medium);
+        }
+        
+        .search-container:focus-within .search-input {
+            color: white;
+        }
+        
+        .search-button {
+            border: none;
+            background: transparent;
+            color: rgba(255, 255, 255, 0.8);
+            padding: 0 12px;
+            cursor: pointer;
+            transition: var(--transition-normal);
+            display: flex;
+            align-items: center;
+            justify-content: right;
+            height: 100%;
+            width: 50px;
+        }
+        
+        .search-button:hover {
+            color: white;
+        }
+        
+        .search-button i {
+            font-size: 0.9em;
+        }
+        
+        /* Responsive search */
+        @media (max-width: 1024px) {
+            .search-container {
+                width: 160px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .search-container {
+                width: 140px;
+            }
+        }
+
+        /* Iframe Kaart Styling */
+        .iframe-card {
+            background: white;
+            border-radius: var(--border-radius-md);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            margin-bottom: var(--spacing-xl);
+            overflow: hidden;
+            transition: box-shadow var(--transition-normal);
+            border: 1px solid #e5e7eb;
+        }
+        
+        .iframe-card:hover {
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+        }
+        
+        .iframe-card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            padding: var(--spacing-xl);
+            border-bottom: 1px solid #e5e7eb;
+            background: white;
+        }
+        
+        .iframe-card-info {
+            flex: 1;
+            padding-right: var(--spacing-lg);
+        }
+        
+        .iframe-card-info h2 {
+            color: var(--primary-color);
+            font-family: var(--font-bold);
+            font-size: 1.5em;
+            margin: 0 0 var(--spacing-sm) 0;
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+        }
+        
+        .iframe-card-info p {
+            color: var(--text-color);
+            margin: 0;
+            line-height: 1.6;
+            opacity: 0.9;
+        }
+        
+        .iframe-fallback-toggle {
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: var(--border-radius-md);
+            padding: var(--spacing-sm) var(--spacing-md);
+            font-family: var(--font-medium);
+            font-size: 0.9em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-xs);
+            flex-shrink: 0;
+        }
+        
+        .iframe-fallback-toggle:hover {
+            background: var(--dark-color);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(55, 71, 148, 0.3);
+        }
+        
+        .iframe-container {
+            display: flex;
+            justify-content: center;
+            padding: var(--spacing-lg);
+            background: white;
+        }
+        
+        .iframe-container iframe {
+            width: 80vw;
+            height: 90vh;
+            border: none;
+            border-radius: var(--border-radius-md);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            background: white;
+        }
+        
+        /* Compacte fallback styling */
+        .stamhoofd-fallback-compact {
+            background: white;
+            border: 1px solid #e5e7eb;
+            border-radius: var(--border-radius-md);
+            padding: var(--spacing-lg);
+            margin-top: var(--spacing-lg);
+            text-align: center;
+        }
+        
+        .fallback-header {
+            margin-bottom: var(--spacing-lg);
+        }
+        
+        .fallback-header h4 {
+            color: var(--primary-color);
+            font-family: var(--font-bold);
+            font-size: 1.3em;
+            margin-bottom: var(--spacing-sm);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: var(--spacing-sm);
+        }
+        
+        .fallback-header p {
+            color: var(--text-color);
+            margin: 0;
+            opacity: 0.8;
+        }
+        
+        .fallback-actions {
+            display: flex;
+            gap: var(--spacing-md);
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .fallback-action {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: var(--spacing-xs);
+            padding: var(--spacing-md) var(--spacing-lg);
+            border-radius: var(--border-radius-md);
+            text-decoration: none;
+            font-family: var(--font-medium);
+            font-weight: 600;
+            transition: all 0.3s ease;
+            min-width: 100px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .fallback-action i {
+            font-size: 1.5rem;
+        }
+        
+        .fallback-action span {
+            font-size: 0.9em;
+            text-decoration: none;
+        }
+        
+        .fallback-action.primary {
+            background: var(--primary-color);
+            color: white;
+            box-shadow: 0 4px 12px rgba(55, 71, 148, 0.3);
+        }
+        
+        .fallback-action.primary:hover {
+            background: var(--dark-color);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(55, 71, 148, 0.4);
+        }
+        
+        .fallback-action.secondary {
+            background: white;
+            color: var(--primary-color);
+            border: 2px solid var(--primary-color);
+        }
+        
+        .fallback-action.secondary:hover {
+            background: var(--primary-color);
+            color: white;
+            transform: translateY(-3px);
+        }
+        
+        .fallback-action.tertiary {
+            background: var(--light-bg);
+            color: var(--dark-color);
+            border: 2px solid var(--light-bg);
+        }
+        
+        .fallback-action.tertiary:hover {
+            background: var(--dark-color);
+            color: white;
+            border-color: var(--dark-color);
+            transform: translateY(-3px);
+        }
+        
+        /* Search highlight styling */
+        .search-highlight {
+            background-color: rgba(230, 166, 48, 0.3) !important;
+            border-radius: 3px;
+            padding: 1px 2px;
+            transition: background-color 0.3s ease;
+        }
+        
+        /* Responsive voor stamhoofd */
+        @media (max-width: 768px) {
+            .stamhoofd-fallback-compact .fallback-actions {
+                flex-direction: column;
+                align-items: center;
+                gap: var(--spacing-sm);
+            }
+            
+            .stamhoofd-fallback-compact .fallback-action {
+                min-width: 140px;
+                flex-direction: row;
+                gap: var(--spacing-md);
+            }
+            
+            .iframe-card-header {
+                flex-direction: column;
+                gap: var(--spacing-md);
+                align-items: stretch;
+            }
+            
+            .iframe-card-info {
+                padding-right: 0;
+            }
+            
+            .iframe-container iframe {
+                width: 95vw;
+                height: 70vh;
+            }
+        }
+    </style>

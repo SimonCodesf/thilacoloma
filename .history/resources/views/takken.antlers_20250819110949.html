@@ -1,0 +1,279 @@
+<style>
+@import url('/assets/css/takken.css');
+</style>
+
+<div class="page-section">
+    <h2>Onze Takken</h2>
+    <p class="section-intro">
+        Traditioneel wordt een scoutsgroep opgedeeld in vijf takken: <span>kapoenen</span>, <span>welpen</span>, <span>jongverkenners</span>, <span>verkenners</span> en <span>voortrekkers</span> (ook wel JIN's genoemd). Omdat Thila Coloma zo'n grote groep is, zijn er meerdere takken van elk. Er zijn twee kapoenen-takken, drie welpen-takken, drie jongverkenner-takken en drie verkenner-takken. Enkel de welpen worden per leeftijd verdeeld in 'jongwelpen', 'welpen' en 'seniorwelpen'. Dan is er ook nog een <span>Akabe-tak</span>, bij ons de <span>Tictak</span>. Dit geeft een totaal van <span>13 takken</span>.
+    </p>
+    
+    <div id="takken-container" class="grid-2">
+        <!-- Takken worden hier dynamisch geladen -->
+        <noscript><div class="takken-fallback">Kan takken niet laden: JavaScript is uitgeschakeld of er is een probleem met de data.</div></noscript>
+    </div>
+</div>
+
+<script>
+        // Load takken data and display grouped cards
+        async function loadTakken() {
+            try {
+                const response = await fetch('data/site-config.json');
+                const data = await response.json();
+                const takkenContainer = document.getElementById('takken-container');
+                
+                // Group takken by main type
+                const groupedTakken = {
+                    kapoenen: {
+                        naam: "Kapoenen",
+                        leeftijd: "Geboortejaar 2017-2018",
+                        logo: "/assets/images/takken/Takteken_kapoenen-zeehondjes_hr_rgb.jpg",
+                        beschrijving: "Het leven van een kapoen (6-8 jaar) is er één vol spel, fantasie, creativiteit en expressie. Spelenderwijs en ongedwongen ontdekken we samen met hen de wereld. De leiding gaat hierbij uit van het kind zelf, van wat hen boeit en aanspreekt. Het hoogtepunt in een kapoenenleven? Voor de eerste keer op kamp! Bij TC zijn de kapoenen in twee takken gesplitst: kapoenen 1 en kapoenen 2, dit is echter geen opdeling op leeftijd. Als kapoen blijf je dus 2 jaar in dezelfde tak zitten.",
+                        activiteiten: ["knutselen", "spelletjes", "verhalen", "natuur verkennen", "zingen"],
+                        kleur: "primary",
+                        takken: ["Kapoenen 1", "Kapoenen 2"]
+                    },
+                    welpen: {
+                        naam: "Welpen",
+                        leeftijd: "Geboortejaar 2014-2016",
+                        logo: "/assets/images/takken/Takteken_(zee)kabouters-welpen_hr_rgb.jpg",
+                        beschrijving: "Is het leven van een welp (8-11 jaar) een jungle of een speeltuin? Welpen beleven op de scouts hun grootste avonturen. In bomen klimmen, kampen bouwen, vuil worden en 10 dagen kamp! Hier leren om samen plezier te maken in groep staat centraal bij de welpen. In TC is de welpentak speciaal: ze is namelijk in 3 verschillende takken verdeeld op basis van leeftijd. Kinderen uit het 3de leerjaar zitten bij de Jongwelpen, kinderen uit het 4de leerjaar zitten bij de Welpen en kinderen uit het 5de leerjaar zitten bij de Seniorwelpen.",
+                        activiteiten: ["kampvuur", "tracking", "pionieren", "teamspelen", "natuuractiviteiten"],
+                        kleur: "dark",
+                        takken: ["Jongwelpen", "Welpen", "Seniorwelpen"]
+                    },
+                    tictak: {
+                        naam: "Tictak (Akabe)",
+                        leeftijd: "Geboortejaar 2000-2018",
+                        logo: "/assets/images/takken/Takteken_akabe1_lr_kl web2020.jpg",
+                        beschrijving: "Bij de scouts is er plaats voor iedereen, verschillen zien we als een plus. Scouting is nagenoeg de enige jeugdbeweging met een aanbod voor kinderen en jongeren met een handicap. In TC noemen we de Akabe-groep de Tictak, dat staat voor Thila Coloma Tak Akabe. De Tictak werd opgericht in 1997. We streven ernaar dezelfde scoutsactiviteiten te organiseren als voor kinderen zonder beperking: pleinspelen, tochtjes, slapen in tenten zijn ons niet vreemd.",
+                        activiteiten: ["aangepaste spelen", "knutselen", "zingen", "kleine uitstapjes", "genieten"],
+                        kleur: "primary",
+                        takken: ["Tictak (Akabe)"]
+                    },
+                    jongverkenners: {
+                        naam: "Jongverkenners",
+                        leeftijd: "Geboortejaar 2011-2013",
+                        logo: "/assets/images/takken/Takteken_jonggidsen-jongverkenners-scheepsmakkers_hr_rgb web 2020.jpg",
+                        beschrijving: "Jongverkenners zijn jonge scouts van 11 tot 13 jaar. Ze zijn niet bang van een beetje avontuur en om reeds zelf de handen uit de mouwen te steken. Jongverkenners slapen in patrouilletenten, stappen een 3-daagse met rugzak, koken zelf op een houtvuur, gaan met de fiets op weekend... Ze leren samenwerken, verkennen en ondernemen, engagement tonen, samen overleggen en zich voor anderen in te zetten. Zo ontdekken ze stilaan wat scouting echt inhoudt, ze zeggen hun belofte met trots en leren dat scouting ook niet stopt wanneer de vergadering afgelopen is... In TC hebben we 3 JV-takken met ongeveer 35 leden.",
+                        activiteiten: ["patrouilletenten", "3-daagse hikes", "koken op houtvuur", "fietsweekends", "technische proeven"],
+                        kleur: "primary",
+                        takken: ["Jongverkenners 1", "Jongverkenners 2", "Jongverkenners 3"]
+                    },
+                    verkenners: {
+                        naam: "Verkenners",
+                        leeftijd: "Geboortejaar 2008-2010",
+                        logo: "/assets/images/takken/Takteken_(zee)gidsen-verkenners_hr_rgb web2020.jpg",
+                        beschrijving: "Verkenners zijn jongens en meisjes tussen 15 en 17 jaar. Verkenners bieden we alle kansen om te bewijzen wat ze in hun mars hebben. Er is ruimte om te experimenteren en mee te beslissen. Grootse projecten kleuren hun scoutsdag, maar gewoon gezellig samen zijn hoort er ook bij. Deze pubers hebben veel in hun mars, maar soms durven ze al eens een grote mond opzetten. Ze zijn op zoek naar zichzelf, een ontdekkingsreis die ze op deze leeftijd volop beleven. Bij TC maken Verkenners unieke momenten mee; ze krijgen hun totem, gaan voor het eerst op buitenlands kamp... We hebben 3 Verkennergroepen met elk ongeveer 30 leden.",
+                        activiteiten: ["totems krijgen", "buitenlands kamp", "grootse projecten", "experimenteren", "groepsbeslissingen"],
+                        kleur: "dark",
+                        takken: ["Verkenners 1", "Verkenners 2", "Verkenners 3"]
+                    },
+                    voortrekkers: {
+                        naam: "Voortrekkers",
+                        leeftijd: "Geboortejaar 2007",
+                        logo: "/assets/images/takken/Takteken_jins-loodsen_hr_rgb web2020.jpg",
+                        beschrijving: "Jins (Jij en Ik Noodzaak) zijn 18 jaar en beleven hun laatste scoutsjaar als 'kindje', voor ze leiding worden. In TC gebruiken we de oude benaming voor Jins: Voortrekkers. De Vt's zijn zoekers. Met open ogen en een grote gulzigheid staan ze in het leven. Keuzes zijn er bij de vleet: pedagogie of informatica, Leuven of Gent, scouting of basket. Vt's proberen hun eigen doelen en verwachtingen te realiseren en genieten dan ook van de vrijheid en de zelfstandigheid die ze in hun tak krijgen. Bij TC staan de Vt's een keer per maand bij een andere tak in leiding, om al eens van het leiding-zijn te kunnen proeven. Ook op binnenlands kamp in augustus staan ze een heel kamp in leiding bij de tak van hun keuze. In juli gaan de Vt's op hun eigen buitenlands kamp.",
+                        activiteiten: ["leiding ervaring", "buitenlands kamp", "klusjes doen", "projecten organiseren", "zelfstandigheid"],
+                        kleur: "primary",
+                        takken: ["Voortrekkers"]
+                    }
+                };
+                
+                // Create cards for grouped takken
+                Object.values(groupedTakken).forEach(groep => {
+                    const takCard = document.createElement('div');
+                    takCard.className = 'tak-card card';
+                    
+                    // Find specific takken data for this group
+                    const relevantTakken = data.takken.filter(tak => {
+                        // Special case for Tictak matching
+                        if (groep.naam === "Tictak (Akabe)" && tak.naam === "Tictak (Akabe)") {
+                            return true;
+                        }
+                        // Normal matching for other groups
+                        return groep.takken.includes(tak.naam);
+                    });
+                    
+                    // Create leiding display - only show takleiders
+                    let leidingInfo = '';
+                    if (relevantTakken.length > 0) {
+                        relevantTakken.forEach(tak => {
+                            if (tak.leiding && tak.leiding.length > 0) {
+                                // Find the takleider (first person or person with functie "Takleider")
+                                const takleider = tak.leiding.find(leider => 
+                                    leider.functie === "Takleider"
+                                ) || tak.leiding[0];
+                                
+                                if (takleider && takleider.email) {
+                                    leidingInfo += `<div class="tak-subgroep"><strong>${tak.naam}:</strong><br>`;
+                                    leidingInfo += `${takleider.naam}<br>`;
+                                    leidingInfo += `<a href="mailto:${takleider.email}">${takleider.email}</a><br>`;
+                                    leidingInfo += '</div>';
+                                }
+                            }
+                        });
+                    }
+                    
+                    if (!leidingInfo) {
+                        leidingInfo = `<a href="mailto:groepsleiding@thilacoloma.be">groepsleiding@thilacoloma.be</a><br><small>Voor specifieke takleiding contactgegevens</small>`;
+                    }
+                    
+                    takCard.innerHTML = `
+                        <div class="card-content">
+                            <h3>${groep.naam}</h3>
+                            <div class="tak-leeftijd">${groep.leeftijd}</div>
+                            <div class="tak-takken">
+                                <strong>Takken:</strong> ${groep.takken.join(', ')}
+                            </div>
+                            <p>${groep.beschrijving}</p>
+                            <div class="tak-leiding">
+                                <strong>Takleiders:</strong><br>
+                                ${leidingInfo}
+                            </div>
+                            <div class="tak-links">
+                                <button class="btn btn-primary meer-info-btn" onclick="handleMeerInfo('${groep.naam}')">Meer info</button>
+                            </div>
+                        </div>
+                    `;
+                    
+                    takkenContainer.appendChild(takCard);
+                });
+            } catch (error) {
+                console.error('Error loading takken:', error);
+            }
+        }
+        
+        // Load data when page loads
+        document.addEventListener('DOMContentLoaded', loadTakken);
+        
+        // Handle meer info button clicks
+        function handleMeerInfo(groepNaam) {
+            switch(groepNaam) {
+                case 'Kapoenen':
+                    window.location.href = '/kapoenen';
+                    break;
+                case 'Welpen':
+                    window.location.href = '/welpen';
+                    break;
+                case 'Tictak (Akabe)':
+                    window.location.href = '/tictak';
+                    break;
+                case 'Jongverkenners':
+                    window.location.href = '/jongverkenners';
+                    break;
+                case 'Verkenners':
+                    window.location.href = '/verkenners';
+                    break;
+                case 'Voortrekkers':
+                    window.location.href = '/voortrekkers';
+                    break;
+                default:
+                    alert('Pagina niet gevonden!');
+            }
+        }
+        
+        // Search functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const searchInput = document.getElementById('search-input');
+            const searchButton = document.getElementById('search-button');
+            
+            function performSearch() {
+                const query = searchInput.value.trim().toLowerCase();
+                if (query === '') return;
+                
+                // Search through all text content on the page
+                const sections = document.querySelectorAll('.page-section');
+                let results = [];
+                
+                sections.forEach(section => {
+                    const sectionTitle = section.querySelector('h2')?.textContent || '';
+                    const sectionContent = section.textContent.toLowerCase();
+                    
+                    if (sectionContent.includes(query)) {
+                        results.push({
+                            title: sectionTitle,
+                            element: section,
+                            relevance: calculateRelevance(sectionContent, query)
+                        });
+                    }
+                });
+                
+                // Highlight and scroll to most relevant result
+                if (results.length > 0) {
+                    results.sort((a, b) => b.relevance - a.relevance);
+                    highlightSearchResults(query);
+                    results[0].element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                } else {
+                    alert('Geen resultaten gevonden voor "' + query + '"');
+                }
+            }
+            
+            function calculateRelevance(content, query) {
+                const queryWords = query.split(' ');
+                let score = 0;
+                
+                queryWords.forEach(word => {
+                    const regex = new RegExp(word, 'gi');
+                    const matches = content.match(regex);
+                    if (matches) {
+                        score += matches.length;
+                    }
+                });
+                
+                return score;
+            }
+            
+            function highlightSearchResults(query) {
+                // Remove existing highlights
+                document.querySelectorAll('.search-highlight').forEach(el => {
+                    el.classList.remove('search-highlight');
+                });
+                
+                // Add new highlights
+                const queryWords = query.split(' ');
+                queryWords.forEach(word => {
+                    if (word.length > 2) { // Only highlight words longer than 2 characters
+                        const regex = new RegExp(`(${word})`, 'gi');
+                        const walker = document.createTreeWalker(
+                            document.body,
+                            NodeFilter.SHOW_TEXT,
+                            null,
+                            false
+                        );
+                        
+                        const textNodes = [];
+                        let node;
+                        while (node = walker.nextNode()) {
+                            textNodes.push(node);
+                        }
+                        
+                        textNodes.forEach(textNode => {
+                            if (textNode.textContent.toLowerCase().includes(word)) {
+                                const parent = textNode.parentElement;
+                                if (parent && !parent.classList.contains('search-highlight')) {
+                                    parent.classList.add('search-highlight');
+                                }
+                            }
+                        });
+                    }
+                });
+                
+                // Remove highlights after 5 seconds
+                setTimeout(() => {
+                    document.querySelectorAll('.search-highlight').forEach(el => {
+                        el.classList.remove('search-highlight');
+                    });
+                }, 5000);
+            }
+            
+            // Event listeners
+            searchButton.addEventListener('click', performSearch);
+            searchInput.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    performSearch();
+                }
+            });
+        });
+    </script>
+

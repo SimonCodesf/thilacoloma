@@ -1,0 +1,7 @@
+name: Coelho
+super: true
+id: 490dab97-40bc-46ac-8e07-29cd20111226
+password_hash: $2y$12$3KA2IitQFDoiMX538r3/Xuuf5BRef51whhs1/PMFSnIQ664eh.MGC
+preferences:
+  locale: en
+  favorites: {  }

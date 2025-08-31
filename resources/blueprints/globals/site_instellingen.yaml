@@ -1,0 +1,27 @@
+title: 'Site Instellingen'
+sections:
+  main:
+    display: Main
+    fields:
+      - 
+        handle: scoutsjaar
+        field:
+          type: text
+          display: 'Huidig scoutsjaar'
+          instructions: 'Het huidige scoutsjaar voor foto paths (bijv. "2024-2025")'
+          required: true
+          default: '2025-2026'
+      - 
+        handle: groepsleiding_email
+        field:
+          type: text
+          display: 'Algemene groepsleiding email'
+          validate: 'email'
+          default: 'groepsleiding@thilacoloma.be'
+      - 
+        handle: rekeningnummer
+        field:
+          type: text
+          display: 'Rekeningnummer'
+          instructions: 'Voor betalingen'
+          default: 'BE83 9735 0413 6215'

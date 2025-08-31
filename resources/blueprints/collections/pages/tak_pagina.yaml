@@ -1,0 +1,63 @@
+title: Tak pagina
+sections:
+  main:
+    display: Main
+    fields:
+      - 
+        handle: title
+        field:
+          type: text
+          required: true
+          validate: 'required'
+      - 
+        handle: tak_groep
+        field:
+          type: select
+          display: 'Tak groep'
+          instructions: 'Selecteer de hoofdgroep waartoe deze tak behoort'
+          options:
+            kapoenen: Kapoenen
+            welpen: Welpen
+            jongverkenners: Jongverkenners  
+            verkenners: Verkenners
+            voortrekkers: Voortrekkers
+            tictak: Tictak
+          required: true
+      - 
+        handle: tak_naam
+        field:
+          type: text
+          display: 'Tak naam'
+          instructions: 'Specifieke naam van deze tak (bijv. "Kapoenen 1")'
+          required: true
+      - 
+        handle: beschrijving
+        field:
+          type: textarea
+          display: 'Beschrijving'
+          instructions: 'Beschrijving specifiek voor deze tak'
+      - 
+        handle: activiteiten_beschrijving
+        field:
+          type: textarea
+          display: 'Activiteiten beschrijving'
+          instructions: 'Wat doen jullie zoal tijdens de vergaderingen?'
+      - 
+        handle: bijzonderheden
+        field:
+          type: textarea
+          display: 'Bijzonderheden'
+          instructions: 'Speciale informatie voor deze tak'
+      - 
+        handle: extra_fotos
+        field:
+          type: assets
+          display: 'Extra foto''s'
+          instructions: 'Aanvullende foto''s van activiteiten'
+          container: assets
+      - 
+        handle: show_on_overview
+        field:
+          type: toggle
+          display: 'Tonen op overzichtspagina'
+          default: true

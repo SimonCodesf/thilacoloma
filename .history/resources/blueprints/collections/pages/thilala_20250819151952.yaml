@@ -1,0 +1,146 @@
+tabs:
+  main:
+    display: Main
+    sections:
+      -
+        display: 'Page Information'
+        fields:
+          -
+            handle: title
+            field:
+              type: text
+              required: true
+              validate:
+                - required
+              display: Title
+              width: 50
+          -
+            handle: slug
+            field:
+              type: slug
+              required: true
+              validate:
+                - required
+              display: Slug
+              width: 50
+      -
+        display: 'Thilala Content'
+        fields:
+          -
+            handle: page_title
+            field:
+              type: text
+              display: 'Page Title'
+              default: 'Thilala Maandblad'
+              instructions: 'The main heading displayed on the page'
+              validate:
+                - required
+          -
+            handle: intro_text
+            field:
+              type: markdown
+              display: 'Introduction Text'
+              instructions: 'Short description about Thilala magazine. You can use markdown formatting and links.'
+              default: 'Lees hier de nieuwste editie van ons **clubblad Thilala**. Ontdek verhalen van onze **scouts**, foto''s van **activiteiten** en alle nieuwtjes van de groep.'
+              validate:
+                - required
+          -
+            handle: current_pdf
+            field:
+              type: assets
+              container: documents
+              max_files: 1
+              display: 'Current Thilala PDF'
+              instructions: 'Upload the current month''s Thilala PDF. Maximum file size: 50MB. Only one file allowed.'
+              validate:
+                - required
+              restrict: false
+              allow_uploads: true
+              show_filename: true
+              show_set_alt: false
+          -
+            handle: pdf_title
+            field:
+              type: text
+              display: 'PDF Display Title'
+              instructions: 'Title shown in the PDF viewer (e.g., "Thilala Januari 2025")'
+              default: 'Thilala.pdf'
+              validate:
+                - required
+      -
+        display: 'Archive Section'
+        fields:
+          -
+            handle: show_archive
+            field:
+              type: toggle
+              display: 'Show Archive Section'
+              instructions: 'Enable to show a section with previous Thilala editions'
+              default: false
+          -
+            handle: archive_title
+            field:
+              type: text
+              display: 'Archive Section Title'
+              default: 'Vorige Edities'
+              instructions: 'Title for the archive section'
+              if:
+                show_archive: 'equals true'
+          -
+            handle: archive_pdfs
+            field:
+              type: replicator
+              display: 'Archive PDFs'
+              instructions: 'Add previous editions of Thilala'
+              if:
+                show_archive: 'equals true'
+              sets:
+                archive_item:
+                  display: 'Archive Item'
+                  fields:
+                    -
+                      handle: title
+                      field:
+                        type: text
+                        display: 'Edition Title'
+                        instructions: 'e.g., "December 2024", "November 2024"'
+                        validate:
+                          - required
+                    -
+                      handle: pdf_file
+                      field:
+                        type: assets
+                        container: documents
+                        max_files: 1
+                        display: 'PDF File'
+                        validate:
+                          - required
+                        restrict: false
+                        allow_uploads: true
+                        show_filename: true
+                        show_set_alt: false
+                    -
+                      handle: description
+                      field:
+                        type: textarea
+                        display: 'Description'
+                        instructions: 'Optional short description of this edition'
+                        rows: 2
+  sidebar:
+    display: Sidebar
+    sections:
+      -
+        display: 'Page Settings'
+        fields:
+          -
+            handle: template
+            field:
+              type: template
+              display: Template
+              default: thilala
+          -
+            handle: layout
+            field:
+              type: text
+              display: Layout
+              default: 'layouts/page'

@@ -1,0 +1,11 @@
+---
+id: a2b3c4d5-6e7f-8a9b-0c1d-2e3f4g5h6i7j
+blueprint: page
+title: Verkenners
+template: verkenners
+layout: layouts/page
+updated_by: admin
+updated_at: 1723977600
+---
+
+Verkenners pagina content wordt hier geladen via de template.

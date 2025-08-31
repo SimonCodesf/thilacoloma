@@ -1,0 +1,27 @@
+/* Header Scroll Behavior and Styling */
+.simple-header {
+    transition: transform 0.3s ease;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.simple-header.header-hidden {
+    transform: translateY(-100%);
+}
+
+/* Invisible hover zone for easy header access - only active when header is hidden */
+.header-hover-zone {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 80px;
+    z-index: 999;
+    pointer-events: none;
+    opacity: 0;
+}
+
+.simple-header.header-hidden + main .header-hover-zone {
+    pointer-events: auto;
+}

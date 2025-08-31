@@ -1,0 +1,220 @@
+tabs:
+  # Tab 1: Hoofdinhoud
+  hoofdinhoud:
+    display: Hoofdinhoud
+    sections:
+      -
+        display: 'Pagina Hoofdinhoud'
+        fields:
+          -
+            handle: title
+            field:
+              type: text
+              required: true
+              display: 'Pagina Titel'
+              default: 'Verhuur'
+          -
+            handle: intro_tekst
+            field:
+              type: textarea
+              display: 'Intro Tekst'
+              instructions: 'Optionele introductie tekst onder de titel'
+
+  # Tab 2: Lokalen Verhuur
+  lokalen:
+    display: 'Lokalen Verhuur'
+    sections:
+      -
+        display: 'Kampas Integratie'
+        fields:
+          -
+            handle: kampas_titel
+            field:
+              type: text
+              display: 'Kampas Sectie Titel'
+              default: 'Beschikbaarheid & Reservaties'
+          -
+            handle: kampas_beschrijving
+            field:
+              type: textarea
+              display: 'Kampas Beschrijving'
+              default: 'Controleer hier de beschikbaarheid van onze lokalen en reserveer direct online via het Kampas platform.'
+          -
+            handle: kampas_url
+            field:
+              type: link
+              display: 'Kampas URL'
+              default: 'https://www.kampas.be/nl/domein/scouts-thila-coloma'
+      -
+        display: 'Contact Informatie'
+        fields:
+          -
+            handle: contact_titel
+            field:
+              type: text
+              display: 'Contact Titel'
+              default: 'Contact'
+          -
+            handle: contact_persoon
+            field:
+              type: text
+              display: 'Contact Persoon'
+              default: 'Turdo (Robin Hermans)'
+          -
+            handle: contact_email
+            field:
+              type: text
+              input_type: email
+              display: 'Contact Email'
+              default: 'verhuur@thilacoloma.be'
+          -
+            handle: contact_beschrijving
+            field:
+              type: textarea
+              display: 'Contact Beschrijving'
+              default: 'Onze verhuurverantwoordelijke voor de lokalen is'
+      -
+        display: 'Belangrijke Informatie'
+        fields:
+          -
+            handle: waarschuwing_tekst
+            field:
+              type: textarea
+              display: 'Waarschuwing Tekst'
+              default: 'Let op: Wij verhuren niet voor fuiven of andere avondactiviteiten met luide muziek. GEEN LEIDINGSWEEKENDS'
+      -
+        display: 'Beschikbare Lokalen'
+        fields:
+          -
+            handle: lokalen_titel
+            field:
+              type: text
+              display: 'Lokalen Sectie Titel'
+              default: 'Beschikbare Lokalen'
+          -
+            handle: polyvalent_lokaal
+            field:
+              type: group
+              display: 'Groot Polyvalent Lokaal'
+              fields:
+                -
+                  handle: titel
+                  field:
+                    type: text
+                    display: 'Lokaal Titel'
+                    default: 'Groot polyvalent lokaal'
+                -
+                  handle: beschrijving
+                  field:
+                    type: textarea
+                    display: 'Beschrijving'
+                    default: 'Hier kan niet geslapen worden, maar het is wel ideaal om te eten en te koken.'
+                -
+                  handle: faciliteiten
+                  field:
+                    type: textarea
+                    display: 'Faciliteiten'
+                    default: 'Grote keuken met nodige bestek, borden, tassen, potten en pannen, etc. Ook tafels en banken zijn aanwezig en kunnen gebruikt worden.'
+          -
+            handle: slaaplokalen
+            field:
+              type: group
+              display: 'Slaaplokalen'
+              fields:
+                -
+                  handle: titel
+                  field:
+                    type: text
+                    display: 'Lokaal Titel'
+                    default: 'Slaaplokalen'
+                -
+                  handle: gelijkvloers
+                  field:
+                    type: text
+                    display: 'Gelijkvloers'
+                    default: '4 lokalen'
+                -
+                  handle: eerste_verdieping
+                  field:
+                    type: text
+                    display: 'Eerste Verdieping'
+                    default: '3 lokalen'
+          -
+            handle: sanitair
+            field:
+              type: group
+              display: 'Sanitair'
+              fields:
+                -
+                  handle: titel
+                  field:
+                    type: text
+                    display: 'Sanitair Titel'
+                    default: 'Sanitair'
+                -
+                  handle: toiletten
+                  field:
+                    type: text
+                    display: 'Toiletten'
+                    default: '7 toiletten, enkele piscines en een gehandicaptentoilet'
+                -
+                  handle: douches
+                  field:
+                    type: text
+                    display: 'Douches'
+                    default: '4 douches en 1 douche geschikt voor mindervaliden'
+      -
+        display: 'Locatie & Omgeving'
+        fields:
+          -
+            handle: locatie_titel
+            field:
+              type: text
+              display: 'Locatie Titel'
+              default: 'Locatie & Omgeving'
+          -
+            handle: adres
+            field:
+              type: text
+              display: 'Adres'
+              default: 'Geerdegemstraat 80-82, 2800 Mechelen'
+          -
+            handle: maps_embed_url
+            field:
+              type: textarea
+              display: 'Google Maps Embed URL'
+              default: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5022.007832677982!2d4.479685176812431!3d50.99759977170181!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c3e66284c5a445%3A0xf7b0d79b8db8303c!2sScouts%20Thila%20Coloma!5e0!3m2!1snl!2sbe!4v1753229256433!5m2!1snl!2sbe'
+          -
+            handle: locatie_info
+            field:
+              type: grid
+              display: 'Locatie Informatie'
+              mode: table
+              reorderable: true
+              fields:
+                -
+                  handle: icon
+                  field:
+                    type: text
+                    display: 'Icoon Class'
+                    instructions: 'FontAwesome icon class (bijv. fas fa-car)'
+                -
+                  handle: tekst
+                  field:
+                    type: text
+                    display: 'Info Tekst'
+
+  # Tab 3: SEO
+  seo:
+    display: SEO
+    sections:
+      -
+        display: 'SEO Instellingen'
+        fields:
+          -
+            handle: meta_description
+            field:
+              type: textarea
+              display: 'Meta Beschrijving'
+              character_limit: 160
+              instructions: 'Korte beschrijving voor zoekmachines (max 160 karakters)'

@@ -1,0 +1,74 @@
+title: Nieuws Artikel
+sections:
+  main:
+    display: Artikel
+    fields:
+      -
+        handle: title
+        field:
+          type: text
+          required: true
+          display: Titel
+      -
+        handle: slug
+        field:
+          type: slug
+          required: true
+          display: URL Slug
+      -
+        handle: date
+        field:
+          type: date
+          required: true
+          display: Datum
+          mode: single
+          time_enabled: false
+          time_required: false
+          earliest_date: '2020-01-01'
+      -
+        handle: featured_image
+        field:
+          type: assets
+          container: assets
+          max_files: 1
+          display: 'Uitgelichte Afbeelding'
+          instructions: 'Hoofdafbeelding voor het nieuws artikel'
+      -
+        handle: excerpt
+        field:
+          type: textarea
+          display: Samenvatting
+          instructions: 'Korte samenvatting van het artikel'
+          character_limit: 300
+      -
+        handle: content
+        field:
+          type: bard
+          display: Inhoud
+          buttons:
+            - h2
+            - h3
+            - bold
+            - italic
+            - unorderedlist
+            - orderedlist
+            - removeformat
+            - quote
+            - anchor
+            - image
+            - table
+          save_html: false
+          toolbar_mode: fixed
+          link_noopener: false
+          link_noreferrer: false
+          target_blank: false
+          reading_time: false
+          fullscreen: true
+          allow_source: true
+      -
+        handle: featured
+        field:
+          type: toggle
+          display: 'Uitgelicht in Slideshow'
+          default: false
+          instructions: 'Toon dit artikel in de homepage slideshow'

@@ -1,0 +1,536 @@
+tabs:
+  # Tab 1: Niveau 1 - Direct zichtbaar
+  niveau1:
+    display: 'Niveau 1 - Hoofdcontent'
+    sections:
+      -
+        display: 'Pagina Instellingen'
+        fields:
+          -
+            handle: title
+            field:
+              type: text
+              required: true
+              display: 'Pagina Titel'
+              default: 'Meer Informatie'
+          -
+            handle: intro_tekst
+            field:
+              type: textarea
+              display: 'Intro Tekst'
+              instructions: 'Welkomstbericht voor de meer pagina'
+      -
+        display: 'Visie'
+        fields:
+          -
+            handle: visie_titel
+            field:
+              type: text
+              display: 'Visie Titel'
+              default: 'Onze Visie'
+          -
+            handle: visie_tekst
+            field:
+              type: textarea
+              display: 'Visie Tekst'
+              instructions: 'Prominente weergave van de groepsvisie'
+          -
+            handle: visie_icoon
+            field:
+              type: text
+              display: 'Visie Icoon'
+              default: 'fas fa-heart'
+              instructions: 'FontAwesome icon class'
+      -
+        display: 'Contact'
+        fields:
+          -
+            handle: contact_titel
+            field:
+              type: text
+              display: 'Contact Titel'
+              default: 'Contact'
+          -
+            handle: contact_algemeen
+            field:
+              type: grid
+              display: 'Algemene Contactgegevens'
+              mode: table
+              reorderable: true
+              fields:
+                -
+                  handle: label
+                  field:
+                    type: text
+                    display: 'Label'
+                -
+                  handle: icoon
+                  field:
+                    type: text
+                    display: 'Icoon'
+                    instructions: 'FontAwesome icon class'
+                -
+                  handle: waarde
+                  field:
+                    type: text
+                    display: 'Waarde'
+                -
+                  handle: type
+                  field:
+                    type: select
+                    display: 'Type'
+                    options:
+                      email: 'Email'
+                      tekst: 'Tekst'
+                      social: 'Social Media'
+      -
+        display: 'Groepsleiding'
+        fields:
+          -
+            handle: groepsleiding_titel
+            field:
+              type: text
+              display: 'Groepsleiding Titel'
+              default: 'Groepsleiding'
+          -
+            handle: groepsleiding_leden
+            field:
+              type: grid
+              display: 'Groepsleiding Leden'
+              mode: table
+              reorderable: true
+              fields:
+                -
+                  handle: naam
+                  field:
+                    type: text
+                    display: 'Naam'
+                -
+                  handle: functie
+                  field:
+                    type: text
+                    display: 'Functie'
+                -
+                  handle: email
+                  field:
+                    type: text
+                    input_type: email
+                    display: 'Email'
+                -
+                  handle: telefoon
+                  field:
+                    type: text
+                    display: 'Telefoon'
+                    required: false
+                -
+                  handle: foto
+                  field:
+                    type: text
+                    display: 'Foto'
+                    instructions: 'Bestandsnaam van de foto'
+                    required: false
+
+  # Tab 2: Niveau 2 - Belangrijke info
+  niveau2:
+    display: 'Niveau 2 - Belangrijke Info'
+    sections:
+      -
+        display: 'Niveau 2 Sectie Instellingen'
+        fields:
+          -
+            handle: niveau2_titel
+            field:
+              type: text
+              display: 'Niveau 2 Titel'
+              default: 'Belangrijke Informatie'
+          -
+            handle: niveau2_beschrijving
+            field:
+              type: textarea
+              display: 'Niveau 2 Beschrijving'
+              default: 'Klik op onderstaande onderwerpen voor meer informatie'
+      -
+        display: 'Over Thila Coloma'
+        fields:
+          -
+            handle: over_titel
+            field:
+              type: text
+              display: 'Over Titel'
+              default: 'Over Thila Coloma'
+          -
+            handle: over_missie
+            field:
+              type: textarea
+              display: 'Onze Missie'
+          -
+            handle: over_geschiedenis
+            field:
+              type: textarea
+              display: 'Onze Geschiedenis'
+          -
+            handle: over_cijfers
+            field:
+              type: grid
+              display: 'Belangrijke Cijfers'
+              mode: table
+              fields:
+                -
+                  handle: label
+                  field:
+                    type: text
+                    display: 'Label'
+                -
+                  handle: waarde
+                  field:
+                    type: text
+                    display: 'Waarde'
+                -
+                  handle: icoon
+                  field:
+                    type: text
+                    display: 'Icoon'
+      -
+        display: 'Uniform'
+        fields:
+          -
+            handle: uniform_titel
+            field:
+              type: text
+              display: 'Uniform Titel'
+              default: 'Uniform'
+          -
+            handle: uniform_info
+            field:
+              type: textarea
+              display: 'Uniform Informatie'
+          -
+            handle: uniform_bestellen
+            field:
+              type: textarea
+              display: 'Hoe Bestellen'
+          -
+            handle: uniform_prijzen
+            field:
+              type: grid
+              display: 'Uniform Prijzen'
+              mode: table
+              fields:
+                -
+                  handle: item
+                  field:
+                    type: text
+                    display: 'Item'
+                -
+                  handle: prijs
+                  field:
+                    type: text
+                    display: 'Prijs'
+      -
+        display: 'Inschrijven'
+        fields:
+          -
+            handle: inschrijven_titel
+            field:
+              type: text
+              display: 'Inschrijven Titel'
+              default: 'Inschrijven'
+          -
+            handle: inschrijven_info
+            field:
+              type: textarea
+              display: 'Inschrijf Informatie'
+          -
+            handle: inschrijven_stappen
+            field:
+              type: grid
+              display: 'Inschrijf Stappen'
+              mode: table
+              fields:
+                -
+                  handle: stap
+                  field:
+                    type: text
+                    display: 'Stap Nummer'
+                -
+                  handle: titel
+                  field:
+                    type: text
+                    display: 'Stap Titel'
+                -
+                  handle: beschrijving
+                  field:
+                    type: textarea
+                    display: 'Beschrijving'
+                -
+                  handle: icoon
+                  field:
+                    type: text
+                    display: 'Icoon'
+      -
+        display: 'Betalingen'
+        fields:
+          -
+            handle: betalingen_titel
+            field:
+              type: text
+              display: 'Betalingen Titel'
+              default: 'Betalingen'
+          -
+            handle: betalingen_info
+            field:
+              type: textarea
+              display: 'Betalings Informatie'
+          -
+            handle: betalingen_methodes
+            field:
+              type: grid
+              display: 'Betaal Methodes'
+              mode: table
+              fields:
+                -
+                  handle: methode
+                  field:
+                    type: text
+                    display: 'Betaal Methode'
+                -
+                  handle: details
+                  field:
+                    type: textarea
+                    display: 'Details'
+                -
+                  handle: icoon
+                  field:
+                    type: text
+                    display: 'Icoon'
+      -
+        display: 'Formulieren'
+        fields:
+          -
+            handle: formulieren_titel
+            field:
+              type: text
+              display: 'Formulieren Titel'
+              default: 'Formulieren & Mutualiteit'
+          -
+            handle: formulieren_lijst
+            field:
+              type: grid
+              display: 'Beschikbare Formulieren'
+              mode: table
+              fields:
+                -
+                  handle: naam
+                  field:
+                    type: text
+                    display: 'Formulier Naam'
+                -
+                  handle: beschrijving
+                  field:
+                    type: textarea
+                    display: 'Beschrijving'
+                -
+                  handle: link
+                  field:
+                    type: link
+                    display: 'Link naar formulier'
+                -
+                  handle: icoon
+                  field:
+                    type: text
+                    display: 'Icoon'
+      -
+        display: 'Pest & Inclusie'
+        fields:
+          -
+            handle: pest_titel
+            field:
+              type: text
+              display: 'Pest & Inclusie Titel'
+              default: 'Pest & Inclusie'
+          -
+            handle: pest_beleid
+            field:
+              type: textarea
+              display: 'Beleid Tekst'
+          -
+            handle: pest_contacten
+            field:
+              type: grid
+              display: 'Contact Personen'
+              mode: table
+              fields:
+                -
+                  handle: functie
+                  field:
+                    type: text
+                    display: 'Functie'
+                -
+                  handle: naam
+                  field:
+                    type: text
+                    display: 'Naam'
+                -
+                  handle: email
+                  field:
+                    type: text
+                    input_type: email
+                    display: 'Email'
+      -
+        display: 'FAQ'
+        fields:
+          -
+            handle: faq_titel
+            field:
+              type: text
+              display: 'FAQ Titel'
+              default: 'Veelgestelde Vragen (FAQ)'
+          -
+            handle: faq_items
+            field:
+              type: grid
+              display: 'FAQ Items'
+              mode: table
+              fields:
+                -
+                  handle: vraag
+                  field:
+                    type: text
+                    display: 'Vraag'
+                -
+                  handle: antwoord
+                  field:
+                    type: textarea
+                    display: 'Antwoord'
+
+  # Tab 3: Niveau 3 - Extra informatie
+  niveau3:
+    display: 'Niveau 3 - Extra Info'
+    sections:
+      -
+        display: 'Niveau 3 Sectie Instellingen'
+        fields:
+          -
+            handle: niveau3_titel
+            field:
+              type: text
+              display: 'Niveau 3 Titel'
+              default: 'Extra Informatie'
+          -
+            handle: niveau3_beschrijving
+            field:
+              type: textarea
+              display: 'Niveau 3 Beschrijving'
+              default: 'Aanvullende informatie en bronnen'
+      -
+        display: 'Jaarthema'
+        fields:
+          -
+            handle: jaarthema_titel
+            field:
+              type: text
+              display: 'Jaarthema Titel'
+              default: 'Jaarthema'
+          -
+            handle: jaarthema_huidig
+            field:
+              type: text
+              display: 'Huidig Jaarthema'
+          -
+            handle: jaarthema_beschrijving
+            field:
+              type: textarea
+              display: 'Jaarthema Beschrijving'
+          -
+            handle: jaarthema_afbeelding
+            field:
+              type: text
+              display: 'Jaarthema Afbeelding'
+              instructions: 'Bestandsnaam van de afbeelding'
+          -
+            handle: jaarthema_activiteiten
+            field:
+              type: grid
+              display: 'Gerelateerde Activiteiten'
+              mode: table
+              fields:
+                -
+                  handle: activiteit
+                  field:
+                    type: text
+                    display: 'Activiteit'
+                -
+                  handle: beschrijving
+                  field:
+                    type: textarea
+                    display: 'Beschrijving'
+      -
+        display: 'Scoutsliederen'
+        fields:
+          -
+            handle: liederen_titel
+            field:
+              type: text
+              display: 'Scoutsliederen Titel'
+              default: 'Scoutsliederen'
+          -
+            handle: liederen_intro
+            field:
+              type: textarea
+              display: 'Liederen Intro'
+              default: 'Ontdek onze traditionele scoutsliederen'
+          -
+            handle: liederen_categorien
+            field:
+              type: grid
+              display: 'Liederen Categorieën'
+              mode: table
+              fields:
+                -
+                  handle: categorie
+                  field:
+                    type: text
+                    display: 'Categorie'
+                -
+                  handle: beschrijving
+                  field:
+                    type: textarea
+                    display: 'Beschrijving'
+                -
+                  handle: liederen
+                  field:
+                    type: grid
+                    display: 'Liederen in deze categorie'
+                    mode: table
+                    fields:
+                      -
+                        handle: titel
+                        field:
+                          type: text
+                          display: 'Lied Titel'
+                      -
+                        handle: tekst
+                        field:
+                          type: textarea
+                          display: 'Lied Tekst'
+                      -
+                        handle: melodie
+                        field:
+                          type: text
+                          display: 'Melodie Info'
+                          required: false
+
+  # Tab 4: SEO
+  seo:
+    display: SEO
+    sections:
+      -
+        display: 'SEO Instellingen'
+        fields:
+          -
+            handle: meta_description
+            field:
+              type: textarea
+              display: 'Meta Beschrijving'
+              character_limit: 160
+              instructions: 'Korte beschrijving voor zoekmachines (max 160 karakters)'

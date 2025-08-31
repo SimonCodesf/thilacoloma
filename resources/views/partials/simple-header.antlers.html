@@ -1,0 +1,36 @@
+{# Simple Header for Sub-pages #}
+<header class="simple-header">
+    <div class="simple-header-content">
+        <a href="{{ siteUrl }}" class="nav-icon" title="Home">
+            <img src="{{ craft.app.assetManager.getPublishedUrl('@webroot/assets/images/Logo_TC_KLEUR.png', true) }}" alt="Home">
+        </a>
+        <nav class="simple-nav">
+            <a href="{{ url('thilala') }}" class="nav-icon{{ craft.app.request.segments[0] == 'thilala' ? ' active' : '' }}" title="Thilala">
+                <img src="{{ craft.app.assetManager.getPublishedUrl('@webroot/assets/images/icons/Asset 11thilala.svg', true) }}" alt="Thilala">
+            </a>
+            <a href="{{ url('stamhoofd') }}" class="nav-icon{{ craft.app.request.segments[0] == 'stamhoofd' ? ' active' : '' }}" title="Stamhoofd">
+                <img src="{{ craft.app.assetManager.getPublishedUrl('@webroot/assets/images/icons/Asset 1stamhoofd.svg', true) }}" alt="Stamhoofd">
+            </a>
+            <a href="{{ url('kalender') }}" class="nav-icon{{ craft.app.request.segments[0] == 'kalender' ? ' active' : '' }}" title="Kalender">
+                <img src="{{ craft.app.assetManager.getPublishedUrl('@webroot/assets/images/icons/Asset 12agenda.svg', true) }}" alt="Kalender">
+            </a>
+            <a href="{{ url('takken') }}" class="nav-icon{{ craft.app.request.segments[0] == 'takken' ? ' active' : '' }}" title="Takken">
+                <img src="{{ craft.app.assetManager.getPublishedUrl('@webroot/assets/images/icons/Asset 7takken.svg', true) }}" alt="Takken">
+            </a>
+            <a href="{{ url('verhuur') }}" class="nav-icon{{ craft.app.request.segments[0] == 'verhuur' ? ' active' : '' }}" title="Verhuur">
+                <img src="{{ craft.app.assetManager.getPublishedUrl('@webroot/assets/images/icons/Asset 13verhuur.svg', true) }}" alt="Verhuur">
+            </a>
+            <a href="{{ url('meer') }}" class="nav-icon nav-meer{{ craft.app.request.segments[0] == 'meer' ? ' active' : '' }}" title="Meer">
+                <img src="{{ craft.app.assetManager.getPublishedUrl('@webroot/assets/images/icons/Asset 19meer.svg', true) }}" alt="Meer">
+            </a>
+        </nav>
+        <div class="header-actions">
+            <div class="search-container">
+                <input type="text" id="search-input" placeholder="Zoeken..." class="search-input">
+                <button type="button" id="search-button" class="search-button" title="Zoeken">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+</header>

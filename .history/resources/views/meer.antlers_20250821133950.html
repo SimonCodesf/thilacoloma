@@ -1,0 +1,311 @@
+{{# Test Tab Systeem #}}
+
+<div class="page-section">
+    <h2>Meer Informatie</h2>
+
+    <!-- Tab Navigation -->
+    <div class="tab-navigation">
+        <button class="tab-button active" onclick="showTab('info', this)">
+            <i class="fas fa-home"></i>
+            Info
+        </button>
+        <button class="tab-button" onclick="showTab('over', this)">
+            <i class="fas fa-heart"></i>
+            Over
+        </button>
+        <button class="tab-button" onclick="showTab('praktisch', this)">
+            <i class="fas fa-clipboard-list"></i>
+            Praktisch
+        </button>
+        <button class="tab-button" onclick="showTab('beleid', this)">
+            <i class="fas fa-shield-alt"></i>
+            Beleid
+        </button>
+        <button class="tab-button" onclick="showTab('faq', this)">
+            <i class="fas fa-question-circle"></i>
+            FAQ
+        </button>
+        <button class="tab-button" onclick="showTab('extra', this)">
+            <i class="fas fa-star"></i>
+            Extra
+        </button>
+    </div>
+
+    <!-- HOOFDINFO TAB -->
+    <div id="hoofdinfo" class="tab-content active">
+        
+        <!-- Visie -->
+        <div class="card">
+            <div class="card-content">
+                <h3><i class="fas fa-compass"></i> Onze Visie</h3>
+                <blockquote>
+                    "Scouting biedt kinderen en jongeren de kans om zich te ontwikkelen tot zelfstandige, 
+                    verantwoordelijke en gelukkige mensen die een bijdrage leveren aan de samenleving."
+                </blockquote>
+                <p>Bij Scouts Thila Coloma geloven we in de kracht van avontuur, vriendschap en persoonlijke groei.</p>
+            </div>
+        </div>
+
+        <!-- Contact & Groepsleiding -->
+        <div class="grid-2">
+            <div class="card">
+                <div class="card-content">
+                    <h3><i class="fas fa-phone"></i> Direct Contact</h3>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <strong>Groepsleiding:</strong><br>
+                            <a href="mailto:groepsleiding@thilacoloma.be">groepsleiding@thilacoloma.be</a><br>
+                            <a href="tel:+32123456789">+32 12 34 56 789</a>
+                        </div>
+                        <div class="contact-item">
+                            <strong>Algemeen:</strong><br>
+                            <a href="mailto:info@thilacoloma.be">info@thilacoloma.be</a>
+                        </div>
+                        <div class="contact-item">
+                            <strong>Adres:</strong><br>
+                            <span>Jubellaan / Geerdegemstraat, 2800 Mechelen</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-content">
+                    <h3><i class="fas fa-users"></i> Groepsleiding</h3>
+                    <div class="leiding-info">
+                        <div class="leiding-item">
+                            <strong>Groepsleider:</strong> Naam Achternaam
+                        </div>
+                        <div class="leiding-item">
+                            <strong>Adjunct GL:</strong> Naam Achternaam
+                        </div>
+                        <div class="leiding-item">
+                            <strong>Secretaris:</strong> Naam Achternaam
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- OVER TAB -->
+    <div id="over" class="tab-content">
+        <div class="card">
+            <div class="card-content">
+                <h3>Over Tab</h3>
+                <p>Dit is alleen zichtbaar in de over tab.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- PRAKTISCH TAB -->
+    <div id="praktisch" class="tab-content">
+        <div class="card">
+            <div class="card-content">
+                <h3>Praktisch Tab</h3>
+                <p>Dit is alleen zichtbaar in de praktisch tab.</p>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<script>
+    function showTab(tabName, clickedButton) {
+        // Hide all tab contents
+        const tabContents = document.querySelectorAll('.tab-content');
+        tabContents.forEach(tab => {
+            tab.classList.remove('active');
+        });
+        
+        // Remove active class from all tab buttons
+        const tabButtons = document.querySelectorAll('.tab-button');
+        tabButtons.forEach(button => {
+            button.classList.remove('active');
+        });
+        
+        // Show selected tab content
+        const targetTab = document.getElementById(tabName);
+        if (targetTab) {
+            targetTab.classList.add('active');
+        }
+        
+        // Add active class to clicked button
+        if (clickedButton) {
+            clickedButton.classList.add('active');
+        }
+    }
+</script>
+
+<style>
+/* Tab Navigation - Exact zoals verhuur pagina */
+.tab-navigation {
+    display: flex;
+    justify-content: center;
+    margin: var(--spacing-xl) 0;
+    gap: var(--spacing-md);
+}
+
+.tab-button {
+    background: var(--broken-white);
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+    padding: var(--spacing-md) var(--spacing-xl);
+    border-radius: var(--border-radius-md);
+    font-family: var(--font-medium);
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: all var(--transition-normal);
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+}
+
+.tab-button:hover {
+    background: var(--primary-color);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(55, 71, 148, 0.3);
+}
+
+.tab-button.active {
+    background: var(--primary-color);
+    color: white;
+    box-shadow: 0 4px 12px rgba(55, 71, 148, 0.3);
+}
+
+.tab-button i {
+    font-size: 1.2em;
+}
+
+/* Tab Content */
+.tab-content {
+    display: none;
+    animation: fadeIn 0.3s ease-in;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Card Styles - Consistent met verhuur */
+.card {
+    background: white;
+    border-radius: var(--border-radius-md);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    margin-bottom: var(--spacing-xl);
+    overflow: hidden;
+    transition: box-shadow var(--transition-normal);
+    border: 1px solid #e5e7eb;
+}
+
+.card:hover {
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+}
+
+.card-content {
+    padding: var(--spacing-xl);
+}
+
+.card-content h3 {
+    color: var(--primary-color);
+    font-family: var(--font-bold);
+    font-size: 1.5em;
+    margin: 0 0 var(--spacing-lg) 0;
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+}
+
+.card-content h3 i {
+    color: var(--primary-color);
+}
+
+/* Grid Layout */
+.grid-2 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-lg);
+    margin: var(--spacing-lg) 0;
+}
+
+/* Contact & Leiding Info */
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+}
+
+.contact-item {
+    padding: var(--spacing-md);
+    background: var(--light-bg);
+    border-radius: var(--border-radius-sm);
+    border-left: 4px solid var(--primary-color);
+}
+
+.contact-item strong {
+    color: var(--primary-color);
+    font-family: var(--font-medium);
+}
+
+.contact-item a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.contact-item a:hover {
+    text-decoration: underline;
+}
+
+.leiding-info {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+}
+
+.leiding-item {
+    padding: var(--spacing-md);
+    border-left: 4px solid var(--primary-color);
+    background: var(--light-bg);
+    border-radius: var(--border-radius-sm);
+}
+
+/* Blockquote styling */
+blockquote {
+    background: var(--light-bg);
+    border-left: 4px solid var(--primary-color);
+    padding: var(--spacing-lg);
+    margin: var(--spacing-lg) 0;
+    font-style: italic;
+    font-size: 1.1em;
+    color: var(--text-color);
+    border-radius: var(--border-radius-sm);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .tab-navigation {
+        flex-wrap: wrap;
+        gap: var(--spacing-sm);
+    }
+    
+    .tab-button {
+        padding: var(--spacing-sm) var(--spacing-md);
+        font-size: 1em;
+    }
+    
+    .grid-2 {
+        grid-template-columns: 1fr;
+    }
+    
+    .card-content {
+        padding: var(--spacing-lg);
+    }
+}
+</style>

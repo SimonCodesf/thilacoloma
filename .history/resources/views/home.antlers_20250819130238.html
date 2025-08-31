@@ -1,0 +1,128 @@
+<div class="containerVoorpagina">
+    <div class="upper">
+        <div class="upper-left box">
+            <div class="titel"><h1><mark>{{ intro_title ?? 'Thila Coloma' }}</mark></h1><!-- <img src="/assets/images/Logo_TC_ WIT.png" alt="Thila Coloma Logo"> -->
+            </div>
+            <p><mark>{{ intro_text ?? 'Thila Coloma is een gemengde jeugdbeweging die in 1975 werd opgericht en ondertussen tot de grootste scoutsgroep van Mechelen is uitgegroeid. Ruim 400 jongeren voelen zich bij ons thuis. Hiermee zijn we de 5de grootste scoutsgroep van Vlaanderen.' | raw }}<br><br>
+            {{ intro_extra_text ?? 'Ons terrein ligt tussen de Jubellaan en de Geerdegemstraat. Meer info over ons vindt je hier' | raw }}</mark>
+            </p>
+        </div>
+        <div class="container-upper-right">
+        <h1>{{ news_section_title ?? 'Nieuws & Opkomende Evenementen' }}</h1>          
+        <div class="upper-right box" id="slideshow">
+            {{ if news_slides }}
+                {{ news_slides }}
+                    <div class="slide">
+                        {{ if image }}
+                            <img src="{{ glide:image width='800' height='400' fit='crop' }}" alt="{{ title }} evenement">
+                        {{ else }}
+                            <img src="/assets/images/slideshow/default.jpg" alt="{{ title }} evenement">
+                        {{ /if }}
+                        <div class="slide-text">
+                            <h2>{{ title }}</h2>
+                            <p>{{ content | nl2br }}</p>
+                            {{ if button_link }}
+                                <a href="{{ button_link }}" class="meer-button">{{ button_text ?? 'Meer info' }}</a>
+                            {{ else }}
+                                <button class="meer-button">{{ button_text ?? 'Meer info' }}</button>
+                            {{ /if }}
+                        </div>
+                    </div>
+                {{ /news_slides }}
+            {{ else }}
+                <!-- Fallback content als er geen slides zijn -->
+                <div class="slide">
+                    <img src="/assets/images/slideshow/1image.jpg" alt="Pizzabak evenement">
+                    <div class="slide-text">
+                        <h2>Pizzabak</h2>
+                        <p>TC organiseert weer een pizzabak voor onze nieuwe lokalen! Wij maken overheerlijke ambachtelijke pizza's die jullie 24 november kunnen komen ophalen op de scouts en thuis gewoon nog even moeten afbakken. We maken de pizza's zelf in samenwerking met broodbroeders.</p>
+                        <button class="meer-button">Meer info</button>
+                    </div>
+                </div>
+                <div class="slide">
+                    <img src="/assets/images/slideshow/2image.jpg" alt="Belofteweekend">
+                    <div class="slide-text">
+                        <h2>Belofteweekend</h2>
+                        <p>Het belofteweekend komt er weer aan!
+                            Vergeet zeker niet in te schrijven via stamhoofd, de deadline is 30 november.
+                        </p>
+                        <button class="meer-button">Meer info</button>
+                    </div>
+                </div>
+                <div class="slide">
+                    <img src="/assets/images/slideshow/3image.jpg" alt="TC's Cadeaupakket">
+                    <div class="slide-text">
+                        <h2>TC's Cadeaupakket</h2>
+                        <p>Nog op zoek naar het perfecte cadeau voor onder de kerstboom? Verras je geliefden met ons cadeaupakket met typisch Mechelse lekkernijen! 🎁
+                        Samen met @sjolaa en de @broodbroeders stelden we dit heerlijke pakket samen, met voor ieder wat wils.
+                        Het pakket bevat:
+                        Een fles Blonde Thilaan
+                        Een doosje Mechelse maantjes
+                        Een zakje Mechelse torentjes
+                        Bestel snel en eenvoudig via onze webshop en maak van deze feestdagen iets extra bijzonders!</p>
+                        <button class="meer-button">Meer info</button>
+                    </div>
+                </div>
+            {{ /if }}
+            <!-- Add more slides as needed -->
+        </div>
+        <div class="slideshow-dots">
+            {{ if news_slides }}
+                {{ news_slides }}
+                    <span class="dot" data-slide="{{ count - 1 }}"></span>
+                {{ /news_slides }}
+            {{ else }}
+                <span class="dot" data-slide="0"></span>
+                <span class="dot" data-slide="1"></span>
+                <span class="dot" data-slide="2"></span>
+            {{ /if }}
+        </div>
+
+        <script>
+            // Add click handlers to slideshow dots
+            document.addEventListener('DOMContentLoaded', function() {
+                const dots = document.querySelectorAll('.slideshow-dots .dot');
+                dots.forEach(dot => {
+                    dot.addEventListener('click', function() {
+                        const slideIndex = parseInt(this.getAttribute('data-slide'));
+                        currentSlide(slideIndex);
+                    });
+                });
+            });
+        </script>
+            <!-- Add more dots as needed -->
+        </div>
+        </div>
+        </div>
+    </div>
+    
+    <nav class="lower navigation-grid" aria-label="Hoofdnavigatie">
+        <a href="/thilala" class="nav-button" aria-label="Thilala clubblad">
+            <img src="/assets/images/icons/Asset 11thilala.svg" alt="Thilala icoon">
+            <h3>Thilala</h3>
+        </a>
+        <a href="/stamhoofd" class="nav-button" aria-label="Stamhoofd informatie">
+            <img src="/assets/images/icons/Asset 1stamhoofd.svg" alt="Stamhoofd icoon">
+            <h3>Stamhoofd</h3>
+        </a>
+        <a href="/kalender" class="nav-button" aria-label="Evenementen kalender">
+            <img src="/assets/images/icons/Asset 12agenda.svg" alt="Kalender icoon">
+            <h3>Kalender</h3>
+        </a>
+        <a href="/takken" class="nav-button" aria-label="Scouts takken">
+            <img src="/assets/images/icons/Asset 7takken.svg" alt="Takken icoon">
+            <h3>Takken</h3>
+        </a>
+        <a href="/verhuur" class="nav-button" aria-label="Lokaal verhuur">
+            <img src="/assets/images/icons/Asset 13verhuur.svg" alt="Verhuur icoon">
+            <h3>Verhuur</h3>
+        </a>
+        <a href="/meer" class="nav-button" aria-label="Meer informatie">
+            <img src="/assets/images/icons/Asset 19meer.svg" alt="Meer icoon">
+            <h3>Meer</h3>
+        </a>
+    </nav>
+</div>
+
+<script src="/assets/js/slideshow.js"></script>
+<script src="/assets/js/news-slideshow.js"></script>

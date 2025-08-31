@@ -1,0 +1,9 @@
+site_instellingen:
+  title: Site Instellingen
+  handle: site_instellingen
+  blueprint: site_instellingen
+
+leidingsploegen:
+  title: Leidingsploegen
+  handle: leidingsploegen
+  blueprint: leidingsploegen

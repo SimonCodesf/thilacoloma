@@ -1,0 +1,913 @@
+{% extends "_layouts/page.twig" %}
+{% set pageTitle = "Verhuur - Thila Coloma - Scoutsgroep Mechelen" %}
+
+{% block content %}
+
+    
+        <div class="page-section">
+            <h2>Verhuur</h2>
+            <p class="section-intro">
+                Welkom bij onze verhuurservice. Kies hieronder wat je wilt huren of bekijk alle opties.
+            </p>
+
+            <!-- Tab Navigation -->
+            <div class="tab-navigation">
+                <button class="tab-button active" onclick="showTab('lokalen')">
+                    <i class="fas fa-building"></i>
+                    Lokalen
+                </button>
+                <button class="tab-button" onclick="showTab('materiaal')">
+                    <i class="fas fa-tools"></i>
+                    Materiaal
+                </button>
+                <button class="tab-button" onclick="showTab('tenten')">
+                    <i class="fas fa-campground"></i>
+                    Tenten
+                </button>
+            </div>
+
+            <!-- Lokalen Tab -->
+            <div id="lokalen-tab" class="tab-content active">
+                <div class="tab-header">
+                    <h3>Lokalen Verhuur</h3>
+                    <p>Onze lokalen zijn perfect voor feesten, vergaderingen en andere evenementen.</p>
+                </div>
+
+                <!-- Lokalen Slideshow -->
+                <div class="verhuur-slideshow-container">
+                    <h4>Onze Lokalen</h4>
+                    <div class="verhuur-slideshow" id="lokalen-slideshow">
+                        <div class="verhuur-slide active">
+                            <img src="https://via.placeholder.com/800x400/374794/ffffff?text=Groot+Lokaal" alt="Groot lokaal overzicht">
+                            <div class="slide-caption">Groot lokaal - Perfect voor grote feesten en evenementen</div>
+                        </div>
+                        <div class="verhuur-slide">
+                            <img src="https://via.placeholder.com/800x400/374794/ffffff?text=Klein+Lokaal" alt="Klein lokaal overzicht">
+                            <div class="slide-caption">Klein lokaal - Ideaal voor kleinere bijeenkomsten</div>
+                        </div>
+                        <div class="verhuur-slide">
+                            <img src="https://via.placeholder.com/800x400/374794/ffffff?text=Keuken" alt="Keuken faciliteiten">
+                            <div class="slide-caption">Volledige keuken - Met alle benodigde apparatuur</div>
+                        </div>
+                    </div>
+                    <div class="slideshow-controls">
+                        <button onclick="changeSlide('lokalen-slideshow', -1)">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                        <button onclick="changeSlide('lokalen-slideshow', 1)">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Lokalen Details -->
+                <div class="card">
+                    <div class="card-content">
+                        <h3><i class="fas fa-building"></i> Beschikbare Lokalen</h3>
+                        
+                        <div class="lokaal-item">
+                            <h4>Groot lokaal</h4>
+                            <p><strong>Capaciteit:</strong> 120 personen (zittend), 150 personen (staand)</p>
+                            <p><strong>Faciliteiten:</strong> Podium, geluidsinstallatie, bar, beamer, wifi</p>
+                            <p><strong>Oppervlakte:</strong> 150 m²</p>
+                        </div>
+
+                        <div class="lokaal-item">
+                            <h4>Klein lokaal</h4>
+                            <p><strong>Capaciteit:</strong> 50 personen (zittend), 70 personen (staand)</p>
+                            <p><strong>Faciliteiten:</strong> Geluidsinstallatie, wifi, flexibele opstelling</p>
+                            <p><strong>Oppervlakte:</strong> 75 m²</p>
+                        </div>
+
+                        <div class="lokaal-item">
+                            <h4>Keuken</h4>
+                            <p><strong>Uitrusting:</strong> Professionele keuken met alle nodige apparatuur</p>
+                            <p><strong>Faciliteiten:</strong> Vaatwasser, koelkast, vriezer, oven, kookplaten, werkbladen</p>
+                            <p><strong>Geschikt voor:</strong> Catering tot 150 personen</p>
+                        </div>
+
+                        <div class="lokaal-item">
+                            <h4>Sanitair</h4>
+                            <p><strong>Voorzieningen:</strong> Toiletten voor heren en dames, aangepast toilet</p>
+                            <p><strong>Extra:</strong> Kleedkamers beschikbaar</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Prijzen lokalen -->
+                <div class="card">
+                    <div class="card-content">
+                        <h3><i class="fas fa-euro-sign"></i> Prijzen Lokalen</h3>
+                        <ul class="pricing-list">
+                            <li><strong>Groot lokaal (weekend):</strong> €200 per dag</li>
+                            <li><strong>Groot lokaal (weekdag):</strong> €150 per dag</li>
+                            <li><strong>Klein lokaal (weekend):</strong> €100 per dag</li>
+                            <li><strong>Klein lokaal (weekdag):</strong> €75 per dag</li>
+                            <li><strong>Keuken:</strong> €50 per dag (bij lokaal verhuur)</li>
+                            <li><strong>Volledige site:</strong> Op aanvraag</li>
+                        </ul>
+                        
+                        <div class="alert alert-info">
+                            <p><strong>Inbegrepen:</strong> Basis meubilair (tafels en stoelen), elektriciteit, water, verwarming, wifi</p>
+                        </div>
+                        
+                        <div class="alert alert-warning">
+                            <p><strong>Waarborg:</strong> €200 (wordt terugbetaald na controle)</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact lokalen -->
+                <div class="card">
+                    <div class="card-content">
+                        <h3><i class="fas fa-envelope"></i> Contact Lokalen</h3>
+                        <p>Voor vragen over lokalen verhuur kun je terecht bij <span>Wim Van den Broeck</span>:</p>
+                        <div class="contact-info">
+                            <a href="mailto:wim.vandenbroeck@thilacoloma.be" class="btn btn-primary">
+                                <i class="fas fa-envelope"></i> wim.vandenbroeck@thilacoloma.be
+                            </a>
+                            <a href="tel:+32499123456" class="btn btn-secondary">
+                                <i class="fas fa-phone"></i> +32 499 12 34 56
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Materiaal Tab -->
+            <div id="materiaal-tab" class="tab-content">
+                <div class="tab-header">
+                    <h3>Materiaal Verhuur</h3>
+                    <p>Praktisch materiaal voor al je activiteiten en evenementen.</p>
+                </div>
+
+                <div class="materiaal-grid">
+                    <div class="card materiaal-item">
+                        <div class="card-content">
+                            <h4><i class="fas fa-chair"></i> Plastic stoelen</h4>
+                            <div class="materiaal-details">
+                                <span><strong>Aantal:</strong> 200</span>
+                                <span><strong>Prijs per dag:</strong> €0.50</span>
+                                <span><strong>Waarborg:</strong> Huurprijs</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card materiaal-item">
+                        <div class="card-content">
+                            <h4><i class="fas fa-table"></i> Plastic tafels</h4>
+                            <div class="materiaal-details">
+                                <span><strong>Aantal:</strong> 50</span>
+                                <span><strong>Prijs per dag:</strong> €2</span>
+                                <span><strong>Waarborg:</strong> Huurprijs</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card materiaal-item">
+                        <div class="card-content">
+                            <h4><i class="fas fa-beer"></i> Biertafels</h4>
+                            <div class="materiaal-details">
+                                <span><strong>Aantal:</strong> 25</span>
+                                <span><strong>Prijs per dag:</strong> €3</span>
+                                <span><strong>Waarborg:</strong> Huurprijs</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card materiaal-item">
+                        <div class="card-content">
+                            <h4><i class="fas fa-chair"></i> Bierbankjes</h4>
+                            <div class="materiaal-details">
+                                <span><strong>Aantal:</strong> 50</span>
+                                <span><strong>Prijs per dag:</strong> €1.50</span>
+                                <span><strong>Waarborg:</strong> Huurprijs</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card materiaal-item">
+                        <div class="card-content">
+                            <h4><i class="fas fa-box"></i> Koelbox</h4>
+                            <div class="materiaal-details">
+                                <span><strong>Aantal:</strong> 10</span>
+                                <span><strong>Prijs per dag:</strong> €2</span>
+                                <span><strong>Waarborg:</strong> Huurprijs</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card materiaal-item">
+                        <div class="card-content">
+                            <h4><i class="fas fa-dolly"></i> Kar</h4>
+                            <div class="materiaal-details">
+                                <span><strong>Aantal:</strong> 3</span>
+                                <span><strong>Prijs per dag:</strong> €10</span>
+                                <span><strong>Waarborg:</strong> €20</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card materiaal-item">
+                        <div class="card-content">
+                            <h4><i class="fas fa-cut"></i> Bijl</h4>
+                            <div class="materiaal-details">
+                                <span><strong>Aantal:</strong> 7</span>
+                                <span><strong>Prijs per dag:</strong> €5</span>
+                                <span><strong>Waarborg:</strong> Huurprijs</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card materiaal-item">
+                        <div class="card-content">
+                            <h4><i class="fas fa-tools"></i> Pickhouweel</h4>
+                            <div class="materiaal-details">
+                                <span><strong>Aantal:</strong> 5</span>
+                                <span><strong>Prijs per dag:</strong> €6</span>
+                                <span><strong>Waarborg:</strong> Huurprijs</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact materiaal -->
+                <div class="card">
+                    <div class="card-content">
+                        <h3><i class="fas fa-envelope"></i> Contact Materiaal</h3>
+                        <p>Voor alle vragen over materiaal kun je terecht bij <span>Kantjil (Ferre Meuleman)</span>:</p>
+                        <a href="mailto:kantjil@thilacoloma.be" class="btn btn-primary">
+                            <i class="fas fa-envelope"></i> kantjil@thilacoloma.be
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tenten Tab -->
+            <div id="tenten-tab" class="tab-content">
+                <div class="tab-header">
+                    <h3>Tenten Verhuur</h3>
+                    <p>Kwaliteitsvolle tenten voor al je outdoor evenementen.</p>
+                </div>
+
+                <div class="tent-category-info">
+                    <p><i class="fas fa-info-circle"></i> Alle tenten worden compleet geleverd met alle benodigde onderdelen en opbouw instructies.</p>
+                </div>
+
+                <div class="tent-grid">
+                    <!-- Hazel tent -->
+                    <div class="tent-item">
+                        <h4>Hazel - 6 personen</h4>
+                        <div class="tent-slideshow-container">
+                            <div class="tent-slideshow" id="hazel-slideshow">
+                                <div class="tent-slide active">
+                                    <img src="https://via.placeholder.com/350x250/374794/ffffff?text=Hazel+Tent+Buiten" alt="Hazel tent buitenkant">
+                                </div>
+                                <div class="tent-slide">
+                                    <img src="https://via.placeholder.com/350x250/374794/ffffff?text=Hazel+Tent+Binnen" alt="Hazel tent binnenkant">
+                                </div>
+                                <div class="tent-slide">
+                                    <img src="https://via.placeholder.com/350x250/374794/ffffff?text=Hazel+Tent+Opbouw" alt="Hazel tent opbouw">
+                                </div>
+                            </div>
+                            <div class="tent-slideshow-controls">
+                                <button onclick="changeTentSlide('hazel-slideshow', -1)">
+                                    <i class="fas fa-chevron-left"></i>
+                                </button>
+                                <button onclick="changeTentSlide('hazel-slideshow', 1)">
+                                    <i class="fas fa-chevron-right"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="tent-specs">
+                            <p><strong>Capaciteit:</strong> 6 personen</p>
+                            <p><strong>Afmetingen:</strong> 4.5m x 3m x 2.1m (hoog)</p>
+                            <p><strong>Gewicht:</strong> 15 kg</p>
+                            <p><strong>Seizoen:</strong> 3-seizoenen tent</p>
+                            <p><strong>Materiaal:</strong> Polyester flysheet, ademend binnenweefsel</p>
+                        </div>
+                        <div class="tent-pricing">
+                            <div><span>1-3 dagen:</span> <strong>€25</strong></div>
+                            <div><span>4-7 dagen:</span> <strong>€35</strong></div>
+                            <div><span>Week (8-14 dagen):</span> <strong>€45</strong></div>
+                            <div><span>Waarborg:</span> <strong>€50</strong></div>
+                        </div>
+                    </div>
+
+                    <!-- Patrol tent -->
+                    <div class="tent-item">
+                        <h4>Patrol - 8 personen</h4>
+                        <div class="tent-slideshow-container">
+                            <div class="tent-slideshow" id="patrol-slideshow">
+                                <div class="tent-slide active">
+                                    <img src="https://via.placeholder.com/350x250/374794/ffffff?text=Patrol+Tent+Buiten" alt="Patrol tent buitenkant">
+                                </div>
+                                <div class="tent-slide">
+                                    <img src="https://via.placeholder.com/350x250/374794/ffffff?text=Patrol+Tent+Binnen" alt="Patrol tent binnenkant">
+                                </div>
+                                <div class="tent-slide">
+                                    <img src="https://via.placeholder.com/350x250/374794/ffffff?text=Patrol+Tent+Detail" alt="Patrol tent details">
+                                </div>
+                            </div>
+                            <div class="tent-slideshow-controls">
+                                <button onclick="changeTentSlide('patrol-slideshow', -1)">
+                                    <i class="fas fa-chevron-left"></i>
+                                </button>
+                                <button onclick="changeTentSlide('patrol-slideshow', 1)">
+                                    <i class="fas fa-chevron-right"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="tent-specs">
+                            <p><strong>Capaciteit:</strong> 8 personen</p>
+                            <p><strong>Afmetingen:</strong> 5.5m x 4m x 2.3m (hoog)</p>
+                            <p><strong>Gewicht:</strong> 22 kg</p>
+                            <p><strong>Seizoen:</strong> 4-seizoenen tent</p>
+                            <p><strong>Materiaal:</strong> Verstevigd polyester, waterdicht tot 3000mm</p>
+                        </div>
+                        <div class="tent-pricing">
+                            <div><span>1-3 dagen:</span> <strong>€35</strong></div>
+                            <div><span>4-7 dagen:</span> <strong>€50</strong></div>
+                            <div><span>Week (8-14 dagen):</span> <strong>€65</strong></div>
+                            <div><span>Waarborg:</span> <strong>€75</strong></div>
+                        </div>
+                    </div>
+
+                    <!-- Vermont tent -->
+                    <div class="tent-item">
+                        <h4>Vermont - 12 personen</h4>
+                        <div class="tent-slideshow-container">
+                            <div class="tent-slideshow" id="vermont-slideshow">
+                                <div class="tent-slide active">
+                                    <img src="https://via.placeholder.com/350x250/374794/ffffff?text=Vermont+Tent+Buiten" alt="Vermont tent buitenkant">
+                                </div>
+                                <div class="tent-slide">
+                                    <img src="https://via.placeholder.com/350x250/374794/ffffff?text=Vermont+Tent+Binnen" alt="Vermont tent binnenkant">
+                                </div>
+                                <div class="tent-slide">
+                                    <img src="https://via.placeholder.com/350x250/374794/ffffff?text=Vermont+Tent+Compartimenten" alt="Vermont tent compartimenten">
+                                </div>
+                            </div>
+                            <div class="tent-slideshow-controls">
+                                <button onclick="changeTentSlide('vermont-slideshow', -1)">
+                                    <i class="fas fa-chevron-left"></i>
+                                </button>
+                                <button onclick="changeTentSlide('vermont-slideshow', 1)">
+                                    <i class="fas fa-chevron-right"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="tent-specs">
+                            <p><strong>Capaciteit:</strong> 12 personen</p>
+                            <p><strong>Afmetingen:</strong> 7m x 5m x 2.5m (hoog)</p>
+                            <p><strong>Gewicht:</strong> 35 kg</p>
+                            <p><strong>Seizoen:</strong> 4-seizoenen tent</p>
+                            <p><strong>Materiaal:</strong> Canvas, extra verstevigd voor intensief gebruik</p>
+                            <p><strong>Extra:</strong> Aparte compartimenten, voorafsectie</p>
+                        </div>
+                        <div class="tent-pricing">
+                            <div><span>1-3 dagen:</span> <strong>€50</strong></div>
+                            <div><span>4-7 dagen:</span> <strong>€70</strong></div>
+                            <div><span>Week (8-14 dagen):</span> <strong>€90</strong></div>
+                            <div><span>Waarborg:</span> <strong>€100</strong></div>
+                        </div>
+                    </div>
+
+                    <!-- Sibley tent -->
+                    <div class="tent-item">
+                        <h4>Sibley - 14 personen</h4>
+                        <div class="tent-slideshow-container">
+                            <div class="tent-slideshow" id="sibley-slideshow">
+                                <div class="tent-slide active">
+                                    <img src="https://via.placeholder.com/350x250/374794/ffffff?text=Sibley+Tent+Buiten" alt="Sibley tent buitenkant">
+                                </div>
+                                <div class="tent-slide">
+                                    <img src="https://via.placeholder.com/350x250/374794/ffffff?text=Sibley+Tent+Binnen" alt="Sibley tent binnenkant">
+                                </div>
+                                <div class="tent-slide">
+                                    <img src="https://via.placeholder.com/350x250/374794/ffffff?text=Sibley+Tent+Opstelling" alt="Sibley tent opstelling">
+                                </div>
+                            </div>
+                            <div class="tent-slideshow-controls">
+                                <button onclick="changeTentSlide('sibley-slideshow', -1)">
+                                    <i class="fas fa-chevron-left"></i>
+                                </button>
+                                <button onclick="changeTentSlide('sibley-slideshow', 1)">
+                                    <i class="fas fa-chevron-right"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="tent-specs">
+                            <p><strong>Capaciteit:</strong> 14 personen</p>
+                            <p><strong>Afmetingen:</strong> Ø 6m x 3m (hoog)</p>
+                            <p><strong>Gewicht:</strong> 28 kg</p>
+                            <p><strong>Seizoen:</strong> 3-seizoenen tent</p>
+                            <p><strong>Materiaal:</strong> Premium canvas, tipi-vormig ontwerp</p>
+                            <p><strong>Extra:</strong> Centrale paal systeem, rondom instap</p>
+                        </div>
+                        <div class="tent-pricing">
+                            <div><span>1-3 dagen:</span> <strong>€45</strong></div>
+                            <div><span>4-7 dagen:</span> <strong>€65</strong></div>
+                            <div><span>Week (8-14 dagen):</span> <strong>€85</strong></div>
+                            <div><span>Waarborg:</span> <strong>€90</strong></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tenten algemene info -->
+                <div class="card">
+                    <div class="card-content">
+                        <h3><i class="fas fa-info-circle"></i> Algemene Informatie Tenten</h3>
+                        <ul>
+                            <li><strong>Ophalen:</strong> Tenten kunnen opgehaald worden op afspraak</li>
+                            <li><strong>Staat:</strong> Alle tenten worden proper en compleet geleverd</li>
+                            <li><strong>Schade:</strong> Eventuele schade wordt verrekend met de waarborg</li>
+                            <li><strong>Reservatie:</strong> Minimum 1 week op voorhand reserveren</li>
+                            <li><strong>Betaling:</strong> Vooruitbetaling + waarborg bij ophalen</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Contact tenten -->
+                <div class="card">
+                    <div class="card-content">
+                        <h3><i class="fas fa-envelope"></i> Contact Tenten</h3>
+                        <p>Voor alle vragen over tenten kun je terecht bij <span>Kantjil (Ferre Meuleman)</span>:</p>
+                        <a href="mailto:kantjil@thilacoloma.be" class="btn btn-primary">
+                            <i class="fas fa-envelope"></i> kantjil@thilacoloma.be
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+
+    <style>
+        /* Tab Navigation */
+        .tab-navigation {
+            display: flex;
+            justify-content: center;
+            margin: var(--spacing-xl) 0;
+            gap: var(--spacing-md);
+        }
+        
+        .tab-button {
+            background: var(--broken-white);
+            color: var(--primary-color);
+            border: 2px solid var(--primary-color);
+            padding: var(--spacing-md) var(--spacing-xl);
+            border-radius: var(--border-radius-md);
+            font-family: var(--font-medium);
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: all var(--transition-normal);
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+        }
+        
+        .tab-button:hover {
+            background: var(--primary-color);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(55, 71, 148, 0.3);
+        }
+        
+        .tab-button.active {
+            background: var(--primary-color);
+            color: white;
+            box-shadow: 0 4px 12px rgba(55, 71, 148, 0.3);
+        }
+        
+        .tab-button i {
+            font-size: 1.2em;
+        }
+        
+        /* Tab Content */
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.3s ease-in;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        .tab-header {
+            text-align: center;
+            margin-bottom: var(--spacing-xl);
+            padding: var(--spacing-lg);
+            background: var(--light-bg);
+            border-radius: var(--border-radius-md);
+        }
+        
+        .tab-header h3 {
+            color: var(--primary-color);
+            font-family: var(--font-bold);
+            font-size: 1.8em;
+            margin-bottom: var(--spacing-md);
+        }
+        
+        /* Slideshow styling */
+        .verhuur-slideshow-container {
+            margin: var(--spacing-xl) 0;
+            text-align: center;
+        }
+        
+        .verhuur-slideshow-container h4 {
+            color: var(--primary-color);
+            font-family: var(--font-medium);
+            margin-bottom: var(--spacing-lg);
+            font-size: 1.3em;
+        }
+        
+        .verhuur-slideshow {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+            border-radius: var(--border-radius-md);
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        .verhuur-slide {
+            display: none;
+            position: relative;
+        }
+        
+        .verhuur-slide.active {
+            display: block;
+        }
+        
+        .verhuur-slide img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+        }
+        
+        .slide-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.8));
+            color: white;
+            padding: var(--spacing-lg) var(--spacing-md) var(--spacing-md);
+            font-family: var(--font-medium);
+            font-size: 1.1em;
+        }
+        
+        .slideshow-controls {
+            margin-top: var(--spacing-md);
+            display: flex;
+            justify-content: center;
+            gap: var(--spacing-md);
+        }
+        
+        .slideshow-controls button {
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            cursor: pointer;
+            transition: all var(--transition-normal);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .slideshow-controls button:hover {
+            background: var(--dark-color);
+            transform: scale(1.1);
+        }
+        
+        /* Tent slideshow */
+        .tent-slideshow-container {
+            margin-bottom: var(--spacing-lg);
+        }
+        
+        .tent-slideshow {
+            position: relative;
+            border-radius: var(--border-radius-md);
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .tent-slide {
+            display: none;
+        }
+        
+        .tent-slide.active {
+            display: block;
+        }
+        
+        .tent-slide img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+        
+        .tent-slideshow-controls {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 var(--spacing-sm);
+            pointer-events: none;
+        }
+        
+        .tent-slideshow-controls button {
+            background: rgba(55, 71, 148, 0.8);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+            transition: all var(--transition-normal);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            pointer-events: all;
+        }
+        
+        .tent-slideshow-controls button:hover {
+            background: var(--primary-color);
+            transform: scale(1.1);
+        }
+        
+        /* Material grid */
+        .materiaal-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--spacing-md);
+            margin: var(--spacing-lg) 0;
+        }
+        
+        .materiaal-item {
+            transition: transform var(--transition-normal);
+        }
+        
+        .materiaal-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        .materiaal-item h4 {
+            color: var(--primary-color);
+            font-family: var(--font-medium);
+            margin-bottom: var(--spacing-md);
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+        }
+        
+        .materiaal-item h4 i {
+            color: var(--primary-color);
+            width: 20px;
+        }
+        
+        .materiaal-details {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-xs);
+        }
+        
+        .materiaal-details span {
+            font-size: 0.9em;
+            padding: var(--spacing-xs) 0;
+        }
+        
+        /* Tent styling */
+        .tent-category-info {
+            font-style: italic;
+            color: var(--primary-color);
+            margin-bottom: var(--spacing-lg);
+            padding: var(--spacing-sm);
+            background-color: var(--light-bg);
+            border-radius: var(--border-radius-sm);
+        }
+        
+        .tent-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: var(--spacing-lg);
+            margin: var(--spacing-lg) 0;
+        }
+        
+        .tent-item {
+            border: 2px solid var(--light-bg);
+            border-radius: var(--border-radius-md);
+            padding: var(--spacing-lg);
+            background: white;
+            transition: all var(--transition-normal);
+        }
+        
+        .tent-item:hover {
+            border-color: var(--primary-color);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(55, 71, 148, 0.1);
+        }
+        
+        .tent-item h4 {
+            color: var(--primary-color);
+            font-family: var(--font-bold);
+            font-size: 1.3em;
+            margin-bottom: var(--spacing-md);
+            padding-bottom: var(--spacing-sm);
+            border-bottom: 2px solid var(--light-bg);
+        }
+        
+        .tent-specs {
+            margin-bottom: var(--spacing-lg);
+        }
+        
+        .tent-specs p {
+            margin: var(--spacing-xs) 0;
+            font-size: 0.95em;
+            line-height: 1.4;
+        }
+        
+        .tent-pricing {
+            background-color: var(--light-bg);
+            padding: var(--spacing-md);
+            border-radius: var(--border-radius-sm);
+            display: grid;
+            gap: var(--spacing-xs);
+        }
+        
+        .tent-pricing div {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: var(--spacing-xs) 0;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        .tent-pricing div:last-child {
+            border-bottom: none;
+        }
+        
+        /* Other existing styles */
+        .lokaal-item {
+            margin: 0;
+            padding: var(--spacing-sm) 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .lokaal-item:last-child {
+            border-bottom: none;
+        }
+        
+        .lokaal-item h4 {
+            color: var(--primary-color);
+            font-family: var(--font-medium);
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .pricing-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .pricing-list li {
+            padding: var(--spacing-sm) 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        
+        .pricing-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .contact-info {
+            display: flex;
+            gap: var(--spacing-md);
+            margin-top: var(--spacing-md);
+        }
+        
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .tab-navigation {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .tab-button {
+                width: 200px;
+                justify-content: center;
+            }
+            
+            .materiaal-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .tent-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .verhuur-slide img {
+                height: 250px;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+            }
+        }
+    </style>
+
+    <script>
+        // Tab functionality
+        function showTab(tabName) {
+            // Hide all tab contents
+            const tabContents = document.querySelectorAll('.tab-content');
+            tabContents.forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // Remove active class from all tab buttons
+            const tabButtons = document.querySelectorAll('.tab-button');
+            tabButtons.forEach(button => {
+                button.classList.remove('active');
+            });
+            
+            // Show selected tab content
+            document.getElementById(tabName + '-tab').classList.add('active');
+            
+            // Add active class to clicked button
+            event.target.classList.add('active');
+        }
+        
+        // General slideshow functionality
+        function changeSlide(slideshowId, direction) {
+            const slideshow = document.getElementById(slideshowId);
+            const slides = slideshow.querySelectorAll('.verhuur-slide');
+            let currentIndex = 0;
+            
+            // Find current active slide
+            slides.forEach((slide, index) => {
+                if (slide.classList.contains('active')) {
+                    currentIndex = index;
+                }
+            });
+            
+            // Remove active class from current slide
+            slides[currentIndex].classList.remove('active');
+            
+            // Calculate next slide index
+            currentIndex += direction;
+            if (currentIndex >= slides.length) currentIndex = 0;
+            if (currentIndex < 0) currentIndex = slides.length - 1;
+            
+            // Add active class to new slide
+            slides[currentIndex].classList.add('active');
+        }
+        
+        // Tent slideshow functionality
+        function changeTentSlide(slideshowId, direction) {
+            const slideshow = document.getElementById(slideshowId);
+            const slides = slideshow.querySelectorAll('.tent-slide');
+            let currentIndex = 0;
+            
+            // Find current active slide
+            slides.forEach((slide, index) => {
+                if (slide.classList.contains('active')) {
+                    currentIndex = index;
+                }
+            });
+            
+            // Remove active class from current slide
+            slides[currentIndex].classList.remove('active');
+            
+            // Calculate next slide index
+            currentIndex += direction;
+            if (currentIndex >= slides.length) currentIndex = 0;
+            if (currentIndex < 0) currentIndex = slides.length - 1;
+            
+            // Add active class to new slide
+            slides[currentIndex].classList.add('active');
+        }
+        
+        // Auto-advance slideshows (optional)
+        function autoAdvanceSlideshow(slideshowId, intervalMs = 5000) {
+            setInterval(() => {
+                changeSlide(slideshowId, 1);
+            }, intervalMs);
+        }
+        
+        // Initialize page
+        document.addEventListener('DOMContentLoaded', function() {
+            // Auto-advance the main lokalen slideshow
+            autoAdvanceSlideshow('lokalen-slideshow', 6000);
+        });
+    </script>
+{% endblock %}

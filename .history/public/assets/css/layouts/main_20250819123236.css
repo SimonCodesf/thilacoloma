@@ -1,0 +1,231 @@
+/* Import external stylesheets */
+@import url('variables.css');
+@import url('fonts.css');
+
+/* Global Styles */
+body, html {
+    font-family: var(--font-regular);
+    height: 100%;
+    margin: 0;
+    background: var(--light-bg);
+}
+
+/* Homepage specific background with logo */
+body.homepage {
+    background: white url(../images/icons/Asset\ 10thilala.svg) no-repeat center -200px / 80vw;
+}
+
+span {
+    text-decoration: underline dotted var(--primary-color) 3px;
+    transition: var(--transition-fast);
+    font-family: var(--font-medium);
+}
+
+span:hover {
+    color: var(--pink-color);
+    text-decoration-color: var(--pink-color);
+}
+
+strong {
+    font-family: var(--font-medium);
+}
+
+/* Links binnen spans en spans binnen links krijgen dezelfde styling als spans */
+a span, span a, a:has(span) {
+    color: var(--primary-color);
+    text-decoration: underline dotted var(--primary-color) 3px;
+    font-family: var(--font-medium);
+    transition: var(--transition-fast);
+}
+
+a:hover span, span:hover a, a:has(span):hover {
+    color: var(--pink-color);
+    text-decoration-color: var(--pink-color);
+}
+
+/* Reset default link styling for links that contain spans */
+a:has(span) {
+    text-decoration: none;
+}
+
+a:has(span) span {
+    text-decoration: underline dotted var(--primary-color) 3px;
+}
+
+mark {
+    background-color: #fff;
+    color: var(--primary-color);
+}
+
+h1 {
+    font-family: var(--font-title);
+    font-weight: 400;
+    font-size: 3em;
+    margin: 0;
+}
+
+/* Container Styles */
+.containerVoorpagina {
+    display: flex !important;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+}
+
+.box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    margin: var(--spacing-lg);
+    border-radius: var(--border-radius-md);
+}
+
+/* Upper Section */
+.upper {
+    display: flex;
+    flex: 2;
+}
+
+.upper-left {
+    flex: 2;
+    flex-direction: column;
+    align-items: start;
+    margin: var(--spacing-lg) 0px var(--spacing-lg) var(--spacing-xxl);
+    justify-content: center;
+    padding: var(--spacing-sm);
+    height: fit-content;
+    align-self: center;
+}
+
+.upper-left h1 {
+    text-align: left;
+    color: var(--primary-color);
+    font-size: 3.5em;
+}
+
+.upper-left p {
+    font-family: var(--font-regular);
+    font-size: 1.2em;
+    color: var(--primary-color);
+}
+
+.upper-left img {
+    width: 70px;
+}
+
+.titel {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container-upper-right {
+    display: flex;
+    flex: 2.7;
+    flex-direction: column;
+    margin: var(--spacing-xxl);
+    margin-bottom: var(--spacing-md);
+    position: relative;
+}
+
+.container-upper-right h1 {
+    color: var(--primary-color);
+    font-family: var(--font-medium);
+    font-size: 1.3em;
+    text-align: center;
+    margin-left: 60px;
+    margin-bottom: -20px;
+}
+
+.upper-right {
+    position: relative;
+    background-color: rgba(255, 255, 255, 0);
+    margin: var(--spacing-xl) var(--spacing-xl) var(--spacing-md) 60px;
+    height: 400px; /* Expliciete hoogte toegevoegd voor juiste verhoudingen */
+}
+
+.upper-right h2 {
+    color: var(--primary-color);
+    font-family: var(--font-bold);
+    font-weight: 400;
+    font-size: 2em;
+}
+
+/* Lower Section - Legacy styles for backward compatibility */
+.lower {
+    display: flex;
+    flex-wrap: wrap;
+    flex: 1;
+    padding: 0 var(--spacing-md);
+    background-color: var(--broken-white);
+}
+
+.lower .box {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 75%;
+    background-color: var(--primary-color);
+    box-shadow: 0 0px 10px rgba(34, 11, 77, 0.3);
+    flex: 1 1 calc(0% - 40px);
+    margin: var(--spacing-md);
+}
+
+.lower .box:nth-child(1) {
+    background-color: var(--dark-color);
+}
+
+.lower .box:nth-child(2) {
+    background-color: var(--primary-color);
+}
+
+.lower .box:nth-child(4) {
+    background-color: var(--dark-color);
+}
+
+.lower .box:nth-child(5) {
+    background-color: var(--primary-color);
+}
+
+.lower .box:nth-child(6) {
+    background-color: var(--dark-color);
+}
+
+.lower img {
+    width: 30%;
+    margin-top: auto;
+    margin-bottom: -10px;
+}
+
+.lower h3 {
+    font-family: var(--font-medium);
+    font-size: 1.5em;
+    margin-top: auto;
+}
+
+/* Navigation box colors */
+.lower .nav-button:nth-child(1) {
+    background-color: var(--dark-color);
+}
+
+.lower .nav-button:nth-child(2) {
+    background-color: #362256;
+}
+
+.lower .nav-button:nth-child(3) {
+    background-color: var(--pink-color);
+}
+
+.lower .nav-button:nth-child(4) {
+    background-color: #7CA687;
+}
+
+.lower .nav-button:nth-child(5) {
+    background-color: #314022;
+}
+
+.lower .nav-button:nth-child(6) {
+    background-color: rgb(8, 24, 4);
+}

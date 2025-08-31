@@ -1,0 +1,1311 @@
+        <div class="page-section">
+            <h2>Verhuur</h2>
+
+            <!-- Tab Navigation -->
+            <div class="tab-navigation">
+                <button class="tab-button active" onclick="showTab('lokalen')">
+                    <i class="fas fa-building"></i>
+                    Lokalen
+                </button>
+                <button class="tab-button" onclick="showTab('materiaal')">
+                    <i class="fas fa-tools"></i>
+                    Materiaal
+                </button>
+                <button class="tab-button" onclick="showTab('tenten')">
+                    <i class="fas fa-campground"></i>
+                    Tenten
+                </button>
+            </div>
+
+            <!-- Lokalen Tab -->
+            <div id="lokalen" class="tab-content active">
+                <!-- Kampas Iframe Kaart -->
+                <div class="iframe-card">
+                    <div class="iframe-card-header">
+                        <div class="iframe-card-info">
+                            <h3><i class="fas fa-calendar-alt"></i> Beschikbaarheid & Reservaties</h3>
+                            <p>Controleer hier de beschikbaarheid van onze lokalen en reserveer direct online via het Kampas platform.</p>
+                        </div>
+                        <a href="https://www.kampas.be/nl/domein/scouts-thila-coloma" target="_blank" class="iframe-fallback-toggle" style="text-decoration: none;">
+                            <i class="fas fa-external-link-alt"></i>
+                            <span>Open Kampas</span>
+                        </a>
+                    </div>
+                    
+                    <!-- Iframe container -->
+                    <div class="iframe-container" id="kampas-iframe-container">
+                        <iframe 
+                            id="kampas-iframe" 
+                            src="https://www.kampas.be/nl/domein/scouts-thila-coloma" 
+                            title="Kampas - Beschikbaarheid en Reservaties">
+                        </iframe>
+                    </div>
+                </div>
+
+                <!-- Contact -->
+                <div class="card">
+                    <div class="card-content">
+                        <h3><i class="fas fa-envelope"></i> Contact</h3>
+                        <p>Onze verhuurverantwoordelijke voor de lokalen is <strong>Turdo (Robin Hermans)</strong>:</p>
+                        <a href="mailto:verhuur@thilacoloma.be" class="btn btn-primary">
+                            <i class="fas fa-envelope"></i> verhuur@thilacoloma.be
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Belangrijke Warning -->
+                <div class="alert alert-warning">
+                    <p><strong>Let op:</strong> Wij verhuren niet voor fuiven of andere avondactiviteiten met luide muziek. <strong>GEEN LEIDINGSWEEKENDS</strong></p>
+                </div>
+
+                <!-- Beschikbare Lokalen en Locatie -->
+                <div class="lokalen-top-section">
+                    <!-- Beschikbare Lokalen -->
+                    <div class="card">
+                        <div class="card-content">
+                            <h3><i class="fas fa-building"></i> Beschikbare Lokalen</h3>
+                            
+                            <div class="lokaal-item">
+                                <h4>Groot polyvalent lokaal</h4>
+                                <p>Hier kan niet geslapen worden, maar het is wel ideaal om te eten en te koken.</p>
+                                <p><strong>Faciliteiten:</strong> Grote keuken met nodige bestek, borden, tassen, potten en pannen, etc. Ook tafels en banken zijn aanwezig en kunnen gebruikt worden.</p>
+                            </div>
+
+                            <div class="lokaal-item">
+                                <h4>Slaaplokalen</h4>
+                                <p><strong>Gelijkvloers:</strong> 4 lokalen</p>
+                                <p><strong>Eerste verdieping:</strong> 3 lokalen</p>
+                            </div>
+
+                            <div class="lokaal-item">
+                                <h4>Sanitair</h4>
+                                <p><strong>Toiletten:</strong> 7 toiletten, enkele piscines en een gehandicaptentoilet</p>
+                                <p><strong>Douches:</strong> 4 douches en 1 douche geschikt voor mindervaliden</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card location-card">
+                        <div class="card-content">
+                            <h3><i class="fas fa-map-marker-alt"></i> Locatie & Omgeving</h3>
+                            <p><strong>Adres:</strong> Geerdegemstraat 80-82, 2800 Mechelen</p>
+                            <div class="maps-container">
+                                <iframe 
+                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5022.007832677982!2d4.479685176812431!3d50.99759977170181!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c3e66284c5a445%3A0xf7b0d79b8db8303c!2sScouts%20Thila%20Coloma!5e0!3m2!1snl!2sbe!4v1753229256433!5m2!1snl!2sbe"
+                                    width="100%" 
+                                    height="250" 
+                                    style="border:0;" 
+                                    allowfullscreen="" 
+                                    loading="lazy"
+                                    referrerpolicy="no-referrer-when-downgrade">
+                                </iframe>
+                            </div>
+                            <div class="location-info">
+                                <p><i class="fas fa-car"></i> Via korte aardweg bereikbaar</p>
+                                <p><i class="fas fa-tree"></i> Groot terrein en bos aangrenzend</p>
+                                <p><i class="fas fa-train"></i> <strong>Transport:</strong> 4 km van het station en ook met de bus bereikbaar</p>
+                                <p><i class="fas fa-swimmer"></i> <strong>Bloso-domein:</strong> Op 2,5 km (met zwemvijver, strand en bos)</p>
+                                <p><i class="fas fa-shopping-cart"></i> <strong>Voorzieningen:</strong> Bakker, supermarkt... liggen allemaal heel dicht in de buurt</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Materiaal Tab -->
+            <div id="materiaal" class="tab-content">
+                <!-- Contact materiaal -->
+                <div class="card">
+                    <div class="card-content">
+                        <h3><i class="fas fa-envelope"></i> Contact Materiaal</h3>
+                        <p>Voor beschikbaarheid of vragen over de tenten en het materiaal stuur gerust een mailtje naar <span>Kantjil (Ferre Meuleman)</span>:</p>
+                        <a href="mailto:kantjil@thilacoloma.be" class="btn btn-primary">
+                            <i class="fas fa-envelope"></i> kantjil@thilacoloma.be
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Belangrijke info -->
+                <div class="alert alert-info">
+                    <p>We hebben ook materiaal dat niet op de website staat en mogelijks kunnen verhuren. Indien je naar iets specifiek opzoek bent, twijfel niet om ons te contacteren.</p>
+                </div>
+
+                <div class="alert alert-warning">
+                    <p><strong>Tijdens de periode dat wij zelf op kamp zijn (30 juli tot 15 augustus) verhuren wij GEEN tenten of ander materiaal wegens eigen gebruik.</strong></p>
+                </div>
+
+                <!-- Prijzen info -->
+                <div class="card">
+                    <div class="card-content">
+                        <h3><i class="fas fa-euro-sign"></i> Prijzen</h3>
+                        <p><strong>Transport:</strong> €0,5/km met een minimumprijs van €20.<br>
+                        <strong>Korting:</strong> (Oud)Leiding huren aan halve prijs (behalve transportkosten).<br>
+                        <strong>Langdurig/grootschalig:</strong> Er valt te onderhandelen over de prijs.</p>
+                    </div>
+                </div>
+
+                <div class="materiaal-grid">
+                        <div class="card materiaal-item">
+                        <div class="card-content">
+                            <div class="materiaal-image">
+                                <img src="/assets/images/verhuur/materiaal/aanhangwagen.jpg" alt="Aanhangwagen" width="150" height="150">
+                            </div>
+                            <div class="materiaal-header">
+                                <h4><i class="fas fa-trailer"></i> Aanhangwagen</h4>
+                                <span class="materiaal-count">1x</span>
+                            </div>
+                            <div class="materiaal-pricing">
+                                <div>Prijs per dag: <strong>€20</strong></div>
+                                <div>Waarborg: <strong>€50</strong></div>
+                            </div>
+                        </div>
+                    </div>                    <div class="card materiaal-item">
+                        <div class="card-content">
+                            <div class="materiaal-image">
+                                <img src="/assets/images/verhuur/materiaal/gasbekken.jpg" alt="Gasbekken" width="150" height="150">
+                            </div>
+                            <div class="materiaal-header">
+                                <h4><i class="fas fa-fire"></i> Gasbekken</h4>
+                                <span class="materiaal-count">25x</span>
+                            </div>
+                            <div class="materiaal-pricing">
+                                <div>Prijs per dag: <strong>€10</strong></div>
+                                <div>Waarborg: <strong>Huurprijs</strong></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card materiaal-item">
+                        <div class="card-content">
+                            <div class="materiaal-image">
+                                <img src="/assets/images/verhuur/materiaal/kookpot.jpg" alt="Kookpotten" width="150" height="150">
+                            </div>
+                            <div class="materiaal-header">
+                                <h4><i class="fas fa-utensils"></i> Kookpotten</h4>
+                                <span class="materiaal-count">/</span>
+                            </div>
+                            <div class="materiaal-pricing">
+                                <div>Prijs per dag: <strong>€3</strong></div>
+                                <div>Waarborg: <strong>Huurprijs</strong></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card materiaal-item">
+                        <div class="card-content">
+                            <div class="materiaal-image">
+                                <img src="/assets/images/verhuur/materiaal/koelkast.jpg" alt="Koelkast" width="150" height="150">
+                            </div>
+                            <div class="materiaal-header">
+                                <h4><i class="fas fa-thermometer-quarter"></i> Koelkast</h4>
+                                <span class="materiaal-count">/</span>
+                            </div>
+                            <div class="materiaal-pricing">
+                                <div>Prijs per dag: <strong>€10</strong></div>
+                                <div>Waarborg: <strong>€20</strong></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card materiaal-item">
+                        <div class="card-content">
+                            <div class="materiaal-image">
+                                <img src="/assets/images/verhuur/materiaal/ladder.jpg" alt="Ladder" width="150" height="150">
+                            </div>
+                            <div class="materiaal-header">
+                                <h4><i class="fas fa-tools"></i> Ladder</h4>
+                                <span class="materiaal-count">/</span>
+                            </div>
+                            <div class="materiaal-pricing">
+                                <div>Prijs per dag: <strong>€5</strong></div>
+                                <div>Waarborg: <strong>Huurprijs</strong></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card materiaal-item">
+                        <div class="card-content">
+                            <div class="materiaal-image">
+                                <img src="/assets/images/verhuur/materiaal/grondboor.jpg" alt="Grondboor" width="150" height="150">
+                            </div>
+                            <div class="materiaal-header">
+                                <h4><i class="fas fa-cog"></i> Grondboor</h4>
+                                <span class="materiaal-count">10x</span>
+                            </div>
+                            <div class="materiaal-pricing">
+                                <div>Prijs per dag: <strong>€6</strong></div>
+                                <div>Waarborg: <strong>Huurprijs</strong></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card materiaal-item">
+                        <div class="card-content">
+                            <div class="materiaal-image">
+                                <img src="/assets/images/verhuur/materiaal/bank.jpg" alt="Bank" width="150" height="150">
+                            </div>
+                            <div class="materiaal-header">
+                                <h4><i class="fas fa-chair"></i> Bank</h4>
+                                <span class="materiaal-count">99+</span>
+                            </div>
+                            <div class="materiaal-pricing">
+                                <div>Prijs per dag: <strong>€4</strong></div>
+                                <div>Waarborg: <strong>Huurprijs</strong></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card materiaal-item">
+                        <div class="card-content">
+                            <div class="materiaal-image">
+                                <img src="/assets/images/verhuur/materiaal/bakplaat.jpg" alt="Bakplaat" width="150" height="150">
+                            </div>
+                            <div class="materiaal-header">
+                                <h4><i class="fas fa-burn"></i> Bakplaat</h4>
+                                <span class="materiaal-count">2x</span>
+                            </div>
+                            <div class="materiaal-pricing">
+                                <div>Prijs per dag: <strong>€20</strong></div>
+                                <div>Waarborg: <strong>€50</strong></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card materiaal-item">
+                        <div class="card-content">
+                            <div class="materiaal-image">
+                                <img src="/assets/images/verhuur/materiaal/braadslee.jpg" alt="Braadslee" width="150" height="150">
+                            </div>
+                            <div class="materiaal-header">
+                                <h4><i class="fas fa-utensils"></i> Braadslee</h4>
+                                <span class="materiaal-count">6x</span>
+                            </div>
+                            <div class="materiaal-pricing">
+                                <div>Prijs per dag: <strong>€3</strong></div>
+                                <div>Waarborg: <strong>Huurprijs</strong></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card materiaal-item">
+                        <div class="card-content">
+                            <div class="materiaal-image">
+                                <img src="/assets/images/verhuur/materiaal/diepvries.jpg" alt="Diepvries" width="150" height="150">
+                            </div>
+                            <div class="materiaal-header">
+                                <h4><i class="fas fa-snowflake"></i> Diepvries</h4>
+                                <span class="materiaal-count">1x</span>
+                            </div>
+                            <div class="materiaal-pricing">
+                                <div>Prijs per dag: <strong>€15</strong></div>
+                                <div>Waarborg: <strong>€20</strong></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card materiaal-item">
+                        <div class="card-content">
+                            <div class="materiaal-image">
+                                <img src="/assets/images/verhuur/materiaal/zaag.jpg" alt="Zagen" width="150" height="150">
+                            </div>
+                            <div class="materiaal-header">
+                                <h4><i class="fas fa-cut"></i> Zagen</h4>
+                                <span class="materiaal-count">7x</span>
+                            </div>
+                            <div class="materiaal-pricing">
+                                <div>Prijs per dag: <strong>€5</strong></div>
+                                <div>Waarborg: <strong>Huurprijs</strong></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card materiaal-item">
+                        <div class="card-content">
+                            <div class="materiaal-image">
+                                <img src="/assets/images/verhuur/materiaal/tonhamer.jpg" alt="Tonhamer" width="150" height="150">
+                            </div>
+                            <div class="materiaal-header">
+                                <h4><i class="fas fa-hammer"></i> Tonhamer</h4>
+                                <span class="materiaal-count">4x</span>
+                            </div>
+                            <div class="materiaal-pricing">
+                                <div>Prijs per dag: <strong>€6</strong></div>
+                                <div>Waarborg: <strong>Huurprijs</strong></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card materiaal-item">
+                        <div class="card-content">
+                            <div class="materiaal-image">
+                                <img src="/assets/images/verhuur/materiaal/tafel.jpg" alt="Tafel" width="150" height="150">
+                            </div>
+                            <div class="materiaal-header">
+                                <h4><i class="fas fa-table"></i> Tafel</h4>
+                                <span class="materiaal-count">50x</span>
+                            </div>
+                            <div class="materiaal-pricing">
+                                <div>Prijs per dag: <strong>€6</strong></div>
+                                <div>Waarborg: <strong>Huurprijs</strong></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card materiaal-item">
+                        <div class="card-content">
+                            <div class="materiaal-image">
+                                <img src="/assets/images/verhuur/materiaal/gasfles.jpg" alt="Gasfles (propaan)" width="150" height="150">
+                            </div>
+                            <div class="materiaal-header">
+                                <h4><i class="fas fa-fire"></i> Gasfles (propaan)</h4>
+                                <span class="materiaal-count">10x</span>
+                            </div>
+                            <div class="materiaal-pricing">
+                                <div>Prijs per dag: <strong>€10</strong></div>
+                                <div>Waarborg: <strong>€30</strong></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card materiaal-item">
+                        <div class="card-content">
+                            <div class="materiaal-header">
+                                <h4><i class="fas fa-box"></i> Koelbox</h4>
+                                <span class="materiaal-count">10x</span>
+                            </div>
+                            <div class="materiaal-pricing">
+                                <div>Prijs per dag: <strong>€2</strong></div>
+                                <div>Waarborg: <strong>Huurprijs</strong></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card materiaal-item">
+                        <div class="card-content">
+                            <div class="materiaal-header">
+                                <h4><i class="fas fa-dolly"></i> Kar</h4>
+                                <span class="materiaal-count">3x</span>
+                            </div>
+                            <div class="materiaal-pricing">
+                                <div>Prijs per dag: <strong>€10</strong></div>
+                                <div>Waarborg: <strong>€20</strong></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card materiaal-item">
+                        <div class="card-content">
+                            <div class="materiaal-header">
+                                <h4><i class="fas fa-cut"></i> Bijl</h4>
+                                <span class="materiaal-count">7x</span>
+                            </div>
+                            <div class="materiaal-pricing">
+                                <div>Prijs per dag: <strong>€5</strong></div>
+                                <div>Waarborg: <strong>Huurprijs</strong></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card materiaal-item">
+                        <div class="card-content">
+                            <div class="materiaal-header">
+                                <h4><i class="fas fa-tools"></i> Pickhouweel</h4>
+                                <span class="materiaal-count">5x</span>
+                            </div>
+                            <div class="materiaal-pricing">
+                                <div>Prijs per dag: <strong>€6</strong></div>
+                                <div>Waarborg: <strong>Huurprijs</strong></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Tenten Tab -->
+            <div id="tenten" class="tab-content">
+
+                <!-- Contact tenten -->
+                <div class="card">
+                    <div class="card-content">
+                        <h3><i class="fas fa-envelope"></i> Contact Tenten</h3>
+                        <p>Voor beschikbaarheid of vragen van tenten en materiaal stuur een mailtje naar <span>Kantjil (Ferre Meuleman)</span>:</p>
+                        <a href="mailto:kantjil@thilacoloma.be" class="btn btn-primary">
+                            <i class="fas fa-envelope"></i> kantjil@thilacoloma.be
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Belangrijke info -->
+                <div class="alert alert-warning">
+                    <p><strong>Tijdens de periode dat wij zelf op kamp zijn (30 juli tot 15 augustus) verhuren wij GEEN tenten of ander materiaal wegens eigen gebruik</strong></p>
+                </div>
+
+                <!-- Prijzen info -->
+                <div class="card">
+                    <div class="card-content">
+                        <h3><i class="fas fa-euro-sign"></i> Prijzen</h3>
+                        </p><strong>Transport:</strong> €0,5/km met een minimumprijs van €20</p>
+                        <p><strong>Opzetten:</strong> Mogelijk voor de meeste tenten, prijs verschilt per tent</p>
+                        <p><strong>Korting:</strong> Leiding, oud leiding en huurders van de scouts lokalen huren aan halve prijs (behalve transport en opzetkosten)</p>
+                        <p><strong>Langdurig/grootschalig:</strong> Er valt te onderhandelen over de prijs</p>
+                    </div>
+                </div>
+
+                <!-- Slaaptenten -->
+                <div class="card">
+                    <div class="card-content">
+                        <h3><i class="fas fa-bed"></i> Slaaptenten</h3>
+                        <p class="tent-category-info">Refter kan ook gebruikt worden als eettent.</p>
+                        
+                        <div class="tent-grid">
+                            <!-- Refter -->
+                            <div class="tent-item">
+                                <div class="tent-image">
+                                    <img src="/assets/images/27D97C43-C040-423A-929B-E72D55356A3B.png" alt="Refter tent van buiten">
+                                </div>
+                                <div class="tent-header">
+                                    <h4>Refter</h4>
+                                    <span class="tent-count">1x</span>
+                                </div>
+                                <div class="tent-specs">
+                                    <p><strong>Type:</strong> Muurtent van 6 x 16m</p>
+                                    <p><strong>Gebruik:</strong> Geschikt als slaaptent en eettent</p>
+                                    <p><strong>Opbouw:</strong> Opzetbaar zonder muren</p>
+                                    <p><strong>Ondergrond:</strong> Minimaal 10 x 20m zachte ondergrond nodig</p>
+                                </div>
+                                <div class="tent-pricing">
+                                    <div><span>Eerste dag:</span> <strong>€200</strong></div>
+                                    <div><span>Per extra dag:</span> <strong>€20</strong></div>
+                                    <div><span>Opzetten:</span> <strong>€300</strong></div>
+                                    <div><span>Waarborg:</span> <strong>€250</strong></div>
+                                </div>
+                            </div>
+
+                            <!-- Patrouille -->
+                            <div class="tent-item">
+                                <div class="tent-image">
+                                    <img src="/assets/images/27D97C43-C040-423A-929B-E72D55356A3B.png" alt="Patrouille tent opgezet">
+                                </div>
+                                <div class="tent-header">
+                                    <h4>Patrouille</h4>
+                                    <span class="tent-count">4x</span>
+                                </div>
+                                <div class="tent-specs">
+                                    <p><strong>Type:</strong> Patrouilletent met luifel</p>
+                                    <p><strong>Extra:</strong> Grondzeil inbegrepen</p>
+                                    <p><strong>Ondergrond:</strong> Enkel op zachte ondergrond</p>
+                                </div>
+                                <div class="tent-pricing">
+                                    <div><span>Eerste dag:</span> <strong>€15</strong></div>
+                                    <div><span>Per extra dag:</span> <strong>€5</strong></div>
+                                    <div><span>Opzetten:</span> <strong>Zelf op te zetten</strong></div>
+                                    <div><span>Waarborg:</span> <strong>€150</strong></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Eet- en opslagtenten -->
+                <div class="card">
+                    <div class="card-content">
+                        <h3><i class="fas fa-utensils"></i> Eet- en Opslagtenten</h3>
+                        
+                        <div class="tent-grid">
+                            <!-- BFT -->
+                            <div class="tent-item">
+                                <div class="tent-image">
+                                    <img src="/assets/images/27D97C43-C040-423A-929B-E72D55356A3B.png" alt="BFT Belgische Frame tent">
+                                </div>
+                                <div class="tent-header">
+                                    <h4>BFT</h4>
+                                    <span class="tent-count">3x</span>
+                                </div>
+                                <div class="tent-specs">
+                                    <p><strong>Type:</strong> Belgische Frametent van 5 x 10m</p>
+                                    <p><strong>Ondergrond:</strong> Opzetbaar op verharde grond</p>
+                                </div>
+                                <div class="tent-pricing">
+                                    <div><span>Eerste dag:</span> <strong>€50</strong></div>
+                                    <div><span>Per extra dag:</span> <strong>€10</strong></div>
+                                    <div><span>Opzetten:</span> <strong>€200</strong></div>
+                                    <div><span>Waarborg:</span> <strong>€200</strong></div>
+                                </div>
+                            </div>
+
+                            <!-- Party tent -->
+                            <div class="tent-item">
+                                <div class="tent-image">
+                                    <img src="/assets/images/27D97C43-C040-423A-929B-E72D55356A3B.png" alt="Party tent 3x6 meter">
+                                </div>
+                                <div class="tent-header">
+                                    <h4>Party tent</h4>
+                                    <span class="tent-count">1x</span>
+                                </div>
+                                <div class="tent-specs">
+                                    <p><strong>Type:</strong> Party tent van 3 x 6m</p>
+                                    <p><strong>Ondergrond:</strong> Opzetbaar op verharde ondergrond</p>
+                                </div>
+                                <div class="tent-pricing">
+                                    <div><span>Eerste dag:</span> <strong>€20</strong></div>
+                                    <div><span>Per extra dag:</span> <strong>€5</strong></div>
+                                    <div><span>Opzetten:</span> <strong>Zelf op te zetten</strong></div>
+                                    <div><span>Waarborg:</span> <strong>€50</strong></div>
+                                </div>
+                            </div>
+
+                            <!-- Oranje Witte -->
+                            <div class="tent-item">
+                                <div class="tent-image">
+                                    <img src="/assets/images/27D97C43-C040-423A-929B-E72D55356A3B.png" alt="Oranje witte frametent">
+                                </div>
+                                <div class="tent-header">
+                                    <h4>Oranje Witte</h4>
+                                    <span class="tent-count">1x</span>
+                                </div>
+                                <div class="tent-specs">
+                                    <p><strong>Type:</strong> Frametent van 5 x 10m</p>
+                                    <p><strong>Ondergrond:</strong> Opzetbaar op verharde grond</p>
+                                </div>
+                                <div class="tent-pricing">
+                                    <div><span>Eerste dag:</span> <strong>€40</strong></div>
+                                    <div><span>Per extra dag:</span> <strong>€5</strong></div>
+                                    <div><span>Opzetten:</span> <strong>€150</strong></div>
+                                    <div><span>Waarborg:</span> <strong>€60</strong></div>
+                                </div>
+                            </div>
+
+                            <!-- Blauw witte -->
+                            <div class="tent-item">
+                                <div class="tent-image">
+                                    <img src="/assets/images/27D97C43-C040-423A-929B-E72D55356A3B.png" alt="Blauw witte frametent">
+                                </div>
+                                <div class="tent-header">
+                                    <h4>Blauw witte</h4>
+                                    <span class="tent-count">2x</span>
+                                </div>
+                                <div class="tent-specs">
+                                    <p><strong>Type:</strong> Frametent van 5 x 8m</p>
+                                    <p><strong>Ondergrond:</strong> Opzetbaar op verharde ondergrond</p>
+                                </div>
+                                <div class="tent-pricing">
+                                    <div><span>Eerste dag:</span> <strong>€40</strong></div>
+                                    <div><span>Per extra dag:</span> <strong>€5</strong></div>
+                                    <div><span>Opzetten:</span> <strong>€150</strong></div>
+                                    <div><span>Waarborg:</span> <strong>€60</strong></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+
+
+    <script>
+        // Main slideshow functionality for lokalen
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.verhuur-slide');
+        const descriptions = document.querySelectorAll('.slide-description');
+        
+        function showSlide(index) {
+            slides.forEach(slide => slide.classList.remove('active'));
+            descriptions.forEach(desc => desc.classList.remove('active'));
+            if (slides[index]) {
+                slides[index].classList.add('active');
+            }
+            if (descriptions[index]) {
+                descriptions[index].classList.add('active');
+            }
+        }
+        
+        function changeSlide(direction) {
+            currentSlide += direction;
+            if (currentSlide >= slides.length) {
+                currentSlide = 0;
+            } else if (currentSlide < 0) {
+                currentSlide = slides.length - 1;
+            }
+            showSlide(currentSlide);
+        }
+        
+        // Auto-advance slideshow
+        setInterval(() => {
+            changeSlide(1);
+        }, 5000);
+        
+        // Search functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const searchInput = document.getElementById('search-input');
+            const searchButton = document.getElementById('search-button');
+            
+            function performSearch() {
+                const query = searchInput.value.trim().toLowerCase();
+                if (query === '') return;
+                
+                // Search through all text content on the page
+                const sections = document.querySelectorAll('.page-section');
+                let results = [];
+                
+                sections.forEach(section => {
+                    const sectionTitle = section.querySelector('h2')?.textContent || '';
+                    const sectionContent = section.textContent.toLowerCase();
+                    
+                    if (sectionContent.includes(query)) {
+                        results.push({
+                            title: sectionTitle,
+                            element: section,
+                            relevance: calculateRelevance(sectionContent, query)
+                        });
+                    }
+                });
+                
+                // Highlight and scroll to most relevant result
+                if (results.length > 0) {
+                    results.sort((a, b) => b.relevance - a.relevance);
+                    highlightSearchResults(query);
+                    results[0].element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                } else {
+                    alert('Geen resultaten gevonden voor "' + query + '"');
+                }
+            }
+            
+            function calculateRelevance(content, query) {
+                const queryWords = query.split(' ');
+                let score = 0;
+                
+                queryWords.forEach(word => {
+                    const regex = new RegExp(word, 'gi');
+                    const matches = content.match(regex);
+                    if (matches) {
+                        score += matches.length;
+                    }
+                });
+                
+                return score;
+            }
+            
+            function highlightSearchResults(query) {
+                // Remove existing highlights
+                document.querySelectorAll('.search-highlight').forEach(el => {
+                    el.classList.remove('search-highlight');
+                });
+                
+                // Add new highlights
+                const queryWords = query.split(' ');
+                queryWords.forEach(word => {
+                    if (word.length > 2) { // Only highlight words longer than 2 characters
+                        const regex = new RegExp(`(${word})`, 'gi');
+                        const walker = document.createTreeWalker(
+                            document.body,
+                            NodeFilter.SHOW_TEXT,
+                            null,
+                            false
+                        );
+                        
+                        const textNodes = [];
+                        let node;
+                        while (node = walker.nextNode()) {
+                            textNodes.push(node);
+                        }
+                        
+                        textNodes.forEach(textNode => {
+                            if (textNode.textContent.toLowerCase().includes(word)) {
+                                const parent = textNode.parentElement;
+                                if (parent && !parent.classList.contains('search-highlight')) {
+                                    parent.classList.add('search-highlight');
+                                }
+                            }
+                        });
+                    }
+                });
+                
+                // Remove highlights after 5 seconds
+                setTimeout(() => {
+                    document.querySelectorAll('.search-highlight').forEach(el => {
+                        el.classList.remove('search-highlight');
+                    });
+                }, 5000);
+            }
+            
+            // Event listeners
+            searchButton.addEventListener('click', performSearch);
+            searchInput.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    performSearch();
+                }
+            });
+        });
+        
+    </script>
+
+    <style>
+        
+        .search-container {
+            display: flex;
+            align-items: center;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: var(--border-radius-sm);
+            transition: all 0.3s ease;
+            overflow: hidden;
+            height: 45px;
+            width: 250px;
+        }
+        
+        .search-container:focus-within {
+            border-color: rgba(255, 255, 255, 0.5);
+            background-color: rgba(255, 255, 255, 0.15);
+        }
+        
+        .search-input {
+            border: none;
+            outline: none;
+            padding: 0 15px;
+            font-size: 0.9em;
+            background: transparent;
+            color: rgba(255, 255, 255, 0.9);
+            flex: 1;
+            font-family: var(--font-regular);
+            height: 100%;
+        }
+        
+        .search-input::placeholder {
+            color: rgba(255, 255, 255, 0.6);
+            font-family: var(--font-medium);
+        }
+        
+        .search-container:focus-within .search-input {
+            color: white;
+        }
+        
+        .search-button {
+            border: none;
+            background: transparent;
+            color: rgba(255, 255, 255, 0.8);
+            padding: 0 12px;
+            cursor: pointer;
+            transition: var(--transition-normal);
+            display: flex;
+            align-items: center;
+            justify-content: right;
+            height: 100%;
+            width: 50px;
+        }
+        
+        .search-button:hover {
+            color: white;
+        }
+        
+        .search-button i {
+            font-size: 0.9em;
+        }
+        
+        /* Responsive search */
+        @media (max-width: 1024px) {
+            .search-container {
+                width: 160px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header-actions {
+                gap: var(--spacing-sm);
+            }
+            
+            .search-container {
+                width: 140px;
+            }
+            
+            /* Compacte fallback responsive */
+            .fallback-actions {
+                flex-direction: column;
+                align-items: center;
+                gap: var(--spacing-sm);
+            }
+            
+            .fallback-action {
+                min-width: 120px;
+                flex-direction: row;
+                gap: var(--spacing-md);
+            }
+        }
+        
+        /* Search highlight styling */
+        .search-highlight {
+            background-color: rgba(230, 166, 48, 0.3) !important;
+            border-radius: 3px;
+            padding: 1px 2px;
+            transition: background-color 0.3s ease;
+        }
+
+        /* Fallback toggle button styling */
+        .iframe-fallback-toggle {
+            background: var(--primary-color);
+            color: white !important;
+            border: none;
+            border-radius: var(--border-radius-sm);
+            padding: var(--spacing-sm) var(--spacing-md);
+            font-family: var(--font-medium);
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-xs);
+            box-shadow: 0 2px 8px rgba(55, 71, 148, 0.2);
+            text-decoration: none !important;
+        }
+        
+        .iframe-fallback-toggle:hover {
+            background: var(--dark-color) !important;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(55, 71, 148, 0.3);
+            color: white !important;
+            text-decoration: none !important;
+        }
+        
+        .iframe-fallback-toggle:visited {
+            color: white !important;
+            text-decoration: none !important;
+        }
+        
+        .iframe-fallback-toggle:focus {
+            color: white !important;
+            text-decoration: none !important;
+            outline: 2px solid rgba(255, 255, 255, 0.5);
+            outline-offset: 2px;
+        }
+        
+        .iframe-fallback-toggle span {
+            color: inherit !important;
+            text-decoration: none !important;
+        }
+    </style>
+
+    <script>
+        
+        // Tab functionality
+        function showTab(tabName) {
+            // Hide all tab contents
+            const tabContents = document.querySelectorAll('.tab-content');
+            tabContents.forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // Remove active class from all tab buttons
+            const tabButtons = document.querySelectorAll('.tab-button');
+            tabButtons.forEach(button => {
+                button.classList.remove('active');
+            });
+            
+            // Show selected tab content
+            document.getElementById(tabName).classList.add('active');
+            
+            // Add active class to clicked button
+            event.target.classList.add('active');
+        }
+    </script>
+
+    <style>
+        /* Iframe Kaart Styling */
+        .iframe-card {
+            background: white;
+            border-radius: var(--border-radius-md);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            margin-bottom: var(--spacing-xl);
+            overflow: hidden;
+            transition: box-shadow var(--transition-normal);
+            border: 1px solid #e5e7eb;
+        }
+        
+        .iframe-card:hover {
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+        }
+        
+        .iframe-card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            padding: var(--spacing-xl);
+            border-bottom: 1px solid #e5e7eb;
+            background: white;
+        }
+        
+        .iframe-card-info {
+            flex: 1;
+            padding-right: var(--spacing-lg);
+        }
+        
+        .iframe-card-info h3 {
+            color: var(--primary-color);
+            font-family: var(--font-bold);
+            font-size: 1.5em;
+            margin: 0 0 var(--spacing-sm) 0;
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+        }
+        
+        .iframe-card-info p {
+            color: var(--text-color);
+            margin: 0;
+            line-height: 1.6;
+            opacity: 0.9;
+        }
+        
+        .iframe-container {
+            display: flex;
+            justify-content: center;
+            padding: var(--spacing-lg);
+            background: white;
+        }
+        
+        .iframe-container iframe {
+            width: 80vw;
+            height: 90vh;
+            border: none;
+            border-radius: var(--border-radius-md);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            background: white;
+        }
+
+        /* Tab Navigation */
+        .tab-navigation {
+            display: flex;
+            justify-content: center;
+            margin: var(--spacing-xl) 0;
+            gap: var(--spacing-md);
+        }
+        
+        .tab-button {
+            background: var(--broken-white);
+            color: var(--primary-color);
+            border: 2px solid var(--primary-color);
+            padding: var(--spacing-md) var(--spacing-xl);
+            border-radius: var(--border-radius-md);
+            font-family: var(--font-medium);
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: all var(--transition-normal);
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+        }
+        
+        .tab-button:hover {
+            background: var(--primary-color);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(55, 71, 148, 0.3);
+        }
+        
+        .tab-button.active {
+            background: var(--primary-color);
+            color: white;
+            box-shadow: 0 4px 12px rgba(55, 71, 148, 0.3);
+        }
+        
+        .tab-button i {
+            font-size: 1.2em;
+        }
+        
+        /* Tab Content */
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.3s ease-in;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+
+        /* Material grid */
+        .materiaal-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: var(--spacing-md);
+            margin: var(--spacing-lg) 0;
+        }
+        
+        @media (min-width: 1200px) {
+            .materiaal-grid {
+                grid-template-columns: repeat(5, 1fr);
+            }
+        }
+        
+        .materiaal-item {
+            transition: transform var(--transition-normal);
+        }
+        
+        .materiaal-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Materiaal header styling */
+        .materiaal-header {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+            margin-bottom: var(--spacing-xs);
+        }
+        
+        .materiaal-item h4 {
+            color: var(--primary-color);
+            font-family: var(--font-medium);
+            margin: 0;
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+            flex: 1;
+        }
+        
+        .materiaal-item h4 i {
+            color: var(--primary-color);
+            width: 20px;
+        }
+        
+        .materiaal-count {
+            background: var(--light-bg);
+            color: var(--primary-color);
+            font-family: var(--font-bold);
+            font-size: 1em;
+            font-weight: bold;
+            padding: var(--spacing-xs);
+            border-radius: var(--border-radius-sm);
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            text-decoration: none;
+        }
+        
+        .materiaal-count:hover {
+            text-decoration: none;
+            color: var(--primary-color);
+        }
+
+        /* Materiaal Pricing Style */
+        .materiaal-pricing {
+            background-color: var(--light-bg);
+            padding: var(--spacing-md);
+            border-radius: var(--border-radius-sm);
+            display: grid;
+            gap: var(--spacing-xs);
+        }
+        
+        .materiaal-pricing div {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: var(--spacing-xs) 0;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        .materiaal-pricing div:last-child {
+            border-bottom: none;
+        }
+
+        /* Tent styling */
+        .tent-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: var(--spacing-lg);
+            margin: var(--spacing-lg) 0;
+        }
+        
+        .tent-item {
+            border: 2px solid var(--light-bg);
+            border-radius: var(--border-radius-md);
+            padding: var(--spacing-lg);
+            background: white;
+            transition: all var(--transition-normal);
+        }
+        
+        .tent-item:hover {
+            border-color: var(--primary-color);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(55, 71, 148, 0.1);
+        }
+        
+        .tent-header {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+            margin-bottom: var(--spacing-md);
+            padding-bottom: var(--spacing-sm);
+            border-bottom: 2px solid var(--light-bg);
+        }
+        
+        .tent-item h4 {
+            color: var(--primary-color);
+            font-family: var(--font-bold);
+            font-size: 1.3em;
+            margin: 0;
+            flex: 1;
+        }
+        
+        .tent-count {
+            background: var(--light-bg);
+            color: var(--primary-color);
+            font-family: var(--font-bold);
+            font-size: 1em;
+            font-weight: bold;
+            padding: var(--spacing-xs);
+            border-radius: var(--border-radius-sm);
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            text-decoration: none;
+        }
+        
+        .tent-count:hover {
+            text-decoration: none;
+            color: var(--primary-color);
+        }
+        
+        .tent-specs {
+            margin-bottom: var(--spacing-lg);
+        }
+        
+        .tent-specs p {
+            margin: var(--spacing-xs) 0;
+            font-size: 0.95em;
+            line-height: 1.4;
+        }
+        
+        .tent-pricing {
+            background-color: var(--light-bg);
+            padding: var(--spacing-md);
+            border-radius: var(--border-radius-sm);
+            display: grid;
+            gap: var(--spacing-xs);
+        }
+        
+        .tent-pricing div {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: var(--spacing-xs) 0;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        .tent-pricing div:last-child {
+            border-bottom: none;
+        }
+
+        /* Tent image */
+        .tent-image {
+            margin-bottom: var(--spacing-lg);
+            border-radius: var(--border-radius-md);
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .tent-image img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        /* Lokaal item styling */
+        .lokaal-item {
+            margin: 0;
+            padding: var(--spacing-sm) 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .lokaal-item:last-child {
+            border-bottom: none;
+        }
+        
+        .lokaal-item h4 {
+            color: var(--primary-color);
+            font-family: var(--font-medium);
+            margin-bottom: var(--spacing-xs);
+        }
+        
+        .lokaal-item p {
+            margin: var(--spacing-xs) 0;
+            line-height: 1.5;
+        }
+
+        /* Maps container */
+        .maps-container {
+            margin: var(--spacing-md) 0;
+            border-radius: var(--border-radius-md);
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .location-info {
+            margin-top: var(--spacing-md);
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-xs);
+        }
+        
+        .location-info p {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+            margin: 0;
+            font-size: 0.9em;
+        }
+        
+        .location-info i {
+            color: var(--primary-color);
+            width: 16px;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .tab-navigation {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .tab-button {
+                width: 200px;
+                justify-content: center;
+            }
+            
+            .materiaal-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .tent-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            /* Iframe kaart responsive */
+            .iframe-card-header {
+                flex-direction: column;
+                gap: var(--spacing-md);
+                align-items: stretch;
+            }
+            
+            .iframe-card-info {
+                padding-right: 0;
+            }
+            
+            .iframe-container iframe {
+                width: 95vw;
+                height: 70vh;
+            }
+        }
+    </style>

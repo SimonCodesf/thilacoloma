@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }}{{ title ? ' - ' }}Thila Coloma - Scoutsgroep Mechelen</title>
+    <meta name="description" content="{{ meta_description ?? 'Thila Coloma - Scoutsgroep Mechelen' }}">
+    <link rel="stylesheet" href="/assets/css/variables.css">
+    <link rel="stylesheet" href="/assets/css/fonts.css">
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <link rel="stylesheet" href="/assets/css/pages.css">
+    <link rel="stylesheet" href="/assets/css/navigation.css">
+    <link rel="stylesheet" href="/assets/css/responsive.css">
+    <link rel="stylesheet" href="https://use.typekit.net/rae0xxq.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    
+    <style>
+        /* Simple header scroll behavior - maintains all original functionality */
+        .simple-header {
+            transition: transform 0.3s ease;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .simple-header.header-hidden {
+            transform: translateY(-100%);
+        }
+        
+        /* Invisible hover zone for easy header access - only active when header is hidden */
+        .header-hover-zone {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 80px;
+            z-index: 999;
+            pointer-events: none;
+            opacity: 0;
+        }
+        
+        .simple-header.header-hidden + main .header-hover-zone {
+            pointer-events: auto;
+        }
+    </style>
+</head>
+<body>
+    <header class="simple-header" id="main-header">
+        <div class="simple-header-content">
+            <a href="/" class="nav-icon" title="Home">
+                <img src="/assets/images/Logo_TC_KLEUR.png" alt="Home">
+            </a>
+            <nav class="simple-nav">
+                <a href="/thilala" class="nav-icon" title="Thilala">
+                    <img src="assets/images/icons/Asset 11thilala.svg" alt="Thilala">
+                </a>
+                <a href="/stamhoofd" class="nav-icon" title="Stamhoofd">
+                    <img src="assets/images/icons/Asset 1stamhoofd.svg" alt="Stamhoofd">
+                </a>
+                <a href="/kalender" class="nav-icon" title="Kalender">
+                    <img src="assets/images/icons/Asset 12agenda.svg" alt="Kalender">
+                </a>
+                <a href="/takken" class="nav-icon" title="Takken">
+                    <img src="assets/images/icons/Asset 7takken.svg" alt="Takken">
+                </a>
+                <a href="/verhuur" class="nav-icon" title="Verhuur">
+                    <img src="assets/images/icons/Asset 13verhuur.svg" alt="Verhuur">
+                </a>
+                <a href="/meer" class="nav-icon nav-meer" title="Meer">
+                    <img src="assets/images/icons/Asset 19meer.svg" alt="Meer">
+                </a>
+            </nav>
+            <div class="header-actions">
+                <div class="search-container">
+                    <input type="text" id="search-input" placeholder="Zoeken..." class="search-input">
+                    <button type="button" id="search-button" class="search-button" title="Zoeken">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Invisible hover zone for header -->
+    <div class="header-hover-zone" id="header-hover-zone"></div>
+
+    <main class="page-content">
+        {{ template_content }}
+    </main>
+
+    <footer class="page-footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <p>Thila Coloma Mechelen</p>
+                <p>Jubellaan / Geerdegemstraat</p>
+                <p>Email: info@thilacoloma.be</p>
+            </div>
+            <div class="footer-section">
+                <h3>Sociale Media</h3>
+                <div class="social-links">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Links</h3>
+                <a href="https://stamhoofd.thilacoloma.be" target="_blank">Stamhoofd</a>
+                <a href="/meer#contact">Contact</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Thila Coloma Mechelen</p>
+        </div>
+    </footer>
+
+    {% block scripts %}{% endblock %}
+    
+    <script src="components/components.js"></script>
+    
+    <script>
+        // Enhanced header scroll behavior with proper iframe detection
+        document.addEventListener('DOMContentLoaded', function() {
+            const header = document.getElementById('main-header');
+            const hoverZone = document.getElementById('header-hover-zone');
+            let lastScrollTop = 0;
+            let hideTimer = null;
+            let isHeaderHidden = false;
+            let scrollDirection = 'none';
+            let scrollDistance = 0;
+            
+            function showHeader() {
+                header.classList.remove('header-hidden');
+                isHeaderHidden = false;
+                clearTimeout(hideTimer);
+                hoverZone.style.pointerEvents = 'none';
+                console.log('Header shown');
+            }
+            
+            function hideHeader() {
+                header.classList.add('header-hidden');
+                isHeaderHidden = true;
+                hoverZone.style.pointerEvents = 'auto';
+                console.log('Header hidden');
+            }
+            
+            function hideHeaderWithDelay(delay = 2000) {
+                clearTimeout(hideTimer);
+                console.log(`Scheduling header hide in ${delay}ms`);
+                hideTimer = setTimeout(() => {
+                    hideHeader();
+                }, delay);
+            }
+            
+            // Check if there's a significant iframe visible in viewport
+            function getIframeViewportCoverage() {
+                const iframes = document.querySelectorAll('iframe');
+                const viewportHeight = window.innerHeight;
+                let maxCoverage = 0;
+                
+                for (let iframe of iframes) {
+                    const rect = iframe.getBoundingClientRect();
+                    
+                    // Skip iframes that are not visible
+                    if (rect.height < 100 || rect.width < 100) continue;
+                    
+                    // Calculate visible portion of iframe
+                    const visibleTop = Math.max(0, rect.top);
+                    const visibleBottom = Math.min(viewportHeight, rect.bottom);
+                    const visibleHeight = Math.max(0, visibleBottom - visibleTop);
+                    
+                    // Calculate coverage percentage
+                    const coverage = visibleHeight / viewportHeight;
+                    maxCoverage = Math.max(maxCoverage, coverage);
+                    
+                    console.log(`Iframe coverage: ${(coverage * 100).toFixed(1)}%`);
+                }
+                
+                return maxCoverage;
+            }
+            
+            // Main scroll handling logic
+            function handleScroll() {
+                const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                const previousDirection = scrollDirection;
+                
+                // Determine scroll direction and distance
+                if (scrollTop > lastScrollTop) {
+                    scrollDirection = 'down';
+                    scrollDistance = scrollTop - lastScrollTop;
+                } else if (scrollTop < lastScrollTop) {
+                    scrollDirection = 'up';
+                    scrollDistance = lastScrollTop - scrollTop;
+                } else {
+                    scrollDirection = 'none';
+                    scrollDistance = 0;
+                }
+                
+                const iframeCoverage = getIframeViewportCoverage();
+                const hasSignificantIframe = iframeCoverage > 0.25; // 25% of viewport
+                
+                console.log(`Scroll: ${scrollDirection}, Distance: ${scrollDistance}, Iframe coverage: ${(iframeCoverage * 100).toFixed(1)}%`);
+                
+                // Show header when at very top
+                if (scrollTop < 50) {
+                    showHeader();
+                }
+                // When iframe is visible, header hides more aggressively
+                else if (hasSignificantIframe) {
+                    if (scrollDirection === 'down' && scrollDistance > 3) {
+                        // Very fast hide when scrolling down with iframe visible
+                        hideHeaderWithDelay(300);
+                        console.log('Ultra fast hide - iframe + scroll down');
+                    } else if (scrollDirection === 'up' && scrollDistance > 10) {
+                        // Still hide when scrolling up with iframe, but with delay
+                        hideHeaderWithDelay(800);
+                        console.log('Delayed hide - iframe + scroll up');
+                    }
+                }
+                // Normal content behavior - show on scroll up, hide on scroll down
+                else {
+                    if (scrollDirection === 'up' && scrollDistance > 5) {
+                        showHeader();
+                        console.log('Show header - scroll up without iframe');
+                    } else if (scrollDirection === 'down' && scrollTop > 100 && scrollDistance > 5) {
+                        hideHeaderWithDelay(1500);
+                        console.log('Normal hide - scroll down without iframe');
+                    }
+                }
+                
+                lastScrollTop = scrollTop;
+            }
+            
+            // Mouse interactions with header zone
+            hoverZone.addEventListener('mouseenter', function() {
+                console.log('Mouse entered header zone');
+                if (isHeaderHidden) {
+                    showHeader();
+                }
+            });
+            
+            // Detect mouse movement toward top of screen
+            document.addEventListener('mousemove', function(e) {
+                // If mouse is in top 15% of screen and header is hidden, show it
+                if (e.clientY < window.innerHeight * 0.15 && isHeaderHidden && window.pageYOffset > 100) {
+                    console.log('Mouse near top, showing header');
+                    showHeader();
+                }
+            });
+            
+            // Immediate hide when clicking on iframe
+            document.addEventListener('click', function(e) {
+                if (e.target.tagName === 'IFRAME' || e.target.closest('.kampas-container, .stamhoofd-container')) {
+                    console.log('Clicked on iframe area, hiding header');
+                    hideHeaderWithDelay(500);
+                }
+            });
+            
+            // Throttled scroll event
+            let scrollTimeout = null;
+            window.addEventListener('scroll', function() {
+                if (scrollTimeout) return;
+                scrollTimeout = setTimeout(() => {
+                    handleScroll();
+                    scrollTimeout = null;
+                }, 50); // Slightly slower throttle for better debugging
+            });
+            
+            // Show header on ESC key
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') {
+                    console.log('ESC pressed, showing header');
+                    showHeader();
+                }
+            });
+            
+            // Initial check after page load
+            setTimeout(() => {
+                const iframeCoverage = getIframeViewportCoverage();
+                if (iframeCoverage > 0.4 && window.pageYOffset > 200) {
+                    console.log('Initial iframe detected, hiding header');
+                    hideHeaderWithDelay(1000);
+                }
+            }, 2000);
+        });
+    </script>
+</body>
+</html>

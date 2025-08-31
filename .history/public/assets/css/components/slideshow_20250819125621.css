@@ -1,0 +1,110 @@
+/* Slideshow Component */
+.slideshow-container {
+    position: relative;
+    background-color: rgba(255, 255, 255, 0);
+    margin: var(--spacing-xl) var(--spacing-xl) var(--spacing-md) 60px;
+}
+
+.slideshow-title {
+    color: var(--primary-color);
+    font-family: var(--font-medium);
+    font-size: 1.3em;
+    text-align: center;
+    margin-left: 60px;
+    margin-bottom: -20px;
+}
+
+#slideshow {
+    position: relative;
+    background-color: rgba(255, 255, 255, 0);
+    margin: var(--spacing-xl) var(--spacing-xl) var(--spacing-md) 60px;
+    height: 400px; /* Hoogte toegevoegd voor juiste verhoudingen */
+}
+
+.slide {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    transition: transform 1.5s cubic-bezier(0.25, 0.8, 0.25, 1), opacity 1.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+    background-color: white;
+    border-radius: var(--border-radius-md);
+    overflow: hidden;
+    box-shadow: 0 0px 40px rgba(0, 0, 0, 0.05);
+    flex-direction: row-reverse;
+}
+
+.slide:first-child {
+    position: relative; /* Eerste slide zichtbaar maken */
+}
+
+.slide img {
+    flex: 1;
+    width: 33.33%;
+    object-fit: cover;
+}
+
+.slide-text {
+    flex: 2;
+    padding: var(--spacing-md);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    background-color: white;
+    margin-left: var(--spacing-sm);
+}
+
+.slide-text h2 {
+    font-family: var(--font-bold);
+    font-size: 2em;
+    margin: 0;
+    color: var(--primary-color);
+    font-weight: 400;
+}
+
+.slide-text p {
+    color: var(--primary-color);
+    line-height: 1.6;
+}
+
+.meer-button {
+    margin-top: auto;
+    padding: var(--spacing-sm) var(--spacing-md);
+    font-family: var(--font-bold);
+    background-color: var(--primary-color);
+    color: var(--broken-white);
+    border: none;
+    border-radius: var(--border-radius-sm);
+    cursor: pointer;
+    transition: var(--transition-normal);
+    align-self: flex-start;
+}
+
+.meer-button:hover {
+    background-color: var(--broken-white);
+    box-shadow: inset 0 0 0 2px var(--primary-color);
+    color: var(--primary-color);
+}
+
+/* Dots */
+.slideshow-dots {
+    text-align: center;
+    padding-left: 60px;
+    margin-top: 0px;
+}
+
+.dot {
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 var(--spacing-xs);
+    background-color: #d9d6e8;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+}
+
+.dot.active {
+    background-color: var(--primary-color);
+}

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test Globals</title>
+</head>
+<body>
+    <h1>Test Globals</h1>
+    
+    <h2>Site Instellingen:</h2>
+    {{ site_instellingen }}
+        <p>Scoutsjaar: {{ scoutsjaar }}</p>
+    {{ /site_instellingen }}
+    
+    <h2>Leidingsploegen:</h2>
+    {{ leidingsploegen }}
+        {{ leidingsploegen }}
+            <h3>{{ tak_naam }}</h3>
+            <p>Takleider: {{ takleider }}</p>
+            <p>Aantal leiding: {{ leiding | length }}</p>
+        {{ /leidingsploegen }}
+    {{ /leidingsploegen }}
+</body>
+</html>

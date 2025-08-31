@@ -1,0 +1,17 @@
+<div class="container">
+    <header class="page-header">
+        <a href="/" class="back-home">← Terug naar home</a>
+        <h1>{{ title }}</h1>
+        {{ if hero_image }}
+            <div class="hero-image">
+                <img src="{{ hero_image }}" alt="{{ title }}">
+            </div>
+        {{ /if }}
+    </header>
+    
+    <main class="page-content">
+        {{ content }}
+    </main>
+    
+    {{ partial:navigation }}
+</div>

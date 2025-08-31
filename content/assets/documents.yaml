@@ -1,0 +1,11 @@
+disk: documents
+title: 'Documents'
+allow_uploads: true
+allow_downloading: true
+allow_renaming: true
+allow_moving: true
+search_index: null
+restrict: false
+validate: []
+create_folders: true
+move_uploads: false

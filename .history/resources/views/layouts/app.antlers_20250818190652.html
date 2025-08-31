@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="{{ meta_description ?? 'Thila Coloma is de 5de grootste scoutsgroep van Vlaanderen, gevestigd in Mechelen sinds 1975. Meer dan 400 jongeren voelen zich bij ons thuis.' }}">
+    <title>{{ title ? title ~ ' - ' : '' }}Thila Coloma - Scoutsgroep Mechelen</title>
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="/assets/css/variables.css">
+    <link rel="stylesheet" href="/assets/css/fonts.css">
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <link rel="stylesheet" href="/assets/css/slideshow.css">
+    <link rel="stylesheet" href="/assets/css/navigation.css">
+    <link rel="stylesheet" href="/assets/css/responsive.css">
+    <link rel="stylesheet" href="https://use.typekit.net/rae0xxq.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body class="{{ bodyClass ?? template ?? '' }}">
+    {{ template_content }}
+    
+    <!-- JavaScript -->
+    <script src="/assets/js/slideshow.js"></script>
+</body>
+</html>

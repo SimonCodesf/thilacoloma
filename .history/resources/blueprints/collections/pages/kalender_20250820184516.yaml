@@ -1,0 +1,88 @@
+title: Kalender
+sections:
+  main:
+    display: Hoofd
+    fields:
+      -
+        handle: title
+        field:
+          type: text
+          required: true
+          display: Titel
+      -
+        handle: slug
+        field:
+          type: slug
+          required: true
+          display: URL Slug
+      -
+        handle: hero_image
+        field:
+          type: assets
+          container: assets
+          max_files: 1
+          display: 'Hero Afbeelding'
+          instructions: 'Hoofdafbeelding voor de kalender pagina'
+      -
+        handle: intro_text
+        field:
+          type: textarea
+          display: 'Intro Tekst'
+          instructions: 'De introductie tekst bovenaan de kalender pagina'
+          default: 'Hier vind je een overzicht van alle kampen en weekends. We vergaderen elke zondag (behalve de eerste zondag van de maand)!'
+  calendar_settings:
+    display: 'Kalender Instellingen'
+    fields:
+      -
+        handle: google_calendar_url
+        field:
+          type: text
+          display: 'Google Calendar ICS URL'
+          instructions: 'De volledige ICS feed URL van de Google Calendar'
+          placeholder: 'https://calendar.google.com/calendar/ical/...'
+          validate: 'url'
+          required: true
+      -
+        handle: calendar_title
+        field:
+          type: text
+          display: 'Kalender Titel'
+          instructions: 'De titel die boven de jaarkalender wordt getoond'
+          default: 'Evenementen Kalender'
+      -
+        handle: agenda_title
+        field:
+          type: text
+          display: 'Agenda Titel'
+          instructions: 'De titel van de agenda sectie (rechtsboven)'
+          default: 'Agenda'
+      -
+        handle: max_agenda_items
+        field:
+          type: integer
+          display: 'Aantal Agenda Items'
+          instructions: 'Hoeveel komende evenementen tonen in de agenda'
+          default: 4
+          min: 1
+          max: 10
+  content_sections:
+    display: 'Pagina Inhoud'
+    fields:
+      -
+        handle: weekly_meetings_title
+        field:
+          type: text
+          display: 'Wekelijkse Vergaderingen Titel'
+          default: 'Wekelijkse Vergaderingen'
+      -
+        handle: weekly_meetings_content
+        field:
+          type: bard
+          display: 'Wekelijkse Vergaderingen Inhoud'
+          instructions: 'Informatie over de wekelijkse vergaderingen'
+      -
+        handle: additional_content
+        field:
+          type: bard
+          display: 'Extra Inhoud'
+          instructions: 'Aanvullende content onderaan de kalender pagina'

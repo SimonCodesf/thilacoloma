@@ -1,0 +1,465 @@
+tabs:
+  main:
+    display: Hoofdinhoud
+    sections:
+      -
+        display: 'Pagina Inhoud'
+        fields:
+          -
+            handle: title
+            field:
+              type: text
+              required: true
+              validate:
+                - required
+              display: 'Pagina Titel'
+              instructions: 'De titel van de pagina zoals weergegeven in de browser tab en zoekmachines'
+          -
+            handle: intro_title
+            field:
+              type: text
+              display: 'Intro Titel'
+              instructions: 'Hoofdtitel voor de introductie sectie'
+              default: 'Kalender'
+          -
+            handle: intro_text
+            field:
+              type: textarea
+              display: 'Intro Tekst'
+              instructions: 'Beschrijvende tekst voor de kalender pagina'
+              default: 'Op deze pagina vind je een overzicht van alle activiteiten en evenementen van Scouts Thila Coloma. Van wekelijkse vergaderingen tot speciale activiteiten en kampen - hier mis je niets!'
+          -
+            handle: meetings_title
+            field:
+              type: text
+              display: 'Vergaderingen Titel'
+              instructions: 'Titel voor de sectie over wekelijkse vergaderingen'
+              default: 'Wekelijkse Vergaderingen'
+          -
+            handle: meetings_description
+            field:
+              type: textarea
+              display: 'Vergaderingen Beschrijving'
+              instructions: 'Uitleg over wanneer en waar de vergaderingen plaatsvinden'
+              default: 'Elke zondag komen we samen van 14:00 tot 17:00 op onze lokalen in de Hertogstraat. Behalve tijdens schoolvakanties en op bijzondere dagen - check de kalender hieronder voor alle data!'
+  vergaderingen:
+    display: Vergaderingen
+    sections:
+      -
+        display: 'Tijdstip & Locatie'
+        fields:
+          -
+            handle: vergaderingen_tijdstip_title
+            field:
+              type: text
+              display: 'Tijdstip Sectie Titel'
+              default: 'Tijdstip'
+          -
+            handle: vergaderingen_jongsten_tijd
+            field:
+              type: text
+              display: 'Jongsten Tijdstip'
+              default: '14:00 tot 17:00'
+          -
+            handle: vergaderingen_jongsten_beschrijving
+            field:
+              type: text
+              display: 'Jongsten Beschrijving'
+              default: 'Kapoenen t/m seniorwelpen & tictak'
+          -
+            handle: vergaderingen_ouderen_tijd
+            field:
+              type: text
+              display: 'Ouderen Tijdstip'
+              default: '14:00 tot 18:00'
+          -
+            handle: vergaderingen_ouderen_beschrijving
+            field:
+              type: text
+              display: 'Ouderen Beschrijving'
+              default: 'Jongverkenners t/m VT''s'
+          -
+            handle: vergaderingen_uitzonderingen
+            field:
+              type: textarea
+              display: 'Uitzonderingen'
+              default: 'Tijdens examenperiodes vaak op zaterdagavond vergadering. Afwijkingen worden steeds tijdig meegedeeld.'
+      -
+        display: 'Eerste Zondag'
+        fields:
+          -
+            handle: vergaderingen_eerste_zondag_title
+            field:
+              type: text
+              display: 'Eerste Zondag Titel'
+              default: 'Eerste Zondag'
+          -
+            handle: vergaderingen_eerste_zondag_tekst
+            field:
+              type: text
+              display: 'Eerste Zondag Hoofdtekst'
+              default: 'Geen scouts op de eerste zondag van de maand!'
+          -
+            handle: vergaderingen_eerste_zondag_uitleg
+            field:
+              type: textarea
+              display: 'Eerste Zondag Uitleg'
+              default: 'Deze traditie zorgt ervoor dat gezinnen deze zondag samen vrij hebben, eventueel voor familiefeesten.'
+          -
+            handle: vergaderingen_eerste_zondag_uitzondering
+            field:
+              type: textarea
+              display: 'Eerste Zondag Uitzondering'
+              default: 'Als er een weekend doorgaat, kan deze ''eerste zondag'' toch een scouts-zondag worden.'
+          -
+            handle: vergaderingen_locatie
+            field:
+              type: textarea
+              display: 'Locatie Informatie'
+              default: 'Scoutslokalen Thila Coloma<br>Jubellaan / Geerdegemstraat, Mechelen'
+      -
+        display: 'Afwezigheid'
+        fields:
+          -
+            handle: vergaderingen_afwezigheid_title
+            field:
+              type: text
+              display: 'Afwezigheid Titel'
+              default: 'Afwezigheid'
+          -
+            handle: vergaderingen_afwezigheid_tekst
+            field:
+              type: textarea
+              display: 'Afwezigheid Tekst'
+              default: 'Kan je niet komen? Verwittig op tijd (vóór zondag!) zodat de takleiding daar rekening mee kan houden voor de activiteit.'
+          -
+            handle: vergaderingen_afwezigheid_uitleg
+            field:
+              type: textarea
+              display: 'Afwezigheid Uitleg'
+              default: 'Het is belangrijk dat de leiding weet wie er komt, zodat ze de activiteiten kunnen aanpassen aan het aantal deelnemers.'
+          -
+            handle: vergaderingen_afwezigheid_link
+            field:
+              type: text
+              display: 'Afwezigheid Link'
+              default: 'https://stamhoofd.thilacoloma.be/afwezigheid'
+              validate:
+                - url
+          -
+            handle: vergaderingen_afwezigheid_link_tekst
+            field:
+              type: text
+              display: 'Afwezigheid Link Tekst'
+              default: 'Afwezigheid melden'
+  weekends_kampen:
+    display: 'Weekends & Kampen'
+    sections:
+      -
+        display: 'Algemeen'
+        fields:
+          -
+            handle: weekends_kampen_title
+            field:
+              type: text
+              display: 'Sectie Titel'
+              default: 'Weekends & Kampen'
+          -
+            handle: weekends_kampen_intro
+            field:
+              type: textarea
+              display: 'Intro Tekst'
+              default: 'Doorheen het jaar organiseren we verschillende weekends en kampen. Elk weekend heeft zijn eigen karakter en doelgroep, van avontuurlijke overlevingsweekends tot gezamenlijke beloftemomenten.'
+      -
+        display: 'Weekends'
+        fields:
+          -
+            handle: weekends_title
+            field:
+              type: text
+              display: 'Weekends Titel'
+              default: 'Weekends'
+          -
+            handle: weekends_beschrijving
+            field:
+              type: textarea
+              display: 'Weekends Beschrijving'
+              default: 'Elke tak gaat jaarlijks 3 keer op weekend. Dan zoekt de leiding een scouts- of chirolokaal op een andere locatie om daar een weekendje plezier te maken. De weekends kosten meestal €25 tot €35 - dit is de kost voor de locatie, het eten en soms ook voor een activiteit of een treinticket.'
+          -
+            handle: weekends_drie_titel
+            field:
+              type: text
+              display: 'Drie Weekends Titel'
+              default: 'De drie jaarlijkse weekends:'
+          -
+            handle: weekends_herfst_titel
+            field:
+              type: text
+              display: 'Herfstweekend Titel'
+              default: 'Herfstvakantie - Overlevingsweekend:'
+          -
+            handle: weekends_herfst_tekst
+            field:
+              type: textarea
+              display: 'Herfstweekend Tekst'
+              default: 'Voor verkenners en VT''s is dit een stapweekend in de Ardennen. Van alle scoutsactiviteiten is dit misschien nog wel het meest scoutesk - drie dagen wandelen en overleven in het bos met een avontuurlijke activiteit.'
+          -
+            handle: weekends_kerst_titel
+            field:
+              type: text
+              display: 'Kerstweekend Titel'
+              default: 'Kerstvakantie - Belofteweekend:'
+          -
+            handle: weekends_kerst_tekst
+            field:
+              type: textarea
+              display: 'Kerstweekend Tekst'
+              default: 'Heel Thila Coloma trekt naar het mooie domein van de Hoge Rielen in Kasterlee. Op zaterdagavond krijgen alle eerstejaars vanaf de jongwelpen de kans om hun scoutsbelofte te doen - een moment om je engagement luidop uit te spreken.'
+          -
+            handle: weekends_paas_titel
+            field:
+              type: text
+              display: 'Paasweekend Titel'
+              default: 'Paasvakantie - Kluisweekend:'
+          -
+            handle: weekends_paas_tekst
+            field:
+              type: textarea
+              display: 'Paasweekend Tekst'
+              default: 'De drie jongverkennertakken fietsen naar de Kluisberg in Oud-Heverlee om er in tenten te slapen en groepsspelen te spelen met alle jongverkenners.'
+          -
+            handle: weekends_opmerking
+            field:
+              type: textarea
+              display: 'Weekends Opmerking'
+              default: 'Weekends lopen meestal van vrijdagavond tot zondagnamiddag. Voor kapoenen begint zo''n weekend pas op zaterdag en eindigt het zondag. Sommige takken (voornamelijk de oudere) organiseren ook 24-uursvergaderingen aan het begin en einde van het scoutsjaar - een mini-weekend dat 24 uur lang doorgaat.'
+      -
+        display: 'Kampen'
+        fields:
+          -
+            handle: kampen_title
+            field:
+              type: text
+              display: 'Kampen Titel'
+              default: 'Kampen'
+          -
+            handle: kampen_binnenlands_titel
+            field:
+              type: text
+              display: 'Binnenlands Kamp Titel'
+              default: 'Binnenlands Kamp (3-13 augustus):'
+          -
+            handle: kampen_binnenlands_tekst
+            field:
+              type: textarea
+              display: 'Binnenlands Kamp Tekst'
+              default: 'Thila Coloma mag zich trots de organisator van het grootste tentenkamp van België noemen! Met meer dan 450 leden, 70 man leiding en een goed uitgeruste kookploeg trekken we ieder jaar naar een mooi veld (meestal in Wallonië) waar we met de hele groep even deconnecteren van de rest van de wereld en 10 dagen ravotten en plezier maken.'
+          -
+            handle: kampen_dagen_10
+            field:
+              type: text
+              display: '10 Dagen Info'
+              default: '10 dagen voor jongwelpen+ en bagheera''s+'
+          -
+            handle: kampen_dagen_7
+            field:
+              type: text
+              display: '7 Dagen Info'
+              default: '7 dagen voor kapoenen en baloes'
+          -
+            handle: kampen_activiteiten
+            field:
+              type: text
+              display: 'Kamp Activiteiten'
+              default: 'Een driedaagse, dagtocht, totemdag, woudloperskeuken en kampvuuravond maken steevast deel uit van het kampprogramma'
+          -
+            handle: kampen_extra
+            field:
+              type: text
+              display: 'Extra Activiteiten'
+              default: 'Spelletjes, creatieve activiteiten en vrij spel'
+          -
+            handle: kampen_buitenlands_titel
+            field:
+              type: text
+              display: 'Buitenlands Kamp Titel'
+              default: 'Buitenlands Kamp:'
+          -
+            handle: kampen_buitenlands_tekst
+            field:
+              type: textarea
+              display: 'Buitenlands Kamp Tekst'
+              default: 'Om de drie jaar trekken we met de verkenners, VT''s, leiding en kookploeg naar een kampterrein in het buitenland voor ongeveer drie weken. Naast vaste scoutsactiviteiten zoals driedaagse en totemdag, doen we er ook een avontuurlijke activiteit, gaan we de lokale cultuur opsnuiven met een stadsbezoek, houden we een voetbaltoernooi - kortom: een onvergetelijke reis met je beste vrienden!'
+          -
+            handle: kampen_inschrijving
+            field:
+              type: textarea
+              display: 'Inschrijving Info'
+              default: 'De inschrijvingstool voor het kamp komt steeds in april online op de site.'
+  inschrijvingen:
+    display: Inschrijvingen
+    sections:
+      -
+        display: 'Inschrijvingen'
+        fields:
+          -
+            handle: inschrijvingen_title
+            field:
+              type: text
+              display: 'Inschrijvingen Titel'
+              default: 'Inschrijvingen'
+          -
+            handle: inschrijvingen_intro
+            field:
+              type: textarea
+              display: 'Inschrijvingen Intro'
+              default: 'Om verantwoordelijk leiding te kunnen geven beperken we de grootte van elke tak tot 35 leden. Het online aanmeldingssysteem komt elke zomervakantie beschikbaar - het is niet belangrijk om als eerste te kunnen registreren, maar het is wel belangrijk om de deadline niet te missen!'
+          -
+            handle: inschrijvingen_hoofdtitel
+            field:
+              type: text
+              display: 'Hoofdtitel'
+              default: 'Nieuwe leden & Inschrijvingen'
+          -
+            handle: inschrijvingen_proef_titel
+            field:
+              type: text
+              display: 'Proefperiode Titel'
+              default: 'Proefperiode'
+          -
+            handle: inschrijvingen_proef_tekst
+            field:
+              type: textarea
+              display: 'Proefperiode Tekst'
+              default: 'Voor kinderen die zich graag willen inschrijven maar nog niet weten wat scouts inhoudt, is er een inloopperiode. Kinderen kunnen 3 zondagen gratis komen proberen. Dit is gratis en verzekerd vanuit Scouts en Gidsen Vlaanderen. We vragen dan enkel een adres en telefoon van de ouders op, voor het geval er iets moet gecommuniceerd worden.'
+          -
+            handle: inschrijvingen_groep_titel
+            field:
+              type: text
+              display: 'Groepsgrootte Titel'
+              default: 'Groepsgrootte & Voorrang'
+          -
+            handle: inschrijvingen_groep_tekst
+            field:
+              type: textarea
+              display: 'Groepsgrootte Tekst'
+              default: 'Als er te veel leden inschrijven voor een tak, dan krijgen eerst de kinderen met voorrang een plaats. Dit zijn broertjes of zusjes van leden die reeds bij ons in de groep zitten, of kinderen van oud-leiding. Daarna trekken we willekeurig namen van de andere leden die geregistreerd zijn gedurende de aanmeldingsperiode.'
+          -
+            handle: inschrijvingen_wacht_titel
+            field:
+              type: text
+              display: 'Wachtlijst Titel'
+              default: 'Wachtlijst Systeem'
+          -
+            handle: inschrijvingen_wacht_tekst
+            field:
+              type: textarea
+              display: 'Wachtlijst Tekst'
+              default: 'Als een tak vol zit, trekken we nog 5 extra namen voor op een wachtlijst. Als er in de periode van september tot december nog een lid stopt, dan krijgt het eerste kind op de wachtlijst een plaats. Naar ervaring zijn er voornamelijk wachtlijsten van de kapoenen tot en met de seniorwelpen.'
+          -
+            handle: inschrijvingen_alt_titel
+            field:
+              type: text
+              display: 'Alternatieven Titel'
+              default: 'Alternatieven'
+  calendar:
+    display: Kalender
+    sections:
+      -
+        display: 'Google Calendar Integratie'
+        fields:
+          -
+            handle: google_calendar_url
+            field:
+              type: text
+              display: 'Google Calendar URL'
+              instructions: 'De ICS feed URL van de Google Calendar'
+              validate:
+                - url
+          -
+            handle: year_calendar_title
+            field:
+              type: text
+              display: 'Jaarkalender Titel'
+              instructions: 'Titel boven de jaarkalender'
+              default: 'Scoutsjaar Kalender'
+          -
+            handle: navigation_previous_text
+            field:
+              type: text
+              display: 'Vorige Jaar Tekst'
+              instructions: 'Tekst voor de knop naar het vorige scoutsjaar'
+              default: 'Vorig jaar'
+          -
+            handle: navigation_next_text
+            field:
+              type: text
+              display: 'Volgende Jaar Tekst'
+              instructions: 'Tekst voor de knop naar het volgende scoutsjaar'
+              default: 'Volgend jaar'
+  agenda:
+    display: Agenda
+    sections:
+      -
+        display: 'Agenda Sectie'
+        fields:
+          -
+            handle: agenda_title
+            field:
+              type: text
+              display: 'Agenda Titel'
+              instructions: 'Titel voor de komende evenementen sectie'
+              default: 'Komende Evenementen'
+          -
+            handle: agenda_empty_message
+            field:
+              type: text
+              display: 'Geen Evenementen Bericht'
+              instructions: 'Bericht wanneer er geen komende evenementen zijn'
+              default: 'Geen komende evenementen gepland.'
+          -
+            handle: agenda_error_message
+            field:
+              type: text
+              display: 'Agenda Fout Bericht'
+              instructions: 'Bericht wanneer agenda items niet geladen kunnen worden'
+              default: 'Kon agenda items niet laden. Probeer later opnieuw.'
+  messages:
+    display: Berichten
+    sections:
+      -
+        display: 'Systeem Berichten'
+        fields:
+          -
+            handle: calendar_loading_message
+            field:
+              type: text
+              display: 'Kalender Laden Bericht'
+              instructions: 'Bericht tijdens het laden van de kalender'
+              default: 'Kalender wordt geladen...'
+          -
+            handle: calendar_error_message
+            field:
+              type: text
+              display: 'Kalender Fout Bericht'
+              instructions: 'Bericht wanneer de kalender niet geladen kan worden'
+              default: 'Kon calendar events niet laden. Probeer later opnieuw.'
+  seo:
+    display: SEO
+    sections:
+      -
+        display: 'Zoekmachine Optimalisatie'
+        fields:
+          -
+            handle: seo_title
+            field:
+              type: text
+              display: 'SEO Titel'
+              instructions: 'Titel voor zoekmachines (optioneel, gebruikt hoofdtitel als leeg)'
+          -
+            handle: seo_description
+            field:
+              type: textarea
+              display: 'SEO Beschrijving'
+              instructions: 'Beschrijving voor zoekmachines en social media'
+              character_limit: 160

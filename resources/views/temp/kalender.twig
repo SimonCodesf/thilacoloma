@@ -1,0 +1,1223 @@
+{% extends "_layouts/page.twig" %}
+{% set pageTitle = "Kalender - Thila Coloma - Scoutsgroep Mechelen" %}
+
+{% block content %}
+
+    
+        <div class="page-section" style="overflow: visible;">
+            <h2>Komende Evenementen</h2>
+            <p class="section-intro">
+                Hier vind je een overzicht van alle <span>kampen</span> en <span>weekends</span>. We vergaderen elke zondag (behalve de eerste zondag van de maand)!
+            </p>
+            
+            <div class="evenementen-layout">
+                <!-- Links: Slideshow kaarten -->
+                <div class="nieuws-sectie">
+                    <h3>Nieuws & Activiteiten</h3>
+                    <div id="kalender-slideshow" class="kalender-slideshow">
+                        <div class="slide">
+                            <img src="/assets/images/slideshow/1image.jpg" alt="Pizzabak evenement">
+                            <div class="slide-text">
+                                <h2>Pizzabak</h2>
+                                <p>TC organiseert weer een pizzabak voor onze nieuwe lokalen! Wij maken overheerlijke ambachtelijke pizza's die jullie 24 november kunnen komen ophalen op de scouts en thuis gewoon nog even moeten afbakken. We maken de pizza's zelf in samenwerking met broodbroeders.</p>
+                                <button class="meer-button">Meer info</button>
+                            </div>
+                        </div>
+                        <div class="slide">
+                            <img src="/assets/images/slideshow/2image.jpg" alt="Belofteweekend">
+                            <div class="slide-text">
+                                <h2>Belofteweekend</h2>
+                                <p>Het belofteweekend komt er weer aan! Vergeet zeker niet in te schrijven via stamhoofd, de deadline is 30 november.</p>
+                                <button class="meer-button">Meer info</button>
+                            </div>
+                        </div>
+                        <div class="slide">
+                            <img src="/assets/images/slideshow/3image.jpg" alt="TC's Cadeaupakket">
+                            <div class="slide-text">
+                                <h2>TC's Cadeaupakket</h2>
+                                <p>Nog op zoek naar het perfecte cadeau voor onder de kerstboom? Verras je geliefden met ons cadeaupakket met typisch Mechelse lekkernijen! Samen met @sjolaa en de @broodbroeders stelden we dit heerlijke pakket samen, met voor ieder wat wils.</p>
+                                <button class="meer-button">Meer info</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slideshow-dots kalender-dots">
+                        <span class="dot active" onclick="currentSlide(0)"></span>
+                        <span class="dot" onclick="currentSlide(1)"></span>
+                        <span class="dot" onclick="currentSlide(2)"></span>
+                    </div>
+                </div>
+                
+                <!-- Rechts: Kamp/weekend inschrijfkaarten -->
+                <div class="kampen-sectie">
+                    <h3>Kampen & Weekends</h3>
+                    <div id="kampen-container">
+                        <!-- Kamp/weekend kaarten worden hier dynamisch geladen -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="page-section">
+            <h2>Wekelijkse Vergaderingen</h2>
+            <p class="section-intro">
+                De vergaderingen vinden elke zondag plaats met verschillende tijden voor verschillende leeftijdsgroepen. Afwijkingen worden steeds tijdig meegedeeld - zo is het tijdens examenperiodes vaak op zaterdagavond vergadering.
+            </p>
+            <div class="grid-3">
+                <div class="card">
+                    <div class="card-content">
+                        <h3><i class="fas fa-clock"></i> Tijdstip</h3>
+                        <p><strong>Jongsten:</strong> <span>14:00 tot 17:00</span></p>
+                        <p><small>Kapoenen t/m seniorwelpen & tictak</small></p>
+                        
+                        <p><strong>Ouderen:</strong> <span>14:00 tot 18:00</span></p>
+                        <p><small>Jongverkenners t/m VT's</small></p>
+                        
+                        <p><strong>Uitzonderingen:</strong> Tijdens examenperiodes vaak op <span>zaterdagavond</span> vergadering. Afwijkingen worden steeds tijdig meegedeeld.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-content">
+                        <h3><i class="fas fa-calendar-times"></i> Eerste Zondag</h3>
+                        <p><strong>Geen scouts</strong> op de eerste zondag van de maand!</p>
+                        
+                        <p>Deze traditie zorgt ervoor dat gezinnen deze zondag samen vrij hebben, eventueel voor familiefeesten.</p>
+                        
+                        <p><small><strong>Uitzondering:</strong> Als er een weekend doorgaat, kan deze 'eerste zondag' toch een scouts-zondag worden.</small></p>
+                        
+                        <p><strong>Locatie:</strong> Scoutslokalen Thila Coloma<br>
+                        Jubellaan / Geerdegemstraat, Mechelen</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-content">
+                        <h3><i class="fas fa-exclamation-triangle"></i> Afwezigheid</h3>
+                        <p><strong>Kan je niet komen?</strong> Verwittig <span>op tijd (vóór zondag!)</span> zodat de takleiding daar rekening mee kan houden voor de activiteit.</p>
+                        
+                        <p>Het is belangrijk dat de leiding weet wie er komt, zodat ze de activiteiten kunnen aanpassen aan het aantal deelnemers.</p>
+                        
+                        <a href="https://stamhoofd.thilacoloma.be/afwezigheid" class="btn btn-primary" target="_blank">
+                            <i class="fas fa-calendar-times"></i> Afwezigheid melden
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="page-section">
+            <h2>Jaarkalender 2025</h2>
+            <div class="card">
+                <div class="card-content">
+                    <h3>Speciale Activiteiten & Evenementen 2025</h3>
+                    <div class="calendar-events">
+                        <div class="calendar-month">
+                            <h4>September</h4>
+                            <ul>
+                                <li><strong>23–24 sep:</strong> Weekend</li>
+                                <li><strong>29 sep:</strong> Ouderbar / Rommelmarkt</li>
+                                <li><strong>30 sep:</strong> Marspeinverkoop @ markt</li>
+                            </ul>
+                        </div>
+                        <div class="calendar-month">
+                            <h4>Oktober</h4>
+                            <ul>
+                                <li><strong>Laatste weekend:</strong> Overlevingsweekend (verkenners & VT's)</li>
+                            </ul>
+                        </div>
+                        <div class="calendar-month">
+                            <h4>November</h4>
+                            <ul>
+                                <li><strong>4 nov:</strong> Solid</li>
+                                <li><strong>8 nov:</strong> Marspeinverkoop @ markt</li>
+                                <li><strong>9 nov:</strong> Marspeinverkoop jonge takken</li>
+                                <li><strong>13 nov:</strong> Dessertennamiddag</li>
+                                <li><strong>17 nov:</strong> Marspeinverkoop oudere takken</li>
+                                <li><strong>24 nov:</strong> Inclusievergadering & Pizzabak</li>
+                                <li><strong>27–29 nov:</strong> Belofteweekend (heel TC, Hoge Rielen)</li>
+                            </ul>
+                        </div>
+                        <div class="calendar-month">
+                            <h4>December</h4>
+                            <ul>
+                                <li><strong>6 dec:</strong> Sinterklaasfeest</li>
+                                <li><strong>27–29 dec:</strong> Weekend</li>
+                                <li><strong>30 dec:</strong> Etentje</li>
+                            </ul>
+                        </div>
+                        <div class="calendar-month">
+                            <h4>Januari</h4>
+                            <ul>
+                                <li><strong>24 jan:</strong> Inclusievergadering</li>
+                                <li><strong>31 jan – 2 feb:</strong> Weekend</li>
+                            </ul>
+                        </div>
+                        <div class="calendar-month">
+                            <h4>Februari</h4>
+                            <ul>
+                                <li><strong>15 feb:</strong> TC Bingo</li>
+                                <li><strong>16 feb:</strong> Spaghettisausverkoop</li>
+                            </ul>
+                        </div>
+                        <div class="calendar-month">
+                            <h4>Maart</h4>
+                            <ul>
+                                <li><strong>15 mrt:</strong> Takwissel</li>
+                                <li><strong>22 mrt:</strong> Rode Kruis stickerverkoop</li>
+                                <li><strong>29 mrt:</strong> Lenteschoonmaak</li>
+                            </ul>
+                        </div>
+                        <div class="calendar-month">
+                            <h4>April</h4>
+                            <ul>
+                                <li><strong>30 apr:</strong> Etentje</li>
+                            </ul>
+                        </div>
+                        <div class="calendar-month">
+                            <h4>Mei</h4>
+                            <ul>
+                                <li><strong>16–18 mei:</strong> Kluisweekend (jongverkenners fietsen)</li>
+                            </ul>
+                        </div>
+                        <div class="calendar-month">
+                            <h4>Juni</h4>
+                            <ul>
+                                <li><strong>8 jun:</strong> Inclusievergadering</li>
+                            </ul>
+                        </div>
+                        <div class="calendar-month">
+                            <h4>Juli</h4>
+                            <ul>
+                                <li><strong>1–31 jul:</strong> BK (Buitenlands kamp)</li>
+                                <li><strong>29 jul:</strong> Inladen camion</li>
+                                <li><strong>31 jul – 2 aug:</strong> Voorkamp</li>
+                            </ul>
+                        </div>
+                        <div class="calendar-month">
+                            <h4>Augustus</h4>
+                            <ul>
+                                <li><strong>3–13 aug:</strong> Kamp</li>
+                                <li><strong>14 aug:</strong> Nakamp</li>
+                                <li><strong>18 aug:</strong> Uitladen camion</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="page-section">
+            <h2>Weekends & Kampen</h2>
+            <p class="section-intro">
+                Doorheen het jaar organiseren we verschillende weekends en kampen. Elk weekend heeft zijn eigen karakter en doelgroep, van avontuurlijke overlevingsweekends tot gezamenlijke beloftemomenten.
+            </p>
+            <div class="grid-2">
+                <div class="card">
+                    <div class="card-content">
+                        <h3><i class="fas fa-camping"></i> Weekends</h3>
+                        <p>Elke tak gaat jaarlijks <strong>3 keer op weekend</strong>. Dan zoekt de leiding een scouts- of chirolokaal op een andere locatie om daar een weekendje plezier te maken. De weekends kosten meestal <strong>€25 tot €35</strong> - dit is de kost voor de locatie, het eten en soms ook voor een activiteit of een treinticket.</p>
+                        
+                        <h4>De drie jaarlijkse weekends:</h4>
+                        <ul>
+                            <li><strong>Herfstvakantie - Overlevingsweekend:</strong> Voor verkenners en VT's is dit een stapweekend in de Ardennen. Van alle scoutsactiviteiten is dit misschien nog wel het meest scoutesk - drie dagen wandelen en overleven in het bos met een avontuurlijke activiteit.</li>
+                            <li><strong>Kerstvakantie - Belofteweekend:</strong> Heel Thila Coloma trekt naar het mooie domein van de Hoge Rielen in Kasterlee. Op zaterdagavond krijgen alle eerstejaars vanaf de jongwelpen de kans om hun scoutsbelofte te doen - een moment om je engagement luidop uit te spreken.</li>
+                            <li><strong>Paasvakantie - Kluisweekend:</strong> De drie jongverkennertakken fietsen naar de Kluisberg in Oud-Heverlee om er in tenten te slapen en groepsspelen te spelen met alle jongverkenners.</li>
+                        </ul>
+                        <p><small>Weekends lopen meestal van vrijdagavond tot zondagnamiddag. Voor kapoenen begint zo'n weekend pas op zaterdag en eindigt het zondag. Sommige takken (voornamelijk de oudere) organiseren ook 24-uursvergaderingen aan het begin en einde van het scoutsjaar - een mini-weekend dat 24 uur lang doorgaat.</small></p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-content">
+                        <h3><i class="fas fa-mountain"></i> Kampen</h3>
+                        <p><strong>Binnenlands Kamp (3-13 augustus):</strong> Thila Coloma mag zich trots de organisator van het grootste tentenkamp van België noemen! Met meer dan 450 leden, 70 man leiding en een goed uitgeruste kookploeg trekken we ieder jaar naar een mooi veld (meestal in Wallonië) waar we met de hele groep even deconnecteren van de rest van de wereld en 10 dagen ravotten en plezier maken.</p>
+                        
+                        <ul>
+                            <li><strong>10 dagen</strong> voor jongwelpen+ en bagheera's+</li>
+                            <li><strong>7 dagen</strong> voor kapoenen en baloes</li>
+                            <li>Een driedaagse, dagtocht, totemdag, woudloperskeuken en kampvuuravond maken steevast deel uit van het kampprogramma</li>
+                            <li>Spelletjes, creatieve activiteiten en vrij spel</li>
+                        </ul>
+                        
+                        <p><strong>Buitenlands Kamp:</strong> Om de drie jaar trekken we met de verkenners, VT's, leiding en kookploeg naar een kampterrein in het buitenland voor ongeveer drie weken. Naast vaste scoutsactiviteiten zoals driedaagse en totemdag, doen we er ook een avontuurlijke activiteit, gaan we de lokale cultuur opsnuiven met een stadsbezoek, houden we een voetbaltoernooi - kortom: een onvergetelijke reis met je beste vrienden!</p>
+                        
+                        <p><small>De inschrijvingstool voor het kamp komt steeds in april online op de site.</small></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="page-section">
+            <h2>Inschrijvingen</h2>
+            <p class="section-intro">
+                Om verantwoordelijk leiding te kunnen geven beperken we de grootte van elke tak tot 35 leden. Het online aanmeldingssysteem komt elke zomervakantie beschikbaar - het is niet belangrijk om als eerste te kunnen registreren, maar het is wel belangrijk om de deadline niet te missen!
+            </p>
+            <div class="card">
+                <div class="card-content">
+                    <h3>Nieuwe leden & Inschrijvingen</h3>
+                    <div class="grid-2">
+                        <div>
+                            <h4><i class="fas fa-user-plus"></i> Proefperiode</h4>
+                            <p>Voor kinderen die zich graag willen inschrijven maar nog niet weten wat scouts inhoudt, is er een inloopperiode. Kinderen kunnen <strong>3 zondagen gratis</strong> komen proberen. Dit is gratis en verzekerd vanuit Scouts en Gidsen Vlaanderen. We vragen dan enkel een adres en telefoon van de ouders op, voor het geval er iets moet gecommuniceerd worden.</p>
+                            
+                            <h4><i class="fas fa-users"></i> Groepsgrootte & Voorrang</h4>
+                            <p>Als er te veel leden inschrijven voor een tak, dan krijgen eerst de kinderen met <strong>voorrang</strong> een plaats. Dit zijn broertjes of zusjes van leden die reeds bij ons in de groep zitten, of kinderen van oud-leiding. Daarna trekken we willekeurig namen van de andere leden die geregistreerd zijn gedurende de aanmeldingsperiode.</p>
+                        </div>
+                        <div>
+                            <h4><i class="fas fa-list"></i> Wachtlijst Systeem</h4>
+                            <p>Als een tak vol zit, trekken we nog <strong>5 extra namen</strong> voor op een wachtlijst. Als er in de periode van september tot december nog een lid stopt, dan krijgt het eerste kind op de wachtlijst een plaats. Naar ervaring zijn er voornamelijk wachtlijsten van de kapoenen tot en met de seniorwelpen.</p>
+                            
+                            <h4><i class="fas fa-map"></i> Alternatieven</h4>
+                            <p>Voor zij die uiteindelijk, met spijt, uit de boot vallen: er zijn nog <strong>7 andere scoutsgroepen rondom Mechelen</strong> die een gelijkwaardige scoutservaring bieden. Vanaf januari laten we de takken onaangeroerd - geen wijzigingen meer mogelijk.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+
+
+    <script>
+        // Kalender Slideshow functionality - gelijk aan homepage
+        let currentSlideIndex = 0;
+        const slides = document.querySelectorAll('#kalender-slideshow .slide');
+        const dots = document.querySelectorAll('.kalender-dots .dot');
+        let isTransitioning = false;
+        
+        function setupSlides() {
+            slides.forEach((slide, i) => {
+                slide.style.position = 'absolute';
+                slide.style.top = '0';
+                slide.style.left = '0';
+                slide.style.width = '100%';
+                slide.style.display = 'flex';
+                
+                if (i === 0) {
+                    slide.style.opacity = '1';
+                    slide.style.zIndex = '2';
+                    slide.style.transform = 'translateX(0) scale(1)';
+                } else if (i === 1) {
+                    slide.style.opacity = '1';
+                    slide.style.zIndex = '1';
+                    slide.style.transform = 'translateX(60px) scale(0.95)';
+                } else if (i === 2) {
+                    slide.style.opacity = '1';
+                    slide.style.zIndex = '0';
+                    slide.style.transform = 'translateX(120px) scale(0.9)';
+                } else {
+                    slide.style.opacity = '0';
+                    slide.style.zIndex = '-1';
+                    slide.style.transform = 'translateX(0) scale(0.8)';
+                }
+                
+                // Voeg klik event toe aan elke slide
+                slide.addEventListener('click', function(e) {
+                    // Voorkom dat klik op knop de slide activeert
+                    if (e.target.classList.contains('meer-button')) {
+                        return;
+                    }
+                    
+                    // Ga naar volgende slide (zoals homepage)
+                    if (!isTransitioning) {
+                        currentSlideIndex = (currentSlideIndex + 1) % slides.length;
+                        showSlide(currentSlideIndex);
+                    }
+                });
+            });
+        }
+        
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                if (i === index) {
+                    slide.style.transition = 'transform 0.6s ease-in-out, opacity 0.6s ease-out';
+                    slide.style.opacity = '1';
+                    slide.style.zIndex = '2';
+                    slide.style.transform = 'translateX(0) scale(1)';
+                } else if (i === (index + 1) % slides.length) {
+                    slide.style.transition = 'transform 0.6s ease-out, opacity 0.6s ease-out';
+                    slide.style.opacity = '0.95';
+                    slide.style.zIndex = '1';
+                    slide.style.transform = 'translateX(60px) scale(0.95)';
+                } else if (i === (index + 2) % slides.length) {
+                    slide.style.transition = 'transform 0.6s ease-out, opacity 0.6s ease-out';            
+                    slide.style.opacity = '0.9';
+                    slide.style.zIndex = '0';
+                    slide.style.transform = 'translateX(120px) scale(0.9)';
+                } else {
+                    slide.style.transition = 'transform 0.6s ease-out, opacity 0.6s ease-out';
+                    slide.style.opacity = '0';
+                    slide.style.zIndex = '-1';
+                    slide.style.transform = 'translateX(60px) scale(0.85)';
+                }
+            });
+            
+            dots.forEach((dot, i) => {
+                dot.classList.toggle('active', i === index);
+            });
+            
+            isTransitioning = true;
+            setTimeout(() => {
+                isTransitioning = false;
+            }, 600);
+        }
+        
+        function currentSlide(index) {
+            if (!isTransitioning) {
+                currentSlideIndex = index;
+                showSlide(currentSlideIndex);
+            }
+        }
+        
+        function nextSlide() {
+            if (!isTransitioning) {
+                currentSlideIndex = (currentSlideIndex + 1) % slides.length;
+                showSlide(currentSlideIndex);
+            }
+        }
+        
+        // Auto advance slideshow (langzamer dan homepage)
+        setInterval(nextSlide, 15000);
+        
+        // Initialize slideshow
+        setupSlides();
+
+        // Load evenementen data and display
+        async function loadEvenementen() {
+            try {
+                const response = await fetch('../data/site-config.json');
+                const data = await response.json();
+                const kampenContainer = document.getElementById('kampen-container');
+                
+                // Filter voor alleen kampen en weekends
+                const kampenEnWeekends = data.evenementen.filter(event => 
+                    event.type === 'kamp' || event.type === 'weekend'
+                );
+                
+                let hasActiveEvents = false;
+                let nextEvent = null;
+                
+                // Zoek het eerstvolgende evenement - prioriteit aan hoofdkamp boven voorkamp
+                kampenEnWeekends.forEach(event => {
+                    const startDate = new Date(event.datum);
+                    const today = new Date();
+                    
+                    if (startDate >= today) {
+                        if (!nextEvent || startDate < new Date(nextEvent.datum)) {
+                            nextEvent = event;
+                        }
+                        
+                        // Als we zowel voorkamp als zomerkamp hebben, geef prioriteit aan zomerkamp
+                        if (event.titel.toLowerCase().includes('zomerkamp')) {
+                            const voorkampExists = kampenEnWeekends.some(e => 
+                                e.titel.toLowerCase().includes('voorkamp') && 
+                                new Date(e.datum) >= today
+                            );
+                            if (voorkampExists) {
+                                nextEvent = event;
+                            }
+                        }
+                    }
+                });
+                
+                // Toon alleen het eerstvolgende evenement
+                if (nextEvent) {
+                    hasActiveEvents = true;
+                    const startDate = new Date(nextEvent.datum);
+                    const deadlineDate = new Date(nextEvent.deadline);
+                    const today = new Date();
+                    const isDeadlinePassed = deadlineDate < today;
+                    
+                    const eventCard = document.createElement('div');
+                    eventCard.className = 'event-card card';
+                    
+                    eventCard.innerHTML = `
+                        <div class="card-content">
+                            <div class="event-type">${nextEvent.type}</div>
+                            <h3>${nextEvent.titel}</h3>
+                            <div class="event-details">
+                                <div class="event-date">
+                                    <i class="fas fa-calendar"></i>
+                                    ${startDate.toLocaleDateString('nl-BE')}
+                                    ${nextEvent.eindDatum ? ' - ' + new Date(nextEvent.eindDatum).toLocaleDateString('nl-BE') : ''}
+                                </div>
+                                <div class="event-price">
+                                    <i class="fas fa-euro-sign"></i>
+                                    €${nextEvent.prijs}
+                                </div>
+                                <div class="event-deadline ${isDeadlinePassed ? 'deadline-passed' : ''}">
+                                    <i class="fas fa-clock"></i>
+                                    ${isDeadlinePassed ? 'Inschrijvingen gesloten' : `Inschrijven voor ${deadlineDate.toLocaleDateString('nl-BE')}`}
+                                </div>
+                                <div class="event-tak">
+                                    <i class="fas fa-users"></i>
+                                    ${nextEvent.tak.charAt(0).toUpperCase() + nextEvent.tak.slice(1)}
+                                </div>
+                            </div>
+                            <p>${nextEvent.beschrijving}</p>
+                            <div class="event-actions">
+                                ${!isDeadlinePassed ? `
+                                    <a href="${nextEvent.inschrijving}" class="btn btn-primary" target="_blank">
+                                        <i class="fas fa-user-plus"></i> Inschrijven
+                                    </a>
+                                    <button class="btn btn-secondary meer-info-btn">
+                                        <i class="fas fa-info-circle"></i> Meer info
+                                    </button>
+                                ` : `
+                                    <div class="btn btn-disabled">
+                                        <i class="fas fa-times"></i> Inschrijvingen gesloten
+                                    </div>
+                                    <button class="btn btn-secondary meer-info-btn">
+                                        <i class="fas fa-info-circle"></i> Meer info
+                                    </button>
+                                `}
+                            </div>
+                        </div>
+                    `;
+                    
+                    kampenContainer.appendChild(eventCard);
+                }
+                
+                // Als er geen kampen/weekends zijn
+                if (!hasActiveEvents) {
+                    kampenContainer.innerHTML = `
+                        <div class="card no-events-card">
+                            <div class="card-content" style="text-align: center;">
+                                <div class="no-events-icon">
+                                    <i class="fas fa-calendar-times"></i>
+                                </div>
+                                <h3>Geen komende kampen of weekends</h3>
+                                <p>Er zijn momenteel geen kampen of weekends gepland. Hou onze nieuwsberichten in de gaten voor updates!</p>
+                                <p><small>Vergeet niet dat we wel elke zondag vergaderen van 14:00 tot 17:00/18:00 (behalve de eerste zondag van de maand).</small></p>
+                            </div>
+                        </div>
+                    `;
+                }
+            } catch (error) {
+                console.error('Error loading evenementen:', error);
+            }
+        }
+        
+        // Load data when page loads
+        document.addEventListener('DOMContentLoaded', loadEvenementen);
+        
+        // Search functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const searchInput = document.getElementById('search-input');
+            const searchButton = document.getElementById('search-button');
+            
+            function performSearch() {
+                const query = searchInput.value.trim().toLowerCase();
+                if (query === '') return;
+                
+                // Search through all text content on the page
+                const sections = document.querySelectorAll('.page-section');
+                let results = [];
+                
+                sections.forEach(section => {
+                    const sectionTitle = section.querySelector('h2')?.textContent || '';
+                    const sectionContent = section.textContent.toLowerCase();
+                    
+                    if (sectionContent.includes(query)) {
+                        results.push({
+                            title: sectionTitle,
+                            element: section,
+                            relevance: calculateRelevance(sectionContent, query)
+                        });
+                    }
+                });
+                
+                // Highlight and scroll to most relevant result
+                if (results.length > 0) {
+                    results.sort((a, b) => b.relevance - a.relevance);
+                    highlightSearchResults(query);
+                    results[0].element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                } else {
+                    alert('Geen resultaten gevonden voor "' + query + '"');
+                }
+            }
+            
+            function calculateRelevance(content, query) {
+                const queryWords = query.split(' ');
+                let score = 0;
+                
+                queryWords.forEach(word => {
+                    const regex = new RegExp(word, 'gi');
+                    const matches = content.match(regex);
+                    if (matches) {
+                        score += matches.length;
+                    }
+                });
+                
+                return score;
+            }
+            
+            function highlightSearchResults(query) {
+                // Remove existing highlights
+                document.querySelectorAll('.search-highlight').forEach(el => {
+                    el.classList.remove('search-highlight');
+                });
+                
+                // Add new highlights
+                const queryWords = query.split(' ');
+                queryWords.forEach(word => {
+                    if (word.length > 2) { // Only highlight words longer than 2 characters
+                        const regex = new RegExp(`(${word})`, 'gi');
+                        const walker = document.createTreeWalker(
+                            document.body,
+                            NodeFilter.SHOW_TEXT,
+                            null,
+                            false
+                        );
+                        
+                        const textNodes = [];
+                        let node;
+                        while (node = walker.nextNode()) {
+                            textNodes.push(node);
+                        }
+                        
+                        textNodes.forEach(textNode => {
+                            if (textNode.textContent.toLowerCase().includes(word)) {
+                                const parent = textNode.parentElement;
+                                if (parent && !parent.classList.contains('search-highlight')) {
+                                    parent.classList.add('search-highlight');
+                                }
+                            }
+                        });
+                    }
+                });
+                
+                // Remove highlights after 5 seconds
+                setTimeout(() => {
+                    document.querySelectorAll('.search-highlight').forEach(el => {
+                        el.classList.remove('search-highlight');
+                    });
+                }, 5000);
+            }
+            
+            // Event listeners
+            searchButton.addEventListener('click', performSearch);
+            searchInput.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    performSearch();
+                }
+            });
+        });
+    </script>
+
+    <style>
+        /* Zorg dat alle containers overflow: visible hebben voor uitstekende kaarten */
+        body, main, .page-content, .page-section {
+            overflow: visible !important;
+        }
+        
+        /* Evenementen layout */
+        .evenementen-layout {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: var(--spacing-xxl);
+            align-items: start;
+            overflow: visible;
+            margin-bottom: var(--spacing-xxl);
+            animation: fadeInUp 0.8s ease-out;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .nieuws-sectie {
+            overflow: visible;
+        }
+        
+        .kampen-sectie {
+            position: static;
+            top: var(--spacing-lg);
+        }
+        
+        .nieuws-sectie h3,
+        .kampen-sectie h3 {
+            color: var(--primary-color);
+            font-family: var(--font-bold);
+            margin: 0 0 var(--spacing-lg) 0;
+            padding-bottom: var(--spacing-md);
+            border-bottom: 3px solid var(--primary-color);
+            font-size: 1.4em;
+            text-align: left;
+        }
+        
+        /* Slideshow styling voor kalender - gelijk aan homepage */
+        .kalender-slideshow {
+            position: relative;
+            height: 385px;
+            background-color: rgba(255, 255, 255, 0);
+            margin: 0 0 var(--spacing-md) 0;
+            overflow: visible;
+            width: 96%; /* Slideshow zelf smaller maken */
+            padding-right: 0;
+        }
+        
+        .kalender-slideshow .slide {
+            display: flex;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            background-color: white;
+            border-radius: var(--border-radius-md);
+            overflow: hidden;
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+            border: 1px solid rgba(55, 71, 148, 0.08);
+            flex-direction: row-reverse;
+            transition: transform 1.5s cubic-bezier(0.25, 0.8, 0.25, 1), opacity 1.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+            transform-origin: left center;
+            cursor: pointer;
+        }
+        
+        .kalender-slideshow .slide:nth-child(1) {
+            box-shadow: 0 12px 40px rgba(55, 71, 148, 0.15);
+        }
+        
+        .kalender-slideshow .slide:nth-child(2) {
+            box-shadow: 0 10px 35px rgba(192, 88, 154, 0.12);
+        }
+        
+        .kalender-slideshow .slide:nth-child(3) {
+            box-shadow: 0 8px 30px rgba(230, 166, 48, 0.1);
+        }
+        
+        .kalender-slideshow .slide img {
+            flex: 1;
+            width: 33.33%;
+            object-fit: cover;
+        }
+        
+        .kalender-slideshow .slide-text {
+            flex: 2;
+            padding: var(--spacing-md);
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: center;
+            background-color: white;
+            margin-left: var(--spacing-sm);
+        }
+        
+        .kalender-slideshow .slide-text h2 {
+            font-family: var(--font-bold);
+            font-size: 2em;
+            margin: 0;
+            color: var(--primary-color);
+            font-weight: 400;
+        }
+        
+        .kalender-slideshow .slide-text p {
+            color: var(--primary-color);
+            line-height: 1.6;
+            margin: var(--spacing-md) 0;
+        }
+        
+        .kalender-slideshow .meer-button {
+            margin-top: auto;
+            padding: var(--spacing-sm) var(--spacing-md);
+            font-family: var(--font-bold);
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: var(--border-radius-sm);
+            cursor: pointer;
+            transition: var(--transition-normal);
+            align-self: flex-start;
+            z-index: 10;
+            position: relative;
+        }
+        
+        .kalender-slideshow .meer-button:hover {
+            background-color: white;
+            box-shadow: inset 0 0 0 2px var(--primary-color);
+            color: var(--primary-color);
+        }
+        
+        /* Dots styling - gelijk aan homepage */
+        .kalender-dots {
+            text-align: center;
+            margin-top: 0px;
+        }
+        
+        .kalender-dots .dot {
+            cursor: pointer;
+            height: 15px;
+            width: 15px;
+            margin: 0 var(--spacing-xs);
+            background-color: #d9d6e8;
+            border-radius: 50%;
+            display: inline-block;
+            transition: all 0.3s ease;
+            transform: scale(1);
+        }
+        
+        .kalender-dots .dot.active {
+            background-color: var(--primary-color);
+            transform: scale(1.2);
+        }
+        
+        .kalender-dots .dot:hover {
+            background-color: var(--pink-color);
+            transform: scale(1.1);
+        }
+        
+        /* Kampen sectie */
+        #kampen-container {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-md);
+        }
+        
+        /* Event cards aanpassingen */
+        .event-card {
+            width: 100%;
+            border-radius: var(--border-radius-md);
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .event-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+        }
+        
+        .event-card h3 {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        
+        .event-type {
+            background-color: var(--primary-color);
+            color: white;
+            padding: var(--spacing-xs) var(--spacing-sm);
+            border-radius: var(--border-radius-sm);
+            font-size: 0.8em;
+            font-weight: bold;
+            text-transform: uppercase;
+            display: inline-block;
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .event-details {
+            margin: var(--spacing-md) 0;
+        }
+        
+        .event-details div {
+            margin-bottom: var(--spacing-xs);
+            color: var(--dark-color);
+            font-size: 0.9em;
+        }
+        
+        .event-details i {
+            width: 16px;
+            margin-right: var(--spacing-xs);
+            color: var(--pink-color);
+        }
+        
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: white;
+            border: 2px solid var(--primary-color);
+        }
+        
+        .btn-primary:hover {
+            background-color: white;
+            color: var(--primary-color);
+        }
+        
+        .btn-secondary {
+            background-color: white;
+            color: var(--primary-color);
+            border: 2px solid var(--primary-color);
+        }
+        
+        .btn-secondary:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        .meer-info-btn {
+            margin-top: auto;
+            padding: var(--spacing-sm) var(--spacing-md);
+            font-family: var(--font-bold);
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: var(--border-radius-sm);
+            cursor: pointer;
+            transition: var(--transition-normal);
+            align-self: flex-start;
+            z-index: 10;
+            position: relative;
+        }
+        
+        .meer-info-btn:hover {
+            background-color: white;
+            box-shadow: inset 0 0 0 2px var(--primary-color);
+            color: var(--primary-color);
+        }
+        
+        .btn-disabled {
+            background-color: var(--primary-color);
+            color: white;
+            cursor: not-allowed;
+            pointer-events: none;
+        }
+        
+        .no-events-card {
+            text-align: center;
+            padding: var(--spacing-xl);
+        }
+        
+        .no-events-icon {
+            font-size: 3em;
+            color: var(--primary-color);
+            margin-bottom: var(--spacing-md);
+        }
+        
+        /* Responsive aanpassingen */
+        @media (max-width: 1024px) {
+            .evenementen-layout {
+                grid-template-columns: 1fr;
+                gap: var(--spacing-lg);
+            }
+            
+            .kampen-sectie {
+                order: -1;
+            }
+            
+            #kampen-container {
+                display: block;
+            }
+            
+            .kalender-slideshow {
+                height: 350px;
+                margin: var(--spacing-lg) 0 var(--spacing-md) 0;
+                overflow: visible;
+            }
+            
+            .kalender-dots {
+                padding-left: 0;
+            }
+            
+            .kalender-slideshow .slide-text h2 {
+                font-size: 1.6em;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .kalender-slideshow {
+                height: 280px;
+                margin: var(--spacing-md) 0 var(--spacing-sm) 0;
+                overflow: hidden;
+            }
+            
+            .kalender-dots {
+                padding-left: 0;
+            }
+            
+            .kalender-slideshow .slide {
+                flex-direction: column;
+                cursor: pointer;
+            }
+            
+            .kalender-slideshow .slide:hover {
+                transform: scale(1.01) !important;
+            }
+            
+            .kalender-slideshow .slide img {
+                width: 100%;
+                flex: none;
+                height: 40%;
+            }
+            
+            .kalender-slideshow .slide-text {
+                flex: none;
+                height: 60%;
+                padding: var(--spacing-sm);
+                margin-left: 0;
+            }
+            
+            .kalender-slideshow .slide-text h2 {
+                font-size: 1.3em;
+                margin-bottom: var(--spacing-xs);
+            }
+            
+            .kalender-slideshow .slide-text p {
+                font-size: 0.9em;
+                line-height: 1.4;
+                margin: var(--spacing-xs) 0 var(--spacing-sm) 0;
+            }
+            
+            .kalender-slideshow .meer-button {
+                padding: var(--spacing-xs) var(--spacing-sm);
+                font-size: 0.9em;
+            }
+        }
+
+        .calendar-events {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--spacing-lg);
+        }
+        
+        .calendar-month h4 {
+            color: var(--primary-color);
+            font-family: var(--font-bold);
+            margin-top: 0;
+            margin-bottom: var(--spacing-md);
+            padding-bottom: var(--spacing-sm);
+            border-bottom: 2px solid var(--primary-color);
+        }
+        
+        .calendar-month ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .calendar-month li {
+            padding: var(--spacing-xs) 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .calendar-month li:last-child {
+            border-bottom: none;
+        }
+        
+        .event-tak {
+            text-transform: capitalize;
+        }
+        
+        /* Styling voor nieuwe secties */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacing-lg);
+        }
+        
+        @media (max-width: 768px) {
+            .grid-2 {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .card ul {
+            margin: var(--spacing-sm) 0;
+            padding-left: var(--spacing-md);
+        }
+        
+        .card li {
+            margin-bottom: var(--spacing-xs);
+            line-height: 1.5;
+        }
+        
+        .card h4 {
+            color: var(--primary-color);
+            font-family: var(--font-bold);
+            margin: var(--spacing-md) 0 var(--spacing-sm) 0;
+            font-size: 1.1em;
+        }
+        
+        .card h4:first-child {
+            margin-top: 0;
+        }
+        
+        /* Header center navigation override */
+        .simple-header-content {
+            position: relative;
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            align-items: center;
+            gap: var(--spacing-md);
+        }
+        
+        .simple-nav {
+            justify-self: center;
+            display: flex;
+            gap: var(--spacing-md);
+            align-items: center;
+        }
+        
+        /* Navigation button hover effects like homepage */
+        .nav-icon {
+            transition: all 0.3s ease;
+            border-radius: var(--border-radius-sm);
+            padding: var(--spacing-xs);
+        }
+        
+        .nav-icon:hover {
+            transform: scale(1.03);
+        }
+        
+        /* Specific background colors for each navigation button on hover */
+        .simple-nav .nav-icon:nth-child(1):hover {
+            background-color: var(--dark-color);
+        }
+        
+        .simple-nav .nav-icon:nth-child(1):hover img {
+            filter: brightness(0) saturate(100%) invert(48%) sepia(76%) saturate(1154%) hue-rotate(209deg) brightness(96%) contrast(93%);
+        }
+        
+        .simple-nav .nav-icon:nth-child(2):hover {
+            background-color: #2F1D4D;
+        }
+        
+        .simple-nav .nav-icon:nth-child(2):hover img {
+            filter: brightness(0) saturate(100%) invert(48%) sepia(39%) saturate(1230%) hue-rotate(248deg) brightness(85%) contrast(91%);
+        }
+        
+        .simple-nav .nav-icon:nth-child(3):hover {
+            background-color: #C7629D;
+        }
+        
+        .simple-nav .nav-icon:nth-child(3):hover img {
+            filter: brightness(0) saturate(100%) invert(73%) sepia(17%) saturate(1344%) hue-rotate(272deg) brightness(93%) contrast(88%);
+        }
+        
+        .simple-nav .nav-icon:nth-child(4):hover {
+            background-color: #7CA686;
+        }
+        
+        .simple-nav .nav-icon:nth-child(4):hover img {
+            filter: brightness(0) saturate(100%) invert(73%) sepia(22%) saturate(463%) hue-rotate(74deg) brightness(96%) contrast(89%);
+        }
+        
+        .simple-nav .nav-icon:nth-child(5):hover {
+            background-color: #3C4A2D;
+        }
+        
+        .simple-nav .nav-icon:nth-child(5):hover img {
+            filter: brightness(0) saturate(100%) invert(32%) sepia(18%) saturate(1171%) hue-rotate(61deg) brightness(90%) contrast(89%);
+        }
+        
+        .simple-nav .nav-icon:nth-child(6):hover {
+            background-color: #121E0F;
+        }
+        
+        .simple-nav .nav-icon:nth-child(6):hover img {
+            filter: brightness(0) saturate(100%) invert(25%) sepia(23%) saturate(1367%) hue-rotate(74deg) brightness(95%) contrast(92%);
+        }
+        
+        .nav-icon.active {
+            background-color: white;
+        }
+        
+        .nav-icon.active img {
+            filter: brightness(0) saturate(100%) invert(0%);
+        }
+        
+        .nav-icon.active:hover {
+            background-color: white;
+        }
+        
+        .nav-icon.active:hover img {
+            filter: brightness(0) saturate(100%) invert(0%);
+        }
+        
+        .header-actions {
+            justify-self: end;
+        }
+        
+        /* Header search styling */
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+        }
+        
+        .search-container {
+            display: flex;
+            align-items: center;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: var(--border-radius-sm);
+            transition: all 0.3s ease;
+            overflow: hidden;
+            height: 45px; /* Exacte hoogte van nav-icon */
+            width: 250px;
+        }
+        
+        .search-container:focus-within {
+            border-color: rgba(255, 255, 255, 0.5);
+            background-color: rgba(255, 255, 255, 0.15);
+        }
+        
+        .search-input {
+            border: none;
+            outline: none;
+            padding: 0 15px;
+            font-size: 0.9em;
+            font-family: var(--font-bold);
+            background: transparent;
+            color: rgba(255, 255, 255, 0.9);
+            flex: 1;
+            font-family: var(--font-regular);
+            height: 100%;
+        }
+        
+        .search-input::placeholder {
+            color: rgba(255, 255, 255, 0.6);
+            font-family: var(--font-medium);
+        }
+        
+        .search-container:focus-within .search-input {
+            color: white;
+        }
+        
+        .search-button {
+            border: none;
+            background: transparent;
+            color: rgba(255, 255, 255, 0.8);
+            padding: 0 12px;
+            cursor: pointer;
+            transition: var(--transition-normal);
+            display: flex;
+            align-items: center;
+            justify-content: right;
+            height: 100%;
+            width: 50px;
+        }
+        
+        .search-button:hover {
+            color: white;
+        }
+        
+        .search-button i {
+            font-size: 0.9em;
+        }
+        
+        /* Responsive search */
+        @media (max-width: 1024px) {
+            .search-container {
+                width: 160px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header-actions {
+                gap: var(--spacing-sm);
+            }
+            
+            .search-container {
+                width: 140px;
+            }
+        }
+        
+        /* Search highlight styling */
+        .search-highlight {
+            background-color: rgba(230, 166, 48, 0.3) !important;
+            border-radius: 3px;
+            padding: 1px 2px;
+            transition: background-color 0.3s ease;
+        }
+    </style>
+{% endblock %}

@@ -1,0 +1,63 @@
+/* Navigation Component */
+.navigation-grid {
+    display: flex;
+    flex-wrap: wrap;
+    flex: 1;
+    padding: 0 var(--spacing-md);
+    background-color: var(--broken-white);
+}
+
+.nav-button {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 75%;
+    background-color: var(--primary-color);
+    box-shadow: 0 0px 10px rgba(34, 11, 77, 0.3);
+    flex: 1 1 calc(0% - 40px);
+    margin: var(--spacing-md);
+    border-radius: var(--border-radius-md);
+    color: var(--broken-white);
+    transition: var(--transition-normal);
+    margin: var(--spacing-xl) var(--spacing-md);
+    text-decoration: none;
+}
+
+.nav-button:hover {
+    transform: scale(1.03);
+}
+
+.nav-button img {
+    width: 30%;
+    margin-top: auto;
+    margin-bottom: -10px;
+}
+
+.nav-button h3 {
+    font-family: var(--font-medium);
+    font-size: 1.5em;
+    margin-top: auto;
+    color: var(--broken-white);
+}
+
+/* Individual button colors */
+.nav-button:nth-child(1) {
+    background-color: var(--dark-color);
+}
+
+.nav-button:nth-child(2) {
+    background-color: var(--primary-color);
+}
+
+.nav-button:nth-child(4) {
+    background-color: var(--dark-color);
+}
+
+.nav-button:nth-child(5) {
+    background-color: var(--primary-color);
+}
+
+.nav-button:nth-child(6) {
+    background-color: var(--dark-color);
+}

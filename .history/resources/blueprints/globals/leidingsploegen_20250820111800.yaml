@@ -1,0 +1,104 @@
+title: Leidingsploegen
+fields:
+  -
+    handle: leidingsploegen
+    field:
+      type: replicator
+      display: 'Leidingsploegen'
+      instructions: 'Beheer alle leidingsploegen centraal'
+      sets:
+        leidingsploeg:
+          display: 'Leidingsploeg'
+          fields:
+            -
+              handle: tak_naam
+              field:
+                type: text
+                display: 'Tak naam'
+                instructions: 'Naam van de tak (bijv. "Kapoenen 1", "Jongwelpen")'
+                required: true
+            -
+              handle: tak_groep
+              field:
+                type: select
+                display: 'Tak groep'
+                instructions: 'Hoofdgroep waartoe deze tak behoort'
+                options:
+                  kapoenen: Kapoenen
+                  welpen: Welpen
+                  jongverkenners: Jongverkenners  
+                  verkenners: Verkenners
+                  voortrekkers: Voortrekkers
+                  tictak: Tictak
+                required: true
+            -
+              handle: takleider
+              field:
+                type: text
+                display: 'Takleider'
+                instructions: 'Naam van de hoofdtakleider'
+                required: true
+            -
+              handle: takleider_email
+              field:
+                type: text
+                display: 'Takleider email'
+                validate: 'email'
+                required: true
+            -
+              handle: leiding
+              field:
+                type: replicator
+                display: 'Leidingsteam'
+                instructions: 'Alle leiding van deze tak'
+                sets:
+                  leider:
+                    display: 'Leider'
+                    fields:
+                      -
+                        handle: voornaam
+                        field:
+                          type: text
+                          display: 'Voornaam'
+                          required: true
+                      -
+                        handle: achternaam
+                        field:
+                          type: text
+                          display: 'Achternaam'
+                      -
+                        handle: totem
+                        field:
+                          type: text
+                          display: 'Totem'
+                          instructions: 'Optioneel'
+                      -
+                        handle: functie
+                        field:
+                          type: select
+                          display: 'Functie'
+                          options:
+                            takleider: Takleider
+                            leiding: Leiding
+                            jin: Jin
+                          default: leiding
+                      -
+                        handle: email
+                        field:
+                          type: text
+                          display: 'Email'
+                          validate: 'email'
+            -
+              handle: groepsfoto
+              field:
+                type: assets
+                display: 'Groepsfoto'
+                instructions: 'Foto van de hele leidingsploeg'
+                max_files: 1
+                container: assets
+            -
+              handle: actief
+              field:
+                type: toggle
+                display: 'Actief'
+                default: true

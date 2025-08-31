@@ -1,0 +1,1007 @@
+{{#
+    Meer Pagina - Algemene Informatie
+    Gestructureerd in 3 niveaus van belangrijkheid
+#}}
+
+<div class="page-container">
+    <div class="page-header">
+        <h1>{{ title ?? 'Meer Informatie' }}</h1>
+        <p class="page-subtitle">Alles wat je wilt weten over Scouts Thila Coloma</p>
+    </div>
+
+    {{# NIVEAU 1 - Meest Belangrijke Informatie #}}
+    <div class="section-primary">
+        
+        {{# Visie - Prominente Weergave #}}
+        <div class="visie-hero">
+            <div class="visie-content">
+                <div class="visie-icon">
+                    <i class="fas fa-compass"></i>
+                </div>
+                <div class="visie-text">
+                    <h2>Onze Visie</h2>
+                    <blockquote class="visie-quote">
+                        "Scouting biedt kinderen en jongeren de kans om zich te ontwikkelen tot zelfstandige, verantwoordelijke en gelukkige mensen die een bijdrage leveren aan de samenleving."
+                    </blockquote>
+                    <p class="visie-description">
+                        Bij Scouts Thila Coloma geloven we in de kracht van avontuur, vriendschap en persoonlijke groei. 
+                        Wij begeleiden kinderen en jongeren in hun ontwikkeling door spel, natuur en samenwerking.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        {{# Contact - Direct Toegankelijk #}}
+        <div class="contact-primary">
+            <h2><i class="fas fa-phone"></i> Contact</h2>
+            <div class="contact-grid">
+                <div class="contact-card urgent">
+                    <h3><i class="fas fa-exclamation-circle"></i> Urgent Contact</h3>
+                    <p><strong>Groepsleiding:</strong></p>
+                    <a href="tel:+32123456789" class="contact-link">+32 12 34 56 789</a>
+                    <a href="mailto:groepsleiding@thilacoloma.be" class="contact-link">groepsleiding@thilacoloma.be</a>
+                </div>
+                <div class="contact-card general">
+                    <h3><i class="fas fa-envelope"></i> Algemeen</h3>
+                    <a href="mailto:info@thilacoloma.be" class="contact-link">info@thilacoloma.be</a>
+                    <p><strong>Adres:</strong><br>Jubellaan / Geerdegemstraat<br>2800 Mechelen</p>
+                </div>
+            </div>
+        </div>
+
+        {{# Groepsleiding - Direct Zichtbaar #}}
+        <div class="groepsleiding-primary">
+            <h2><i class="fas fa-users"></i> Groepsleiding</h2>
+            <div class="groepsleiding-grid">
+                <div class="leiding-card">
+                    <div class="leiding-avatar">
+                        <i class="fas fa-user-crown"></i>
+                    </div>
+                    <div class="leiding-info">
+                        <h3>Groepsleider</h3>
+                        <p class="leiding-name">Naam Achternaam</p>
+                        <p class="leiding-contact">groepsleider@thilacoloma.be</p>
+                    </div>
+                </div>
+                <div class="leiding-card">
+                    <div class="leiding-avatar">
+                        <i class="fas fa-user-graduate"></i>
+                    </div>
+                    <div class="leiding-info">
+                        <h3>Adjunct Groepsleider</h3>
+                        <p class="leiding-name">Naam Achternaam</p>
+                        <p class="leiding-contact">adjunct@thilacoloma.be</p>
+                    </div>
+                </div>
+                <div class="leiding-card">
+                    <div class="leiding-avatar">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <div class="leiding-info">
+                        <h3>Secretaris</h3>
+                        <p class="leiding-name">Naam Achternaam</p>
+                        <p class="leiding-contact">secretaris@thilacoloma.be</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {{# NIVEAU 2 - Belangrijke maar Gespecialiseerde Informatie #}}
+    <div class="section-secondary">
+        <h2 class="section-title"><i class="fas fa-info-circle"></i> Belangrijke Informatie</h2>
+        <p class="section-subtitle">Klik op een onderwerp voor meer details</p>
+        
+        <div class="info-grid-secondary">
+            
+            <div class="info-card secondary" data-target="over-thila">
+                <div class="card-icon">
+                    <i class="fas fa-heart"></i>
+                </div>
+                <div class="card-content">
+                    <h3>Over Thila Coloma</h3>
+                    <p>Onze geschiedenis, missie en wat ons uniek maakt</p>
+                </div>
+                <div class="card-arrow">
+                    <i class="fas fa-chevron-right"></i>
+                </div>
+            </div>
+
+            <div class="info-card secondary" data-target="uniform">
+                <div class="card-icon">
+                    <i class="fas fa-tshirt"></i>
+                </div>
+                <div class="card-content">
+                    <h3>Uniform</h3>
+                    <p>Alles over het scoutsuniform en waar je het kan verkrijgen</p>
+                </div>
+                <div class="card-arrow">
+                    <i class="fas fa-chevron-right"></i>
+                </div>
+            </div>
+
+            <div class="info-card secondary" data-target="inschrijven">
+                <div class="card-icon">
+                    <i class="fas fa-user-plus"></i>
+                </div>
+                <div class="card-content">
+                    <h3>Inschrijven</h3>
+                    <p>Hoe je je kind kan inschrijven en wat je moet weten</p>
+                </div>
+                <div class="card-arrow">
+                    <i class="fas fa-chevron-right"></i>
+                </div>
+            </div>
+
+            <div class="info-card secondary" data-target="betalingen">
+                <div class="card-icon">
+                    <i class="fas fa-euro-sign"></i>
+                </div>
+                <div class="card-content">
+                    <h3>Betalingen</h3>
+                    <p>Lidgeld, kampgeld en andere financiële informatie</p>
+                </div>
+                <div class="card-arrow">
+                    <i class="fas fa-chevron-right"></i>
+                </div>
+            </div>
+
+            <div class="info-card secondary" data-target="formulieren">
+                <div class="card-icon">
+                    <i class="fas fa-file-medical"></i>
+                </div>
+                <div class="card-content">
+                    <h3>Formulieren Mutualiteit</h3>
+                    <p>Medische formulieren en verzekeringsinformatie</p>
+                </div>
+                <div class="card-arrow">
+                    <i class="fas fa-chevron-right"></i>
+                </div>
+            </div>
+
+            <div class="info-card secondary" data-target="pest-inclusie">
+                <div class="card-icon">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <div class="card-content">
+                    <h3>Pest & Inclusie</h3>
+                    <p>Ons beleid rond veiligheid en inclusie</p>
+                </div>
+                <div class="card-arrow">
+                    <i class="fas fa-chevron-right"></i>
+                </div>
+            </div>
+
+            <div class="info-card secondary" data-target="faq">
+                <div class="card-icon">
+                    <i class="fas fa-question-circle"></i>
+                </div>
+                <div class="card-content">
+                    <h3>FAQ</h3>
+                    <p>Veelgestelde vragen en antwoorden</p>
+                </div>
+                <div class="card-arrow">
+                    <i class="fas fa-chevron-right"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {{# NIVEAU 3 - Minder Belangrijke maar Interessante Informatie #}}
+    <div class="section-tertiary">
+        <h2 class="section-title"><i class="fas fa-star"></i> Extra Informatie</h2>
+        <p class="section-subtitle">Leuke extra's en achtergrondinformatie</p>
+        
+        <div class="info-grid-tertiary">
+            
+            <div class="info-card tertiary" data-target="jaarthema">
+                <div class="card-icon">
+                    <i class="fas fa-calendar-star"></i>
+                </div>
+                <div class="card-content">
+                    <h3>Jaarthema</h3>
+                    <p>Het thema van dit scoutsjaar</p>
+                </div>
+                <div class="card-arrow">
+                    <i class="fas fa-chevron-right"></i>
+                </div>
+            </div>
+
+            <div class="info-card tertiary" data-target="scoutsliederen">
+                <div class="card-icon">
+                    <i class="fas fa-music"></i>
+                </div>
+                <div class="card-content">
+                    <h3>Scoutsliederen</h3>
+                    <p>Teksten van onze favoriete scoutsliederen</p>
+                </div>
+                <div class="card-arrow">
+                    <i class="fas fa-chevron-right"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {{# Modal Containers voor Niveau 2 & 3 Content #}}
+    <div id="modal-overlay" class="modal-overlay">
+        <div class="modal-container">
+            <div class="modal-header">
+                <h2 id="modal-title"></h2>
+                <button class="modal-close" id="modal-close">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-content" id="modal-content">
+                <!-- Content wordt hier dynamisch geladen -->
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+/* Basis Layout */
+.page-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.page-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.page-subtitle {
+    font-size: 1.2rem;
+    color: var(--text-light);
+    margin-top: 1rem;
+}
+
+/* NIVEAU 1 - Primaire Sectie */
+.section-primary {
+    margin-bottom: 4rem;
+}
+
+/* Visie Hero */
+.visie-hero {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    border-radius: var(--border-radius);
+    padding: 3rem;
+    margin-bottom: 3rem;
+    color: white;
+}
+
+.visie-content {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.visie-icon {
+    font-size: 4rem;
+    opacity: 0.8;
+}
+
+.visie-text h2 {
+    margin: 0 0 1rem 0;
+    font-size: 2.5rem;
+}
+
+.visie-quote {
+    font-style: italic;
+    font-size: 1.3rem;
+    margin: 1rem 0;
+    padding-left: 1rem;
+    border-left: 3px solid rgba(255,255,255,0.3);
+}
+
+.visie-description {
+    font-size: 1.1rem;
+    opacity: 0.9;
+}
+
+/* Contact Primair */
+.contact-primary {
+    margin-bottom: 2rem;
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1rem;
+}
+
+.contact-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: var(--border-radius);
+    border-left: 4px solid var(--primary-color);
+    box-shadow: var(--shadow-sm);
+}
+
+.contact-card.urgent {
+    border-left-color: var(--warning-color);
+}
+
+.contact-link {
+    display: block;
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: bold;
+    margin: 0.5rem 0;
+}
+
+.contact-link:hover {
+    text-decoration: underline;
+}
+
+/* Groepsleiding Primair */
+.groepsleiding-primary {
+    margin-bottom: 2rem;
+}
+
+.groepsleiding-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1rem;
+}
+
+.leiding-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-sm);
+    text-align: center;
+}
+
+.leiding-avatar {
+    font-size: 3rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.leiding-name {
+    font-weight: bold;
+    font-size: 1.1rem;
+    margin: 0.5rem 0;
+}
+
+.leiding-contact {
+    color: var(--text-light);
+    font-size: 0.9rem;
+}
+
+/* NIVEAU 2 & 3 - Secundaire en Tertiaire Secties */
+.section-secondary, .section-tertiary {
+    margin: 4rem 0;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.section-subtitle {
+    text-align: center;
+    color: var(--text-light);
+    margin-bottom: 2rem;
+}
+
+.info-grid-secondary {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 1.5rem;
+}
+
+.info-grid-tertiary {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+/* Info Cards */
+.info-card {
+    background: white;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-sm);
+    display: flex;
+    align-items: center;
+    padding: 1.5rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    gap: 1rem;
+}
+
+.info-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.info-card.secondary {
+    border-left: 4px solid var(--primary-color);
+}
+
+.info-card.tertiary {
+    border-left: 4px solid var(--secondary-color);
+    opacity: 0.9;
+}
+
+.card-icon {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    min-width: 60px;
+}
+
+.info-card.tertiary .card-icon {
+    color: var(--secondary-color);
+}
+
+.card-content {
+    flex: 1;
+}
+
+.card-content h3 {
+    margin: 0 0 0.5rem 0;
+    font-size: 1.2rem;
+}
+
+.card-content p {
+    margin: 0;
+    color: var(--text-light);
+    font-size: 0.9rem;
+}
+
+.card-arrow {
+    font-size: 1.2rem;
+    color: var(--text-light);
+}
+
+/* Modal Styling */
+.modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-overlay.active {
+    display: flex;
+}
+
+.modal-container {
+    background: white;
+    border-radius: var(--border-radius);
+    max-width: 800px;
+    max-height: 80vh;
+    width: 90%;
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+}
+
+.modal-header {
+    background: var(--primary-color);
+    color: white;
+    padding: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modal-header h2 {
+    margin: 0;
+}
+
+.modal-close {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0.5rem;
+}
+
+.modal-content {
+    padding: 2rem;
+    overflow-y: auto;
+    max-height: 60vh;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .visie-content {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .groepsleiding-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .info-grid-secondary,
+    .info-grid-tertiary {
+        grid-template-columns: 1fr;
+    }
+    
+    .info-card {
+        padding: 1rem;
+    }
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const infoCards = document.querySelectorAll('.info-card');
+    const modalOverlay = document.getElementById('modal-overlay');
+    const modalTitle = document.getElementById('modal-title');
+    const modalContent = document.getElementById('modal-content');
+    const modalClose = document.getElementById('modal-close');
+
+    // Modal content voor elke sectie
+    const modalContentData = {
+        'over-thila': {
+            title: 'Over Thila Coloma',
+            content: `
+                <h3>Onze Geschiedenis</h3>
+                <p>Scouts Thila Coloma werd opgericht in 1975 in Mechelen en is uitgegroeid tot de 5de grootste scoutsgroep van Vlaanderen met meer dan 400 leden.</p>
+                
+                <h3>Onze Locatie</h3>
+                <p>Ons terrein ligt tussen de Jubellaan en de Geerdegemstraat in Mechelen, een prachtige natuurlijke omgeving voor onze activiteiten.</p>
+                
+                <h3>Onze Waarden</h3>
+                <ul>
+                    <li>Avontuur en ontdekking</li>
+                    <li>Vriendschap en samenwerking</li>
+                    <li>Respect voor natuur en omgeving</li>
+                    <li>Persoonlijke ontwikkeling</li>
+                </ul>
+            `
+        },
+        'uniform': {
+            title: 'Scoutsuniform',
+            content: `
+                <h3>Waarom een uniform?</h3>
+                <p>Het scoutsuniform zorgt voor gelijkheid en verbondenheid binnen de groep. Het toont ook naar buiten toe dat je bij de scouts hoort.</p>
+                
+                <h3>Wat heb je nodig?</h3>
+                <ul>
+                    <li>Scoutshemd (blauw voor kapoenen, groen voor welpen, etc.)</li>
+                    <li>Scoutsdas van Thila Coloma</li>
+                    <li>Donkere broek of rok</li>
+                    <li>Stevige schoenen</li>
+                </ul>
+                
+                <h3>Waar te verkrijgen?</h3>
+                <p>Je kan het uniform bestellen via de leiding of rechtstreeks bij officiële scouts leveranciers.</p>
+            `
+        },
+        'inschrijven': {
+            title: 'Inschrijven',
+            content: `
+                <h3>Hoe inschrijven?</h3>
+                <p>Inschrijven kan online via onze website of door contact op te nemen met de groepsleiding.</p>
+                
+                <h3>Wat heb je nodig?</h3>
+                <ul>
+                    <li>Ingevuld inschrijvingsformulier</li>
+                    <li>Medische fiche</li>
+                    <li>Bewijs van verzekering</li>
+                    <li>Pasfoto</li>
+                </ul>
+                
+                <h3>Wanneer inschrijven?</h3>
+                <p>Inschrijvingen starten in juni voor het nieuwe scoutsjaar. Je kan ook doorheen het jaar instappen.</p>
+            `
+        },
+        'betalingen': {
+            title: 'Betalingen',
+            content: `
+                <h3>Lidgeld</h3>
+                <p>Het jaarlijkse lidgeld bedraagt €120 en kan in schijven betaald worden.</p>
+                
+                <h3>Kampgeld</h3>
+                <p>Voor kampen rekenen we een extra bijdrage die varieert naargelang de duur en bestemming.</p>
+                
+                <h3>Kortingen</h3>
+                <ul>
+                    <li>Familiekorting vanaf het 2de kind</li>
+                    <li>Sociaal tarief mogelijk</li>
+                    <li>Korting voor helpers en leiding</li>
+                </ul>
+            `
+        },
+        'formulieren': {
+            title: 'Formulieren Mutualiteit',
+            content: `
+                <h3>Medische Fiche</h3>
+                <p>Elk lid moet een actuele medische fiche hebben. Deze moet jaarlijks vernieuwd worden.</p>
+                
+                <h3>Verzekering</h3>
+                <p>Alle leden zijn verzekerd via Scouts en Gidsen Vlaanderen. Extra info vind je in je mutualiteit.</p>
+                
+                <h3>Te downloaden</h3>
+                <ul>
+                    <li><a href="#">Medische fiche</a></li>
+                    <li><a href="#">Verzekeringsinformatie</a></li>
+                    <li><a href="#">Toestemmingsformulieren</a></li>
+                </ul>
+            `
+        },
+        'pest-inclusie': {
+            title: 'Pest & Inclusie',
+            content: `
+                <h3>Ons Pestbeleid</h3>
+                <p>Bij Thila Coloma tolereren we geen pesten. We hebben duidelijke procedures om dit aan te pakken.</p>
+                
+                <h3>Inclusie</h3>
+                <p>Iedereen is welkom bij de scouts, ongeacht achtergrond, capaciteiten of overtuigingen.</p>
+                
+                <h3>Melden</h3>
+                <p>Problemen kan je altijd melden bij de leiding of groepsleiding. We nemen elk geval ernstig.</p>
+                
+                <h3>Meer Info</h3>
+                <p>Uitgebreide informatie vind je in ons <a href="#">veiligheidsbeleid</a>.</p>
+            `
+        },
+        'faq': {
+            title: 'Veelgestelde Vragen',
+            content: `
+                <h3>Wat als mijn kind ziek is?</h3>
+                <p>Laat je kind thuis en verwittigt de leiding. Bij twijfel mag je altijd bellen.</p>
+                
+                <h3>Wat moet mijn kind meebrengen?</h3>
+                <p>Stevige kledij, drankje, eventueel lunchpakket en goede humeur!</p>
+                
+                <h3>Kan mijn kind stoppen als het niet bevalt?</h3>
+                <p>Natuurlijk, maar geef het wel een eerlijke kans. De meeste kinderen wennen snel.</p>
+                
+                <h3>Mogen ouders helpen?</h3>
+                <p>Ja! We zijn altijd op zoek naar helpende handen bij activiteiten en kampen.</p>
+            `
+        },
+        'jaarthema': {
+            title: 'Jaarthema 2024-2025',
+            content: `
+                <h3>Dit jaar: "Avontuur in de Tijd"</h3>
+                <p>We reizen doorheen verschillende tijdperken en ontdekken hoe mensen vroeger leefden.</p>
+                
+                <h3>Activiteiten</h3>
+                <ul>
+                    <li>Prehistorische jacht</li>
+                    <li>Middeleeuws riddertoernooi</li>
+                    <li>Piratenexpedities</li>
+                    <li>Toekomstverkenning</li>
+                </ul>
+                
+                <h3>Kamp</h3>
+                <p>Ons zomerkamp staat dit jaar in het teken van de Wilde Westen!</p>
+            `
+        },
+        'scoutsliederen': {
+            title: 'Scoutsliederen',
+            content: `
+                <h3>Onze Favorieten</h3>
+                
+                <h4>1. De Scoutswet</h4>
+                <p><em>Een scout is eerlijk en waarachtig...<br>
+                Een scout is trouw aan zijn land...<br>
+                Een scout helpt waar hij kan...</em></p>
+                
+                <h4>2. Padvindersmarsch</h4>
+                <p><em>Wij zijn de padvinders vrolijk en blij...<br>
+                Wij gaan door bos en hei...</em></p>
+                
+                <h4>3. Ons Groepslied</h4>
+                <p><em>Thila Coloma, dat zijn wij...<br>
+                Scouts van Mechelen, altijd blij...</em></p>
+                
+                <p><a href="#">Download het volledige liedboek</a></p>
+            `
+        }
+    };
+
+    // Event listeners voor info cards
+    infoCards.forEach(card => {
+        card.addEventListener('click', function() {
+            const target = this.dataset.target;
+            const data = modalContentData[target];
+            
+            if (data) {
+                modalTitle.textContent = data.title;
+                modalContent.innerHTML = data.content;
+                modalOverlay.classList.add('active');
+            }
+        });
+    });
+
+    // Modal sluiten
+    modalClose.addEventListener('click', function() {
+        modalOverlay.classList.remove('active');
+    });
+
+    modalOverlay.addEventListener('click', function(e) {
+        if (e.target === modalOverlay) {
+            modalOverlay.classList.remove('active');
+        }
+    });
+
+    // ESC key om modal te sluiten
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && modalOverlay.classList.contains('active')) {
+            modalOverlay.classList.remove('active');
+        }
+    });
+});
+</script>
+                       
+
+    <style>
+        .quick-nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--spacing-md);
+            justify-content: center;
+            margin-bottom: var(--spacing-xl);
+        }
+        
+        .quick-nav-btn {
+            background: var(--primary-color);
+            color: white;
+            padding: var(--spacing-sm) var(--spacing-lg);
+            border-radius: var(--border-radius-sm);
+            text-decoration: none;
+            font-family: var(--font-medium);
+            transition: all var(--transition-normal);
+        }
+        
+        .quick-nav-btn:hover {
+            background: var(--dark-color);
+            transform: translateY(-2px);
+        }
+        
+        .page-subsection {
+            margin-bottom: var(--spacing-xxl);
+        }
+        
+        .page-subsection h3 {
+            color: var(--primary-color);
+            font-family: var(--font-bold);
+            font-size: 1.5em;
+            margin-bottom: var(--spacing-lg);
+            padding-bottom: var(--spacing-sm);
+            border-bottom: 2px solid var(--gold-color);
+        }
+        
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--spacing-lg);
+        }
+        
+        .gallery-item {
+            position: relative;
+            border-radius: var(--border-radius-md);
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform var(--transition-normal);
+        }
+        
+        .gallery-item:hover {
+            transform: scale(1.05);
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+        
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.8));
+            color: white;
+            padding: var(--spacing-lg);
+            transform: translateY(100%);
+            transition: transform var(--transition-normal);
+        }
+        
+        .gallery-item:hover .gallery-overlay {
+            transform: translateY(0);
+        }
+        
+        .gallery-overlay h4 {
+            margin: 0 0 var(--spacing-xs) 0;
+            font-family: var(--font-bold);
+        }
+        
+        .gallery-overlay p {
+            margin: 0;
+            font-size: 0.9em;
+        }
+        
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .faq-item {
+            border: 1px solid #ddd;
+            border-radius: var(--border-radius-sm);
+            margin-bottom: var(--spacing-md);
+            overflow: hidden;
+        }
+        
+        .faq-question {
+            background: var(--broken-white);
+            padding: var(--spacing-lg);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background var(--transition-normal);
+        }
+        
+        .faq-question:hover {
+            background: #e6e8ff;
+        }
+        
+        .faq-question h3 {
+            margin: 0;
+            color: var(--primary-color);
+            font-family: var(--font-medium);
+            font-size: 1.1em;
+        }
+        
+        .faq-question i {
+            color: var(--primary-color);
+            transition: transform var(--transition-normal);
+        }
+        
+        .faq-answer {
+            padding: var(--spacing-lg);
+            display: none;
+            border-top: 1px solid #ddd;
+        }
+        
+        .faq-answer p {
+            margin: 0;
+            line-height: 1.6;
+        }
+        
+        @media (max-width: 768px) {
+            .quick-nav {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .gallery-overlay {
+                transform: translateY(0);
+                position: relative;
+                background: rgba(0,0,0,0.8);
+            }
+        }
+        
+    </style>
+
+    <script>
+        // Search functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const searchInput = document.getElementById('search-input');
+            const searchButton = document.getElementById('search-button');
+            
+            function performSearch() {
+                const query = searchInput.value.trim().toLowerCase();
+                if (query === '') return;
+                
+                // Search through all text content on the page
+                const sections = document.querySelectorAll('.page-section');
+                let results = [];
+                
+                sections.forEach(section => {
+                    const sectionTitle = section.querySelector('h2')?.textContent || '';
+                    const sectionContent = section.textContent.toLowerCase();
+                    
+                    if (sectionContent.includes(query)) {
+                        results.push({
+                            title: sectionTitle,
+                            element: section,
+                            relevance: calculateRelevance(sectionContent, query)
+                        });
+                    }
+                });
+                
+                // Highlight and scroll to most relevant result
+                if (results.length > 0) {
+                    results.sort((a, b) => b.relevance - a.relevance);
+                    highlightSearchResults(query);
+                    results[0].element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                } else {
+                    alert('Geen resultaten gevonden voor "' + query + '"');
+                }
+            }
+            
+            function calculateRelevance(content, query) {
+                const queryWords = query.split(' ');
+                let score = 0;
+                
+                queryWords.forEach(word => {
+                    const regex = new RegExp(word, 'gi');
+                    const matches = content.match(regex);
+                    if (matches) {
+                        score += matches.length;
+                    }
+                });
+                
+                return score;
+            }
+            
+            function highlightSearchResults(query) {
+                // Remove existing highlights
+                document.querySelectorAll('.search-highlight').forEach(el => {
+                    el.classList.remove('search-highlight');
+                });
+                
+                // Add new highlights
+                const queryWords = query.split(' ');
+                queryWords.forEach(word => {
+                    if (word.length > 2) { // Only highlight words longer than 2 characters
+                        const regex = new RegExp(`(${word})`, 'gi');
+                        const walker = document.createTreeWalker(
+                            document.body,
+                            NodeFilter.SHOW_TEXT,
+                            null,
+                            false
+                        );
+                        
+                        const textNodes = [];
+                        let node;
+                        while (node = walker.nextNode()) {
+                            textNodes.push(node);
+                        }
+                        
+                        textNodes.forEach(textNode => {
+                            if (textNode.textContent.toLowerCase().includes(word)) {
+                                const parent = textNode.parentElement;
+                                if (parent && !parent.classList.contains('search-highlight')) {
+                                    parent.classList.add('search-highlight');
+                                }
+                            }
+                        });
+                    }
+                });
+                
+                // Remove highlights after 5 seconds
+                setTimeout(() => {
+                    document.querySelectorAll('.search-highlight').forEach(el => {
+                        el.classList.remove('search-highlight');
+                    });
+                }, 5000);
+            }
+            
+            // Event listeners
+            searchButton.addEventListener('click', performSearch);
+            searchInput.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    performSearch();
+                }
+            });
+        });
+    </script>

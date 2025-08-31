@@ -1,0 +1,150 @@
+<div class="container takken-container">
+    <header class="page-header">
+        <a href="/" class="back-home">← Terug naar home</a>
+        <h1>Onze Takken</h1>
+        <p>Van 6 tot 18 jaar bieden we diverse takken aan waar jongeren kunnen groeien en plezier maken.</p>
+    </header>
+    
+    <main class="takken-grid">
+        {{ collection:takken sort="order:asc" }}
+            <div class="tak-card">
+                {{ if tak_image }}
+                    <div class="tak-image">
+                        <img src="{{ tak_image }}" alt="{{ title }} afbeelding">
+                    </div>
+                {{ /if }}
+                
+                <div class="tak-info">
+                    <h2>{{ title }}</h2>
+                    <div class="tak-details">
+                        <p><strong>Leeftijd:</strong> {{ age_range }}</p>
+                        <p><strong>Wanneer:</strong> {{ meeting_day }} {{ meeting_time }}</p>
+                    </div>
+                    
+                    <div class="tak-description">
+                        {{ description }}
+                    </div>
+                    
+                    {{ if activities }}
+                        <div class="tak-activities">
+                            <h3>Typische activiteiten:</h3>
+                            <p>{{ activities }}</p>
+                        </div>
+                    {{ /if }}
+                    
+                    <div class="tak-leaders">
+                        <h3>Leiding:</h3>
+                        <div class="leaders-grid">
+                            {{ leidingsploegen:leidingsploegen }}
+                                {{ if tak_naam == title && actief }}
+                                    {{ leiding }}
+                                        <div class="leader {{ if functie == 'takleider' }}takleider{{ /if }}">
+                                            <div class="leader-photo-container">
+                                                {{ totem_parts = totem | explode: ' ' }}
+                                                {{ animal_name = totem_parts | last }}
+                                                <img src="/assets/images/leidingfotos/{{ animal_name }}.jpg" alt="{{ totem }}" class="leader-photo" onerror="this.src='/assets/images/leidingfotos/placeholder.jpg'">
+                                            </div>
+                                            <div class="leader-info">
+                                                <h4>{{ totem }}</h4>
+                                                <p class="leader-name">{{ voornaam }} {{ achternaam }}</p>
+                                                {{ if functie == 'takleider' }}
+                                                    <p class="leader-role">Takleider</p>
+                                                {{ /if }}
+                                            </div>
+                                        </div>
+                                    {{ /leiding }}
+                                {{ /if }}
+                            {{ /leidingsploegen:leidingsploegen }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {{ /collection:takken }}
+    </main>
+    
+    {{ partial:navigation }}
+</div>
+
+<style>
+    /* Takleider specifieke styling voor takken overzicht */
+    .leaders-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 1rem;
+        margin-top: 1rem;
+    }
+    
+    .leader {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        padding: 0.75rem;
+        border: 2px solid transparent;
+        border-radius: 8px;
+        background: white;
+        transition: all 0.3s ease;
+    }
+    
+    .leader.takleider {
+        border-color: var(--primary-color);
+        background: white;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+    
+    .leader-photo-container {
+        flex-shrink: 0;
+    }
+    
+    .leader-photo {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 2px solid #eee;
+    }
+    
+    .leader.takleider .leader-photo {
+        border-color: var(--primary-color);
+    }
+    
+    .leader-info {
+        flex: 1;
+        min-width: 0;
+    }
+    
+    .leader-info h4 {
+        margin: 0 0 0.25rem 0;
+        font-size: 0.9em;
+        font-weight: bold;
+        color: var(--primary-color);
+    }
+    
+    .leader-name {
+        margin: 0 0 0.25rem 0;
+        font-size: 0.8em;
+        color: var(--dark-color);
+    }
+    
+    .leader-role {
+        margin: 0;
+        font-size: 0.75em;
+        color: var(--primary-color);
+        font-weight: bold;
+    }
+    
+    /* Responsive aanpassingen */
+    @media (max-width: 768px) {
+        .leaders-grid {
+            grid-template-columns: 1fr;
+        }
+        
+        .leader {
+            padding: 0.5rem;
+        }
+        
+        .leader-photo {
+            width: 40px;
+            height: 40px;
+        }
+    }
+</style>

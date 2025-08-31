@@ -1,0 +1,29 @@
+{
+  "organization": {
+    "description": "Thila Coloma is een gemengde jeugdbeweging die in 1975 werd opgericht en ondertussen tot de grootste scoutsgroep van Mechelen is uitgegroeid. Ruim 400 jongeren voelen zich bij ons thuis. Hiermee zijn we de 5de grootste scoutsgroep van Vlaanderen.",
+    "mission": "Samen plezier maken, groeien en ontdekken in een veilige omgeving.",
+    "founded": "1975",
+    "memberCount": "400",
+    "yearTheme": {
+      "year": "2025",
+      "title": "Samen Sterk",
+      "description": "Dit jaar staat in het teken van samenwerking en verbondenheid.",
+      "color": "#E6A630"
+    }
+  },
+  "takken": [
+    {"naam": "Kapoenen 1", "leiding": [{"naam": "Jan Jansen", "functie": "Takleider", "email": "jan@thilacoloma.be"}]},
+    {"naam": "Kapoenen 2", "leiding": [{"naam": "Piet Pieters", "functie": "Takleider", "email": "piet@thilacoloma.be"}]},
+    {"naam": "Jongwelpen", "leiding": [{"naam": "Sofie Smit", "functie": "Takleider", "email": "sofie@thilacoloma.be"}]},
+    {"naam": "Welpen", "leiding": [{"naam": "Tom Timmers", "functie": "Takleider", "email": "tom@thilacoloma.be"}]},
+    {"naam": "Seniorwelpen", "leiding": [{"naam": "Lisa Lammers", "functie": "Takleider", "email": "lisa@thilacoloma.be"}]},
+    {"naam": "Tictak (Akabe)", "leiding": [{"naam": "Akabe Anna", "functie": "Takleider", "email": "akabe@thilacoloma.be"}]},
+    {"naam": "Jongverkenners 1", "leiding": [{"naam": "Jeroen Joris", "functie": "Takleider", "email": "jeroen@thilacoloma.be"}]},
+    {"naam": "Jongverkenners 2", "leiding": [{"naam": "Karin Koster", "functie": "Takleider", "email": "karin@thilacoloma.be"}]},
+    {"naam": "Jongverkenners 3", "leiding": [{"naam": "Bart Bervoets", "functie": "Takleider", "email": "bart@thilacoloma.be"}]},
+    {"naam": "Verkenners 1", "leiding": [{"naam": "Vera Vermeulen", "functie": "Takleider", "email": "vera@thilacoloma.be"}]},
+    {"naam": "Verkenners 2", "leiding": [{"naam": "Koen Kennis", "functie": "Takleider", "email": "koen@thilacoloma.be"}]},
+    {"naam": "Verkenners 3", "leiding": [{"naam": "Mieke Mertens", "functie": "Takleider", "email": "mieke@thilacoloma.be"}]},
+    {"naam": "Voortrekkers", "leiding": [{"naam": "Vincent Vissers", "functie": "Takleider", "email": "vincent@thilacoloma.be"}]}
+  ]
+}

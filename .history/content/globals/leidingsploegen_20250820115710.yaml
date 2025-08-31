@@ -1,0 +1,570 @@
+---
+title: Leidingsploegen
+data:
+  leidingsploegen:
+    - 
+      id: grl
+      type: leidingsploeg
+      tak_naam: 'Groepsleiding'
+      tak_groep: groepsleiding
+      actief: true
+      takleider: 'Luca Fancello'
+      takleider_email: 'mustela@thilacoloma.be'
+      leiding:
+        -
+          id: l1
+          type: leider
+          voornaam: 'Luca'
+          achternaam: 'Fancello'
+          totem: 'Uitdagende Mustela'
+          functie: 'takleider'
+          email: 'mustela@thilacoloma.be'
+        -
+          id: l2
+          type: leider
+          voornaam: 'Bert'
+          achternaam: 'De Landtsheer'
+          totem: 'Opmerkzame Taipan'
+          functie: 'leiding'
+          email: 'taipan@thilacoloma.be'
+        -
+          id: l3
+          type: leider
+          voornaam: 'Shayan'
+          achternaam: 'Ghadiri'
+          totem: 'Joviale Pumba'
+          functie: 'leiding'
+          email: 'pumba@thilacoloma.be'
+        -
+          id: l4
+          type: leider
+          voornaam: 'Ferre'
+          achternaam: 'Meuleman'
+          totem: 'Toegewijde Kantjil'
+          functie: 'leiding'
+          email: 'kantjil@thilacoloma.be'
+        -
+          id: l5
+          type: leider
+          voornaam: 'Simon'
+          achternaam: 'Beel'
+          totem: 'Ongedwongen Coelho'
+          functie: 'leiding'
+          email: 'coelho@thilacoloma.be'
+    -
+      id: kap1
+      type: leidingsploeg
+      tak_naam: 'Kapoenen 1'
+      tak_groep: kapoenen
+      actief: true
+      takleider: 'Kato De Troch'
+      takleider_email: 'coscoroba@thilacoloma.be'
+      leiding:
+        -
+          id: l6
+          type: leider
+          voornaam: 'Kato De Troch'
+          totem: 'Zachtaardige Coscoroba'
+          email: 'coscoroba@thilacoloma.be'
+        -
+          id: l7
+          type: leider
+          voornaam: 'Robin Hermans'
+          totem: 'Edelmoedige Turdo'
+          email: 'turdo@thilacoloma.be'
+        -
+          id: l8
+          type: leider
+          voornaam: 'Lorin Vermeersch'
+          totem: 'Verrassende Caama'
+          email: 'caama@thilacoloma.be'
+        -
+          id: l9
+          type: leider
+          voornaam: 'Josefien Poppe'
+          totem: 'Jolige Cardelino'
+          email: 'cardelino@thilacoloma.be'
+        -
+          id: l10
+          type: leider
+          voornaam: 'Louise Van Horebeek'
+          totem: 'Zorgeloze Abelii'
+          email: 'abelii@thilacoloma.be'
+        -
+          id: l11
+          type: leider
+          voornaam: 'Jarne Schaepherders'
+          totem: 'Koddige Woestijnvos'
+          email: 'woestijnvos@thilacoloma.be'
+    -
+      id: kap2
+      type: leidingsploeg
+      tak_naam: 'Kapoenen 2'
+      tak_groep: kapoenen
+      actief: true
+      takleider: 'Janne De Coster'
+      takleider_email: 'roodborstje@thilacoloma.be'
+      leiding:
+        -
+          id: l12
+          type: leider
+          voornaam: 'Janne De Coster'
+          totem: 'Trouwhartig Roodborstje'
+          email: 'roodborstje@thilacoloma.be'
+        -
+          id: l13
+          type: leider
+          voornaam: 'Fien Pans'
+          totem: 'Fiere Kraanvogel'
+          email: 'kraanvogel@thilacoloma.be'
+        -
+          id: l14
+          type: leider
+          voornaam: 'Janne Laurent'
+          totem: 'Dartele Ani'
+          email: 'ani@thilacoloma.be'
+        -
+          id: l15
+          type: leider
+          voornaam: 'Simon Catry'
+          totem: 'Vermakelijke Groenling'
+          email: 'groenling@thilacoloma.be'
+        -
+          id: l16
+          type: leider
+          voornaam: 'Lars Maes'
+          totem: 'Schalkse Musara'
+          email: 'musara@thilacoloma.be'
+        -
+          id: l17
+          type: leider
+          voornaam: 'Ilona Decraemer'
+          totem: 'Parmantige Chigi'
+          email: 'chigi@thilacoloma.be'
+    -
+      id: jw
+      type: leidingsploeg
+      tak_naam: 'Jongwelpen'
+      tak_groep: welpen
+      actief: true
+      takleider: 'Steven Jacob'
+      takleider_email: 'honingbeer@thilacoloma.be'
+      leiding:
+        -
+          id: l18
+          type: leider
+          voornaam: 'Steven Jacob'
+          totem: 'Genietende Honingbeer'
+          email: 'honingbeer@thilacoloma.be'
+        -
+          id: l19
+          type: leider
+          voornaam: 'Emma Ongena'
+          totem: 'Ongeveinsde Ghara'
+          email: 'ghara@thilacoloma.be'
+        -
+          id: l20
+          type: leider
+          voornaam: 'Flore Rens'
+          totem: 'Kwettende Parkiet'
+          email: 'parkiet@thilacoloma.be'
+        -
+          id: l21
+          type: leider
+          voornaam: 'Witse Seps'
+          totem: 'Parmantige Caracara'
+          email: 'caracara@thilacoloma.be'
+        -
+          id: l22
+          type: leider
+          voornaam: 'Noor Reinquin'
+          totem: 'Wilskrachtige Perri'
+          email: 'perri@thilacoloma.be'
+        -
+          id: l23
+          type: leider
+          voornaam: 'Lucie Lauryssen'
+          totem: 'Dartele Synomy'
+          email: 'synomy@thilacoloma.be'
+    -
+      id: w
+      type: leidingsploeg
+      tak_naam: 'Welpen'
+      tak_groep: welpen
+      actief: true
+      takleider: 'Nima Horemans'
+      takleider_email: 'kuda@thilacoloma.be'
+      leiding:
+        -
+          id: l24
+          type: leider
+          voornaam: 'Nima Horemans'
+          totem: 'Hartelijke Kuda'
+          email: 'kuda@thilacoloma.be'
+        -
+          id: l25
+          type: leider
+          voornaam: 'Mira Vermeersch'
+          totem: 'Gehechte Okapi'
+          email: 'okapi@thilacoloma.be'
+        -
+          id: l26
+          type: leider
+          voornaam: 'Marte Pouliart'
+          totem: 'Genietende Secretarisvogel'
+          email: 'secretarisvogel@thilacoloma.be'
+        -
+          id: l27
+          type: leider
+          voornaam: 'Christina Lambot'
+          totem: 'Christina'
+          email: 'christina@thilacoloma.be'
+        -
+          id: l28
+          type: leider
+          voornaam: 'Achiel Schoemans'
+          totem: 'Pientere Oropendola'
+          email: 'oropendola@thilacoloma.be'
+        -
+          id: l29
+          type: leider
+          voornaam: 'Wouter Hellemans'
+          totem: 'Olijke Wasbeer'
+          email: 'wasbeer@thilacoloma.be'
+        -
+          id: l30
+          type: leider
+          voornaam: 'Kato Raeymaekers'
+          totem: 'Joviale Stari'
+          email: 'stari@thilacoloma.be'
+    -
+      id: sw
+      type: leidingsploeg
+      tak_naam: 'Seniorwelpen'
+      tak_groep: welpen
+      actief: true
+      takleider: 'Vighor De Cock'
+      takleider_email: 'bernesi@thilacoloma.be'
+      leiding:
+        -
+          id: l31
+          type: leider
+          voornaam: 'Vighor De Cock'
+          totem: 'Leutige Bernesi'
+          email: 'bernesi@thilacoloma.be'
+        -
+          id: l32
+          type: leider
+          voornaam: 'Sien Raeymaekers'
+          totem: 'Verfijnde Impala'
+          email: 'impala@thilacoloma.be'
+        -
+          id: l33
+          type: leider
+          voornaam: 'Wout De Win'
+          totem: 'Bedaarde Fura'
+          email: 'fura@thilacoloma.be'
+        -
+          id: l34
+          type: leider
+          voornaam: 'Mette Van der Stichelen'
+          totem: 'Goedhartige Sulidae'
+          email: 'sulidae@thilacoloma.be'
+        -
+          id: l35
+          type: leider
+          voornaam: 'Wies De Troch'
+          totem: 'Ongedwongen Poedel'
+          email: 'poedel@thilacoloma.be'
+        -
+          id: l36
+          type: leider
+          voornaam: 'Leyla Watteeuw'
+          totem: 'Standvastige Schorpioen'
+          email: 'schorpioen@thilacoloma.be'
+    -
+      id: tt
+      type: leidingsploeg
+      tak_naam: 'Tictak'
+      tak_groep: tictak
+      actief: true
+      takleider: 'Simon Peeters'
+      takleider_email: 'salmo@thilacoloma.be'
+      leiding:
+        -
+          id: l37
+          type: leider
+          voornaam: 'Simon Peeters'
+          totem: 'Onverstoorbare Salmo'
+          email: 'salmo@thilacoloma.be'
+        -
+          id: l38
+          type: leider
+          voornaam: 'Sara Vandenbussche'
+          totem: 'Gevatte Pony'
+          email: 'pony@thilacoloma.be'
+        -
+          id: l39
+          type: leider
+          voornaam: 'Jarno Maes'
+          totem: 'Snaakse Stekelstaarteekhoorn'
+          email: 'stekelstaarteekhoorn@thilacoloma.be'
+        -
+          id: l40
+          type: leider
+          voornaam: 'Wout Festraets Willemen'
+          totem: 'Toegewijde Orso'
+          email: 'orso@thilacoloma.be'
+        -
+          id: l41
+          type: leider
+          voornaam: 'Janne Cassaer'
+          totem: 'Gewiekste Laridae'
+          email: 'laridae@thilacoloma.be'
+        -
+          id: l42
+          type: leider
+          voornaam: 'Fien Pouliart'
+          totem: 'Fidele Vesikoira'
+          email: 'vesikoira@thilacoloma.be'
+        -
+          id: l43
+          type: leider
+          voornaam: 'Malou De Clercq'
+          totem: 'Betrokken Koala'
+          email: 'koala@thilacoloma.be'
+    -
+      id: jv1
+      type: leidingsploeg
+      tak_naam: 'Jongverkenners 1'
+      tak_groep: jongverkenners
+      actief: true
+      takleider: 'Kilian Decraemer'
+      takleider_email: 'snoek@thilacoloma.be'
+      leiding:
+        -
+          id: l44
+          type: leider
+          voornaam: 'Kilian Decraemer'
+          totem: 'Bevlogen Snoek'
+          email: 'snoek@thilacoloma.be'
+        -
+          id: l45
+          type: leider
+          voornaam: 'Mattis Van Roey'
+          totem: 'Enthousiaste Toco'
+          email: 'toco@thilacoloma.be'
+        -
+          id: l46
+          type: leider
+          voornaam: 'Jules Poppe'
+          totem: 'Pientere Tuba'
+          email: 'tuba@thilacoloma.be'
+        -
+          id: l47
+          type: leider
+          voornaam: 'Marnix Van den Bossche'
+          totem: 'Galante Walloewie'
+          email: 'walloewie@thilacoloma.be'
+        -
+          id: l48
+          type: leider
+          voornaam: 'Nena Poels'
+          totem: 'Argeloze Bufo'
+          email: 'bufo@thilacoloma.be'
+        -
+          id: l49
+          type: leider
+          voornaam: 'Marie Plomteux'
+          totem: 'Zachtaardige Scholekster'
+          email: 'scholekster@thilacoloma.be'
+    -
+      id: jv2
+      type: leidingsploeg
+      tak_naam: 'Jongverkenners 2'
+      tak_groep: jongverkenners
+      actief: true
+      takleider: 'Lennert Nulens'
+      takleider_email: 'salangaan@thilacoloma.be'
+      leiding:
+        -
+          id: l50
+          type: leider
+          voornaam: 'Lennert Nulens'
+          totem: 'Ondeugende Salangaan'
+          email: 'salangaan@thilacoloma.be'
+        -
+          id: l51
+          type: leider
+          voornaam: 'Janne Pans'
+          totem: 'Volhardende Steur'
+          email: 'steur@thilacoloma.be'
+        -
+          id: l52
+          type: leider
+          voornaam: 'Nina Vandersmissen'
+          totem: 'Onbevangen Hippo'
+          email: 'hippo@thilacoloma.be'
+        -
+          id: l53
+          type: leider
+          voornaam: 'Victor Van Gijseghem'
+          totem: 'Zelfbewuste Mus'
+          email: 'mus@thilacoloma.be'
+        -
+          id: l54
+          type: leider
+          voornaam: 'Mattijs Ryckeboer'
+          totem: 'Goedhartige Bosbok'
+          email: 'bosbok@thilacoloma.be'
+    -
+      id: jv3
+      type: leidingsploeg
+      tak_naam: 'Jongverkenners 3'
+      tak_groep: jongverkenners
+      actief: true
+      takleider: 'Maya Van Den Bossche'
+      takleider_email: 'kolibrie@thilacoloma.be'
+      leiding:
+        -
+          id: l55
+          type: leider
+          voornaam: 'Maya Van Den Bossche'
+          totem: 'Felle Kolibrie'
+          email: 'kolibrie@thilacoloma.be'
+        -
+          id: l56
+          type: leider
+          voornaam: 'Lowie Casteels'
+          totem: 'Volhardende Wever'
+          email: 'wever@thilacoloma.be'
+        -
+          id: l57
+          type: leider
+          voornaam: 'Daan Claes'
+          totem: 'Gezapige Argali'
+          email: 'argali@thilacoloma.be'
+        -
+          id: l58
+          type: leider
+          voornaam: 'Emilie Delmotte'
+          totem: 'Olijke Myna'
+          email: 'myna@thilacoloma.be'
+        -
+          id: l59
+          type: leider
+          voornaam: 'Ides Vereycken'
+          totem: 'Uitgelaten Corbie'
+          email: 'corbie@thilacoloma.be'
+    -
+      id: v1
+      type: leidingsploeg
+      tak_naam: 'Verkenners 1'
+      tak_groep: verkenners
+      actief: true
+      takleider: 'Nel De Landtsheer'
+      takleider_email: 'beerkat@thilacoloma.be'
+      leiding:
+        -
+          id: l60
+          type: leider
+          voornaam: 'Nel De Landtsheer'
+          totem: 'Toegewijde Beerkat'
+          email: 'beerkat@thilacoloma.be'
+        -
+          id: l61
+          type: leider
+          voornaam: 'Stijn Debelie'
+          totem: 'Goedaardige Markoeb'
+          email: 'markoeb@thilacoloma.be'
+        -
+          id: l62
+          type: leider
+          voornaam: 'Hymne Van Impe'
+          totem: 'Olijke Chimango'
+          email: 'chimango@thilacoloma.be'
+        -
+          id: l63
+          type: leider
+          voornaam: 'Thomas Van De Sompel'
+          totem: 'Gezellige Mpango'
+          email: 'mpango@thilacoloma.be'
+        -
+          id: l64
+          type: leider
+          voornaam: 'Simon Beel'
+          totem: 'Ongedwongen Coelho'
+          email: 'coelho@thilacoloma.be'
+    -
+      id: v2
+      type: leidingsploeg
+      tak_naam: 'Verkenners 2'
+      tak_groep: verkenners
+      actief: true
+      takleider: 'Ward Toulet'
+      takleider_email: 'caraya@thilacoloma.be'
+      leiding:
+        -
+          id: l65
+          type: leider
+          voornaam: 'Ward Toulet'
+          totem: 'Onverstoorbare Caraya'
+          email: 'caraya@thilacoloma.be'
+        -
+          id: l66
+          type: leider
+          voornaam: 'Lus Van Humbeeck'
+          totem: 'Innig Leeuwaapje'
+          email: 'leeuwaapje@thilacoloma.be'
+        -
+          id: l67
+          type: leider
+          voornaam: 'Thomas Dejans'
+          totem: 'Thomas Dejans'
+          email: 'vos@thilacoloma.be'
+        -
+          id: l68
+          type: leider
+          voornaam: 'Ferre Meuleman'
+          totem: 'Toegewijde Kantjil'
+          email: 'kantjil@thilacoloma.be'
+        -
+          id: l69
+          type: leider
+          voornaam: 'Simon Callebert'
+          totem: 'Guitige Lar'
+          email: 'lar@thilacoloma.be'
+    -
+      id: v3
+      type: leidingsploeg
+      tak_naam: 'Verkenners 3'
+      tak_groep: verkenners
+      actief: true
+      takleider: 'Laurens Maddens'
+      takleider_email: 'aloeatta@thilacoloma.be'
+      leiding:
+        -
+          id: l70
+          type: leider
+          voornaam: 'Laurens Maddens'
+          totem: 'Scherpzinnige Aloeatta'
+          email: 'aloeatta@thilacoloma.be'
+        -
+          id: l71
+          type: leider
+          voornaam: 'Ewan Van Horebeek'
+          totem: 'Nonchalante Korako'
+          email: 'korako@thilacoloma.be'
+        -
+          id: l72
+          type: leider
+          voornaam: 'Pepijn Smekens'
+          totem: 'Aanstekelijke Dziggetai'
+          email: 'dziggetai@thilacoloma.be'
+        -
+          id: l73
+          type: leider
+          voornaam: 'Aline Delmotte'
+          totem: 'Gemoedelijke Antilope'
+          email: 'antilope@thilacoloma.be'
+---

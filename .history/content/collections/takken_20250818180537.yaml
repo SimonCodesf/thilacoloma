@@ -1,0 +1,16 @@
+title: Takken
+handle: takken
+template: takken/show
+layout: layouts/app
+sort_direction: asc
+sort_field: order
+route: '/takken/{slug}'
+blueprints:
+  - tak
+sites:
+  - default
+revisions: true
+search_index: default
+date_behavior:
+  past: public
+  future: public

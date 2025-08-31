@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test Globals</title>
+</head>
+<body>
+    <h1>Test Globals</h1>
+    
+    <h2>Site Instellingen Global Check:</h2>
+    {{ site_instellingen }}
+        <pre>{{ dump }}</pre>
+    {{ /site_instellingen }}
+    
+    <h2>Leidingsploegen Global Check:</h2>
+    {{ leidingsploegen }}
+        <pre>{{ dump }}</pre>
+    {{ /leidingsploegen }}
+    
+    <h2>Raw Variable Check:</h2>
+    <pre>site_instellingen: {{ site_instellingen | dump }}</pre>
+    <pre>leidingsploegen: {{ leidingsploegen | dump }}</pre>
+</body>
+</html>

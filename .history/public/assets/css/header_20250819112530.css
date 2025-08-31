@@ -1,0 +1,220 @@
+/* Header Scroll Behavior and Styling */
+.simple-header {
+    transition: transform 0.3s ease;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.simple-header.header-hidden {
+    transform: translateY(-100%);
+}
+
+/* Invisible hover zone for easy header access - only active when header is hidden */
+.header-hover-zone {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 80px;
+    z-index: 999;
+    pointer-events: none;
+    opacity: 0;
+}
+
+.simple-header.header-hidden + main .header-hover-zone {
+    pointer-events: auto;
+}
+
+/* Header Content Layout */
+.simple-header-content {
+    position: relative;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    gap: var(--spacing-md);
+}
+
+.simple-nav {
+    justify-self: center;
+    display: flex;
+    gap: var(--spacing-md);
+    align-items: center;
+}
+
+/* Navigation button hover effects */
+.simple-header .nav-icon {
+    transition: all 0.3s ease !important;
+    border-radius: var(--border-radius-sm) !important;
+    padding: var(--spacing-xs) !important;
+    background-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+.simple-header .nav-icon[title="Home"] {
+    background: rgba(255, 255, 255, 0.9) !important;
+}
+
+.simple-header .nav-icon:hover {
+    transform: scale(1.03);
+}
+
+/* Specific background colors for each navigation button on hover */
+.simple-nav .nav-icon:nth-child(1):hover {
+    background-color: var(--dark-color) !important;
+}
+
+.simple-nav .nav-icon:nth-child(1):hover img {
+    filter: brightness(0) saturate(100%) invert(48%) sepia(76%) saturate(1154%) hue-rotate(209deg) brightness(96%) contrast(93%) !important;
+}
+
+.simple-nav .nav-icon:nth-child(2):hover {
+    background-color: #2F1D4D !important;
+}
+
+.simple-nav .nav-icon:nth-child(2):hover img {
+    filter: brightness(0) saturate(100%) invert(48%) sepia(39%) saturate(1230%) hue-rotate(248deg) brightness(85%) contrast(91%);
+}
+
+.simple-nav .nav-icon:nth-child(3):hover {
+    background-color: #C7629D;
+}
+
+.simple-nav .nav-icon:nth-child(3):hover img {
+    filter: brightness(0) saturate(100%) invert(73%) sepia(17%) saturate(1344%) hue-rotate(272deg) brightness(93%) contrast(88%);
+}
+
+.simple-nav .nav-icon:nth-child(4):hover {
+    background-color: #7CA686;
+}
+
+.simple-nav .nav-icon:nth-child(4):hover img {
+    filter: brightness(0) saturate(100%) invert(73%) sepia(22%) saturate(463%) hue-rotate(74deg) brightness(96%) contrast(89%);
+}
+
+.simple-nav .nav-icon:nth-child(5):hover {
+    background-color: #3C4A2D;
+}
+
+.simple-nav .nav-icon:nth-child(5):hover img {
+    filter: brightness(0) saturate(100%) invert(32%) sepia(18%) saturate(1171%) hue-rotate(61deg) brightness(90%) contrast(89%);
+}
+
+.simple-nav .nav-icon:nth-child(6):hover {
+    background-color: #121E0F;
+}
+
+.simple-nav .nav-icon:nth-child(6):hover img {
+    filter: brightness(0) saturate(100%) invert(25%) sepia(23%) saturate(1367%) hue-rotate(74deg) brightness(95%) contrast(92%);
+}
+
+.simple-header .nav-icon.active {
+    background-color: white;
+}
+
+.simple-header .nav-icon.active img {
+    filter: brightness(0) saturate(100%) invert(0%);
+}
+
+.simple-header .nav-icon.active:hover {
+    background-color: white;
+}
+
+.simple-header .nav-icon.active:hover img {
+    filter: brightness(0) saturate(100%) invert(0%);
+}
+
+.header-actions {
+    justify-self: end;
+}
+
+/* Header search styling */
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+}
+
+.search-container {
+    display: flex;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: var(--border-radius-sm);
+    transition: all 0.3s ease;
+    overflow: hidden;
+    height: 45px;
+    width: 250px;
+}
+
+.search-container:focus-within {
+    border-color: rgba(255, 255, 255, 0.5);
+    background-color: rgba(255, 255, 255, 0.15);
+}
+
+.search-input {
+    border: none;
+    outline: none;
+    padding: 0 15px;
+    font-size: 0.9em;
+    background: transparent;
+    color: rgba(255, 255, 255, 0.9);
+    flex: 1;
+    font-family: var(--font-regular);
+    height: 100%;
+}
+
+.search-input::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+    font-family: var(--font-medium);
+}
+
+.search-container:focus-within .search-input {
+    color: white;
+}
+
+.search-button {
+    border: none;
+    background: transparent;
+    color: rgba(255, 255, 255, 0.8);
+    padding: 0 12px;
+    cursor: pointer;
+    transition: var(--transition-normal);
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    height: 100%;
+    width: 50px;
+}
+
+.search-button:hover {
+    color: white;
+}
+
+.search-button i {
+    font-size: 0.9em;
+}
+
+/* Responsive search */
+@media (max-width: 1024px) {
+    .search-container {
+        width: 160px;
+    }
+}
+
+@media (max-width: 768px) {
+    .header-actions {
+        gap: var(--spacing-sm);
+    }
+    
+    .search-container {
+        width: 140px;
+    }
+}
+
+/* Search highlight styling */
+.search-highlight {
+    background-color: rgba(230, 166, 48, 0.3) !important;
+    border-radius: 3px;
+    padding: 1px 2px;
+    transition: background-color 0.3s ease;
+}

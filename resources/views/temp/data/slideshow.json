@@ -1,0 +1,37 @@
+{
+  "slides": [
+    {
+      "id": 1,
+      "title": "Pizzabak",
+      "content": "TC organiseert weer een pizzabak voor onze nieuwe lokalen! Wij maken overheerlijke ambachtelijke pizza's die jullie 24 november kunnen komen ophalen op de scouts en thuis gewoon nog even moeten afbakken. We maken de pizza's zelf in samenwerking met broodbroeders.",
+      "image": "assets/images/slideshow/1image.jpg",
+      "imageAlt": "Pizzabak evenement",
+      "buttonText": "Meer info",
+      "buttonLink": "#pizzabak",
+      "publishDate": "2024-11-01",
+      "active": true
+    },
+    {
+      "id": 2,
+      "title": "Belofteweekend",
+      "content": "Het belofteweekend komt er weer aan! Vergeet zeker niet in te schrijven via stamhoofd, de deadline is 30 november.",
+      "image": "assets/images/slideshow/2image.jpg",
+      "imageAlt": "Belofteweekend",
+      "buttonText": "Meer info",
+      "buttonLink": "#belofteweekend",
+      "publishDate": "2024-11-10",
+      "active": true
+    },
+    {
+      "id": 3,
+      "title": "TC's Cadeaupakket",
+      "content": "Nog op zoek naar het perfecte cadeau voor onder de kerstboom? Verras je geliefden met ons cadeaupakket met typisch Mechelse lekkernijen! 🎁 Samen met @sjolaa en de @broodbroeders stelden we dit heerlijke pakket samen, met voor ieder wat wils. Het pakket bevat: Een fles Blonde Thilaan, Een doosje Mechelse maantjes, Een zakje Mechelse torentjes. Bestel snel en eenvoudig via onze webshop en maak van deze feestdagen iets extra bijzonders!",
+      "image": "assets/images/slideshow/3image.jpg",
+      "imageAlt": "TC's Cadeaupakket",
+      "buttonText": "Meer info",
+      "buttonLink": "#cadeaupakket",
+      "publishDate": "2024-12-01",
+      "active": true
+    }
+  ]
+}

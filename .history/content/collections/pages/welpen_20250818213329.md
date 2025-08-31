@@ -1,0 +1,9 @@
+---
+id: adkgjm0-ef01-c234-5678-9abcdef01234
+blueprint: page
+title: Welpen
+slug: welpen
+template: welpen
+layout: layouts/page
+---
+Welpen van 8-11 jaar leven hun grootste scoutsavonturen met klimmen, kamperen en vuil worden!

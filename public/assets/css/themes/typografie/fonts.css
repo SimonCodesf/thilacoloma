@@ -1,0 +1,18 @@
+/* Font Faces */
+@font-face {
+    font-family: 'Edmondsans Regular';
+    src: local('Edmondsans Regular'), url('../fonts/EdmondsansRegular_web.woff') format('woff');
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Edmondsans Medium';
+    src: local('Edmondsans Medium'), url('../fonts/EdmondsansMedium_web.woff') format('woff');
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Edmondsans Bold';
+    src: local('Edmondsans Bold'), url('../fonts/EdmondsansBold_web.woff') format('woff');
+    font-display: swap;
+}

@@ -1,0 +1,642 @@
+
+
+
+{{ layout:set in="layouts/page" }}
+
+<div class="page-section">
+    <h2>{{ title }}</h2>
+    {{ if current_pdf }}
+        <!-- Thilala PDF Iframe Kaart -->
+        <div class="iframe-card">
+            <div class="iframe-card-header">
+                <div class="iframe-card-info">
+                    <h2><i class="fas fa-file-pdf"></i> Thilala PDF Viewer</h2>
+                    <p>{{ intro_text | markdown | strip_tags or 'Lees de nieuwste editie van ons maandblad Thilala hier online.' }}</p>
+                </div>
+                <a href="{{ current_pdf }}" download class="iframe-fallback-toggle" style="text-decoration: none;">
+                    <i class="fas fa-download"></i>
+                    <span>Download PDF</span>
+                </a>
+            </div>
+            
+            <!-- PDF iframe container -->
+            <div class="iframe-container" id="thilala-iframe-container">
+                <iframe 
+                    id="thilala-iframe" 
+                    src="{{ current_pdf }}" 
+                    title="Thilala PDF Viewer">
+                </iframe>
+            </div>
+        </div>
+    {{ else }}
+        <!-- Geen PDF beschikbaar -->
+        <div class="iframe-card">
+            <div class="iframe-card-header">
+                <div class="iframe-card-info">
+                    <h2><i class="fas fa-file-pdf"></i> Thilala Maandblad</h2>
+                    <p>{{ intro_text | markdown | strip_tags or 'Lees de nieuwste editie van ons maandblad Thilala hier online.' }}</p>
+                </div>
+                <a href="/cp" class="iframe-fallback-toggle" target="_blank" style="text-decoration: none;">
+                    <i class="fas fa-upload"></i>
+                    <span>Upload PDF</span>
+                </a>
+            </div>
+            
+            <div class="iframe-container" style="padding: var(--spacing-xl); text-align: center;">
+                <div class="fallback-header">
+                    <h4><i class="fas fa-exclamation-triangle"></i> Geen PDF beschikbaar</h4>
+                    <p>Er is momenteel geen Thilala PDF geüpload. Neem contact op met de webmaster om de nieuwste editie toe te voegen.</p>
+                </div>
+            </div>
+        </div>
+    {{ /if }}
+        
+        {{ if show_archive && archive_pdfs }}
+        <div class="page-section archive-section">
+            <h3>{{ archive_title ?? 'Vorige Edities' }}</h3>
+            <div class="archive-grid">
+                {{ archive_pdfs }}
+                <div class="archive-item">
+                    <h4>{{ title }}</h4>
+                    {{ if description }}
+                        <p class="archive-description">{{ description }}</p>
+                    {{ /if }}
+                    {{ if pdf_file }}
+                        <a href="{{ pdf_file }}" target="_blank" class="archive-link">
+                            <i class="icon-pdf"></i>
+                            PDF bekijken
+                        </a>
+                    {{ /if }}
+                </div>
+                {{ /archive_pdfs }}
+            </div>
+        </div>
+        {{ /if }}
+</div>
+    <script>
+        // Thilala iframe - geen fallback functionaliteit meer nodig
+        // De knop is nu een directe download link
+    </script>
+
+    <style>
+        /* Navigation button hover effects */
+        .nav-icon {
+            transition: all 0.3s ease;
+            border-radius: var(--border-radius-sm);
+            padding: var(--spacing-xs);
+        }
+        
+        .nav-icon:hover {
+            transform: scale(1.03);
+        }
+        
+        /* Specific background colors for each navigation button on hover */
+        .simple-nav .nav-icon:nth-child(1):hover {
+            background-color: var(--dark-color);
+        }
+        
+        .simple-nav .nav-icon:nth-child(1):hover img {
+            filter: brightness(0) saturate(100%) invert(48%) sepia(76%) saturate(1154%) hue-rotate(209deg) brightness(96%) contrast(93%);
+        }
+        
+        .simple-nav .nav-icon:nth-child(2):hover {
+            background-color: #2F1D4D;
+        }
+        
+        .simple-nav .nav-icon:nth-child(2):hover img {
+            filter: brightness(0) saturate(100%) invert(48%) sepia(39%) saturate(1230%) hue-rotate(248deg) brightness(85%) contrast(91%);
+        }
+        
+        .simple-nav .nav-icon:nth-child(3):hover {
+            background-color: #C7629D;
+        }
+        
+        .simple-nav .nav-icon:nth-child(3):hover img {
+            filter: brightness(0) saturate(100%) invert(73%) sepia(17%) saturate(1344%) hue-rotate(272deg) brightness(93%) contrast(88%);
+        }
+        
+        .simple-nav .nav-icon:nth-child(4):hover {
+            background-color: #7CA686;
+        }
+        
+        .simple-nav .nav-icon:nth-child(4):hover img {
+            filter: brightness(0) saturate(100%) invert(73%) sepia(22%) saturate(463%) hue-rotate(74deg) brightness(96%) contrast(89%);
+        }
+        
+        .simple-nav .nav-icon:nth-child(5):hover {
+            background-color: #3C4A2D;
+        }
+        
+        .simple-nav .nav-icon:nth-child(5):hover img {
+            filter: brightness(0) saturate(100%) invert(32%) sepia(18%) saturate(1171%) hue-rotate(61deg) brightness(90%) contrast(89%);
+        }
+        
+        .simple-nav .nav-icon:nth-child(6):hover {
+            background-color: #121E0F;
+        }
+        
+        .simple-nav .nav-icon:nth-child(6):hover img {
+            filter: brightness(0) saturate(100%) invert(25%) sepia(23%) saturate(1367%) hue-rotate(74deg) brightness(95%) contrast(92%);
+        }
+        
+        .nav-icon.active {
+            background-color: white;
+        }
+        
+        .nav-icon.active img {
+            filter: brightness(0) saturate(100%) invert(0%);
+        }
+        
+        .nav-icon.active:hover {
+            background-color: white;
+        }
+        
+        .nav-icon.active:hover img {
+            filter: brightness(0) saturate(100%) invert(0%);
+        }
+        
+        /* Special styling for active Thilala page - keep original icon color */
+        .simple-nav .nav-icon:nth-child(1).active img {
+            filter: none !important;
+        }
+        
+        .simple-nav .nav-icon:nth-child(1).active:hover img {
+            filter: none !important;
+        }
+        
+        .header-actions {
+            justify-self: end;
+        }
+        
+        /* Header search styling */
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+        }
+        
+        .search-container {
+            display: flex;
+            align-items: center;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: var(--border-radius-sm);
+            transition: all 0.3s ease;
+            overflow: hidden;
+            height: 45px;
+            width: 250px;
+        }
+        
+        .search-container:focus-within {
+            border-color: rgba(255, 255, 255, 0.5);
+            background-color: rgba(255, 255, 255, 0.15);
+        }
+        
+        .search-input {
+            border: none;
+            outline: none;
+            padding: 0 15px;
+            font-size: 0.9em;
+            background: transparent;
+            color: rgba(255, 255, 255, 0.9);
+            flex: 1;
+            font-family: var(--font-regular);
+            height: 100%;
+        }
+        
+        .search-input::placeholder {
+            color: rgba(255, 255, 255, 0.6);
+            font-family: var(--font-medium);
+        }
+        
+        .search-container:focus-within .search-input {
+            color: white;
+        }
+        
+        .search-button {
+            border: none;
+            background: transparent;
+            color: rgba(255, 255, 255, 0.8);
+            padding: 0 12px;
+            cursor: pointer;
+            transition: var(--transition-normal);
+            display: flex;
+            align-items: center;
+            justify-content: right;
+            height: 100%;
+            width: 50px;
+        }
+        
+        .search-button:hover {
+            color: white;
+        }
+        
+        .search-button i {
+            font-size: 0.9em;
+        }
+        
+        /* Responsive search */
+        @media (max-width: 1024px) {
+            .search-container {
+                width: 160px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header-actions {
+                gap: var(--spacing-sm);
+            }
+            
+            .search-container {
+                width: 140px;
+            }
+        }
+        
+        /* Search highlight styling */
+        .search-highlight {
+            background-color: rgba(230, 166, 48, 0.3) !important;
+            border-radius: 3px;
+            padding: 1px 2px;
+            transition: background-color 0.3s ease;
+        }
+        
+        /* Archive section styling */
+        .archive-section {
+            margin-top: var(--spacing-xl);
+            padding: var(--spacing-xl);
+            background: white;
+            border-radius: var(--border-radius-md);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        
+        .archive-section h3 {
+            font-family: var(--font-bold);
+            font-size: 1.8em;
+            color: var(--dark-color);
+            margin-bottom: var(--spacing-lg);
+            text-align: center;
+        }
+        
+        .archive-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: var(--spacing-lg);
+            margin-top: var(--spacing-lg);
+        }
+        
+        .archive-item {
+            background: white;
+            border-radius: var(--border-radius-lg);
+            padding: var(--spacing-lg);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        
+        .archive-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        .archive-item h4 {
+            font-family: var(--font-bold);
+            font-size: 1.3em;
+            color: var(--dark-color);
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .archive-description {
+            color: var(--medium-color);
+            font-family: var(--font-regular);
+            line-height: 1.5;
+            margin-bottom: var(--spacing-md);
+            font-size: 0.95em;
+        }
+        
+        .archive-link {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--spacing-xs);
+            color: var(--primary-color);
+            text-decoration: none;
+            font-family: var(--font-medium);
+            font-size: 0.95em;
+            transition: color 0.3s ease;
+            padding: var(--spacing-sm) var(--spacing-md);
+            background: rgba(var(--primary-color-rgb), 0.1);
+            border-radius: var(--border-radius-sm);
+            border: 1px solid rgba(var(--primary-color-rgb), 0.2);
+        }
+        
+        .archive-link:hover {
+            color: var(--primary-hover-color);
+            background: rgba(var(--primary-color-rgb), 0.15);
+            border-color: rgba(var(--primary-color-rgb), 0.3);
+        }
+        
+        .archive-link .icon-pdf {
+            font-size: 1.1em;
+        }
+        
+        /* Section intro styling to match homepage */
+        .section-intro {
+            text-align: center;
+            font-size: 1.1em;
+            line-height: 1.6;
+            color: var(--medium-color);
+            margin-bottom: var(--spacing-xl);
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .section-intro strong {
+            color: var(--dark-color);
+            font-family: var(--font-bold);
+        }
+        
+        /* No PDF message styling */
+        .no-pdf-message {
+            text-align: center;
+            padding: var(--spacing-xl);
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-radius: var(--border-radius-lg);
+            border: 2px dashed rgba(0, 0, 0, 0.1);
+            margin: var(--spacing-xl) auto;
+            max-width: 600px;
+        }
+        
+        .no-pdf-message h3 {
+            font-family: var(--font-bold);
+            font-size: 1.5em;
+            color: var(--medium-color);
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .no-pdf-message p {
+            color: var(--medium-color);
+            font-family: var(--font-regular);
+            line-height: 1.6;
+            margin-bottom: var(--spacing-lg);
+        }
+        
+        .admin-info {
+            background: rgba(var(--primary-color-rgb), 0.1);
+            padding: var(--spacing-md);
+            border-radius: var(--border-radius-sm);
+            border-left: 4px solid var(--primary-color);
+            font-size: 0.9em;
+            text-align: left;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        
+        .admin-info strong {
+            color: var(--primary-color);
+            font-family: var(--font-bold);
+            display: block;
+            margin-bottom: var(--spacing-xs);
+        }
+        
+        .admin-info a {
+            color: var(--primary-color);
+            text-decoration: underline;
+            transition: color 0.3s ease;
+        }
+        
+        .admin-info a:hover {
+            color: var(--primary-hover-color);
+        }
+        
+        /* Iframe Kaart Styling - exact zoals stamhoofd */
+        .iframe-card {
+            background: white;
+            border-radius: var(--border-radius-md);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            margin-bottom: var(--spacing-xl);
+            overflow: hidden;
+            transition: box-shadow var(--transition-normal);
+            border: 1px solid #e5e7eb;
+        }
+        
+        .iframe-card:hover {
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+        }
+        
+        .iframe-card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            padding: var(--spacing-xl);
+            border-bottom: 1px solid #e5e7eb;
+            background: white;
+        }
+        
+        .iframe-card-info {
+            flex: 1;
+            padding-right: var(--spacing-lg);
+        }
+        
+        .iframe-card-info h2 {
+            color: var(--primary-color);
+            font-family: var(--font-bold);
+            font-size: 1.5em;
+            margin: 0 0 var(--spacing-sm) 0;
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+        }
+        
+        .iframe-card-info p {
+            color: var(--text-color);
+            margin: 0;
+            line-height: 1.6;
+            opacity: 0.9;
+        }
+        
+        .iframe-container {
+            display: flex;
+            justify-content: center;
+            padding: var(--spacing-lg);
+            background: white;
+        }
+        
+        .iframe-container iframe {
+            width: 80vw;
+            height: 90vh;
+            border: none;
+            border-radius: var(--border-radius-md);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            background: white;
+        }
+        
+        /* Fallback toggle button styling */
+        .iframe-fallback-toggle {
+            background: var(--primary-color);
+            color: white !important;
+            border: none;
+            border-radius: var(--border-radius-sm);
+            padding: var(--spacing-sm) var(--spacing-md);
+            font-family: var(--font-medium);
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-xs);
+            box-shadow: 0 2px 8px rgba(55, 71, 148, 0.2);
+            text-decoration: none !important;
+        }
+        
+        .iframe-fallback-toggle:hover {
+            background: var(--dark-color) !important;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(55, 71, 148, 0.3);
+            color: white !important;
+            text-decoration: none !important;
+        }
+        
+        .iframe-fallback-toggle:visited {
+            color: white !important;
+            text-decoration: none !important;
+        }
+        
+        .iframe-fallback-toggle:focus {
+            color: white !important;
+            text-decoration: none !important;
+            outline: 2px solid rgba(255, 255, 255, 0.5);
+            outline-offset: 2px;
+        }
+        
+        .iframe-fallback-toggle span {
+            color: inherit !important;
+            text-decoration: none !important;
+        }
+        
+        /* Compacte fallback styling */
+        .thilala-fallback-compact {
+            background: white;
+            border: 1px solid #e5e7eb;
+            border-radius: var(--border-radius-md);
+            padding: var(--spacing-lg);
+            margin-top: var(--spacing-lg);
+            text-align: center;
+        }
+        
+        .fallback-header {
+            margin-bottom: var(--spacing-lg);
+        }
+        
+        .fallback-header h4 {
+            color: var(--primary-color);
+            font-family: var(--font-bold);
+            font-size: 1.3em;
+            margin-bottom: var(--spacing-sm);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: var(--spacing-sm);
+        }
+        
+        .fallback-header p {
+            color: var(--text-color);
+            margin: 0;
+            opacity: 0.8;
+        }
+        
+        .fallback-actions {
+            display: flex;
+            gap: var(--spacing-md);
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .fallback-action {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: var(--spacing-xs);
+            padding: var(--spacing-md) var(--spacing-lg);
+            border-radius: var(--border-radius-md);
+            text-decoration: none;
+            font-family: var(--font-medium);
+            font-weight: 600;
+            transition: all 0.3s ease;
+            min-width: 100px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .fallback-action i {
+            font-size: 1.5rem;
+        }
+        
+        .fallback-action span {
+            font-size: 0.9em;
+            text-decoration: none;
+        }
+        
+        .fallback-action.primary {
+            background: var(--primary-color);
+            color: white;
+            box-shadow: 0 4px 12px rgba(55, 71, 148, 0.3);
+        }
+        
+        .fallback-action.primary:hover {
+            background: var(--dark-color);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(55, 71, 148, 0.4);
+        }
+        
+        .fallback-action.secondary {
+            background: white;
+            color: var(--primary-color);
+            border: 2px solid var(--primary-color);
+        }
+        
+        .fallback-action.secondary:hover {
+            background: var(--primary-color);
+            color: white;
+            transform: translateY(-3px);
+        }
+        
+        .fallback-action.tertiary {
+            background: var(--light-bg);
+            color: var(--dark-color);
+            border: 2px solid var(--light-bg);
+        }
+        
+        .fallback-action.tertiary:hover {
+            background: var(--primary-color);
+            color: white;
+            transform: translateY(-3px);
+        }
+        
+        /* Responsive styling */
+        @media (max-width: 768px) {
+            .iframe-card-header {
+                flex-direction: column;
+                gap: var(--spacing-md);
+            }
+            
+            .iframe-card-info {
+                padding-right: 0;
+            }
+            
+            .iframe-container iframe {
+                width: 95vw;
+                height: 70vh;
+            }
+            
+            .fallback-actions {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .fallback-action {
+                width: 100%;
+                max-width: 200px;
+            }
+        }
+    </style>
+    </script>
