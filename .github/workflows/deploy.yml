@@ -51,26 +51,27 @@ jobs:
           **/storage/framework/sessions/**
           **/storage/framework/views/**
           
-    - name: 🔧 Run deployment commands
-      uses: appleboy/ssh-action@v1.0.0
-      with:
-        host: ${{ secrets.SSH_HOST }}
-        username: ${{ secrets.SSH_USERNAME }}
-        password: ${{ secrets.SSH_PASSWORD }}
-        port: ${{ secrets.SSH_PORT }}
-        script: |
-          cd public_html/tc
-          # Install/update dependencies
-          /usr/local/bin/php composer.phar install --no-dev --optimize-autoloader --no-interaction
-          
-          # Run Laravel/Statamic commands
-          /usr/local/bin/php artisan config:cache
-          /usr/local/bin/php artisan route:cache
-          /usr/local/bin/php artisan view:cache
-          /usr/local/bin/php artisan statamic:stache:clear
-          /usr/local/bin/php artisan statamic:stache:warm
-          
-          # Set permissions
-          chmod -R 755 storage bootstrap/cache
-          
-          echo "✅ Deployment completed successfully!"
+    # SSH deployment commands disabled until credentials are configured
+    # - name: 🔧 Run deployment commands
+    #   uses: appleboy/ssh-action@v1.0.0
+    #   with:
+    #     host: ${{ secrets.SSH_HOST || 'beelsimon.com' }}
+    #     username: ${{ secrets.SSH_USERNAME }}
+    #     password: ${{ secrets.SSH_PASSWORD }}
+    #     port: ${{ secrets.SSH_PORT || '22' }}
+    #     script: |
+    #       cd public_html/tc
+    #       # Install/update dependencies
+    #       /usr/local/bin/php composer.phar install --no-dev --optimize-autoloader --no-interaction
+    #       
+    #       # Run Laravel/Statamic commands
+    #       /usr/local/bin/php artisan config:cache
+    #       /usr/local/bin/php artisan route:cache
+    #       /usr/local/bin/php artisan view:cache
+    #       /usr/local/bin/php artisan statamic:stache:clear
+    #       /usr/local/bin/php artisan statamic:stache:warm
+    #       
+    #       # Set permissions
+    #       chmod -R 755 storage bootstrap/cache
+    #       
+    #       echo "✅ Deployment completed successfully!"
