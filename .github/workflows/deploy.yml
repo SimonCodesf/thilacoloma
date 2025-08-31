@@ -1,8 +1,55 @@
 name: Deploy to Namecheap
 
-on:
-  push:
-    branches: [ master ]
+    - name: 📂 Sync applicatio    - name: 🚚 Get latest code
+      uses: actions/checkout@v4
+      
+    - name: 🔧 Prepare hosting-specific files
+      run: |
+        # Copy hosting-specific index.php
+        cp public/index-hosting.php public/index.php
+      
+    - name: 🔍 Debug server configurationles to hosting
+      uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+      env:
+        INPUT_SERVER: ${{ github.event.inputs.server || 'ftp.beelsimon.com' }}
+      with:
+        server: ${{ github.event.inputs.server || 'ftp.beelsimon.com' }}
+        username: ${{ secrets.FTP_USERNAME }}
+        password: ${{ secrets.FTP_PASSWORD }}
+        protocol: ftp
+        port: 21
+        passive: true
+        timeout: 300000
+        dangerous-clean-slate: false
+        local-dir: ./
+        server-dir: tc_app/
+        exclude: |
+          **/.git*
+          **/.git*/**
+          **/node_modules/**
+          **/tests/**
+          **/.env
+          **/storage/logs/**
+          **/storage/framework/cache/**
+          **/storage/framework/sessions/**
+          **/storage/framework/views/**
+          **/public/**
+          
+    - name: 🌐 Sync public files to web directory
+      uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+      env:
+        INPUT_SERVER: ${{ github.event.inputs.server || 'ftp.beelsimon.com' }}
+      with:
+        server: ${{ github.event.inputs.server || 'ftp.beelsimon.com' }}
+        username: ${{ secrets.FTP_USERNAME }}
+        password: ${{ secrets.FTP_PASSWORD }}
+        protocol: ftp
+        port: 21
+        passive: true
+        timeout: 300000
+        dangerous-clean-slate: false
+        local-dir: ./public/
+        server-dir: public_html/tc/ branches: [ master ]
   workflow_dispatch:
     inputs:
       server:
@@ -38,7 +85,7 @@ jobs:
         passive: true
         timeout: 300000
         dangerous-clean-slate: false
-        local-dir: ./
+        local-dir: ./public/
         server-dir: public_html/tc/
         exclude: |
           **/.git*
