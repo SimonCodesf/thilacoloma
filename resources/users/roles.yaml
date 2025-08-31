@@ -1,4 +1,57 @@
-# admin:
-#   title: Administrator
-#   permissions:
-#     - super
+content_admin:
+  title: Content Administrator
+  permissions:
+    # Content Management
+    - 'view cp'
+    - 'edit own user'
+    - 'view users'
+    
+    # Collections (Pages, News, etc.)
+    - 'view pages entries'
+    - 'edit pages entries'
+    - 'create pages entries'
+    - 'delete pages entries'
+    - 'publish pages entries'
+    - 'reorder pages entries'
+    - 'view news entries'
+    - 'edit news entries'
+    - 'create news entries'
+    - 'delete news entries'
+    - 'publish news entries'
+    - 'view takken entries'
+    - 'edit takken entries'
+    - 'create takken entries'
+    - 'delete takken entries'
+    - 'publish takken entries'
+    
+    # Globals (Site settings, homepage content, etc.)
+    - 'view homepage_content globals'
+    - 'edit homepage_content globals'
+    - 'view kalender_content globals'
+    - 'edit kalender_content globals'
+    - 'view leidingsploegen globals'
+    - 'edit leidingsploegen globals'
+    - 'view site_instellingen globals'
+    - 'edit site_instellingen globals'
+    - 'view slideshow_content globals'
+    - 'edit slideshow_content globals'
+    
+    # Assets (Images, documents)
+    - 'view assets assets'
+    - 'upload assets assets'
+    - 'edit assets assets'
+    - 'move assets assets'
+    - 'rename assets assets'
+    - 'delete assets assets'
+    - 'view documents assets'
+    - 'upload documents assets'
+    - 'edit documents assets'
+    - 'move documents assets'
+    - 'rename documents assets'
+    - 'delete documents assets'
+
+# Full admin role (for developers)
+admin:
+  title: Administrator
+  permissions:
+    - super

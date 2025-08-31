@@ -1,0 +1,9 @@
+name: Antilope
+roles:
+  - content_admin
+id: a2d4e8f3-1b6c-4a89-9e7f-3c5d8b1a4e7f
+password_hash: $2y$12$3KA2IitQFDoiMX538r3/Xuuf5BRef51whhs1/PMFSnIQ664eh.MGC
+preferences:
+  locale: en
+  favorites: {}
+email_verified_at: true
