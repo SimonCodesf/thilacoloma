@@ -19,10 +19,57 @@ jobs:
     - name: 🚚 Get latest code
       uses: actions/checkout@v4
       
+    - name: 🔧 Setup PHP
+      uses: shivammathur/setup-php@v2
+      with:
+        php-version: '8.3'
+        extensions: mbstring, xml, ctype, iconv, intl, pdo, pdo_mysql, dom, filter, gd, json, mbstring, bcmath
+        tools: composer:v2
+        
+    - name: 🔧 Configure composer for deployment
+      run: |
+        # Set composer timeout and optimize for production
+        composer config process-timeout 600
+        composer config --no-plugins allow-plugins.php-http/discovery true
+        composer config --no-plugins allow-plugins.pixelfear/composer-dist-plugin true
+        composer config --no-plugins allow-plugins.pestphp/pest-plugin true
+      
     - name: 🔧 Prepare hosting-specific files
       run: |
         # Copy hosting-specific index.php
         cp public/index-hosting.php public/index.php
+        # Create production environment file
+        cat > .env << 'EOF'
+        APP_NAME="Thila Coloma"
+        APP_ENV=production
+        APP_KEY=
+        APP_DEBUG=false
+        APP_URL=https://beelsimon.com/tc
+        
+        LOG_CHANNEL=stack
+        LOG_DEPRECATIONS_CHANNEL=null
+        LOG_LEVEL=error
+        
+        DB_CONNECTION=sqlite
+        DB_DATABASE=/home/beelkstc/tc_app/database/database.sqlite
+        
+        BROADCAST_DRIVER=log
+        CACHE_DRIVER=file
+        FILESYSTEM_DISK=local
+        QUEUE_CONNECTION=sync
+        SESSION_DRIVER=file
+        SESSION_LIFETIME=120
+        
+        STATAMIC_LICENSE_KEY=
+        STATAMIC_STACHE_WATCHER=false
+        STATAMIC_STATIC_CACHING_STRATEGY=null
+        EOF
+        
+    - name: 📦 Install dependencies  
+      run: |
+        # Clear composer cache and install dependencies with proper options
+        composer clear-cache
+        composer install --no-dev --optimize-autoloader --no-interaction --prefer-dist --no-progress
       
     - name: 🔍 Debug server configuration
       run: |

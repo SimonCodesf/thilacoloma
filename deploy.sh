@@ -9,7 +9,12 @@ git pull origin master
 
 # Install/update dependencies
 echo "📦 Installing dependencies..."
-composer install --no-dev --optimize-autoloader
+# Configure composer timeout properly (not via --timeout flag which doesn't exist)
+composer config process-timeout 600
+composer config --no-plugins allow-plugins.php-http/discovery true
+composer config --no-plugins allow-plugins.pixelfear/composer-dist-plugin true
+composer config --no-plugins allow-plugins.pestphp/pest-plugin true
+composer install --no-dev --optimize-autoloader --no-interaction --prefer-dist --no-progress
 
 # Generate application key if needed
 if [ ! -f .env ]; then

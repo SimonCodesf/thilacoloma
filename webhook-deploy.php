@@ -43,7 +43,11 @@ chdir('/home/beelkstc/tc/');
 // Execute deployment commands
 $commands = [
     'git pull origin master 2>&1',
-    'composer install --no-dev --optimize-autoloader 2>&1',
+    'composer config process-timeout 600 2>&1',
+    'composer config --no-plugins allow-plugins.php-http/discovery true 2>&1',
+    'composer config --no-plugins allow-plugins.pixelfear/composer-dist-plugin true 2>&1',
+    'composer config --no-plugins allow-plugins.pestphp/pest-plugin true 2>&1',
+    'composer install --no-dev --optimize-autoloader --no-interaction --prefer-dist --no-progress 2>&1',
     'php artisan config:cache 2>&1',
     'php artisan route:cache 2>&1',
     'php artisan view:cache 2>&1',

@@ -19,6 +19,21 @@ jobs:
     - name: 🚚 Get latest code
       uses: actions/checkout@v4
       
+    - name: 🔧 Setup PHP
+      uses: shivammathur/setup-php@v2
+      with:
+        php-version: '8.3'
+        extensions: mbstring, xml, ctype, iconv, intl, pdo, pdo_mysql, dom, filter, gd, json, mbstring, bcmath
+        tools: composer:v2
+        
+    - name: 🔧 Configure composer for deployment
+      run: |
+        # Set composer timeout and optimize for production
+        composer config process-timeout 600
+        composer config --no-plugins allow-plugins.php-http/discovery true
+        composer config --no-plugins allow-plugins.pixelfear/composer-dist-plugin true
+        composer config --no-plugins allow-plugins.pestphp/pest-plugin true
+      
     - name: 🔧 Prepare hosting-specific files
       run: |
         # Copy hosting-specific index.php
@@ -49,8 +64,9 @@ jobs:
         STATAMIC_STACHE_WATCHER=false
         STATAMIC_STATIC_CACHING_STRATEGY=null
         EOF
-        # Install composer dependencies
-        composer install --no-dev --optimize-autoloader --no-interaction
+        # Clear composer cache and install dependencies with proper options  
+        composer clear-cache
+        composer install --no-dev --optimize-autoloader --no-interaction --prefer-dist --no-progress
       
     - name: 🔍 Debug server configuration
       run: |
@@ -73,6 +89,7 @@ jobs:
         dangerous-clean-slate: false
         local-dir: ./
         server-dir: tc_app/
+        exclude-glob-base-dir: ./
         exclude: |
           **/.git*
           **/.git*/**
