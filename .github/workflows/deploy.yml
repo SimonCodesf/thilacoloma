@@ -49,15 +49,13 @@ jobs:
         STATAMIC_STACHE_WATCHER=false
         STATAMIC_STATIC_CACHING_STRATEGY=null
         EOF
-        # Clear composer cache and install dependencies
-        echo "Clearing composer cache..."
+        # Clear composer cache and install dependencies with proper options  
         composer clear-cache
-        echo "Installing composer dependencies for PHP 8.0..."
-        composer install --no-dev --optimize-autoloader --no-interaction --prefer-dist --ignore-platform-reqs --verbose
-        echo "Removing platform check for PHP 8.0 compatibility..."
-        rm -f vendor/composer/platform_check.php
-        echo "Verifying vendor directory..."
-        ls -la vendor/ | head -10
+        composer config process-timeout 600
+        composer config --no-plugins allow-plugins.php-http/discovery true
+        composer config --no-plugins allow-plugins.pixelfear/composer-dist-plugin true
+        composer config --no-plugins allow-plugins.pestphp/pest-plugin true
+        composer install --no-dev --optimize-autoloader --no-interaction --prefer-dist --no-progress
       
     - name: 🔍 Debug server configuration
       run: |
