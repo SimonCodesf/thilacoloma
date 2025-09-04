@@ -35,7 +35,19 @@ if (file_exists($maintenance = $app_path.'/storage/framework/maintenance.php')) 
 }
 
 // Register the Composer autoloader...
-require $app_path.'/vendor/autoload.php';
+try {
+    require $app_path.'/vendor/autoload.php';
+} catch (Exception $e) {
+    if (strpos($e->getMessage(), 'platform') !== false || strpos($e->getMessage(), 'PHP version') !== false) {
+        die('<h1>PHP Version Compatibility Issue</h1>' .
+            '<p>This application requires dependencies that need a newer PHP version.</p>' .
+            '<p><strong>Current PHP Version:</strong> ' . PHP_VERSION . '</p>' .
+            '<p><strong>Error:</strong> ' . htmlspecialchars($e->getMessage()) . '</p>' .
+            '<p><strong>Solution:</strong> Please update PHP to version 8.3.0 or higher, or contact your hosting provider for support.</p>' .
+            '<p>If you are the developer, you can temporarily override this by running: <code>composer config platform.php 8.3.0</code> in the application directory.</p>');
+    }
+    throw $e; // Re-throw if it's not a platform issue
+}
 
 // Bootstrap Laravel and handle the request...
 try {

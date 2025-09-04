@@ -5,9 +5,13 @@ This `.cpanel.yml` file enables automatic deployment through cPanel's Git™ Ver
 ## What it does:
 1. Copies all files from the Git repository to your public web directory
 2. Copies `.env.production` to `.env` for production settings
-3. Installs composer dependencies (production optimized)
-4. Clears and optimizes Laravel/Statamic caches
-5. Sets proper file permissions
+3. Configures Composer platform settings for PHP compatibility
+4. Installs composer dependencies (production optimized)
+5. Clears and optimizes Laravel/Statamic caches
+6. Sets proper file permissions
+
+## PHP Version Compatibility:
+This project uses Statamic 5.0 which requires PHP 8.3+ compatible dependencies. For hosting environments running older PHP versions (like 8.0.30), the deployment process includes a platform override (`composer config platform.php 8.3.0`) to bypass version checks while maintaining functionality.
 
 ## Deployment Process:
 1. Push changes to GitHub
