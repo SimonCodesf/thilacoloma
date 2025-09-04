@@ -49,8 +49,9 @@ jobs:
         STATAMIC_STACHE_WATCHER=false
         STATAMIC_STATIC_CACHING_STRATEGY=null
         EOF
-        # Install composer dependencies
-        composer install --no-dev --optimize-autoloader --no-interaction
+        # Clear composer cache and install dependencies
+        composer clear-cache
+        composer install --no-dev --optimize-autoloader --no-interaction --prefer-dist
       
     - name: 🔍 Debug server configuration
       run: |
@@ -73,6 +74,7 @@ jobs:
         dangerous-clean-slate: false
         local-dir: ./
         server-dir: tc_app/
+        exclude-glob-base-dir: ./
         exclude: |
           **/.git*
           **/.git*/**
