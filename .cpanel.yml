@@ -5,7 +5,13 @@ deployment:
     - /bin/cp -R * $DEPLOYPATH
     - /bin/cp -R .env.production $DEPLOYPATH/.env
     - cd $DEPLOYPATH
-    - composer install --no-dev --optimize-autoloader
+    # Configure composer with proper timeout (not via --timeout flag which doesn't exist)
+    - composer config process-timeout 600
+    - composer config --no-plugins allow-plugins.php-http/discovery true
+    - composer config --no-plugins allow-plugins.pixelfear/composer-dist-plugin true
+    - composer config --no-plugins allow-plugins.pestphp/pest-plugin true
+    # Install dependencies with proper flags
+    - composer install --no-dev --optimize-autoloader --no-interaction --prefer-dist --no-progress
     - php artisan config:cache
     - php artisan route:cache
     - php artisan view:cache
