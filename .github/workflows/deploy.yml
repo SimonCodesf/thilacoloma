@@ -50,8 +50,12 @@ jobs:
         STATAMIC_STATIC_CACHING_STRATEGY=null
         EOF
         # Clear composer cache and install dependencies
+        echo "Clearing composer cache..."
         composer clear-cache
-        composer install --no-dev --optimize-autoloader --no-interaction --prefer-dist
+        echo "Installing composer dependencies..."
+        composer install --no-dev --optimize-autoloader --no-interaction --prefer-dist --verbose
+        echo "Verifying vendor directory..."
+        ls -la vendor/ | head -10
       
     - name: 🔍 Debug server configuration
       run: |
@@ -70,7 +74,7 @@ jobs:
         protocol: ftp
         port: 21
         passive: true
-        timeout: 300000
+        timeout: 30000
         dangerous-clean-slate: false
         local-dir: ./
         server-dir: tc_app/
@@ -97,7 +101,7 @@ jobs:
         protocol: ftp
         port: 21
         passive: true
-        timeout: 300000
+        timeout: 30000
         dangerous-clean-slate: false
         local-dir: ./public/
         server-dir: public_html/tc/
@@ -113,7 +117,7 @@ jobs:
         protocol: ftp
         port: 21
         passive: true
-        timeout: 300000
+        timeout: 30000
         dangerous-clean-slate: false
         local-dir: ./
         server-dir: tc_app/
