@@ -65,3 +65,17 @@ database.sqlite
 
 # Large documents
 /public/assets/documents/
+# Local environment files (NEVER COMMIT)
+.env.local
+.env.*.local
+
+# SSH keys
+*.pem
+*.key
+id_*
+thilacoloma_server*
+
+# Deployment scripts with passwords (specific patterns)
+deploy-*-password.sh
+*-insecure.sh
+*-with-password.*
