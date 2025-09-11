@@ -2,6 +2,7 @@
 
 # Fix permissions script for Statamic deployment
 # This script ensures all files have proper ownership and permissions for web server
+# Usage: Run this script on the server as root: ./fix-permissions.sh
 
 echo "🔧 Fixing file permissions and ownership..."
 
