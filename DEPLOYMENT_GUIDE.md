@@ -35,8 +35,21 @@ GITHUB_REPO_URL=https://github.com/YourUser/your-repo.git ./deploy-statamic-vps.
 
 ### Step 3: Post-Deployment Configuration
 1. **Database Setup**: Update `/var/www/thilacoloma/.env` with your database credentials
-2. **Test the Site**: Visit your server's IP address
-3. **Access Control Panel**: Visit `http://your-ip/cp`
+2. **Fix Permissions**: Run `./fix-permissions.sh` to ensure proper file ownership
+3. **Test the Site**: Visit your server's IP address
+4. **Access Control Panel**: Visit `http://your-ip/cp`
+
+### ⚠️ Important: Permissions Fix
+After any deployment or CLI commands, run the permissions fix script to prevent permission errors:
+```bash
+cd /var/www/thilacoloma
+./fix-permissions.sh
+```
+
+This fixes common issues like:
+- "Permission denied" errors in Control Panel
+- Cache file ownership conflicts
+- File upload/edit failures
 
 ## 📋 What the Script Does
 
