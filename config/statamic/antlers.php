@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'debugbar' => env('STATAMIC_ANTLERS_DEBUGBAR', true),
+    'debugbar' => env('STATAMIC_ANTLERS_DEBUGBAR', env('APP_DEBUG', false)),
 
     /*
     |--------------------------------------------------------------------------
