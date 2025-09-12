@@ -2,7 +2,7 @@
 
 # Configuration
 GITHUB_REPO="https://github.com/preciousbetine/thilacolomaweb.git"
-GITHUB_BRANCH="main"
+GITHUB_BRANCH="master"
 LOCAL_REPO_DIR="/Users/simon/Library/CloudStorage/OneDrive-Persoonlijk/Thila Coloma/Thilacoloma_statamic"
 SERVER_CONTENT_DIR="/home/thilacom/public_html/content"
 SYNC_INTERVAL=30  # seconds between checks

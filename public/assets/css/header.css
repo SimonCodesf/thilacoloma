@@ -438,3 +438,64 @@
     padding: 1px 2px;
     transition: background-color 0.3s ease;
 }
+
+/* Uniform page styling */
+.tak-kleuren {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+    margin: var(--spacing-md) 0;
+}
+
+.kleur-item {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-xs);
+    border-radius: var(--border-radius);
+    background: var(--background-light);
+}
+
+.kleur-badge {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    border: 2px solid var(--border-color);
+    display: inline-block;
+}
+
+.kapoenen-kleur { background: #4CAF50; }
+.welpen-kleur { background: #2196F3; }
+.jv-kleur { background: #F44336; }
+.verkenners-kleur { background: #8B4513; }
+.vt-kleur { background: #7B1FA2; }
+
+.uniform-info-box {
+    margin-top: var(--spacing-lg);
+    border: 2px solid var(--primary-color);
+    border-radius: var(--border-radius);
+    background: rgba(55, 71, 148, 0.05);
+}
+
+.uniform-info-box .info-content {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--spacing-md);
+    padding: var(--spacing-md);
+}
+
+.uniform-info-box i {
+    color: var(--primary-color);
+    font-size: 1.2em;
+    margin-top: 2px;
+}
+
+.uniform-info-box h4 {
+    margin: 0 0 var(--spacing-xs) 0;
+    color: var(--primary-color);
+}
+
+.uniform-info-box p {
+    margin: 0;
+    color: var(--text-color);
+}

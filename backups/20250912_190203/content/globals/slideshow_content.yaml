@@ -1,0 +1,25 @@
+title: 'Slideshow Content'
+data:
+  news_slides:
+    -
+      id: BH8kifUB
+      type: news_slide
+      enabled: true
+      title: Test
+      content: "TC organiseert weer een pizzabak voor onze nieuwe lokalen! Wij maken overheerlijke ambachtelijke pizza's die jullie 24 november kunnen komen ophalen op de scouts en thuis gewoon nog even moeten afbakken. We maken de pizza's zelf in samenwerking met broodbroeders."
+      image: images/27D97C43-C040-423A-929B-E72D55356A3B.png
+      button_text: 'Meer info'
+    -
+      id: henKKsWU
+      type: news_slide
+      enabled: true
+      title: Belofteweekend
+      content: 'Het belofteweekend komt er weer aan! Vergeet zeker niet in te schrijven via stamhoofd, de deadline is 30 november.'
+      button_text: 'Meer info'
+    -
+      id: SbraianF
+      type: news_slide
+      enabled: true
+      title: "TC's Cadeaupakket"
+      content: 'Nog op zoek naar het perfecte cadeau voor onder de kerstboom? Verras je geliefden met ons cadeaupakket met typisch Mechelse lekkernijen! Samen met @sjolaa en de @broodbroeders stelden we dit heerlijke pakket samen, met voor ieder wat wils.'
+      button_text: 'Meer info'

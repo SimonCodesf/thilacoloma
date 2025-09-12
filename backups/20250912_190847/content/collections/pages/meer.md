@@ -1,0 +1,11 @@
+---
+id: 69gcfi6-abcd-8ef0-1234-56789abcdef0
+blueprint: page
+title: Meer
+slug: meer
+template: meer
+layout: page
+---
+Meer informatie over Thila Coloma, onze geschiedenis en extra services.
+
+**Test wijziging voor sync systeem - {{ date('Y-m-d H:i:s') }}**
