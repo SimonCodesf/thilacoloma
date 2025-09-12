@@ -1,0 +1,15 @@
+title: Nieuws
+handle: news
+template: news/show
+sort_direction: desc
+sort_field: date
+route: '/nieuws/{slug}'
+blueprints:
+  - news_article
+sites:
+  - default
+revisions: true
+search_index: default
+date_behavior:
+  past: public
+  future: hidden

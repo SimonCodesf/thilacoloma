@@ -123,4 +123,18 @@ return [
         'store' => env('APP_MAINTENANCE_STORE', 'file'),
     ],
 
+    /*
+    |--------------------------------------------------------------------------
+    | Auto Git Sync Configuration
+    |--------------------------------------------------------------------------
+    |
+    | These options control the automatic Git synchronization feature that
+    | pushes content changes to GitHub when Statamic entries are modified.
+    |
+    */
+
+    'git_sync_enabled' => env('GIT_SYNC_ENABLED', true),
+    'git_sync_webhook_url' => env('GIT_SYNC_WEBHOOK_URL', '/auto-git-sync.php'),
+    'git_sync_webhook_token' => env('WEBHOOK_TOKEN', 'your-secure-token-here'),
+
 ];

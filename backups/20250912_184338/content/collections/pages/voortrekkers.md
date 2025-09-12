@@ -1,0 +1,11 @@
+---
+id: b3c4d5e6-7f8a-9b0c-1d2e-3f4g5h6i7j8k
+blueprint: page
+title: Voortrekkers
+template: voortrekkers
+layout: layouts/page
+updated_by: admin
+updated_at: 1723977600
+---
+
+Voortrekkers pagina content wordt hier geladen via de template.

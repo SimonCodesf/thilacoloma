@@ -11,10 +11,152 @@
     <link rel="stylesheet" href="/assets/css/pages.css">
     <link rel="stylesheet" href="/assets/css/navigation.css">
     <link rel="stylesheet" href="/assets/css/responsive.css">
-    <link rel="stylesheet" href="/assets/css/header.css">
+    <link rel="stylesheet" href="/assets/css/header.css?v=20250912-2">
     <link rel="stylesheet" href="/assets/css/uniform-buttons.css">
     <link rel="stylesheet" href="https://use.typekit.net/rae0xxq.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    
+    <!-- Search Dropdown CSS Fix - v20250912-2 -->
+    <style>
+        /* Ensure header content allows overflow for dropdown */
+        .simple-header-content {
+            position: relative;
+            overflow: visible !important;
+        }
+        
+        /* Search container positioning */
+        .search-container {
+            position: relative;
+        }
+        
+        /* Ensure search input has proper border radius when dropdown is open */
+        .search-container.has-dropdown .search-input {
+            border-radius: 8px 8px 0 0 !important;
+            border-bottom: none !important;
+        }
+        
+        /* Search dropdown positioning and styling - only target the search dropdown specifically */
+        .search-container .search-dropdown {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            width: 100%;
+            max-height: 400px;
+            background: white;
+            border-radius: 0 0 8px 8px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            border: 1px solid #e8e8e8;
+            border-top: none;
+            z-index: 1000;
+            overflow: hidden;
+            margin-top: 0;
+            box-sizing: border-box;
+        }
+        
+        .search-container .search-dropdown.hidden {
+            display: none !important;
+        }
+        
+        /* Search results styling - only inside search dropdown */
+        .search-container .search-results {
+            max-height: 350px;
+            overflow-y: auto;
+        }
+        
+        .search-container .search-result-item {
+            display: flex;
+            align-items: center;
+            padding: 12px 16px;
+            border-bottom: 1px solid #f5f5f5;
+            cursor: pointer;
+            transition: background-color 0.15s ease;
+            position: relative;
+            margin: 0;
+            border-left: none;
+            border-right: none;
+        }
+        
+        .search-container .search-result-item:hover,
+        .search-container .search-result-item.highlighted {
+            background: #f8f9fa;
+            border-left: none;
+            border-right: none;
+        }
+        
+        .search-container .search-result-item:last-child {
+            border-bottom: none;
+        }
+        
+        .search-container .search-result-icon {
+            width: 24px;
+            height: 24px;
+            margin-right: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            background: #f0f1f2;
+            border-radius: 6px;
+        }
+        
+        .search-container .search-result-icon i {
+            font-size: 12px;
+            color: var(--primary-color, #3747a0);
+        }
+        
+        .search-container .search-svg-icon {
+            width: 14px;
+            height: 14px;
+        }
+        
+        .search-container .search-result-content {
+            flex: 1;
+        }
+        
+        .search-container .search-result-title {
+            font-weight: 500;
+            color: #2d3748;
+            font-size: 14px;
+            margin-bottom: 2px;
+            font-family: var(--font-medium, sans-serif);
+        }
+        
+        .search-container .search-result-description {
+            font-size: 12px;
+            color: #6b7280;
+            font-family: var(--font-regular, sans-serif);
+        }
+        
+        .search-container .search-loading,
+        .search-container .search-no-results {
+            padding: 20px;
+            text-align: center;
+            color: #6b7280;
+            font-size: 13px;
+            font-family: var(--font-regular, sans-serif);
+        }
+        
+        .search-container .search-loading i {
+            margin-right: 6px;
+            color: var(--primary-color, #3747a0);
+        }
+        
+        /* Responsive adjustments - only for search dropdown */
+        @media (max-width: 768px) {
+            .search-container .search-dropdown {
+                width: 100%;
+                right: 0;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .search-container .search-dropdown {
+                width: 100%;
+                right: 0;
+            }
+        }
+    </style>
 </head>
 <body>
     <header class="simple-header" id="main-header">
@@ -43,11 +185,22 @@
                 </a>
             </nav>
             <div class="header-actions">
-                <div class="search-container">
-                    <input type="text" id="search-input" placeholder="Zoeken..." class="search-input">
+                <div class="search-container" id="live-search-container">
+                    <input type="text" id="search-input" placeholder="Zoeken..." class="search-input" autocomplete="off">
                     <button type="button" id="search-button" class="search-button" title="Zoeken">
                         <i class="fas fa-search"></i>
                     </button>
+                    <div id="search-dropdown" class="search-dropdown hidden">
+                        <div class="search-results" id="search-results">
+                            <!-- Results will be populated here -->
+                        </div>
+                        <div class="search-loading hidden" id="search-loading">
+                            <i class="fas fa-spinner fa-spin"></i> Zoeken...
+                        </div>
+                        <div class="search-no-results hidden" id="search-no-results">
+                            Geen resultaten gevonden
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -281,6 +434,280 @@
                 }
             }, 2000);
         });
+        
+        // Live Search functionality - Updated v1.1
+        document.addEventListener('DOMContentLoaded', function() {
+            const searchInput = document.getElementById('search-input');
+            const searchButton = document.getElementById('search-button');
+            const searchDropdown = document.getElementById('search-dropdown');
+            const searchResults = document.getElementById('search-results');
+            const searchLoading = document.getElementById('search-loading');
+            const searchNoResults = document.getElementById('search-no-results');
+            const searchContainer = document.getElementById('live-search-container');
+            
+            let searchTimeout;
+            let currentHighlighted = -1;
+            let searchCache = new Map();
+            
+            function showDropdown() {
+                searchDropdown.classList.remove('hidden');
+                searchContainer.classList.add('has-dropdown');
+            }
+            
+            function hideDropdown() {
+                searchDropdown.classList.add('hidden');
+                searchContainer.classList.remove('has-dropdown');
+                currentHighlighted = -1;
+            }
+            
+            function showLoading() {
+                searchLoading.classList.remove('hidden');
+                searchResults.classList.add('hidden');
+                searchNoResults.classList.add('hidden');
+            }
+            
+            function hideLoading() {
+                searchLoading.classList.add('hidden');
+            }
+            
+            function showNoResults() {
+                searchNoResults.classList.remove('hidden');
+                searchResults.classList.add('hidden');
+            }
+            
+            function showResults() {
+                searchResults.classList.remove('hidden');
+                searchNoResults.classList.add('hidden');
+            }
+            
+            function renderResults(results) {
+                hideLoading();
+                
+                if (results.length === 0) {
+                    showNoResults();
+                    return;
+                }
+                
+                showResults();
+                
+                searchResults.innerHTML = results.map((result, index) => {
+                    const icon = result.icon || 'fas fa-file-alt';
+                    let iconHtml = '';
+                    
+                    if (icon.startsWith('/assets/images/')) {
+                        // SVG icon from header - use a simpler approach
+                        iconHtml = `<img src="${icon}" alt="Icon" class="search-svg-icon">`;
+                    } else {
+                        // FontAwesome icon
+                        iconHtml = `<i class="${icon}"></i>`;
+                    }
+                    
+                    return `
+                    <div class="search-result-item" data-url="${result.url}" data-index="${index}">
+                        <div class="search-result-icon">
+                            ${iconHtml}
+                        </div>
+                        <div class="search-result-content">
+                            <div class="search-result-title">${result.title}</div>
+                            <div class="search-result-description">${result.description || ''}</div>
+                        </div>
+                    </div>`;
+                }).join('');
+                
+                // Add click listeners to result items
+                searchResults.querySelectorAll('.search-result-item').forEach(item => {
+                    item.addEventListener('click', function() {
+                        const url = this.getAttribute('data-url');
+                        if (url) {
+                            window.location.href = url;
+                        }
+                    });
+                });
+                
+                // Make sure dropdown is visible after rendering results
+                showDropdown();
+            }
+            
+            function highlightResult(index) {
+                const items = searchResults.querySelectorAll('.search-result-item');
+                
+                // Remove previous highlight
+                items.forEach(item => item.classList.remove('highlighted'));
+                
+                // Add highlight to current item
+                if (index >= 0 && index < items.length) {
+                    items[index].classList.add('highlighted');
+                    currentHighlighted = index;
+                } else {
+                    currentHighlighted = -1;
+                }
+            }
+            
+            function performSearch(query) {
+                query = query.trim();
+                
+                if (query.length < 1) {
+                    hideDropdown();
+                    return;
+                }
+                
+                // Check cache first
+                if (searchCache.has(query)) {
+                    renderResults(searchCache.get(query));
+                    showDropdown();
+                    return;
+                }
+                
+                showDropdown();
+                showLoading();
+                
+                fetch(`/api/search?q=${encodeURIComponent(query)}`)
+                    .then(response => response.json())
+                    .then(results => {
+                        // Cache the results
+                        searchCache.set(query, results);
+                        renderResults(results);
+                    })
+                    .catch(error => {
+                        console.error('Search error:', error);
+                        hideLoading();
+                        showNoResults();
+                    });
+            }
+            
+            // Handle input changes
+            if (searchInput) {
+                searchInput.addEventListener('input', function() {
+                    const query = this.value;
+                    
+                    // Clear existing timeout
+                    if (searchTimeout) {
+                        clearTimeout(searchTimeout);
+                    }
+                    
+                    // Debounce search
+                    searchTimeout = setTimeout(() => {
+                        performSearch(query);
+                    }, 300);
+                });
+                
+                // Handle keyboard navigation
+                searchInput.addEventListener('keydown', function(e) {
+                    const items = searchResults.querySelectorAll('.search-result-item');
+                    
+                    switch(e.key) {
+                        case 'ArrowDown':
+                            e.preventDefault();
+                            const nextIndex = currentHighlighted < items.length - 1 ? currentHighlighted + 1 : 0;
+                            highlightResult(nextIndex);
+                            break;
+                            
+                        case 'ArrowUp':
+                            e.preventDefault();
+                            const prevIndex = currentHighlighted > 0 ? currentHighlighted - 1 : items.length - 1;
+                            highlightResult(prevIndex);
+                            break;
+                            
+                        case 'Enter':
+                            e.preventDefault();
+                            if (currentHighlighted >= 0 && items[currentHighlighted]) {
+                                const url = items[currentHighlighted].getAttribute('data-url');
+                                if (url) {
+                                    window.location.href = url;
+                                }
+                            } else {
+                                // If no result is highlighted, perform traditional search if needed
+                                const query = this.value.trim();
+                                if (query && items.length > 0) {
+                                    // Navigate to first result
+                                    const firstUrl = items[0].getAttribute('data-url');
+                                    if (firstUrl) {
+                                        window.location.href = firstUrl;
+                                    }
+                                }
+                            }
+                            break;
+                            
+                        case 'Escape':
+                            hideDropdown();
+                            this.blur();
+                            break;
+                    }
+                });
+                
+                // Show dropdown when input gets focus (if there's content)
+                searchInput.addEventListener('focus', function() {
+                    if (this.value.trim().length >= 1) {
+                        performSearch(this.value.trim());
+                    }
+                });
+                
+                // Auto-focus search when typing "/" key anywhere on page
+                document.addEventListener('keydown', function(e) {
+                    if (e.key === '/' && e.target.tagName !== 'INPUT' && e.target.tagName !== 'TEXTAREA') {
+                        e.preventDefault();
+                        searchInput.focus();
+                    }
+                });
+            }
+            
+            // Handle search button (go to best result)
+            if (searchButton) {
+                searchButton.addEventListener('click', function() {
+                    const query = searchInput.value.trim();
+                    if (query) {
+                        // First try to get results
+                        fetch(`/api/search?q=${encodeURIComponent(query)}`)
+                            .then(response => response.json())
+                            .then(results => {
+                                if (results && results.length > 0) {
+                                    // Go to the best result (first one)
+                                    window.location.href = results[0].url;
+                                } else {
+                                    console.log('No results found for:', query);
+                                }
+                            })
+                            .catch(error => {
+                                console.error('Search button error:', error);
+                            });
+                    }
+                });
+            }
+            
+            // Hide dropdown when clicking outside
+            document.addEventListener('click', function(e) {
+                if (!document.getElementById('live-search-container').contains(e.target)) {
+                    hideDropdown();
+                }
+            });
+        });
     </script>
+    
+    <!-- Force cache override for materiaal cards styling -->
+    <style>
+        /* Force reset any cached conflicting styles */
+        .materiaal-item h4 {
+            font-size: 1em !important;
+            font-family: var(--font-medium) !important;
+            color: var(--primary-color) !important;
+        }
+        
+        .materiaal-pricing div {
+            font-size: 0.9em !important;
+        }
+        
+        .materiaal-count {
+            font-size: 1em !important;
+            font-family: var(--font-bold) !important;
+        }
+        
+        /* Word break for long names like Aanhangwagen */
+        .materiaal-item h4 {
+            word-break: break-word;
+            hyphens: auto;
+            -webkit-hyphens: auto;
+            -moz-hyphens: auto;
+        }
+    </style>
 </body>
 </html>

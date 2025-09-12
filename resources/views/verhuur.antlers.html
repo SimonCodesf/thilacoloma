@@ -345,186 +345,17 @@
             changeSlide(1);
         }, 5000);
         
-        // Search functionality
-        document.addEventListener('DOMContentLoaded', function() {
-            const searchInput = document.getElementById('search-input');
-            const searchButton = document.getElementById('search-button');
-            
-            function performSearch() {
-                const query = searchInput.value.trim().toLowerCase();
-                if (query === '') return;
-                
-                // Search through all text content on the page
-                const sections = document.querySelectorAll('.page-section');
-                let results = [];
-                
-                sections.forEach(section => {
-                    const sectionTitle = section.querySelector('h2')?.textContent || '';
-                    const sectionContent = section.textContent.toLowerCase();
-                    
-                    if (sectionContent.includes(query)) {
-                        results.push({
-                            title: sectionTitle,
-                            element: section,
-                            relevance: calculateRelevance(sectionContent, query)
-                        });
-                    }
-                });
-                
-                // Highlight and scroll to most relevant result
-                if (results.length > 0) {
-                    results.sort((a, b) => b.relevance - a.relevance);
-                    highlightSearchResults(query);
-                    results[0].element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                } else {
-                    alert('Geen resultaten gevonden voor "' + query + '"');
-                }
-            }
-            
-            function calculateRelevance(content, query) {
-                const queryWords = query.split(' ');
-                let score = 0;
-                
-                queryWords.forEach(word => {
-                    const regex = new RegExp(word, 'gi');
-                    const matches = content.match(regex);
-                    if (matches) {
-                        score += matches.length;
-                    }
-                });
-                
-                return score;
-            }
-            
-            function highlightSearchResults(query) {
-                // Remove existing highlights
-                document.querySelectorAll('.search-highlight').forEach(el => {
-                    el.classList.remove('search-highlight');
-                });
-                
-                // Add new highlights
-                const queryWords = query.split(' ');
-                queryWords.forEach(word => {
-                    if (word.length > 2) { // Only highlight words longer than 2 characters
-                        const regex = new RegExp(`(${word})`, 'gi');
-                        const walker = document.createTreeWalker(
-                            document.body,
-                            NodeFilter.SHOW_TEXT,
-                            null,
-                            false
-                        );
-                        
-                        const textNodes = [];
-                        let node;
-                        while (node = walker.nextNode()) {
-                            textNodes.push(node);
-                        }
-                        
-                        textNodes.forEach(textNode => {
-                            if (textNode.textContent.toLowerCase().includes(word)) {
-                                const parent = textNode.parentElement;
-                                if (parent && !parent.classList.contains('search-highlight')) {
-                                    parent.classList.add('search-highlight');
-                                }
-                            }
-                        });
-                    }
-                });
-                
-                // Remove highlights after 5 seconds
-                setTimeout(() => {
-                    document.querySelectorAll('.search-highlight').forEach(el => {
-                        el.classList.remove('search-highlight');
-                    });
-                }, 5000);
-            }
-            
-            // Event listeners
-            searchButton.addEventListener('click', performSearch);
-            searchInput.addEventListener('keypress', function(e) {
-                if (e.key === 'Enter') {
-                    performSearch();
-                }
-            });
-        });
-        
     </script>
 
     <style>
         
-        .search-container {
-            display: flex;
-            align-items: center;
-            background-color: rgba(255, 255, 255, 0.1);
-            border-radius: var(--border-radius-sm);
-            transition: all 0.3s ease;
-            overflow: hidden;
-            height: 45px;
-            width: 250px;
-        }
-        
-        .search-container:focus-within {
-            border-color: rgba(255, 255, 255, 0.5);
-            background-color: rgba(255, 255, 255, 0.15);
-        }
-        
-        .search-input {
-            border: none;
-            outline: none;
-            padding: 0 15px;
-            font-size: 0.9em;
-            background: transparent;
-            color: rgba(255, 255, 255, 0.9);
-            flex: 1;
-            font-family: var(--font-regular);
-            height: 100%;
-        }
-        
-        .search-input::placeholder {
-            color: rgba(255, 255, 255, 0.6);
-            font-family: var(--font-medium);
-        }
-        
-        .search-container:focus-within .search-input {
-            color: white;
-        }
-        
-        .search-button {
-            border: none;
-            background: transparent;
-            color: rgba(255, 255, 255, 0.8);
-            padding: 0 12px;
-            cursor: pointer;
-            transition: var(--transition-normal);
-            display: flex;
-            align-items: center;
-            justify-content: right;
-            height: 100%;
-            width: 50px;
-        }
-        
-        .search-button:hover {
-            color: white;
-        }
-        
-        .search-button i {
-            font-size: 0.9em;
-        }
-        
         /* Responsive search */
         @media (max-width: 1024px) {
-            .search-container {
-                width: 160px;
-            }
         }
         
         @media (max-width: 768px) {
             .header-actions {
                 gap: var(--spacing-sm);
-            }
-            
-            .search-container {
-                width: 140px;
             }
             
             /* Compacte fallback responsive */
@@ -539,14 +370,6 @@
                 flex-direction: row;
                 gap: var(--spacing-md);
             }
-        }
-        
-        /* Search highlight styling */
-        .search-highlight {
-            background-color: rgba(230, 166, 48, 0.3) !important;
-            border-radius: 3px;
-            padding: 1px 2px;
-            transition: background-color 0.3s ease;
         }
 
         /* Fallback toggle button styling */
