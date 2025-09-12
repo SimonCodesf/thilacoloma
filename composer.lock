@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "322b73762aee07e6a65e6c20294ddfe5",
+    "content-hash": "84b1ae36a5bd52206090f1515c57d251",
     "packages": [
         {
             "name": "ajthinking/archetype",
@@ -68,6 +68,73 @@
                 "source": "https://github.com/ajthinking/archetype/tree/v2.0.0"
             },
             "time": "2024-05-11T08:05:58+00:00"
+        },
+        {
+            "name": "aryehraber/statamic-logbook",
+            "version": "v3.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/aryehraber/statamic-logbook.git",
+                "reference": "ebf78cb19dffdcf24b0dca864b8189e8a0647a6d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/aryehraber/statamic-logbook/zipball/ebf78cb19dffdcf24b0dca864b8189e8a0647a6d",
+                "reference": "ebf78cb19dffdcf24b0dca864b8189e8a0647a6d",
+                "shasum": ""
+            },
+            "require": {
+                "rap2hpoutre/laravel-log-viewer": "^2.3.0",
+                "statamic/cms": "^4.0 || ^5.0"
+            },
+            "type": "statamic-addon",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "AryehRaber\\Logbook\\LogbookServiceProvider"
+                    ]
+                },
+                "statamic": {
+                    "name": "Logbook",
+                    "version": "3.2.0",
+                    "description": "Manage and view log files in the CP."
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "AryehRaber\\Logbook\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Aryeh Raber",
+                    "email": "aryeh.raber@gmail.com",
+                    "homepage": "https://aryeh.dev",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Manage and view log files in the CP.",
+            "homepage": "https://github.com/aryehraber/statamic-logbook",
+            "keywords": [
+                "logbook",
+                "logs",
+                "statamic"
+            ],
+            "support": {
+                "issues": "https://github.com/aryehraber/statamic-logbook/issues",
+                "source": "https://github.com/aryehraber/statamic-logbook/tree/v3.3.0"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/aryehraber",
+                    "type": "github"
+                }
+            ],
+            "time": "2024-05-07T06:59:41+00:00"
         },
         {
             "name": "brick/math",
@@ -3960,6 +4027,69 @@
                 "source": "https://github.com/ramsey/uuid/tree/4.9.1"
             },
             "time": "2025-09-04T20:59:21+00:00"
+        },
+        {
+            "name": "rap2hpoutre/laravel-log-viewer",
+            "version": "v2.5.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/rap2hpoutre/laravel-log-viewer.git",
+                "reference": "ab85d5d88de728b99a9391a0c70e9b2f5743a589"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/rap2hpoutre/laravel-log-viewer/zipball/ab85d5d88de728b99a9391a0c70e9b2f5743a589",
+                "reference": "ab85d5d88de728b99a9391a0c70e9b2f5743a589",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "^6.0|^7.0|^8.0|^9.0|^10.0|^11.0|^12.0",
+                "php": "^7.2|^8.0"
+            },
+            "require-dev": {
+                "orchestra/testbench": "^4.0|^5.0|^6.0|^7.0|^8.0|^9.0|^10.0",
+                "phpunit/phpunit": "^7||^8.4|^9.3.3|^10.1|^11.0"
+            },
+            "type": "laravel-package",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Rap2hpoutre\\LaravelLogViewer\\LaravelLogViewerServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Rap2hpoutre\\LaravelLogViewer\\": "src/"
+                },
+                "classmap": [
+                    "src/controllers"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "rap2hpoutre",
+                    "email": "raphaelht@gmail.com"
+                }
+            ],
+            "description": "A Laravel log reader",
+            "keywords": [
+                "laravel",
+                "log",
+                "log-reader",
+                "log-viewer",
+                "logging",
+                "lumen"
+            ],
+            "support": {
+                "issues": "https://github.com/rap2hpoutre/laravel-log-viewer/issues",
+                "source": "https://github.com/rap2hpoutre/laravel-log-viewer/tree/v2.5.0"
+            },
+            "time": "2025-03-10T15:35:06+00:00"
         },
         {
             "name": "rebing/graphql-laravel",
@@ -8043,6 +8173,51 @@
                 "source": "https://github.com/webmozarts/assert/tree/1.11.0"
             },
             "time": "2022-06-03T18:03:27+00:00"
+        },
+        {
+            "name": "webographen/statamic-admin-log",
+            "version": "v1.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/stoffelio/statamic-admin-log.git",
+                "reference": "ead221219d814141154a8de5add46c19afd5d50f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/stoffelio/statamic-admin-log/zipball/ead221219d814141154a8de5add46c19afd5d50f",
+                "reference": "ead221219d814141154a8de5add46c19afd5d50f",
+                "shasum": ""
+            },
+            "require": {
+                "statamic/cms": "^3.0||^4.0||^5.0"
+            },
+            "type": "statamic-addon",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Webographen\\AdminLog\\ServiceProvider"
+                    ]
+                },
+                "statamic": {
+                    "name": "Statamic Admin Log",
+                    "description": "Logs all user actions in the control panel"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Webographen\\AdminLog\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Logs all user actions in the control panel",
+            "support": {
+                "issues": "https://github.com/stoffelio/statamic-admin-log/issues",
+                "source": "https://github.com/stoffelio/statamic-admin-log/tree/v1.1.0"
+            },
+            "time": "2024-05-21T09:28:20+00:00"
         },
         {
             "name": "webonyx/graphql-php",
