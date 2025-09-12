@@ -28,7 +28,7 @@ return [
         'default' => [
             'driver' => 'local',
             'searchables' => 'all',
-            'fields' => ['title'],
+            'fields' => ['title', 'content', 'intro_text', 'intro_title', 'description', 'tak_beschrijving', 'tak_activiteiten', 'meetings_description', 'weekends_beschrijving', 'kampen_binnenlands_tekst', 'kampen_buitenlands_tekst'],
         ],
 
         // 'blog' => [

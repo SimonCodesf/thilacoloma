@@ -2,29 +2,44 @@ content_admin:
   title: Content Administrator
   permissions:
     # Content Management
+    - 'access cp'
     - 'view cp'
     - 'edit own user'
     - 'view users'
+    - 'configure fields'
     
-    # Collections (Pages, News, etc.)
+    # Collections - Full access to all collections
+    - 'configure collections'
     - 'view pages entries'
     - 'edit pages entries'
     - 'create pages entries'
     - 'delete pages entries'
     - 'publish pages entries'
     - 'reorder pages entries'
+    - 'edit other authors pages entries'
+    - 'publish other authors pages entries'
+    - 'delete other authors pages entries'
+    
     - 'view news entries'
     - 'edit news entries'
     - 'create news entries'
     - 'delete news entries'
     - 'publish news entries'
+    - 'edit other authors news entries'
+    - 'publish other authors news entries'
+    - 'delete other authors news entries'
+    
     - 'view takken entries'
     - 'edit takken entries'
     - 'create takken entries'
     - 'delete takken entries'
     - 'publish takken entries'
+    - 'edit other authors takken entries'
+    - 'publish other authors takken entries'
+    - 'delete other authors takken entries'
     
-    # Globals (Site settings, homepage content, etc.)
+    # Globals - Full access to all globals
+    - 'configure globals'
     - 'view homepage_content globals'
     - 'edit homepage_content globals'
     - 'view kalender_content globals'
@@ -36,7 +51,8 @@ content_admin:
     - 'view slideshow_content globals'
     - 'edit slideshow_content globals'
     
-    # Assets (Images, documents)
+    # Assets - Full access to all asset containers
+    - 'configure asset containers'
     - 'view assets assets'
     - 'upload assets assets'
     - 'edit assets assets'
@@ -49,6 +65,21 @@ content_admin:
     - 'move documents assets'
     - 'rename documents assets'
     - 'delete documents assets'
+    
+    # Navigation
+    - 'configure navs'
+    - 'view main_nav nav'
+    - 'edit main_nav nav'
+    - 'view footer_nav nav'
+    - 'edit footer_nav nav'
+    
+    # Taxonomies (categories, tags)
+    - 'configure taxonomies'
+    
+    # Forms (if any)
+    - 'configure forms'
+    - 'view contact_form form submissions'
+    - 'delete contact_form form submissions'
 
 # Full admin role (for developers)
 admin:

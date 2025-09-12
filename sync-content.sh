@@ -1,25 +1,29 @@
 #!/bin/bash
 
-# Configuration
-GITHUB_REPO="https://github.com/preciousbetine/thilacolomaweb.git"
-GITHUB_BRANCH="master"
-LOCAL_REPO_DIR="/Users/simon/Library/CloudStorage/OneDrive-Persoonlijk/Thila Coloma/Thilacoloma_statamic"
-SERVER_CONTENT_DIR="/home/thilacom/public_html/content"
-SYNC_INTERVAL=30  # seconds between checks
-LOG_FILE="$LOCAL_REPO_DIR/auto-sync.log"
+# Content Sync Script for Thila Coloma Statamic
+# Synchronizes content between local development and server
+# Now includes automatic GitHub monitoring!
 
-# Colors for output
+set -e  # Exit on any error
+
+# Configuration
+SERVER_USER="thilacom"
+SERVER_HOST="103.76.86.167"
+SERVER_PATH="/home/thilacom/public_html"
+LOCAL_PATH="$(pwd)"
+GITHUB_REPO="SimonCodesf/thilacoloma"
+MAIN_BRANCH="master"
+
+# Kleuren voor output
 RED='\033[0;31m'
 GREEN='\033[0;32m'
 YELLOW='\033[1;33m'
 BLUE='\033[0;34m'
 NC='\033[0m' # No Color
 
-# Logging function
+# Logging functie
 log() {
-    local timestamp=$(date '+%Y-%m-%d %H:%M:%S')
-    echo -e "${BLUE}[$timestamp]${NC} $1"
-    echo "[$timestamp] $1" >> "$LOG_FILE"
+    echo -e "${BLUE}[$(date '+%Y-%m-%d %H:%M:%S')]${NC} $1"
 }
 
 warning() {
@@ -35,205 +39,248 @@ success() {
     echo -e "${GREEN}✅ SUCCESS:${NC} $1"
 }
 
-# SSH connection function using SSH config
-ssh_to_server() {
-    local command="$1"
-    ssh thilacoloma "$command" 2>/dev/null
-}
-
-# SCP function using SSH config
-scp_to_server() {
-    local source="$1"
-    local destination="$2"
-    scp -r "$source" "$destination" 2>/dev/null
-}
-
-# Function to check server connection
+# Functie om te controleren of server bereikbaar is
 check_server_connection() {
     log "Checking server connection..."
-    if ! ssh_to_server "exit" &>/dev/null; then
-        error "Cannot connect to server thilacoloma"
+    if ! ssh -q "$SERVER" exit; then
+        error "Cannot connect to server $SERVER"
     fi
     success "Server connection OK"
 }
 
-# Function to create backup
+# Functie om backup te maken
 create_backup() {
-    local backup_dir="$LOCAL_REPO_DIR/backups/$(date '+%Y%m%d_%H%M%S')"
+    local backup_dir="$LOCAL_PATH/backups/$(date '+%Y%m%d_%H%M%S')"
     log "Creating backup in $backup_dir"
     
     mkdir -p "$backup_dir"
-    cp -r "$LOCAL_REPO_DIR/content" "$backup_dir/"
+    cp -r "$LOCAL_PATH/content" "$backup_dir/"
     
     success "Backup created: $backup_dir"
 }
 
-# Function to sync content from server to local
+# Functie om server content te downloaden
 sync_from_server() {
     log "Syncing content FROM server TO local..."
     
     # Content collections
-    if scp_to_server "thilacoloma:$SERVER_CONTENT_DIR/collections/" "$LOCAL_REPO_DIR/content/"; then
-        log "✓ Collections synced from server"
-    else
-        log "⚠️ Failed to sync collections from server"
-    fi
+    scp -r "$SERVER:$REMOTE_PATH/content/collections/" "$LOCAL_PATH/content/"
     
     # Globals
-    if scp_to_server "thilacoloma:$SERVER_CONTENT_DIR/globals/" "$LOCAL_REPO_DIR/content/"; then
-        log "✓ Globals synced from server"
-    else
-        log "⚠️ Failed to sync globals from server"
+    scp -r "$SERVER:$REMOTE_PATH/content/globals/" "$LOCAL_PATH/content/"
+    
+    # Assets meta (if needed)
+    if ssh "$SERVER" "[ -d '$REMOTE_PATH/content/assets' ]"; then
+        scp -r "$SERVER:$REMOTE_PATH/content/assets/" "$LOCAL_PATH/content/" 2>/dev/null || true
     fi
     
-    # Assets (optional, might be large)
-    if ssh_to_server "[ -d '$SERVER_CONTENT_DIR/assets' ]"; then
-        if scp_to_server "thilacoloma:$SERVER_CONTENT_DIR/assets/" "$LOCAL_REPO_DIR/content/" 2>/dev/null; then
-            log "✓ Assets synced from server"
-        fi
-    fi
-    
-    success "Server to local sync complete"
+    success "Content synced from server"
 }
 
-# Function to sync content from local to server
+# Functie om lokale content naar server te uploaden
 sync_to_server() {
     log "Syncing content FROM local TO server..."
     
-    # Create server backup first
-    log "Creating server backup..."
-    ssh_to_server "mkdir -p $SERVER_CONTENT_DIR/../backups/$(date '+%Y%m%d_%H%M%S') && cp -r $SERVER_CONTENT_DIR $SERVER_CONTENT_DIR/../backups/$(date '+%Y%m%d_%H%M%S')/"
+    # Maak eerst backup op server
+    ssh "$SERVER" "mkdir -p $REMOTE_PATH/backups/$(date '+%Y%m%d_%H%M%S') && cp -r $REMOTE_PATH/content $REMOTE_PATH/backups/$(date '+%Y%m%d_%H%M%S')/"
     
-    # Sync collections and globals
-    if scp_to_server "$LOCAL_REPO_DIR/content/collections/" "thilacoloma:$SERVER_CONTENT_DIR/" &&
-       scp_to_server "$LOCAL_REPO_DIR/content/globals/" "thilacoloma:$SERVER_CONTENT_DIR/"; then
-        
-        # Fix permissions and clear cache
-        ssh_to_server "chown -R www-data:www-data $SERVER_CONTENT_DIR && chmod -R 644 $SERVER_CONTENT_DIR/**/*.md $SERVER_CONTENT_DIR/**/*.yaml"
-        
-        # Clear Statamic cache
-        ssh_to_server "cd /home/thilacom/public_html && php please cache:clear && php please view:clear"
-        
-        success "Local to server sync complete"
+    # Upload content
+    scp -r "$LOCAL_PATH/content/collections/" "$SERVER:$REMOTE_PATH/content/"
+    scp -r "$LOCAL_PATH/content/globals/" "$SERVER:$REMOTE_PATH/content/"
+    
+    # Fix permissions
+    ssh "$SERVER" "chown -R www-data:www-data $REMOTE_PATH/content && chmod -R 644 $REMOTE_PATH/content/**/*.md $REMOTE_PATH/content/**/*.yaml"
+    
+    # Clear caches
+    ssh "$SERVER" "cd $REMOTE_PATH && php please cache:clear && php please view:clear"
+    
+    success "Content synced to server and caches cleared"
+}
+
+# Functie om verschillen te controleren
+check_differences() {
+    log "Checking for differences between local and server..."
+    
+    # Download server content to temp directory
+    local temp_dir="/tmp/thilacoloma_server_$(date '+%s')"
+    mkdir -p "$temp_dir"
+    
+    scp -r "$SERVER:$REMOTE_PATH/content/" "$temp_dir/"
+    
+    # Compare
+    if diff -r "$LOCAL_PATH/content" "$temp_dir/content" > /dev/null; then
+        success "No differences found - local and server are in sync"
+        rm -rf "$temp_dir"
         return 0
     else
-        error "Failed to sync content to server"
+        warning "Differences found between local and server content"
+        echo "Run with --diff to see detailed differences"
+        rm -rf "$temp_dir"
         return 1
     fi
 }
 
-# Function to commit and push changes to GitHub
-commit_and_push() {
-    cd "$LOCAL_REPO_DIR" || error "Cannot change to local repo directory"
+# Functie om gedetailleerde verschillen te tonen
+show_differences() {
+    log "Showing detailed differences..."
     
-    # Check if there are changes
-    if git diff --quiet && git diff --cached --quiet; then
-        log "No changes to commit"
-        return 0
-    fi
+    local temp_dir="/tmp/thilacoloma_server_$(date '+%s')"
+    mkdir -p "$temp_dir"
     
-    log "Committing and pushing changes to GitHub..."
+    scp -r "$SERVER:$REMOTE_PATH/content/" "$temp_dir/"
     
-    git add content/
-    git commit -m "Auto-sync: $(date '+%Y-%m-%d %H:%M:%S')"
+    echo -e "\n${YELLOW}=== DIFFERENCES ===>${NC}"
+    diff -u "$LOCAL_PATH/content" "$temp_dir/content" || true
+    echo -e "${YELLOW}<== END DIFFERENCES ===${NC}\n"
     
-    if git push origin "$GITHUB_BRANCH"; then
-        success "Changes pushed to GitHub"
-        return 0
+    rm -rf "$temp_dir"
+}
+
+# Help functie
+show_help() {
+    echo "Thila Coloma Content Sync Script"
+    echo ""
+    echo "Usage: $0 [OPTION]"
+    echo ""
+    echo "Options:"
+    echo "  --pull, -p          Sync content from server to local (download)"
+    echo "  --push, -u          Sync content from local to server (upload)"
+    echo "  --check, -c         Check for differences without syncing"
+    echo "  --diff, -d          Show detailed differences"
+    echo "  --help, -h          Show this help message"
+    echo ""
+    echo "Examples:"
+    echo "  $0 --pull           # Download latest content from server"
+    echo "  $0 --push           # Upload local changes to server"
+    echo "  $0 --check          # Check if local and server are in sync"
+    echo ""
+}
+
+# Check for new commits from GitHub
+check_github_updates() {
+    log "🔍 Checking GitHub for new commits..." "INFO"
+    
+    # Fetch latest from GitHub
+    git fetch origin $MAIN_BRANCH --quiet
+    
+    # Check if we're behind
+    LOCAL_COMMIT=$(git rev-parse HEAD)
+    REMOTE_COMMIT=$(git rev-parse origin/$MAIN_BRANCH)
+    
+    if [ "$LOCAL_COMMIT" != "$REMOTE_COMMIT" ]; then
+        # Count commits we're behind
+        BEHIND_COUNT=$(git rev-list --count HEAD..origin/$MAIN_BRANCH)
+        log "📥 Found $BEHIND_COUNT new commit(s) on GitHub" "WARNING"
+        return 1  # We are behind
     else
-        error "Failed to push changes to GitHub"
-        return 1
+        log "✅ Local is up to date with GitHub" "SUCCESS"
+        return 0  # We are up to date
     fi
 }
 
-# Function to pull changes from GitHub
+# Pull latest changes from GitHub
 pull_from_github() {
-    cd "$LOCAL_REPO_DIR" || error "Cannot change to local repo directory"
+    log "📥 Pulling latest changes from GitHub..." "INFO"
     
-    log "Pulling latest changes from GitHub..."
+    # Create backup of current state
+    create_backup "before-github-pull"
     
-    if git pull origin "$GITHUB_BRANCH"; then
-        log "✓ Pulled latest changes from GitHub"
-        return 0
+    # Pull changes
+    git pull origin $MAIN_BRANCH
+    
+    log "✅ Successfully pulled from GitHub" "SUCCESS"
+}
+
+# Auto-sync: Check GitHub and sync if needed
+auto_sync() {
+    log "🔄 Starting auto-sync process..." "INFO"
+    
+    if ! check_github_updates; then
+        log "🚀 Auto-syncing new changes from GitHub..." "INFO"
+        pull_from_github
+        
+        # Now sync the new content to server
+        log "📤 Syncing updated content to server..." "INFO"
+        sync_to_server
+        
+        log "🎉 Auto-sync complete! Local → GitHub → Server" "SUCCESS"
     else
-        log "⚠️ Failed to pull from GitHub"
-        return 1
+        log "😊 No auto-sync needed, everything is up to date" "SUCCESS"
     fi
 }
-
-# Function for continuous sync monitoring
-auto_sync() {
-    log "Starting auto-sync monitoring..."
-    log "Monitoring GitHub every $SYNC_INTERVAL seconds"
-    
-    local last_commit=""
-    
-    while true; do
-        # Check for GitHub changes
-        cd "$LOCAL_REPO_DIR" || error "Cannot change to local repo directory"
-        
-        # Fetch latest commits
-        git fetch origin "$GITHUB_BRANCH" &>/dev/null
-        
-        # Get latest remote commit hash
-        local current_commit=$(git rev-parse "origin/$GITHUB_BRANCH")
-        
-        if [ "$current_commit" != "$last_commit" ] && [ -n "$last_commit" ]; then
-            log "New changes detected on GitHub!"
-            
-            # Pull changes
-            if pull_from_github; then
-                # Sync to server
-                if sync_to_server; then
-                    log "✅ Complete sync cycle completed"
-                else
-                    log "❌ Server sync failed"
-                fi
-            fi
-        fi
-        
-        last_commit="$current_commit"
-        sleep "$SYNC_INTERVAL"
-    done
-}
-
-# Main script logic
-case "$1" in
-    "check")
-        check_server_connection
-        ;;
-    "backup")
-        create_backup
-        ;;
-    "from-server")
-        check_server_connection
+        # Main execution
+case "${1:-}" in
+    "--pull")
         sync_from_server
-        commit_and_push
         ;;
-    "to-server")
-        check_server_connection
+    "--push")
         sync_to_server
         ;;
-    "full-sync")
-        check_server_connection
-        create_backup
+    "--check")
+        check_differences
+        ;;
+    "--diff")
+        show_differences
+        ;;
+    "--github")
         pull_from_github
-        sync_to_server
         ;;
-    "monitor")
-        check_server_connection
+    "--auto")
         auto_sync
         ;;
     *)
-        echo "Usage: $0 {check|backup|from-server|to-server|full-sync|monitor}"
+        echo "🔄 Thila Coloma Content Sync Tool"
         echo ""
-        echo "Commands:"
-        echo "  check       - Test server connection"
-        echo "  backup      - Create local backup"
-        echo "  from-server - Sync content from server to local and push to GitHub"
-        echo "  to-server   - Sync content from local to server"
-        echo "  full-sync   - Pull from GitHub and sync to server"
-        echo "  monitor     - Start continuous monitoring for GitHub changes"
-        exit 1
+        echo "Usage: $0 [OPTION]"
+        echo ""
+        echo "Options:"
+        echo "  --pull     Pull content from server to local"
+        echo "  --push     Push content from local to server"  
+        echo "  --check    Check sync status between local and server"
+        echo "  --diff     Show detailed differences"
+        echo "  --github   Pull latest changes from GitHub"
+        echo "  --auto     Auto-sync: GitHub → Local → Server"
+        echo ""
+        echo "Examples:"
+        echo "  $0 --pull    # Download latest from server"
+        echo "  $0 --push    # Upload local changes to server"
+        echo "  $0 --auto    # Full auto-sync workflow"
         ;;
 esac
+        --push|-u)
+            check_server_connection
+            if ! check_differences; then
+                warning "There are differences. Consider pulling first to avoid overwriting server changes."
+                read -p "Continue with push? (y/N): " -n 1 -r
+                echo
+                if [[ ! $REPLY =~ ^[Yy]$ ]]; then
+                    log "Push cancelled by user"
+                    exit 0
+                fi
+            fi
+            sync_to_server
+            ;;
+        --check|-c)
+            check_server_connection
+            check_differences
+            ;;
+        --diff|-d)
+            check_server_connection
+            show_differences
+            ;;
+        --help|-h)
+            show_help
+            ;;
+        "")
+            warning "No option provided. Use --help for usage information."
+            show_help
+            exit 1
+            ;;
+        *)
+            error "Unknown option: $1. Use --help for usage information."
+            ;;
+    esac
+}
+
+# Run main function
+main "$@"

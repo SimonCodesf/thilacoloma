@@ -19,21 +19,6 @@ jobs:
     - name: 🚚 Get latest code
       uses: actions/checkout@v4
       
-    - name: 🔧 Setup PHP
-      uses: shivammathur/setup-php@v2
-      with:
-        php-version: '8.3'
-        extensions: mbstring, xml, ctype, iconv, intl, pdo, pdo_mysql, dom, filter, gd, json, mbstring, bcmath
-        tools: composer:v2
-        
-    - name: 🔧 Configure composer for deployment
-      run: |
-        # Set composer timeout and optimize for production
-        composer config process-timeout 600
-        composer config --no-plugins allow-plugins.php-http/discovery true
-        composer config --no-plugins allow-plugins.pixelfear/composer-dist-plugin true
-        composer config --no-plugins allow-plugins.pestphp/pest-plugin true
-      
     - name: 🔧 Prepare hosting-specific files
       run: |
         # Copy hosting-specific index.php
@@ -66,6 +51,10 @@ jobs:
         EOF
         # Clear composer cache and install dependencies with proper options  
         composer clear-cache
+        composer config process-timeout 600
+        composer config --no-plugins allow-plugins.php-http/discovery true
+        composer config --no-plugins allow-plugins.pixelfear/composer-dist-plugin true
+        composer config --no-plugins allow-plugins.pestphp/pest-plugin true
         composer install --no-dev --optimize-autoloader --no-interaction --prefer-dist --no-progress
       
     - name: 🔍 Debug server configuration
@@ -85,7 +74,7 @@ jobs:
         protocol: ftp
         port: 21
         passive: true
-        timeout: 300000
+        timeout: 30000
         dangerous-clean-slate: false
         local-dir: ./
         server-dir: tc_app/
@@ -112,7 +101,7 @@ jobs:
         protocol: ftp
         port: 21
         passive: true
-        timeout: 300000
+        timeout: 30000
         dangerous-clean-slate: false
         local-dir: ./public/
         server-dir: public_html/tc/
@@ -128,7 +117,7 @@ jobs:
         protocol: ftp
         port: 21
         passive: true
-        timeout: 300000
+        timeout: 30000
         dangerous-clean-slate: false
         local-dir: ./
         server-dir: tc_app/

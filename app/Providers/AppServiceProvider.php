@@ -12,7 +12,11 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        //
+        // Only register Debugbar in development environments
+        $debugbarClass = '\\Barryvdh\\Debugbar\\ServiceProvider';
+        if ($this->app->environment('local', 'testing') && class_exists($debugbarClass)) {
+            $this->app->register($debugbarClass);
+        }
     }
 
     /**

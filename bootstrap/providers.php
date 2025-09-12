@@ -3,4 +3,5 @@
 return [
     App\Providers\AppServiceProvider::class,
     App\Providers\AssetEventServiceProvider::class,
+    App\Providers\EventServiceProvider::class,
 ];
