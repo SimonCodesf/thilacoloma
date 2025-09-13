@@ -2,6 +2,8 @@
 id: home
 blueprint: home
 title: Home
+slug: /
+url: /
 template: home
 layout: layouts/app
 bodyClass: homepage
