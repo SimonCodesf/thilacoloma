@@ -53,16 +53,42 @@ return [
     */
 
     'widgets' => [
-        'getting_started',
+        // Welcome header with Scout context
         [
-            'type' => 'collection',
-            'collection' => 'pages',
-            'limit' => 5,
+            'type' => 'header',
+            'header' => '🏕️ Scouts Thila Coloma Dashboard',
+            'instructions' => 'Beheer de website content voor onze Scoutsgroep. Welkom terug!',
         ],
+        
+        // Built-in widgets
         [
             'type' => 'collection',
             'collection' => 'news',
             'limit' => 5,
+            'title' => '📰 Laatste Nieuws Items',
+        ],
+        [
+            'type' => 'collection',
+            'collection' => 'pages',
+            'limit' => 5,
+            'title' => '📄 Recent Gewijzigde Pagina\'s',
+        ],
+        [
+            'type' => 'collection',
+            'collection' => 'takken',
+            'limit' => 6,
+            'title' => '🏕️ Takken Content',
+        ],
+        [
+            'type' => 'updater',
+            'title' => '🔄 Systeem Updates',
+        ],
+        
+        // Custom site statistics widget
+        [
+            'type' => 'template',
+            'template' => 'widgets.site_stats',
+            'title' => '📊 Site Overzicht',
         ],
     ],
 
