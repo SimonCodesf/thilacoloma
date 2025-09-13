@@ -1,0 +1,91 @@
+{{-- Custom Site Statistics Widget for Thila Coloma Dashboard --}}
+
+<div class="card p-6 content">
+    <div class="space-y-6">
+        {{-- Quick Stats --}}
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div class="bg-blue-50 dark:bg-blue-900/20 p-4 rounded-lg">
+                <div class="flex items-center">
+                    <div class="text-blue-600 dark:text-blue-400 mr-3">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                    </div>
+                    <div>
+                        <div class="text-sm font-medium text-blue-900 dark:text-blue-100">Pagina's</div>
+                        <div class="text-2xl font-bold text-blue-600 dark:text-blue-400">
+                            {{ collection:pages | length }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="bg-green-50 dark:bg-green-900/20 p-4 rounded-lg">
+                <div class="flex items-center">
+                    <div class="text-green-600 dark:text-green-400 mr-3">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"></path>
+                        </svg>
+                    </div>
+                    <div>
+                        <div class="text-sm font-medium text-green-900 dark:text-green-100">Nieuws Items</div>
+                        <div class="text-2xl font-bold text-green-600 dark:text-green-400">
+                            {{ collection:news | length }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="bg-orange-50 dark:bg-orange-900/20 p-4 rounded-lg">
+                <div class="flex items-center">
+                    <div class="text-orange-600 dark:text-orange-400 mr-3">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3z"></path>
+                        </svg>
+                    </div>
+                    <div>
+                        <div class="text-sm font-medium text-orange-900 dark:text-orange-100">Takken</div>
+                        <div class="text-2xl font-bold text-orange-600 dark:text-orange-400">
+                            {{ collection:takken | length }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        {{-- Recent Activity Summary --}}
+        <div class="border-t pt-4">
+            <h4 class="text-sm font-medium text-gray-900 dark:text-gray-100 mb-3">📋 Snelle Acties</h4>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                <a href="{{ cp_route('collections.show', 'pages') }}" class="flex items-center p-3 bg-gray-50 dark:bg-gray-800 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">
+                    <span class="text-gray-600 dark:text-gray-400">📄 Beheer pagina's</span>
+                </a>
+                <a href="{{ cp_route('collections.show', 'news') }}" class="flex items-center p-3 bg-gray-50 dark:bg-gray-800 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">
+                    <span class="text-gray-600 dark:text-gray-400">📰 Nieuws toevoegen</span>
+                </a>
+                <a href="{{ cp_route('collections.show', 'takken') }}" class="flex items-center p-3 bg-gray-50 dark:bg-gray-800 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">
+                    <span class="text-gray-600 dark:text-gray-400">🏕️ Takken bewerken</span>
+                </a>
+                <a href="{{ cp_route('globals.index') }}" class="flex items-center p-3 bg-gray-50 dark:bg-gray-800 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">
+                    <span class="text-gray-600 dark:text-gray-400">⚙️ Site instellingen</span>
+                </a>
+            </div>
+        </div>
+
+        {{-- Admin Notes Section --}}
+        <div class="border-t pt-4">
+            <h4 class="text-sm font-medium text-gray-900 dark:text-gray-100 mb-3">💡 Admin Notities</h4>
+            <div class="bg-yellow-50 dark:bg-yellow-900/20 border border-yellow-200 dark:border-yellow-800 rounded-lg p-4">
+                <div class="text-sm text-yellow-800 dark:text-yellow-200">
+                    <div class="font-medium mb-2">🏕️ Thila Coloma CMS Tips:</div>
+                    <ul class="space-y-1 text-xs">
+                        <li>• Gebruik de zoekbalk (/) voor snelle navigatie</li>
+                        <li>• Nieuwe nieuws items verschijnen automatisch op de homepage</li>
+                        <li>• Check regelmatig de 'Updater' widget voor systeem updates</li>
+                        <li>• Kalender events komen van Google Calendar sync</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
