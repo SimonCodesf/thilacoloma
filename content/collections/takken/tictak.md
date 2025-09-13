@@ -1,6 +1,12 @@
 ---
 id: 3289b32d-5c26-4681-9976-dd24078fcce5
 blueprint: tak
+title: TicTak
+slug: tictak
+order: 6
+age_range: 18+ jaar
+meeting_day: Verschillende dagen
+meeting_time: Variabel
 leaders:
 - type: leader
   enabled: true

@@ -1,6 +1,12 @@
 ---
 id: f90cd898-ee4b-498e-b5ca-b54781a1aeeb
 blueprint: tak
+title: Voortrekkers
+slug: voortrekkers
+order: 5
+age_range: 17-21 jaar
+meeting_day: Zaterdag
+meeting_time: 19:00 - 22:00
 leaders:
 - type: leader
   enabled: true
