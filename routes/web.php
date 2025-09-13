@@ -24,3 +24,9 @@ Route::get('/api/calendar/feed', [CalendarController::class, 'getCalendarFeed'])
 
 // Live search API endpoint
 Route::get('/api/search', [LiveSearchController::class, 'search']);
+
+// Explicit takken routes to ensure Statamic handles them
+Route::statamic('takken/{slug}', 'takken.{slug}', [
+    'collection' => 'takken',
+    'layout' => 'layouts/app'
+]);
