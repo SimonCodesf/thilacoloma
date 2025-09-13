@@ -1,7 +1,9 @@
 title: Pages
 structure:
   root: true
-route: '{parent_uri}/{slug}'
+  max_depth: 3
+route: '/{slug}'
+mount: home
 propagate: true
 template: default
 sort_direction: asc
