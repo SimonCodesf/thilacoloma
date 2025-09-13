@@ -84,12 +84,12 @@ return [
             'title' => '🔄 Systeem Updates',
         ],
         
-        // Custom site statistics widget
-        [
-            'type' => 'template',
-            'template' => 'widgets.site_stats',
-            'title' => '📊 Site Overzicht',
-        ],
+        // Custom site statistics widget - temporarily disabled
+        // [
+        //     'type' => 'template',
+        //     'template' => 'widgets.site_stats',
+        //     'title' => '📊 Site Overzicht',
+        // ],
     ],
 
     /*
