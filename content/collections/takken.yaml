@@ -1,6 +1,6 @@
 title: Takken
 handle: takken
-template: takken/show
+template: '{{ slug }}'
 sort_direction: asc
 sort_field: order
 route: '/takken/{slug}'
